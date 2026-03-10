@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Ruins discovered -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archaeology_0</defName>
+		<label>Archaeological Discovery</label>
+		<desc>Miners have uncovered the entrance to what appears to be ancient ruins beneath one of your settlements. Strange artifacts are visible just beyond the rubble. The site could hold valuable technology — or nothing but dust and danger.</desc>
+		<category>EC_Construction</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_archaeology_opt1</li>
+			<li>empireEvents_archaeology_opt2</li>
+			<li>empireEvents_archaeology_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<requiredResource>RTD_Mining</requiredResource>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_archaeology_1a_success</li>
+			<li>empireEvents_archaeology_1a_fail</li>
+			<li>empireEvents_archaeology_1b</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Excavate carefully (70% success) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archaeology_opt1</defName>
+		<label>Excavate carefully. Take our time and do this right.</label>
+		<parentEvent>empireEvents_archaeology_0</parentEvent>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_archaeology_1a_success</successEvent>
+		<failEvent>empireEvents_archaeology_1a_fail</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Loot and move on -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archaeology_opt2</defName>
+		<label>Grab what we can from the entrance and move on.</label>
+		<parentEvent>empireEvents_archaeology_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_archaeology_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Seal it off -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archaeology_opt3</defName>
+		<label>Seal it off. Whatever's down there can stay buried.</label>
+		<parentEvent>empireEvents_archaeology_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A (success): Excavation finds ancient technology -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archaeology_1a_success</defName>
+		<label>Ancient Technology Unearthed</label>
+		<desc>The excavation is a triumph. Deep within the ruins, your miners discover intact technological artifacts and detailed schematics. Researchers across your settlements are electrified by the findings, and the recovered materials are enormously valuable.</desc>
+		<category>EC_Construction</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
+		</statModifiers>
+		<randomThingRewardDef>RERD_Weapons</randomThingRewardDef>
+		<randomThingValue>1000</randomThingValue>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_archaeology_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome A (fail): Excavation finds nothing -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archaeology_1a_fail</defName>
+		<label>Excavation Collapse</label>
+		<desc>The excavation hits unstable ground and a section of the tunnel collapses. The ruins are buried deeper than before. Worse, the mining operation in the area is disrupted by the cave-in. Nothing of value was recovered.</desc>
+		<category>EC_Construction</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_archaeology_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Quick loot — modest reward -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archaeology_1b</defName>
+		<label>Minor Find</label>
+		<desc>Your miners pull some loose ore and a few curious artifacts from the entrance before sealing it up. Not the haul of a lifetime, but it's something. The deeper ruins remain unexplored.</desc>
+		<category>EC_Construction</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<randomThingValue>500</randomThingValue>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Blight detected -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_blight_0</defName>
+		<label>Crop Blight</label>
+		<desc>A blight is spreading across the farmland of your settlements. Crops are withering and rotting in the fields. If left unchecked, it will devastate food production for weeks. How do you handle it?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_blight_opt1</li>
+			<li>empireEvents_blight_opt2</li>
+			<li>empireEvents_blight_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<requiredResource>RTD_Food</requiredResource>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_blight_1a</li>
+			<li>empireEvents_blight_1b</li>
+			<li>empireEvents_blight_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Burn infected fields -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_blight_opt1</defName>
+		<label>Burn the infected fields. Destroy the blight before it spreads further.</label>
+		<parentEvent>empireEvents_blight_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_blight_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Deploy medicine -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_blight_opt2</defName>
+		<label>Deploy medicine to treat the crops. Divert medical supplies to the effort.</label>
+		<parentEvent>empireEvents_blight_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_blight_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Wait it out -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_blight_opt3</defName>
+		<label>Wait for it to pass. Nature will run its course.</label>
+		<parentEvent>empireEvents_blight_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_blight_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Burn — harsh short-term, clean resolution -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_blight_1a</defName>
+		<label>Fields Burned</label>
+		<desc>The infected fields are put to the torch. Columns of smoke rise across the farmland as the blight is eradicated along with the season's crops. The loss is devastating in the short term, but the land will recover quickly once replanted.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>60000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_blight_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Medicine — moderate penalty, medicine cost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_blight_1b</defName>
+		<label>Blight Treatment</label>
+		<desc>Medical supplies are repurposed to create fungicides and crop treatments. The blight is contained but not eliminated — food production suffers, and medical resources are stretched thin for the duration.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_blight_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Wait — full penalty, full duration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_blight_1c</defName>
+		<label>Blight Runs Its Course</label>
+		<desc>Without intervention, the blight spreads through the fields unchecked. Crops wither and die across the affected settlements. It will be a long, hungry season before the land recovers naturally.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_blight_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

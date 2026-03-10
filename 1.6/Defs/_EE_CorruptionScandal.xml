@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Scandal discovered -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_0</defName>
+		<label>Corruption Scandal</label>
+		<desc>Local officials in your settlements have been caught skimming taxes. Citizens are furious — trust in your administration is eroding quickly. How do you handle this?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_corruption_opt1</li>
+			<li>empireEvents_corruption_opt2</li>
+			<li>empireEvents_corruption_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<minimumProsperity>50</minimumProsperity>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_corruption_1a</li>
+			<li>empireEvents_corruption_1b</li>
+			<li>empireEvents_corruption_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Public trial -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_corruption_opt1</defName>
+		<label>Hold a public trial. Justice must be seen to be done.</label>
+		<parentEvent>empireEvents_corruption_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_corruption_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Quiet replacement -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_corruption_opt2</defName>
+		<label>Replace them quietly. No need to make a spectacle.</label>
+		<parentEvent>empireEvents_corruption_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_corruption_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Legitimize -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_corruption_opt3</defName>
+		<label>Legitimize the skimming as an "administrative fee." It's not corruption if it's policy.</label>
+		<parentEvent>empireEvents_corruption_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_corruption_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Public trial — loyalty boost, worker loss -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_1a</defName>
+		<label>Public Trial</label>
+		<desc>The corrupt officials are tried before the people and removed from their posts. Citizens are heartened by the display of justice, though replacing the administrators — who were actually quite competent at their jobs — takes time.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_corruption_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Quiet replacement — short duration, recurrence risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_1b</defName>
+		<label>Officials Replaced</label>
+		<desc>The corrupt officials are quietly reassigned. Business returns to normal quickly, but without public accountability, there's nothing stopping the next batch from doing the same thing.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>60000</timeTillTrigger>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_corruption_recur</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_corruption_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Recurrence event (40% chance after quiet replacement) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_recur</defName>
+		<label>Corruption Returns</label>
+		<desc>Just as you feared — new officials have picked up where the old ones left off. Without a public example, corruption has become an expected perk of office. Tax revenues suffer again.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Legitimize — no tax penalty, but more unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_1c</defName>
+		<label>Administrative Fees</label>
+		<desc>The "administrative fee" is now official policy. Tax revenues stabilize, but citizens see right through the relabeling. Resentment simmers beneath the surface.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_corruption_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

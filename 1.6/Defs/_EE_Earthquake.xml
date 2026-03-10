@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Earthquake strikes -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_earthquake_0</defName>
+		<label>Earthquake</label>
+		<desc>A violent earthquake has struck your settlements! Mines have collapsed, buildings are damaged, and workers are injured. The damage is significant. How do you respond to the crisis?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_earthquake_opt1</li>
+			<li>empireEvents_earthquake_opt2</li>
+			<li>empireEvents_earthquake_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_earthquake_1a</li>
+			<li>empireEvents_earthquake_1b</li>
+			<li>empireEvents_earthquake_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Emergency relief -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_earthquake_opt1</defName>
+		<label>Launch an emergency relief effort. Get our people the help they need.</label>
+		<parentEvent>empireEvents_earthquake_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>600</silverCost>
+		<successEvent>empireEvents_earthquake_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Rebuild stronger -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_earthquake_opt2</defName>
+		<label>Invest in rebuilding with better materials. We won't be caught off guard again.</label>
+		<parentEvent>empireEvents_earthquake_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_earthquake_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Minimal response -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_earthquake_opt3</defName>
+		<label>They'll manage. We can't afford to divert resources right now.</label>
+		<parentEvent>empireEvents_earthquake_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_earthquake_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Relief — halved penalties, loyalty boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_earthquake_1a</defName>
+		<label>Earthquake Recovery (Relief)</label>
+		<desc>Emergency supplies and work crews are dispatched immediately. The swift response limits the damage and lifts spirits — citizens feel cared for by their leaders.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_earthquake_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Rebuild — full penalties now, bonus later -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_earthquake_1b</defName>
+		<label>Earthquake Recovery (Rebuilding)</label>
+		<desc>Rather than quick fixes, your settlements invest in proper reconstruction with reinforced materials. The recovery is slow and painful, but the end result will be infrastructure better than before.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_earthquake_rebuilt</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_earthquake_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Follow-up: Better infrastructure after rebuild -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_earthquake_rebuilt</defName>
+		<label>Reconstruction Complete</label>
+		<desc>The rebuilding effort is finished. New mining infrastructure is stronger and more efficient than what stood before. The investment pays dividends.</desc>
+		<category>EC_Construction</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Minimal response — full penalties + unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_earthquake_1c</defName>
+		<label>Earthquake Aftermath</label>
+		<desc>Without aid from the capital, your settlements struggle to recover on their own. Workers dig through rubble with bare hands. The lack of response breeds resentment — citizens feel abandoned by their rulers.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_earthquake_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

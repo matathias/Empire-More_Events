@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Dealer arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armsDealer_0</defName>
+		<label>Arms Dealer</label>
+		<desc>A weapons dealer with connections to several factions has arrived, offering bulk military equipment at a steep discount. Their wares are impressive, if expensive. What do you do?</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_armsDealer_opt1</li>
+			<li>empireEvents_armsDealer_opt2</li>
+			<li>empireEvents_armsDealer_opt3</li>
+			<li>empireEvents_armsDealer_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_armsDealer_1a</li>
+			<li>empireEvents_armsDealer_1b</li>
+			<li>empireEvents_armsDealer_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Buy heavy -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armsDealer_opt1</defName>
+		<label>Buy everything they've got. Arm our settlements to the teeth.</label>
+		<parentEvent>empireEvents_armsDealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>1000</silverCost>
+		<successEvent>empireEvents_armsDealer_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Buy modest -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armsDealer_opt2</defName>
+		<label>Pick up a modest supply. Enough to make a difference.</label>
+		<parentEvent>empireEvents_armsDealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_armsDealer_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Training -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armsDealer_opt3</defName>
+		<label>Skip the weapons — hire them to train our forces instead.</label>
+		<parentEvent>empireEvents_armsDealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_armsDealer_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armsDealer_opt4</defName>
+		<label>Send this dealer away. We forge our own weapons.</label>
+		<parentEvent>empireEvents_armsDealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Heavy purchase — big military boost + reward -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armsDealer_1a</defName>
+		<label>Armed to the Teeth</label>
+		<desc>Crates of weapons and armor are distributed across your settlements. Military readiness surges. The dealer leaves satisfied — and your forces are significantly stronger for it.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>3</value></li>
+		</statModifiers>
+		<randomThingRewardDef>RERD_Weapons</randomThingRewardDef>
+		<randomThingValue>500</randomThingValue>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_armsDealer_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Modest purchase -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armsDealer_1b</defName>
+		<label>Weapons Resupply</label>
+		<desc>A modest shipment of weapons is distributed to your settlements. Not enough to transform your military, but a welcome boost to readiness.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_armsDealer_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Training -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armsDealer_1c</defName>
+		<label>Combat Training</label>
+		<desc>The dealer's associates — experienced mercenaries, it turns out — spend time drilling your settlement forces. The troops learn advanced combat techniques that will serve them well in future engagements.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryCombatEfficiency</stat><value>0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_armsDealer_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

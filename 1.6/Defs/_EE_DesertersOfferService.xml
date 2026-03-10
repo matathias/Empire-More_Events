@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Deserters arrive -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_0</defName>
+		<label>Deserters Offer Service</label>
+		<desc>A group of soldiers from a hostile faction has defected and arrived at your borders. They claim to be disillusioned with their leaders and offer to serve in your military. Do you accept them?</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_deserters_opt1</li>
+			<li>empireEvents_deserters_opt2</li>
+			<li>empireEvents_deserters_opt3</li>
+			<li>empireEvents_deserters_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_deserters_1a</li>
+			<li>empireEvents_deserters_1b</li>
+			<li>empireEvents_deserters_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Accept fully -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_deserters_opt1</defName>
+		<label>Accept them into our ranks. We can use the manpower.</label>
+		<parentEvent>empireEvents_deserters_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_deserters_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Accept with caution -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_deserters_opt2</defName>
+		<label>Accept them, but keep them under close watch.</label>
+		<parentEvent>empireEvents_deserters_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_deserters_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Turn them away -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_deserters_opt3</defName>
+		<label>Turn them away. Deserters can't be trusted.</label>
+		<parentEvent>empireEvents_deserters_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_deserters_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_deserters_opt4</defName>
+		<label>Our borders are closed to all outsiders. Send them away.</label>
+		<parentEvent>empireEvents_deserters_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Accepted — big military boost, spy risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_1a</defName>
+		<label>Deserters Integrated</label>
+		<desc>The deserters are folded into your military forces. Their combat experience bolsters your settlements' defenses significantly. But can they truly be trusted?</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>25</splitEventChance>
+		<followingEvent>empireEvents_deserters_spy</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_deserters_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Spy follow-up (25% chance) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_spy</defName>
+		<label>Spy Among Deserters</label>
+		<desc>It was a trap. One of the deserters was a spy feeding intelligence back to their original faction. They've sabotaged defenses and sown confusion before being caught. Your settlements' military readiness takes a serious hit.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>-2</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Accepted with caution — moderate boost, no risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_1b</defName>
+		<label>Deserters (Under Watch)</label>
+		<desc>The deserters serve under careful supervision. Their contribution is limited by the restrictions, but your caution pays off — no incidents occur.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_deserters_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Turned away — loyalty boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_1c</defName>
+		<label>Deserters Refused</label>
+		<desc>The deserters are sent packing. Your citizens appreciate the caution — better to rely on your own people than trust strangers of uncertain loyalty.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_deserters_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

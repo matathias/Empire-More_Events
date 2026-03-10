@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Citizens want a festival -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_festival_0</defName>
+		<label>Festival Season</label>
+		<desc>Your citizens are requesting permission to hold a grand festival. The mood is right — people want to celebrate. How much support do you provide?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_festival_opt1</li>
+			<li>empireEvents_festival_opt2</li>
+			<li>empireEvents_festival_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>20</weight>
+		<minimumHappiness>50</minimumHappiness>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_festival_1a</li>
+			<li>empireEvents_festival_1b</li>
+			<li>empireEvents_festival_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Fund the festival -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_festival_opt1</defName>
+		<label>Fund a grand festival. Spare no expense.</label>
+		<parentEvent>empireEvents_festival_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_festival_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Modest celebration -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_festival_opt2</defName>
+		<label>Allow a modest celebration. Keep costs down.</label>
+		<parentEvent>empireEvents_festival_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>100</silverCost>
+		<successEvent>empireEvents_festival_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Deny -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_festival_opt3</defName>
+		<label>There's no time for festivals. Back to work.</label>
+		<parentEvent>empireEvents_festival_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_festival_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Grand festival -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_festival_1a</defName>
+		<label>Grand Festival</label>
+		<desc>The festival is a spectacular success! Music, feasting, and games bring your settlements together. Citizens feel proud to be part of the empire, and unrest melts away amid the celebrations.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>4</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+			<li><stat>unrestLostBase</stat><value>3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_festival_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Modest celebration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_festival_1b</defName>
+		<label>Modest Festival</label>
+		<desc>A small but cheerful celebration brightens the mood across your settlements. Nothing extravagant, but the people appreciate the gesture.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_festival_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Denied -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_festival_1c</defName>
+		<label>Festival Denied</label>
+		<desc>The citizens' request for a festival is denied. Disappointed murmurs ripple through the settlements. People feel their voices aren't being heard.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>60000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_festival_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

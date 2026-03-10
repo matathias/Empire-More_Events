@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Merchant arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchant_0</defName>
+		<label>Traveling Merchant</label>
+		<desc>A well-stocked merchant caravan is passing through your territory. They carry quality goods and seem open to dealing. How should your settlement receive them?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_merchant_opt1</li>
+			<li>empireEvents_merchant_opt2</li>
+			<li>empireEvents_merchant_opt3</li>
+			<li>empireEvents_merchant_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>20</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Trade fairly -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchant_opt1</defName>
+		<label>Trade fairly — purchase their best wares at market price.</label>
+		<parentEvent>empireEvents_merchant_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_merchant_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Tax the caravan -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchant_opt2</defName>
+		<label>Levy a passage tax on the caravan. Take what we're owed.</label>
+		<parentEvent>empireEvents_merchant_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchant_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Offer safe passage -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchant_opt3</defName>
+		<label>Offer safe passage and provisions — build goodwill with traveling merchants.</label>
+		<parentEvent>empireEvents_merchant_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>100</silverCost>
+		<successEvent>empireEvents_merchant_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchant_opt4</defName>
+		<label>We have no need of outside traders. Send them on their way.</label>
+		<parentEvent>empireEvents_merchant_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Fair trade, good reward -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchant_1a</defName>
+		<label>Merchant Trade</label>
+		<desc>The deal is struck. The merchant's wares are distributed to your settlement — quality weapons and equipment that will serve your people well.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Weapons</randomThingRewardDef>
+		<randomThingValue>800</randomThingValue>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Tax — small reward but loyalty hit -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchant_1b</defName>
+		<label>Merchant Taxed</label>
+		<desc>The merchant grudgingly hands over a portion of their goods as a passage tax. Your settlement gains some apparel, but citizens notice the heavy-handed approach and question whether it's worth souring relations with traders.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<randomThingRewardDef>RERD_Apparel</randomThingRewardDef>
+		<randomThingValue>200</randomThingValue>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Safe passage — happiness boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchant_1c</defName>
+		<label>Merchant Goodwill</label>
+		<desc>The merchant is grateful for the provisions and safe escort. Word of your settlement's hospitality spreads among travelers, lifting spirits locally.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

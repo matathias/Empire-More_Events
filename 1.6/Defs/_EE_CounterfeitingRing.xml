@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Discovery of counterfeiting -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_0</defName>
+		<label>Counterfeiting Ring</label>
+		<desc>Reports are coming in from multiple settlements: counterfeit silver is flooding the local markets. Tax revenue is being undermined and merchants are growing suspicious of all currency. How do you respond?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_counterfeiting_opt1</li>
+			<li>empireEvents_counterfeiting_opt2</li>
+			<li>empireEvents_counterfeiting_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<requiredWealth>15000</requiredWealth>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_counterfeiting_1a</li>
+			<li>empireEvents_counterfeiting_1b</li>
+			<li>empireEvents_counterfeiting_1c</li>
+			<li>empireEvents_counterfeiting_2</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Investigate (70% success) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt1</defName>
+		<label>Launch a formal investigation to track the counterfeiters.</label>
+		<parentEvent>empireEvents_counterfeiting_0</parentEvent>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_counterfeiting_2</successEvent>
+		<failEvent>empireEvents_counterfeiting_1a</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Crack down -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt2</defName>
+		<label>Crack down hard — search every market stall and warehouse.</label>
+		<parentEvent>empireEvents_counterfeiting_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_counterfeiting_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Ignore -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt3</defName>
+		<label>It will sort itself out. We have bigger concerns.</label>
+		<parentEvent>empireEvents_counterfeiting_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_counterfeiting_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome 1a: Investigation failed, full penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_1a</defName>
+		<label>Investigation Failed</label>
+		<desc>Your investigators turned up nothing. The counterfeit silver continues to circulate, undermining tax collection for the foreseeable future.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_counterfeiting_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome 1b: Crackdown, half duration but happiness cost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_1b</defName>
+		<label>Market Crackdown</label>
+		<desc>Your aggressive raids disrupt the counterfeiting operation but also the daily lives of ordinary citizens. Markets are closed, merchants harassed, and the people grow resentful of the heavy-handed approach.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_counterfeiting_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome 1c: Ignored, full duration full penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_1c</defName>
+		<label>Unchecked Counterfeiting</label>
+		<desc>Without intervention, the counterfeit silver runs its course through the economy. Tax revenues suffer until the forgeries naturally thin out.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_counterfeiting_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2: Ring exposed (investigation succeeded) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_2</defName>
+		<label>Counterfeiting Ring Exposed</label>
+		<desc>Your investigators have traced the counterfeit silver to its source — a well-organized ring operating out of a local warehouse. You have them cornered. What do you do with them?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_counterfeiting_opt4</li>
+			<li>empireEvents_counterfeiting_opt5</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_counterfeiting_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2 Option A: Arrest -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt4</defName>
+		<label>Arrest them all and make a public example.</label>
+		<parentEvent>empireEvents_counterfeiting_2</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_counterfeiting_2a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2 Option B: Co-opt -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt5</defName>
+		<label>Offer them a deal — they work for us now, minting legitimate currency.</label>
+		<parentEvent>empireEvents_counterfeiting_2</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_counterfeiting_2b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2a: Arrested — unrest but problem solved -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_2a</defName>
+		<label>Counterfeiters Arrested</label>
+		<desc>The counterfeiters are hauled before the public and punished. The message is clear: crime against the empire will not be tolerated. Some citizens grumble about the disruption, but the currency is secure.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2b: Co-opted — net positive but scandal risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_2b</defName>
+		<label>Imperial Minters</label>
+		<desc>The former counterfeiters now work for the empire, lending their expertise to improve currency production. Tax collection improves noticeably — though some whisper about the arrangement's legitimacy.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>30</splitEventChance>
+		<followingEvent>empireEvents_counterfeiting_scandal</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Scandal follow-up (30% chance after co-opting) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_scandal</defName>
+		<label>Minting Scandal</label>
+		<desc>Word has gotten out that the empire recruited known counterfeiters into its treasury. Citizens question the integrity of the currency and the leadership's judgment. Loyalty suffers and tax collection dips.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>-2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>
