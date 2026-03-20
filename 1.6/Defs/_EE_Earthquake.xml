@@ -12,6 +12,8 @@
 			<li>empireEvents_earthquake_opt1</li>
 			<li>empireEvents_earthquake_opt2</li>
 			<li>empireEvents_earthquake_opt3</li>
+			<li>empireEvents_earthquake_opt4</li>
+			<li>empireEvents_earthquake_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -22,6 +24,7 @@
 			<li>empireEvents_earthquake_1a</li>
 			<li>empireEvents_earthquake_1b</li>
 			<li>empireEvents_earthquake_1c</li>
+			<li>empireEvents_earthquake_1d</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -53,6 +56,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_earthquake_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Resilient -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_earthquake_opt4</defName>
+		<label>Our contingency plans are already in motion.</label>
+		<parentEvent>empireEvents_earthquake_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_earthquake_1a</successEvent>
+		<requiredPolicies>
+			<li>resilient</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Industrious -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_earthquake_opt5</defName>
+		<label>Put every available worker on repairs.</label>
+		<parentEvent>empireEvents_earthquake_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_earthquake_1d</successEvent>
+		<requiredPolicies>
+			<li>industrious</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Relief — halved penalties, loyalty boost -->
@@ -118,6 +147,23 @@
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-1</value></li>
 			<li><stat>workerBaseMax</stat><value>-1</value></li>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_earthquake_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Industrious — halved mining penalty, shorter duration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_earthquake_1d</defName>
+		<label>Earthquake Recovery (Work Crews)</label>
+		<desc>Your industrious workforce mobilizes immediately, clearing rubble and shoring up damaged structures with practiced efficiency. The mining disruption is minimal — these people know how to rebuild.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-0.5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

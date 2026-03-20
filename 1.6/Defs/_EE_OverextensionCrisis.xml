@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Overextension detected (WorldComponent-generated, not random) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_0</defName>
+		<label>Overextension Crisis</label>
+		<desc>Your empire has grown too far, too fast. Distant settlements feel disconnected from the capital, loyalty is crumbling, and unrest is rising. Without intervention, the empire could fracture. How do you hold things together?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_overextension_opt1</li>
+			<li>empireEvents_overextension_opt2</li>
+			<li>empireEvents_overextension_opt3</li>
+			<li>empireEvents_overextension_opt4</li>
+			<li>empireEvents_overextension_opt5</li>
+			<li>empireEvents_overextension_opt6</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_tour</li>
+			<li>empireEvents_overextension_gifts</li>
+			<li>empireEvents_overextension_crackdown</li>
+			<li>empireEvents_overextension_militaristic</li>
+			<li>empireEvents_overextension_expansionist</li>
+			<li>empireEvents_overextension_authoritarian</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Royal tour -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_overextension_opt1</defName>
+		<label>Embark on a royal tour of the settlements.</label>
+		<parentEvent>empireEvents_overextension_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_overextension_tour</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Send gifts -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_overextension_opt2</defName>
+		<label>Send gifts and supplies to struggling settlements.</label>
+		<parentEvent>empireEvents_overextension_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>600</silverCost>
+		<successEvent>empireEvents_overextension_gifts</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Military crackdown -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_overextension_opt3</defName>
+		<label>Remind them who's in charge. Deploy the military.</label>
+		<parentEvent>empireEvents_overextension_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_overextension_crackdown</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Militaristic -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_overextension_opt4</defName>
+		<label>Military discipline will hold the empire together.</label>
+		<parentEvent>empireEvents_overextension_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_overextension_militaristic</successEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Expansionist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_overextension_opt5</defName>
+		<label>Growing pains — we've handled worse.</label>
+		<parentEvent>empireEvents_overextension_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_overextension_expansionist</successEvent>
+		<requiredPolicies>
+			<li>expansionist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Authoritarian -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_overextension_opt6</defName>
+		<label>Crush the dissent before it spreads.</label>
+		<parentEvent>empireEvents_overextension_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_overextension_authoritarian</successEvent>
+		<requiredPolicies>
+			<li>authoritarian</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Royal Tour — loyalty surge -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_tour</defName>
+		<label>Royal Tour</label>
+		<desc>Your personal tour of the settlements reminds citizens why they joined the empire. Loyalty surges as people feel valued and heard by their leader.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Imperial Gifts — halved loyalty penalty, unrest remains -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_gifts</defName>
+		<label>Imperial Gifts</label>
+		<desc>Supplies and gifts are distributed to struggling settlements. The gesture helps, but doesn't fully resolve the underlying disconnect.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>-1</value></li>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Military Crackdown — force + resentment, chance of revolt -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_crackdown</defName>
+		<label>Military Crackdown</label>
+		<desc>Military forces are deployed to restore order. The show of force silences dissent, but the heavy-handed approach breeds deeper resentment. Some settlements may rebel.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+			<li><stat>loyaltyLostBase</stat><value>-2</value></li>
+			<li><stat>unrestGainedBase</stat><value>4</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>30</splitEventChance>
+		<followingEvent>empireEvents_overextension_revolt</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Revolt — triggered by crackdown (30% chance) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_revolt</defName>
+		<label>Settlement Revolt</label>
+		<desc>The military crackdown pushed some settlements too far. Armed resistance erupts.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack" />
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Military Discipline — structured stabilization -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_militaristic</defName>
+		<label>Military Discipline</label>
+		<desc>Military discipline is imposed across the overextended settlements. The structured approach stabilizes the situation without excessive force.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>2</value></li>
+			<li><stat>loyaltyLostBase</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Managed Growth — reduced loyalty loss and unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_expansionist</defName>
+		<label>Managed Growth</label>
+		<desc>Your experienced administrators implement protocols for managing overextended territory. Both loyalty loss and unrest are significantly reduced.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>-1</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome F: Dissent Crushed — iron fist, happiness penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_overextension_authoritarian</defName>
+		<label>Dissent Crushed</label>
+		<desc>An iron fist descends on the dissident settlements. Unrest is stamped out through fear, but citizens' happiness suffers as freedoms are curtailed.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>-2</value></li>
+			<li><stat>happinessGainedBase</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_overextension_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

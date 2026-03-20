@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Administrative overload -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_growingPains_0</defName>
+		<label>Growing Pains</label>
+		<desc>Your empire is growing faster than its administrative infrastructure can handle. Tax collection is inefficient, military coordination is sluggish, and officials are overwhelmed. How do you address the bureaucratic strain?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_growingPains_opt1</li>
+			<li>empireEvents_growingPains_opt2</li>
+			<li>empireEvents_growingPains_opt3</li>
+			<li>empireEvents_growingPains_opt4</li>
+			<li>empireEvents_growingPains_opt5</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_growingPains_admins</li>
+			<li>empireEvents_growingPains_decentral</li>
+			<li>empireEvents_growingPains_tighten</li>
+			<li>empireEvents_growingPains_authoritarian</li>
+			<li>empireEvents_growingPains_expansionist</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Hire administrators -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_growingPains_opt1</defName>
+		<label>Hire experienced administrators to manage the growth.</label>
+		<parentEvent>empireEvents_growingPains_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<successEvent>empireEvents_growingPains_admins</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Decentralize -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_growingPains_opt2</defName>
+		<label>Give local leaders more autonomy to manage their own affairs.</label>
+		<parentEvent>empireEvents_growingPains_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_growingPains_decentral</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Tighten control -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_growingPains_opt3</defName>
+		<label>Tighten central control. Every decision goes through us.</label>
+		<parentEvent>empireEvents_growingPains_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_growingPains_tighten</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Authoritarian -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_growingPains_opt4</defName>
+		<label>The bureaucracy answers to us. Remind them.</label>
+		<parentEvent>empireEvents_growingPains_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_growingPains_authoritarian</successEvent>
+		<requiredPolicies>
+			<li>authoritarian</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Expansionist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_growingPains_opt5</defName>
+		<label>We've planned for this growth.</label>
+		<parentEvent>empireEvents_growingPains_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_growingPains_expansionist</successEvent>
+		<requiredPolicies>
+			<li>expansionist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Administrative expansion -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_growingPains_admins</defName>
+		<label>Administrative Expansion</label>
+		<desc>New administrators are hired and deployed. The growing pains ease as experienced managers take on the workload.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>-0.05</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_growingPains_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Decentralized administration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_growingPains_decentral</defName>
+		<label>Decentralized Administration</label>
+		<desc>Local leaders are given authority over day-to-day operations. Tax collection improves as locals know their markets, but military coordination suffers without central command.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>-0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_growingPains_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Tightened control -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_growingPains_tighten</defName>
+		<label>Tightened Control</label>
+		<desc>Central authority clamps down on all administrative functions. Tax collection remains efficient, but the rigid control breeds resentment among citizens who feel micromanaged.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_growingPains_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Authoritarian — iron bureaucracy -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_growingPains_authoritarian</defName>
+		<label>Iron Bureaucracy</label>
+		<desc>Under your authoritarian mandate, the bureaucracy falls in line with ruthless efficiency. There is no tax penalty — but the heavy-handed approach generates some unrest.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_growingPains_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Expansionist — planned growth -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_growingPains_expansionist</defName>
+		<label>Planned Growth</label>
+		<desc>Your empire's expansion plans accounted for this level of growth. Experienced administrators from earlier settlements train the new ones, and the transition is relatively smooth.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>-0.05</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_growingPains_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

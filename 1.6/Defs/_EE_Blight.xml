@@ -12,6 +12,8 @@
 			<li>empireEvents_blight_opt1</li>
 			<li>empireEvents_blight_opt2</li>
 			<li>empireEvents_blight_opt3</li>
+			<li>empireEvents_blight_opt4</li>
+			<li>empireEvents_blight_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -23,6 +25,8 @@
 			<li>empireEvents_blight_1a</li>
 			<li>empireEvents_blight_1b</li>
 			<li>empireEvents_blight_1c</li>
+			<li>empireEvents_blight_1d</li>
+			<li>empireEvents_blight_1e</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -54,6 +58,34 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_blight_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Technocratic/Innovative -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_blight_opt4</defName>
+		<label>Develop blight-resistant crop strains.</label>
+		<parentEvent>empireEvents_blight_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_blight_1d</successEvent>
+		<requiredPolicies>
+			<li>technocratic</li>
+			<li>innovative</li>
+		</requiredPolicies>
+		<requirementMode>Any</requirementMode>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Resilient -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_blight_opt5</defName>
+		<label>Our seed reserves will see us through.</label>
+		<parentEvent>empireEvents_blight_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_blight_1e</successEvent>
+		<requiredPolicies>
+			<li>resilient</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Burn — harsh short-term, clean resolution -->
@@ -100,6 +132,40 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>-2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_blight_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Technocratic — lightest penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_blight_1d</defName>
+		<label>Resistant Crops Developed</label>
+		<desc>Your researchers develop blight-resistant crop strains in record time. While some of the harvest is lost during the transition, the new varieties prove remarkably hardy. Food production dips only slightly.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_blight_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Resilient — moderate penalty, free -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_blight_1e</defName>
+		<label>Seed Reserves Deployed</label>
+		<desc>Your settlements crack open their emergency seed reserves. The blight-damaged fields are cleared and replanted with stored varieties. Food production takes a hit, but the reserves prevent catastrophe without costing a single silver.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

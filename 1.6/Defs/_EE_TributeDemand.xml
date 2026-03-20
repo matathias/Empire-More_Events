@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Tribute demanded -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_0</defName>
+		<label>Tribute Demand</label>
+		<desc>A powerful faction has sent emissaries demanding tribute from your empire. They claim your settlements are encroaching on their territory and insist on payment. How do you respond to their demands?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_tribute_opt1</li>
+			<li>empireEvents_tribute_opt2</li>
+			<li>empireEvents_tribute_opt3</li>
+			<li>empireEvents_tribute_opt4</li>
+			<li>empireEvents_tribute_opt5</li>
+			<li>empireEvents_tribute_opt6</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<requiredWealth>10000</requiredWealth>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_tribute_refuse</li>
+			<li>empireEvents_tribute_counter_success</li>
+			<li>empireEvents_tribute_counter_fail</li>
+			<li>empireEvents_tribute_militaristic</li>
+			<li>empireEvents_tribute_feudal</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Pay tribute -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tribute_opt1</defName>
+		<label>Pay what they ask. It's cheaper than war.</label>
+		<parentEvent>empireEvents_tribute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>1000</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Refuse -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tribute_opt2</defName>
+		<label>We bow to no one. Refuse their demands.</label>
+		<parentEvent>empireEvents_tribute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_tribute_refuse</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Counter-offer -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tribute_opt3</defName>
+		<label>Counter with a trade agreement instead.</label>
+		<parentEvent>empireEvents_tribute_0</parentEvent>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_tribute_counter_success</successEvent>
+		<failEvent>empireEvents_tribute_counter_fail</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tribute_opt4</defName>
+		<label>We do not answer to outsiders.</label>
+		<parentEvent>empireEvents_tribute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Militaristic -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tribute_opt5</defName>
+		<label>Our armies will teach them to make demands.</label>
+		<parentEvent>empireEvents_tribute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_tribute_militaristic</successEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Feudal -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tribute_opt6</defName>
+		<label>A sovereign does not pay tribute.</label>
+		<parentEvent>empireEvents_tribute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_tribute_feudal</successEvent>
+		<requiredPolicies>
+			<li>feudal</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Tribute refused — loyalty boost, attack follows -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_refuse</defName>
+		<label>Tribute Refused</label>
+		<desc>Your defiant response rallies citizens, but the demanding faction won't take no for an answer. An attack is inevitable.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_tribute_attack</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_tribute_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Retaliatory attack -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_attack</defName>
+		<label>Retaliatory Attack</label>
+		<desc>The faction whose demands you refused has launched an attack on your settlements.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack"/>
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Counter-offer accepted — trade agreement -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_counter_success</defName>
+		<label>Trade Agreement</label>
+		<desc>Your counter-offer is accepted. The faction agrees to trade rather than demand tribute, and your settlements benefit from the new arrangement.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_tribute_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Counter-offer rejected — attack follows -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_counter_fail</defName>
+		<label>Counter-Offer Rejected</label>
+		<desc>Your counter-offer is rejected with contempt. The faction prepares for war.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_tribute_attack</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_tribute_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Militaristic — show of force, attack follows -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_militaristic</defName>
+		<label>Show of Force</label>
+		<desc>Your military posturing rallies citizens and puts the demanding faction on notice. An attack will come, but your forces are ready.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_tribute_attack</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_tribute_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Feudal — sovereign's refusal, attack follows -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tribute_feudal</defName>
+		<label>Sovereign's Refusal</label>
+		<desc>Your dignified refusal stirs loyalty among citizens who appreciate their ruler's honor. But the insult will not go unanswered.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_tribute_attack</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_tribute_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

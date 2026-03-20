@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Plague detected -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_0</defName>
+		<label>Plague Outbreak</label>
+		<desc>A devastating plague has broken out in your settlements. Workers are falling ill, productivity has collapsed, and fear is spreading faster than the disease itself. How do you respond?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_plague_opt1</li>
+			<li>empireEvents_plague_opt2</li>
+			<li>empireEvents_plague_opt3</li>
+			<li>empireEvents_plague_opt4</li>
+			<li>empireEvents_plague_opt5</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<requiredResource>RTD_Medicine</requiredResource>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_plague_quarantine</li>
+			<li>empireEvents_plague_medicine</li>
+			<li>empireEvents_plague_wait</li>
+			<li>empireEvents_plague_research</li>
+			<li>empireEvents_plague_resilient</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Quarantine -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_plague_opt1</defName>
+		<label>Lock down the affected settlements. No one in, no one out.</label>
+		<parentEvent>empireEvents_plague_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_plague_quarantine</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Deploy medicine -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_plague_opt2</defName>
+		<label>Divert medical supplies to fight the disease.</label>
+		<parentEvent>empireEvents_plague_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>600</silverCost>
+		<successEvent>empireEvents_plague_medicine</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Pray and wait -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_plague_opt3</defName>
+		<label>Pray and hope it passes. We can't afford intervention.</label>
+		<parentEvent>empireEvents_plague_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_plague_wait</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Technocratic/Science Foundation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_plague_opt4</defName>
+		<label>Our researchers will develop a treatment.</label>
+		<parentEvent>empireEvents_plague_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_plague_research</successEvent>
+		<requiredPolicies>
+			<li>technocratic</li>
+			<li>scienceFoundation</li>
+		</requiredPolicies>
+		<requirementMode>Any</requirementMode>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Resilient -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_plague_opt5</defName>
+		<label>We've stockpiled medical supplies for exactly this.</label>
+		<parentEvent>empireEvents_plague_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_plague_resilient</successEvent>
+		<requiredPolicies>
+			<li>resilient</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Quarantine — total production shutdown, shorter duration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_quarantine</defName>
+		<label>Quarantine</label>
+		<desc>Settlements are locked down hard. The plague is contained, but all economic activity grinds to a halt within the quarantine zone.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Apparel_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_plague_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Medical Response — moderate penalties, costly -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_medicine</defName>
+		<label>Medical Response</label>
+		<desc>Medical supplies are rushed to the affected settlements. The plague is fought back, though some workers are lost to the disease. The response saves lives but at significant cost.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_plague_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Plague Unchecked — worst penalties, chance of spread -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_wait</defName>
+		<label>Plague Unchecked</label>
+		<desc>Without intervention, the plague ravages your settlements unchecked. Workers fall ill and die, morale plummets, and the disease shows no signs of stopping.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-2</value></li>
+			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>30</splitEventChance>
+		<followingEvent>empireEvents_plague_spread</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_plague_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Plague Spread — triggered by handler -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_spread</defName>
+		<label>Plague Spreads</label>
+		<desc>The unchecked plague has spread beyond the initial outbreak zone.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_PlagueSpread" />
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Research Cure — light penalty, technocratic advantage -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_research</defName>
+		<label>Research Cure</label>
+		<desc>Your researchers develop an effective treatment in record time. The plague is contained with minimal casualties, and the medical breakthrough improves future preparedness.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_plague_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Prepared Response — moderate penalty, shorter duration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_plague_resilient</defName>
+		<label>Prepared Response</label>
+		<desc>Your stockpiled medical supplies are deployed immediately. The plague hits hard, but the prepared response limits its duration significantly.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-2</value></li>
+			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_plague_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

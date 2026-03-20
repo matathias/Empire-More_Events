@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Embargo announced -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_embargo_0</defName>
+		<label>Trade Embargo</label>
+		<desc>A coalition of foreign traders has declared an embargo against your empire. Merchant caravans are turning away at the border, and trade revenues are already dropping. How do you respond to this economic aggression?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_embargo_opt1</li>
+			<li>empireEvents_embargo_opt2</li>
+			<li>empireEvents_embargo_opt3</li>
+			<li>empireEvents_embargo_opt4</li>
+			<li>empireEvents_embargo_opt5</li>
+			<li>empireEvents_embargo_opt6</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_embargo_full</li>
+			<li>empireEvents_embargo_back</li>
+			<li>empireEvents_embargo_reduced</li>
+			<li>empireEvents_embargo_provoked</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Negotiate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_embargo_opt1</defName>
+		<label>Negotiate lifting of the embargo.</label>
+		<parentEvent>empireEvents_embargo_0</parentEvent>
+		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>Null</successEvent>
+		<failEvent>empireEvents_embargo_full</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Embargo back -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_embargo_opt2</defName>
+		<label>Two can play this game. Embargo them right back.</label>
+		<parentEvent>empireEvents_embargo_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_embargo_back</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Pay the bribe -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_embargo_opt3</defName>
+		<label>Pay whatever they want to lift the embargo.</label>
+		<parentEvent>empireEvents_embargo_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>1500</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_embargo_opt4</defName>
+		<label>We have no trade relations to embargo.</label>
+		<parentEvent>empireEvents_embargo_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_embargo_reduced</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Mercantile -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_embargo_opt5</defName>
+		<label>Our trade network can route around this.</label>
+		<parentEvent>empireEvents_embargo_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_embargo_reduced</successEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Militaristic -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_embargo_opt6</defName>
+		<label>Threaten military action if they don't back down.</label>
+		<parentEvent>empireEvents_embargo_0</parentEvent>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<failEvent>empireEvents_embargo_provoked</failEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome: Full embargo -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_embargo_full</defName>
+		<label>Trade Embargo</label>
+		<desc>The embargo is in full effect. Trade revenues plummet as merchants refuse to deal with your settlements.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>-0.15</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_embargo_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome: Counter-embargo -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_embargo_back</defName>
+		<label>Counter-Embargo</label>
+		<desc>Your counter-embargo hurts the foreign traders, and citizens rally around the defiant stance. But the mutual blockade drags on longer than anyone hoped.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>450000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>-0.15</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_embargo_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome: Limited embargo -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_embargo_reduced</defName>
+		<label>Limited Embargo</label>
+		<desc>The embargo's impact is minimal. Your settlements are well-positioned to weather the disruption with little loss.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>-0.05</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_embargo_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome: Provoked embargo -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_embargo_provoked</defName>
+		<label>Provoked Embargo</label>
+		<desc>Your threats backfired. Not only is the embargo still in effect, but the hostile posturing has damaged your reputation. Trade suffers and loyalty wavers.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>-0.15</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_embargo_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

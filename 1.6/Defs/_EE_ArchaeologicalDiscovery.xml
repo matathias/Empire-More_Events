@@ -12,6 +12,7 @@
 			<li>empireEvents_archaeology_opt1</li>
 			<li>empireEvents_archaeology_opt2</li>
 			<li>empireEvents_archaeology_opt3</li>
+			<li>empireEvents_archaeology_opt4</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -55,6 +56,22 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Technocratic/Innovative -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archaeology_opt4</defName>
+		<label>Send our best researchers to lead the excavation.</label>
+		<parentEvent>empireEvents_archaeology_0</parentEvent>
+		<baseChanceOfSuccess>85</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_archaeology_1a_success</successEvent>
+		<failEvent>empireEvents_archaeology_1a_fail</failEvent>
+		<requiredPolicies>
+			<li>technocratic</li>
+			<li>innovative</li>
+		</requiredPolicies>
+		<requirementMode>Any</requirementMode>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A (success): Excavation finds ancient technology -->

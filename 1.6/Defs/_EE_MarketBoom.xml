@@ -12,6 +12,8 @@
 			<li>empireEvents_marketBoom_opt1</li>
 			<li>empireEvents_marketBoom_opt2</li>
 			<li>empireEvents_marketBoom_opt3</li>
+			<li>empireEvents_marketBoom_opt4</li>
+			<li>empireEvents_marketBoom_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -22,6 +24,8 @@
 			<li>empireEvents_marketBoom_1a</li>
 			<li>empireEvents_marketBoom_1b</li>
 			<li>empireEvents_marketBoom_1c</li>
+			<li>empireEvents_marketBoom_1d</li>
+			<li>empireEvents_marketBoom_1e</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -53,6 +57,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_marketBoom_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Mercantile -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_marketBoom_opt4</defName>
+		<label>Our traders know exactly how to ride this wave.</label>
+		<parentEvent>empireEvents_marketBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_marketBoom_1d</successEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Heavy Taxation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_marketBoom_opt5</defName>
+		<label>Tax everything that moves.</label>
+		<parentEvent>empireEvents_marketBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_marketBoom_1e</successEvent>
+		<requiredPolicies>
+			<li>heavyTaxation</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: High reward, production penalties -->
@@ -109,6 +139,42 @@
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>0.1</value></li>
 			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>0.1</value></li>
 			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_marketBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Mercantile — balanced reward with happiness -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_marketBoom_1d</defName>
+		<label>Market Boom (Trade Mastery)</label>
+		<desc>Your experienced traders leverage their networks perfectly, securing favorable deals without overworking the populace. Profits are strong and morale is high — your merchants have earned their keep.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>0.15</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_marketBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Heavy Taxation — max revenue, happiness cost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_marketBoom_1e</defName>
+		<label>Market Boom (Tax Surge)</label>
+		<desc>Every transaction is taxed to the hilt. Silver pours into the treasury at an unprecedented rate, but citizens grumble under the crushing tax burden. The boom's benefits feel hollow when every coin is seized.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>0.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>-1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

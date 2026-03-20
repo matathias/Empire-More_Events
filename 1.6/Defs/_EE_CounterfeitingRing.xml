@@ -12,6 +12,8 @@
 			<li>empireEvents_counterfeiting_opt1</li>
 			<li>empireEvents_counterfeiting_opt2</li>
 			<li>empireEvents_counterfeiting_opt3</li>
+			<li>empireEvents_counterfeiting_opt6</li>
+			<li>empireEvents_counterfeiting_opt7</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -23,6 +25,7 @@
 			<li>empireEvents_counterfeiting_1a</li>
 			<li>empireEvents_counterfeiting_1b</li>
 			<li>empireEvents_counterfeiting_1c</li>
+			<li>empireEvents_counterfeiting_1d</li>
 			<li>empireEvents_counterfeiting_2</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
@@ -56,6 +59,33 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_counterfeiting_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Authoritarian -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt6</defName>
+		<label>Round up the suspects. No trial needed.</label>
+		<parentEvent>empireEvents_counterfeiting_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_counterfeiting_1d</successEvent>
+		<requiredPolicies>
+			<li>authoritarian</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Mercantile -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_counterfeiting_opt7</defName>
+		<label>Our financial experts can trace the forgeries.</label>
+		<parentEvent>empireEvents_counterfeiting_0</parentEvent>
+		<baseChanceOfSuccess>85</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_counterfeiting_2</successEvent>
+		<failEvent>empireEvents_counterfeiting_1a</failEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome 1a: Investigation failed, full penalty -->
@@ -102,6 +132,23 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_counterfeiting_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome 1d: Authoritarian crackdown — fast, clean, unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_counterfeiting_1d</defName>
+		<label>Suspects Rounded Up</label>
+		<desc>Soldiers sweep through the settlements, arresting anyone connected to the counterfeiting ring — and a few who weren't. The operation is shut down overnight. Citizens are uneasy about the summary justice, but the currency is secure.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

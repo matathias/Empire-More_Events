@@ -12,6 +12,8 @@
 			<li>empireEvents_brainDrain_opt1</li>
 			<li>empireEvents_brainDrain_opt2</li>
 			<li>empireEvents_brainDrain_opt3</li>
+			<li>empireEvents_brainDrain_opt4</li>
+			<li>empireEvents_brainDrain_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -23,6 +25,8 @@
 			<li>empireEvents_brainDrain_1a</li>
 			<li>empireEvents_brainDrain_1b</li>
 			<li>empireEvents_brainDrain_1c</li>
+			<li>empireEvents_brainDrain_1d</li>
+			<li>empireEvents_brainDrain_1e</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -54,6 +58,34 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_brainDrain_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Technocratic/Science Foundation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_brainDrain_opt4</defName>
+		<label>Fund a research initiative to retain our best minds.</label>
+		<parentEvent>empireEvents_brainDrain_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_brainDrain_1d</successEvent>
+		<requiredPolicies>
+			<li>technocratic</li>
+			<li>scienceFoundation</li>
+		</requiredPolicies>
+		<requirementMode>Any</requirementMode>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Authoritarian -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_brainDrain_opt5</defName>
+		<label>No one leaves without permission.</label>
+		<parentEvent>empireEvents_brainDrain_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_brainDrain_1e</successEvent>
+		<requiredPolicies>
+			<li>authoritarian</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Incentives — reduced penalties -->
@@ -103,6 +135,40 @@
 			<li><stat>workerBaseMax</stat><value>-1</value></li>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>-0.5</value></li>
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_brainDrain_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Technocratic — research initiative turns brain drain into brain gain -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_brainDrain_1d</defName>
+		<label>Research Initiative</label>
+		<desc>A well-funded research initiative attracts new talent and convinces departing researchers to stay. The investment transforms the brain drain into a brain gain — your settlements become a hub of innovation.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_brainDrain_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Authoritarian — no brain drain, but unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_brainDrain_1e</defName>
+		<label>Travel Banned</label>
+		<desc>Under your authoritarian decree, all skilled workers are forbidden from leaving. The enforcement is swift and efficient — nobody escapes. But the heavy-handed approach breeds quiet resentment among the populace.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

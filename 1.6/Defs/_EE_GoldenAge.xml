@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Golden Age: Pure reward event, no options -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenAge</defName>
+		<label>Golden Age</label>
+		<desc>Your empire has entered a golden age! Happiness is high, loyalty is strong, unrest is minimal, and prosperity reigns. Citizens celebrate the fruits of your wise leadership. Trade flourishes and morale soars across all settlements.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>0.1</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenAge</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

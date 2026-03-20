@@ -12,6 +12,8 @@
 			<li>empireEvents_corruption_opt1</li>
 			<li>empireEvents_corruption_opt2</li>
 			<li>empireEvents_corruption_opt3</li>
+			<li>empireEvents_corruption_opt4</li>
+			<li>empireEvents_corruption_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -23,6 +25,8 @@
 			<li>empireEvents_corruption_1a</li>
 			<li>empireEvents_corruption_1b</li>
 			<li>empireEvents_corruption_1c</li>
+			<li>empireEvents_corruption_1d</li>
+			<li>empireEvents_corruption_1e</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -54,6 +58,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_corruption_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Authoritarian -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_corruption_opt4</defName>
+		<label>Execute the corrupt officials publicly.</label>
+		<parentEvent>empireEvents_corruption_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_corruption_1d</successEvent>
+		<requiredPolicies>
+			<li>authoritarian</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Egalitarian -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_corruption_opt5</defName>
+		<label>Establish an oversight committee.</label>
+		<parentEvent>empireEvents_corruption_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_corruption_1e</successEvent>
+		<requiredPolicies>
+			<li>egalitarian</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Public trial — loyalty boost, worker loss -->
@@ -116,6 +146,41 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_corruption_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Authoritarian — harsh justice, mixed results -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_1d</defName>
+		<label>Public Executions</label>
+		<desc>The corrupt officials are executed before a stunned crowd. The message is unmistakable: the empire does not tolerate betrayal. Citizens are both terrified and oddly reassured — at least their leaders take corruption seriously.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_corruption_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Egalitarian — democratic oversight, clean resolution -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_corruption_1e</defName>
+		<label>Oversight Committee</label>
+		<desc>A citizen oversight committee is established to monitor government spending. The corrupt officials are removed through due process, and the new transparency lifts morale. The system works — and citizens have a voice in keeping it honest.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

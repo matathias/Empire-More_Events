@@ -13,6 +13,7 @@
 			<li>empireEvents_armsDealer_opt2</li>
 			<li>empireEvents_armsDealer_opt3</li>
 			<li>empireEvents_armsDealer_opt4</li>
+			<li>empireEvents_armsDealer_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -66,6 +67,19 @@
 		<successEvent>Null</successEvent>
 		<requiredPolicies>
 			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Militaristic -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armsDealer_opt5</defName>
+		<label>We buy in bulk. Give us the military discount.</label>
+		<parentEvent>empireEvents_armsDealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>700</silverCost>
+		<successEvent>empireEvents_armsDealer_1a</successEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
 		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 

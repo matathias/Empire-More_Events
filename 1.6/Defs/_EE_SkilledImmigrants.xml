@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Immigrants arrive -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_immigrants_0</defName>
+		<label>Skilled Immigrants</label>
+		<desc>A group of skilled workers has arrived at your settlement, seeking a new home. They bring expertise in various trades and are eager to contribute. How do you receive them?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_immigrants_opt1</li>
+			<li>empireEvents_immigrants_opt2</li>
+			<li>empireEvents_immigrants_opt3</li>
+			<li>empireEvents_immigrants_opt4</li>
+			<li>empireEvents_immigrants_opt5</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_immigrants_production</li>
+			<li>empireEvents_immigrants_production_boost</li>
+			<li>empireEvents_immigrants_building</li>
+			<li>empireEvents_immigrants_expansionist</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Welcome to production -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_immigrants_opt1</defName>
+		<label>Welcome them and put their skills to use.</label>
+		<parentEvent>empireEvents_immigrants_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_immigrants_production</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Put them to building -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_immigrants_opt2</defName>
+		<label>Put them to work on construction projects.</label>
+		<parentEvent>empireEvents_immigrants_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_immigrants_building</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Decline -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_immigrants_opt3</defName>
+		<label>We don't need outside help right now.</label>
+		<parentEvent>empireEvents_immigrants_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_immigrants_opt4</defName>
+		<label>We don't accept outsiders.</label>
+		<parentEvent>empireEvents_immigrants_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Expansionist/Diversity -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_immigrants_opt5</defName>
+		<label>Welcome them and integrate fully.</label>
+		<parentEvent>empireEvents_immigrants_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_immigrants_expansionist</successEvent>
+		<requiredPolicies>
+			<li>expansionist</li>
+			<li>diversityWeEmbrace</li>
+		</requiredPolicies>
+		<requirementMode>Any</requirementMode>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Skilled Workers — ResourcePicker handler -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_immigrants_production</defName>
+		<label>Skilled Workers Arrive</label>
+		<desc>The immigrants are welcomed and assigned to production roles based on their skills. Their expertise will boost output significantly.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_ResourcePicker" />
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome A (follow-up): Production boost with workers — created by ResourcePicker handler -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_immigrants_production_boost</defName>
+		<label>Skilled Workers (Production)</label>
+		<desc>The skilled immigrants are contributing to the settlement's production. Their expertise boosts output and adds extra workers to the labor pool.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_immigrants_0</li>
+		</incompatibleEvents>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_ResourceBoostCleanup" />
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Construction Boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_immigrants_building</defName>
+		<label>Construction Boost</label>
+		<desc>The skilled workers are put to work on building projects. Their expertise accelerates construction across the settlement.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>buildTimeMultiplier</stat><value>0.3</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_immigrants_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Full Integration — expansionist/diversity bonus -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_immigrants_expansionist</defName>
+		<label>Full Integration</label>
+		<desc>The immigrants are welcomed with open arms and fully integrated into the settlement. Their diverse skills benefit the workforce, and the warm reception lifts spirits.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_immigrants_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

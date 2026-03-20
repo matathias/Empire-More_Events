@@ -13,6 +13,8 @@
 			<li>empireEvents_deserters_opt2</li>
 			<li>empireEvents_deserters_opt3</li>
 			<li>empireEvents_deserters_opt4</li>
+			<li>empireEvents_deserters_opt5</li>
+			<li>empireEvents_deserters_opt6</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -23,6 +25,8 @@
 			<li>empireEvents_deserters_1a</li>
 			<li>empireEvents_deserters_1b</li>
 			<li>empireEvents_deserters_1c</li>
+			<li>empireEvents_deserters_1d</li>
+			<li>empireEvents_deserters_1e</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -66,6 +70,32 @@
 		<successEvent>Null</successEvent>
 		<requiredPolicies>
 			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Militaristic -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_deserters_opt5</defName>
+		<label>Put them through military training. We'll know if they're spies.</label>
+		<parentEvent>empireEvents_deserters_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>100</silverCost>
+		<successEvent>empireEvents_deserters_1d</successEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Slaver -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_deserters_opt6</defName>
+		<label>Collars and chains. They'll work.</label>
+		<parentEvent>empireEvents_deserters_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_deserters_1e</successEvent>
+		<requiredPolicies>
+			<li>slaver</li>
 		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
@@ -131,6 +161,45 @@
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_deserters_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Militaristic — military boost, reduced spy risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_1d</defName>
+		<label>Deserters (Military Training)</label>
+		<desc>The deserters are put through rigorous military training under close supervision. Your officers quickly identify the competent from the suspicious. The investment in training weeds out potential threats while producing capable soldiers.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>10</splitEventChance>
+		<followingEvent>empireEvents_deserters_spy</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_deserters_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Slaver — workers, no spy risk, unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_deserters_1e</defName>
+		<label>Deserters Enslaved</label>
+		<desc>The deserters are stripped of their weapons and put in chains. Whatever intelligence they might have carried is irrelevant — they'll spend their days in the mines and fields. Your settlements gain workers, though the brutality breeds resentment.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

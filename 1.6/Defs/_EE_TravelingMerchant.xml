@@ -13,6 +13,7 @@
 			<li>empireEvents_merchant_opt2</li>
 			<li>empireEvents_merchant_opt3</li>
 			<li>empireEvents_merchant_opt4</li>
+			<li>empireEvents_merchant_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -64,6 +65,19 @@
 		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
+	<!-- Option E: Mercantile -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchant_opt5</defName>
+		<label>Negotiate a long-term trade agreement.</label>
+		<parentEvent>empireEvents_merchant_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchant_1d</successEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
 	<!-- Outcome A: Fair trade, good reward -->
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_merchant_1a</defName>
@@ -100,6 +114,20 @@
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Mercantile — trade agreement -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchant_1d</defName>
+		<label>Trade Agreement</label>
+		<desc>Your experienced traders negotiate a lasting trade agreement with the merchant's network. Regular shipments will pass through your territory, boosting tithe revenues for the foreseeable future.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>0.05</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

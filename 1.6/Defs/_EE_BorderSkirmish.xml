@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Border threat detected -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_0</defName>
+		<label>Border Skirmish</label>
+		<desc>Scouts report hostile forces massing near your border settlements. Small raiding parties have already been spotted probing your defenses. This could escalate quickly. How do you respond?</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_skirmish_opt1</li>
+			<li>empireEvents_skirmish_opt2</li>
+			<li>empireEvents_skirmish_opt3</li>
+			<li>empireEvents_skirmish_opt4</li>
+			<li>empireEvents_skirmish_opt5</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<requiredWealth>10000</requiredWealth>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_reinforce</li>
+			<li>empireEvents_skirmish_patrol_success</li>
+			<li>empireEvents_skirmish_patrol_fail</li>
+			<li>empireEvents_skirmish_surprise</li>
+			<li>empireEvents_skirmish_nothing</li>
+			<li>empireEvents_skirmish_preemptive</li>
+			<li>empireEvents_skirmish_fortified</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Reinforce -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_skirmish_opt1</defName>
+		<label>Send reinforcements immediately.</label>
+		<parentEvent>empireEvents_skirmish_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_skirmish_reinforce</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Warning patrol (50% success) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_skirmish_opt2</defName>
+		<label>Send a warning patrol to assess the threat.</label>
+		<parentEvent>empireEvents_skirmish_0</parentEvent>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_skirmish_patrol_success</successEvent>
+		<failEvent>empireEvents_skirmish_patrol_fail</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Ignore (60% nothing, 40% surprise) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_skirmish_opt3</defName>
+		<label>Our borders are secure enough. Don't overreact.</label>
+		<parentEvent>empireEvents_skirmish_0</parentEvent>
+		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_skirmish_nothing</successEvent>
+		<failEvent>empireEvents_skirmish_surprise</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Militaristic — preemptive strike -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_skirmish_opt4</defName>
+		<label>Launch a preemptive strike.</label>
+		<parentEvent>empireEvents_skirmish_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_skirmish_preemptive</successEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Defense in Depth (80% nothing, 20% fortified) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_skirmish_opt5</defName>
+		<label>Fall back to prepared positions.</label>
+		<parentEvent>empireEvents_skirmish_0</parentEvent>
+		<baseChanceOfSuccess>80</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_skirmish_nothing</successEvent>
+		<failEvent>empireEvents_skirmish_fortified</failEvent>
+		<requiredPolicies>
+			<li>defenseInDepth</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Border Reinforced — military boost, leads to reinforced battle -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_reinforce</defName>
+		<label>Border Reinforced</label>
+		<desc>Reinforcements bolster your border defenses. Military readiness increases significantly as troops dig in.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_skirmish_battle_reinforced</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B-success: Hostiles Retreat — clean resolution -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_patrol_success</defName>
+		<label>Hostiles Retreat</label>
+		<desc>Your warning patrol discovers the raiders' camp and drives them off before they can organize a proper assault. The border is secure — for now.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B-fail: Patrol Ambushed — leads to basic battle -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_patrol_fail</defName>
+		<label>Patrol Ambushed</label>
+		<desc>Your patrol stumbles into an ambush. The raiders are more organized than expected, and now they know your defenses.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_skirmish_battle_basic</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C-success: False Alarm — nothing happens -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_nothing</defName>
+		<label>False Alarm</label>
+		<desc>The hostile forces disperse on their own. Perhaps they were just passing through, or your defenses deterred them. Crisis averted.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C-fail: Surprise Attack — debuff + leads to basic battle -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_surprise</defName>
+		<label>Surprise Attack</label>
+		<desc>You ignored the warning signs and now the raiders strike with full force, catching your settlements off guard.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryCombatEfficiency</stat><value>-0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_skirmish_battle_basic</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Preemptive Strike — clean resolution for silver -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_preemptive</defName>
+		<label>Preemptive Strike</label>
+		<desc>Your forces launch a devastating preemptive strike against the raiders' staging area. The threat is neutralized before it can materialize.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E-fail: Fortified Defense — buff + leads to basic battle -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_fortified</defName>
+		<label>Fortified Defense</label>
+		<desc>Your forces fall back to prepared defensive positions. The raiders attack but face entrenched defenders.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_skirmish_battle_basic</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_skirmish_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Battle: Reinforced — combat efficiency bonus + TriggerAttack handler -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_battle_reinforced</defName>
+		<label>Border Battle</label>
+		<desc>The hostile forces launch their assault against your reinforced positions.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<statModifiers>
+			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack" />
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Battle: Basic — TriggerAttack handler -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_skirmish_battle_basic</defName>
+		<label>Border Battle</label>
+		<desc>The hostile forces launch their assault.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack" />
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+</Defs>

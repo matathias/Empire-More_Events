@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Refugees arrive -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_0</defName>
+		<label>Refugee Influx</label>
+		<desc>A large group of refugees has arrived at your borders, fleeing conflict in a neighboring region. They're desperate and willing to work. How does your empire respond?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_refugees_opt1</li>
+			<li>empireEvents_refugees_opt2</li>
+			<li>empireEvents_refugees_opt3</li>
+			<li>empireEvents_refugees_opt4</li>
+			<li>empireEvents_refugees_opt5</li>
+			<li>empireEvents_refugees_opt6</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<requiredWealth>10000</requiredWealth>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_refugees_welcome</li>
+			<li>empireEvents_refugees_selective</li>
+			<li>empireEvents_refugees_turnaway</li>
+			<li>empireEvents_refugees_expansionist</li>
+			<li>empireEvents_refugees_slaver</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Welcome all -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_refugees_opt1</defName>
+		<label>Welcome them all. Our settlements need the manpower.</label>
+		<parentEvent>empireEvents_refugees_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_refugees_welcome</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Selective -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_refugees_opt2</defName>
+		<label>Accept only the most skilled among them.</label>
+		<parentEvent>empireEvents_refugees_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_refugees_selective</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Turn away -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_refugees_opt3</defName>
+		<label>Turn them away. We can't afford to take in strangers.</label>
+		<parentEvent>empireEvents_refugees_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_refugees_turnaway</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_refugees_opt4</defName>
+		<label>Our borders are closed.</label>
+		<parentEvent>empireEvents_refugees_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Expansionist -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_refugees_opt5</defName>
+		<label>New citizens for our growing empire.</label>
+		<parentEvent>empireEvents_refugees_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_refugees_expansionist</successEvent>
+		<requiredPolicies>
+			<li>expansionist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Slaver -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_refugees_opt6</defName>
+		<label>They'll serve the empire — one way or another.</label>
+		<parentEvent>empireEvents_refugees_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_refugees_slaver</successEvent>
+		<requiredPolicies>
+			<li>slaver</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Refugees welcomed -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_welcome</defName>
+		<label>Refugees Welcomed</label>
+		<desc>The refugees pour into your settlements, eager to start new lives. The workforce surges, but integration is rough — cultural tensions rise and happiness dips.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>3</value></li>
+			<li><stat>happinessGainedBase</stat><value>-2</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_refugees_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Selective immigration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_selective</defName>
+		<label>Selective Immigration</label>
+		<desc>Only the most skilled refugees are admitted. The rest are turned away. Your settlements gain a small but quality workforce boost.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_refugees_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Refugees turned away — chance of retaliation -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_turnaway</defName>
+		<label>Refugees Turned Away</label>
+		<desc>The refugees are denied entry. Most scatter to find other havens, but some among them harbor resentment toward your empire.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_refugees_attack</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_refugees_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Follow-up: Refugee retaliation (40% chance) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_attack</defName>
+		<label>Refugee Retaliation</label>
+		<desc>Some of the turned-away refugees have banded together with local raiders to strike back at your empire.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<modExtensions>
+			<li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack"/>
+		</modExtensions>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Expansionist — planned integration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_expansionist</defName>
+		<label>Planned Integration</label>
+		<desc>Your expansionist administration has protocols for exactly this situation. The refugees are distributed across settlements with housing and job assignments ready. Integration is smooth and efficient.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_refugees_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome F: Slaver — refugees enslaved -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_refugees_slaver</defName>
+		<label>Refugees Enslaved</label>
+		<desc>The refugees are seized and put to work. Their labor bolsters your settlements significantly, but the brutal treatment breeds resentment among your own citizens.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>3</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_refugees_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>
