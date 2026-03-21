@@ -141,11 +141,12 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_corruption_1c</defName>
 		<label>Administrative Fees</label>
-		<desc>The "administrative fee" is now official policy. Tax revenues stabilize, but citizens see right through the relabeling. Resentment simmers beneath the surface.</desc>
+		<desc>The "administrative fee" is now official policy. Tax revenues actually improve slightly as the fees are now collected openly, but citizens see right through the relabeling. Resentment boils over as the brazen corruption is enshrined in law.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>unrestGainedBase</stat><value>1</value></li>
+			<li><stat>unrestGainedBase</stat><value>3</value></li>
+			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

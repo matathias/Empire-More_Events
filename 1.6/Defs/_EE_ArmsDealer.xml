@@ -12,6 +12,7 @@
 			<li>empireEvents_armsDealer_opt1</li>
 			<li>empireEvents_armsDealer_opt2</li>
 			<li>empireEvents_armsDealer_opt3</li>
+			<li>empireEvents_armsDealer_opt6</li>
 			<li>empireEvents_armsDealer_opt4</li>
 			<li>empireEvents_armsDealer_opt5</li>
 		</options>
@@ -55,6 +56,16 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>200</silverCost>
 		<successEvent>empireEvents_armsDealer_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Generic refuse -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armsDealer_opt6</defName>
+		<label>We're not interested.</label>
+		<parentEvent>empireEvents_armsDealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Option D: Isolationist -->

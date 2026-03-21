@@ -17,9 +17,7 @@
 			<li>empireEvents_tribute_opt6</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>15</weight>
-		<requiredWealth>10000</requiredWealth>
+		<isRandomEvent>false</isRandomEvent>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>

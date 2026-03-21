@@ -18,13 +18,13 @@ namespace FactionColonies.Events
         private const int CheckInterval = 2500;
         private const int CooldownTicks = 30 * GenDate.TicksPerDay; // 30 days
         private const int GoldenAgeSustainTicks = 5 * GenDate.TicksPerDay; // 5 days
-        private const float EmbargoProximityTiles = 50f;
+        private const float TributeProximityTiles = 50f;
 
         // Cooldown tracking (last tick each event was generated)
         private int lastGoldenAgeTick = -CooldownTicks;
         private int lastGrowingPainsTick = -CooldownTicks;
         private int lastOverextensionTick = -CooldownTicks;
-        private int lastEmbargoTick = -CooldownTicks;
+        private int lastTributeTick = -CooldownTicks;
 
         // Golden Age sustained-condition tracking
         private int goldenAgeQualifyingSince = -1;
@@ -46,10 +46,10 @@ namespace FactionColonies.Events
             CheckGrowingPains(faction, now);
             CheckOverextensionCrisis(faction, now);
 
-            // CheckTradeEmbargo does a pathfind check, which is a little more expensive than I'd like.
+            // CheckTributeDemand does a proximity check, which is a little more expensive than I'd like.
             //   So we'll call it less frequently than the other checks.
             if (Find.TickManager.TicksGame % (12 * CheckInterval) == 0)
-                CheckTradeEmbargo(faction, now);
+                CheckTributeDemand(faction, now);
         }
 
         private void CheckGoldenAge(FactionFC faction, int now)
@@ -112,38 +112,41 @@ namespace FactionColonies.Events
             lastOverextensionTick = now;
         }
 
-        private void CheckTradeEmbargo(FactionFC faction, int now)
+        private void CheckTributeDemand(FactionFC faction, int now)
         {
-            if (now - lastEmbargoTick < CooldownTicks) return;
+            if (now - lastTributeTick < CooldownTicks) return;
 
-            // Check if any NPC settlement is within proximity of any player settlement
-            bool hasNearbyNPC = false;
-            List<Settlement> npcSettlements = Find.WorldObjects.Settlements.Where(s => s.Faction != null &&
-                                                                                       s.Faction != Faction.OfPlayer &&
-                                                                                       !s.Faction.IsPlayer &&
-                                                                                       !s.Faction.defeated).ToList();
+            // Check if any hostile faction has a settlement within proximity of any player settlement
+            Faction playerFaction = FactionCache.PlayerColonyFaction;
+            if (playerFaction == null) return;
+
+            bool hasNearbyHostile = false;
+            List<Settlement> hostileSettlements = Find.WorldObjects.Settlements.Where(s => s.Faction != null &&
+                                                                                           !s.Faction.IsPlayer &&
+                                                                                           !s.Faction.defeated &&
+                                                                                           s.Faction.RelationKindWith(playerFaction) == FactionRelationKind.Hostile).ToList();
 
             foreach (WorldSettlementFC playerSettlement in faction.settlements)
             {
-                foreach (Settlement npc in npcSettlements)
+                foreach (Settlement hostile in hostileSettlements)
                 {
-                    float dist = Find.WorldGrid.ApproxDistanceInTiles(playerSettlement.Tile, npc.Tile);
-                    if (dist <= EmbargoProximityTiles)
+                    float dist = Find.WorldGrid.ApproxDistanceInTiles(playerSettlement.Tile, hostile.Tile);
+                    if (dist <= TributeProximityTiles)
                     {
-                        hasNearbyNPC = true;
+                        hasNearbyHostile = true;
                         break;
                     }
                 }
-                if (hasNearbyNPC) break;
+                if (hasNearbyHostile) break;
             }
 
-            if (!hasNearbyNPC) return;
+            if (!hasNearbyHostile) return;
 
-            FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_embargo_0");
+            FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_tribute_0");
             if (def == null || !IsEligible(def, faction)) return;
 
             TryFireEvent(def, faction);
-            lastEmbargoTick = now;
+            lastTributeTick = now;
         }
 
         /// <summary>
@@ -176,7 +179,7 @@ namespace FactionColonies.Events
 
             faction.AddEvent(evt);
 
-            string settlementString = evt.settlementTraitLocations.Join(s => " " + s.Name, "\n");
+            string settlementString = string.Join("\n", evt.settlementTraitLocations.Select(s => " " + s.Name));
 
             string desc = def.desc;
             if (!settlementString.NullOrEmpty())
@@ -194,7 +197,7 @@ namespace FactionColonies.Events
             Scribe_Values.Look(ref lastGoldenAgeTick, "lastGoldenAgeTick", -CooldownTicks);
             Scribe_Values.Look(ref lastGrowingPainsTick, "lastGrowingPainsTick", -CooldownTicks);
             Scribe_Values.Look(ref lastOverextensionTick, "lastOverextensionTick", -CooldownTicks);
-            Scribe_Values.Look(ref lastEmbargoTick, "lastEmbargoTick", -CooldownTicks);
+            Scribe_Values.Look(ref lastTributeTick, "lastTributeTick", -CooldownTicks);
             Scribe_Values.Look(ref goldenAgeQualifyingSince, "goldenAgeQualifyingSince", -1);
         }
     }

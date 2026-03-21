@@ -47,8 +47,8 @@
 		<defName>empireEvents_skirmish_opt2</defName>
 		<label>Send a warning patrol to assess the threat.</label>
 		<parentEvent>empireEvents_skirmish_0</parentEvent>
-		<baseChanceOfSuccess>50</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>100</silverCost>
 		<successEvent>empireEvents_skirmish_patrol_success</successEvent>
 		<failEvent>empireEvents_skirmish_patrol_fail</failEvent>
 	</FactionColonies.FCOptionDef>
@@ -58,7 +58,7 @@
 		<defName>empireEvents_skirmish_opt3</defName>
 		<label>Our borders are secure enough. Don't overreact.</label>
 		<parentEvent>empireEvents_skirmish_0</parentEvent>
-		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_skirmish_nothing</successEvent>
 		<failEvent>empireEvents_skirmish_surprise</failEvent>
