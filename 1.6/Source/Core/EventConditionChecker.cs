@@ -80,7 +80,7 @@ namespace FactionColonies.Events
             if (now - goldenAgeQualifyingSince < GoldenAgeSustainTicks) return;
 
             FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_goldenAge");
-            if (def == null || !IsEligible(def, faction)) return;
+            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastGoldenAgeTick = now;
@@ -93,7 +93,7 @@ namespace FactionColonies.Events
             if (faction.settlements.Count <= 6) return;
 
             FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_growingPains_0");
-            if (def == null || !IsEligible(def, faction)) return;
+            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastGrowingPainsTick = now;
@@ -106,7 +106,7 @@ namespace FactionColonies.Events
             if (faction.averageLoyalty >= 60) return;
 
             FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_overextension_0");
-            if (def == null || !IsEligible(def, faction)) return;
+            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastOverextensionTick = now;
@@ -143,7 +143,7 @@ namespace FactionColonies.Events
             if (!hasNearbyHostile) return;
 
             FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_tribute_0");
-            if (def == null || !IsEligible(def, faction)) return;
+            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastTributeTick = now;
