@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 
-	<name>Empire - Extra Events</name>
+	<name>Empire Refactored: More Events</name>
 	<author>Matathias</author>
 	<supportedVersions>
 		<li>1.6</li>
@@ -20,6 +20,6 @@
 		</li>
 	</modDependencies>
 
-	<description>A sub-mod for Empire adding new events with player choices, tradeoffs, and broader stat coverage.</description>
+	<description>A sub-mod for Empire Refactored adding new events with choices, tradeoffs, and broader stat coverage.</description>
 
 </ModMetaData>

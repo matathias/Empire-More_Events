@@ -34,7 +34,7 @@ namespace FactionColonies.Events
             // Also check any other active plague events
             foreach (FCEvent active in faction.events)
             {
-                if (active.def == null) continue;
+                if (active.def is null) continue;
                 if (active.def.defName != null && active.def.defName.StartsWith("empireEvents_plague"))
                 {
                     if (active.settlementTraitLocations != null)
@@ -67,7 +67,7 @@ namespace FactionColonies.Events
             List<WorldSettlementFC> targets = eligible.InRandomOrder().Take(count).ToList();
 
             FCEvent newEvt = FCEventMaker.MakeRandomEvent(plagueDef, targets);
-            if (newEvt == null)
+            if (newEvt is null)
             {
                 LogUtil.Warning("PlagueSpread: Failed to create plague event.");
                 return true;
@@ -77,8 +77,8 @@ namespace FactionColonies.Events
 
             string names = string.Join("\n", targets.Select(s => " " + s.Name));
             Find.LetterStack.ReceiveLetter(
-                "Plague Spreads",
-                "The plague has spread to new settlements!\n" + "EventAffectingSettlements".Translate() + "\n" + names,
+                "EE_PlagueSpreadsTitle".Translate(),
+                "EE_PlagueSpreadsDesc".Translate("EventAffectingSettlements".Translate(), names),
                 LetterDefOf.ThreatSmall);
 
             LogUtil.Message("PlagueSpread: Plague spread to " + count + " new settlement(s).");

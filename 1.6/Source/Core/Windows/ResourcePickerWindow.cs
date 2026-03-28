@@ -82,7 +82,7 @@ namespace FactionColonies.Events
             cachedTitleHeight = Text.CalcHeight(sourceEvt.def.label, textWidth);
 
             Text.Font = GameFont.Small;
-            string desc = "Choose which resource these skilled workers will specialize in.";
+            string desc = "EE_ResourcePickerDesc".Translate();
             cachedDescHeight = Text.CalcHeight(desc, textWidth);
 
             Text.Font = GameFont.Small;
@@ -129,7 +129,7 @@ namespace FactionColonies.Events
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.color = new Color(0.85f, 0.85f, 0.85f);
-            string desc = "Choose which resource these skilled workers will specialize in.";
+            string desc = "EE_ResourcePickerDesc".Translate();
             Widgets.Label(new Rect(inRect.x + Padding, curY, textWidth, cachedDescHeight), desc);
             GUI.color = colorBefore;
             curY += cachedDescHeight + Padding;
@@ -138,7 +138,7 @@ namespace FactionColonies.Events
             Rect buttonRect = new Rect(inRect.x + Padding, curY, textWidth, ButtonHeight);
             if (producedResources.Any())
             {
-                if (Widgets.ButtonText(buttonRect, "Select Resource"))
+                if (Widgets.ButtonText(buttonRect, "EE_SelectResource".Translate()))
                 {
                     List<FloatMenuOption> options = new List<FloatMenuOption>();
                     foreach (ResourceFC res in producedResources)
@@ -156,7 +156,7 @@ namespace FactionColonies.Events
             else
             {
                 GUI.color = new Color(0.5f, 0.5f, 0.5f);
-                Widgets.ButtonText(buttonRect, "No active resources");
+                Widgets.ButtonText(buttonRect, "EE_NoActiveResources".Translate());
                 GUI.color = colorBefore;
             }
 
@@ -196,13 +196,12 @@ namespace FactionColonies.Events
                 {
                     new FCStatModifier { stat = additiveStat, value = 1 }
                 };
-                settlement.AddStatModifiers(mods, sourceId, "Skilled Immigrants (" + resDef.LabelCap + ")");
+                settlement.AddStatModifiers(mods, sourceId, "EE_ImmigrantsSourceLabel".Translate(resDef.LabelCap));
             }
 
             Find.LetterStack.ReceiveLetter(
-                "Skilled Immigrants Assigned",
-                "The skilled immigrants have been assigned to boost " + resDef.LabelCap
-                    + " production at " + settlement.Name + ".",
+                "EE_ImmigrantsAssignedTitle".Translate(),
+                "EE_ImmigrantsAssignedDesc".Translate(resDef.LabelCap, settlement.Name),
                 LetterDefOf.PositiveEvent);
 
             LogUtil.Message("ResourcePickerWindow: Boosted " + resDef.defName + " at " + settlement.Name);

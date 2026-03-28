@@ -15,7 +15,7 @@ namespace FactionColonies.Events
     /// </summary>
     public class EventConditionChecker : WorldComponent
     {
-        private const int CheckInterval = 2500;
+        private const int CheckInterval = GenDate.TicksPerDay;
         private const int CooldownTicks = 30 * GenDate.TicksPerDay; // 30 days
         private const int GoldenAgeSustainTicks = 5 * GenDate.TicksPerDay; // 5 days
         private const float TributeProximityTiles = 50f;

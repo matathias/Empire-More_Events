@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<!-- Settings -->
+	<EE_SettingsDebugLogging>Enable debug logging</EE_SettingsDebugLogging>
+	<EE_SettingsCategory>Empire Refactored: More Events</EE_SettingsCategory>
+
+	<!-- Resource Picker Window -->
+	<EE_ResourcePickerDesc>Choose which resource these skilled workers will specialize in.</EE_ResourcePickerDesc>
+	<EE_SelectResource>Select Resource</EE_SelectResource>
+	<EE_NoActiveResources>No active resources</EE_NoActiveResources>
+
+	<!-- Skilled Immigrants -->
+	<EE_ImmigrantsSourceLabel>Skilled Immigrants ({0})</EE_ImmigrantsSourceLabel>
+	<EE_ImmigrantsAssignedTitle>Skilled Immigrants Assigned</EE_ImmigrantsAssignedTitle>
+	<EE_ImmigrantsAssignedDesc>The skilled immigrants have been assigned to boost {0} production at {1}.</EE_ImmigrantsAssignedDesc>
+
+	<!-- Plague Spread -->
+	<EE_PlagueSpreadsTitle>Plague Spreads</EE_PlagueSpreadsTitle>
+	<EE_PlagueSpreadsDesc>The plague has spread to new settlements!\n{0}\n{1}</EE_PlagueSpreadsDesc>
+
+	<!-- Power Reroute -->
+	<EE_PowerReroutedTitle>Power Rerouted</EE_PowerReroutedTitle>
+	<EE_PowerReroutedDesc>Power has been rerouted to stabilize the affected settlements. Nearby settlements are sharing the load.\n\n{0} (drain):\n{1}</EE_PowerReroutedDesc>
+
+</LanguageData>

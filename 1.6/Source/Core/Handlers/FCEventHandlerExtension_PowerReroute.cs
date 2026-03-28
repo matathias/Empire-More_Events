@@ -76,9 +76,8 @@ namespace FactionColonies.Events
             string drainNames = string.Join("\n", targets.Select(s => " " + s.Name));
 
             Find.LetterStack.ReceiveLetter(
-                "Power Rerouted",
-                "Power has been rerouted to stabilize the affected settlements. Nearby settlements are sharing the load.\n\n"
-                    + "EventAffectingSettlements".Translate() + " (drain):\n" + drainNames,
+                "EE_PowerReroutedTitle".Translate(),
+                "EE_PowerReroutedDesc".Translate("EventAffectingSettlements".Translate(), drainNames),
                 LetterDefOf.NeutralEvent);
 
             LogUtil.Message("PowerReroute: Created main + drain events. Drain on " + count + " settlement(s).");

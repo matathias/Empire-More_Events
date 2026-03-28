@@ -18,7 +18,7 @@ namespace FactionColonies.Events
         {
             Listing_Standard ls = new Listing_Standard();
             ls.Begin(inRect);
-            ls.CheckboxLabeled("Enable debug logging", ref printDebug);
+            ls.CheckboxLabeled("EE_SettingsDebugLogging".Translate(), ref printDebug);
             ls.End();
         }
     }
@@ -32,7 +32,7 @@ namespace FactionColonies.Events
             settings = GetSettings<EmpireEventsSettings>();
         }
 
-        public override string SettingsCategory() => "Empire - Events";
+        public override string SettingsCategory() => "EE_SettingsCategory".Translate();
 
         public override void DoSettingsWindowContents(Rect inRect) => settings.DoWindowContents(inRect);
     }
