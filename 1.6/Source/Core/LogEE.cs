@@ -2,7 +2,7 @@ using Verse;
 
 namespace FactionColonies.Events
 {
-    public static class LogUtil
+    public static class LogEE
     {
         public const string Slug = "[Empire-Events]";
 

@@ -28,7 +28,7 @@ namespace FactionColonies.Events
 
             if (settlement == null)
             {
-                LogUtil.Warning("ResourcePicker: No settlement on event.");
+                LogEE.Warning("ResourcePicker: No settlement on event.");
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace FactionColonies.Events
                 }
             }
 
-            LogUtil.Message("ResourceBoostCleanup: Cleaned up resource modifiers.");
+            LogEE.Message("ResourceBoostCleanup: Cleaned up resource modifiers.");
             return false; // Let standard cleanup also run (removes workerBaseMax from def.statModifiers)
         }
     }

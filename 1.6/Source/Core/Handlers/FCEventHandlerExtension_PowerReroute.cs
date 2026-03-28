@@ -30,7 +30,7 @@ namespace FactionColonies.Events
             FCEventDef drainDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_powerFailure_reroute_drain");
             if (drainDef == null)
             {
-                LogUtil.Error("PowerReroute: Could not find empireEvents_powerFailure_reroute_drain def.");
+                LogEE.Error("PowerReroute: Could not find empireEvents_powerFailure_reroute_drain def.");
                 return true;
             }
 
@@ -54,7 +54,7 @@ namespace FactionColonies.Events
 
             if (!eligible.Any())
             {
-                LogUtil.Message("PowerReroute: No other settlements to reroute power from.");
+                LogEE.Message("PowerReroute: No other settlements to reroute power from.");
                 return true;
             }
 
@@ -64,7 +64,7 @@ namespace FactionColonies.Events
             FCEvent drainEvt = FCEventMaker.MakeRandomEvent(drainDef, targets);
             if (drainEvt == null)
             {
-                LogUtil.Warning("PowerReroute: Failed to create drain event.");
+                LogEE.Warning("PowerReroute: Failed to create drain event.");
                 return true;
             }
 
@@ -80,7 +80,7 @@ namespace FactionColonies.Events
                 "EE_PowerReroutedDesc".Translate("EventAffectingSettlements".Translate(), drainNames),
                 LetterDefOf.NeutralEvent);
 
-            LogUtil.Message("PowerReroute: Created main + drain events. Drain on " + count + " settlement(s).");
+            LogEE.Message("PowerReroute: Created main + drain events. Drain on " + count + " settlement(s).");
             return true;
         }
     }

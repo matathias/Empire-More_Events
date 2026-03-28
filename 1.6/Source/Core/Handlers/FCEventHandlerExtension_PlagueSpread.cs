@@ -17,7 +17,7 @@ namespace FactionColonies.Events
             FCEventDef plagueDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_plague_medicine");
             if (plagueDef == null)
             {
-                LogUtil.Error("PlagueSpread: Could not find empireEvents_plague_medicine def.");
+                LogEE.Error("PlagueSpread: Could not find empireEvents_plague_medicine def.");
                 return true;
             }
 
@@ -59,7 +59,7 @@ namespace FactionColonies.Events
 
             if (!eligible.Any())
             {
-                LogUtil.Message("PlagueSpread: No unaffected settlements to spread to.");
+                LogEE.Message("PlagueSpread: No unaffected settlements to spread to.");
                 return true;
             }
 
@@ -69,7 +69,7 @@ namespace FactionColonies.Events
             FCEvent newEvt = FCEventMaker.MakeRandomEvent(plagueDef, targets);
             if (newEvt is null)
             {
-                LogUtil.Warning("PlagueSpread: Failed to create plague event.");
+                LogEE.Warning("PlagueSpread: Failed to create plague event.");
                 return true;
             }
 
@@ -81,7 +81,7 @@ namespace FactionColonies.Events
                 "EE_PlagueSpreadsDesc".Translate("EventAffectingSettlements".Translate(), names),
                 LetterDefOf.ThreatSmall);
 
-            LogUtil.Message("PlagueSpread: Plague spread to " + count + " new settlement(s).");
+            LogEE.Message("PlagueSpread: Plague spread to " + count + " new settlement(s).");
             return true;
         }
     }

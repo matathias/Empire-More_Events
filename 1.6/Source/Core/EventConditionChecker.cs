@@ -188,7 +188,7 @@ namespace FactionColonies.Events
             }
 
             Find.LetterStack.ReceiveLetter(def.label, desc, LetterDefOf.NeutralEvent);
-            LogUtil.Message("EventConditionChecker fired: " + def.defName);
+            LogEE.Message("EventConditionChecker fired: " + def.defName);
         }
 
         public override void ExposeData()

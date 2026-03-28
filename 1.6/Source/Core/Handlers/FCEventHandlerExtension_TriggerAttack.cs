@@ -18,7 +18,7 @@ namespace FactionColonies.Events
         {
             if (!faction.settlements.Any())
             {
-                LogUtil.Warning("TriggerAttack: No settlements to attack.");
+                LogEE.Warning("TriggerAttack: No settlements to attack.");
                 return true;
             }
 
@@ -26,7 +26,7 @@ namespace FactionColonies.Events
             Faction enemy = ThreatScalingUtil.PickWeightedEnemyFaction(etl);
             if (enemy == null)
             {
-                LogUtil.Warning("TriggerAttack: No hostile factions available.");
+                LogEE.Warning("TriggerAttack: No hostile factions available.");
                 return true;
             }
 
@@ -43,7 +43,7 @@ namespace FactionColonies.Events
             }
 
             MilitaryUtilFC.AttackPlayerSettlement(force, target, enemy);
-            LogUtil.Message("TriggerAttack: Launched attack on " + target.Name + " by " + enemy.Name);
+            LogEE.Message("TriggerAttack: Launched attack on " + target.Name + " by " + enemy.Name);
 
             return true;
         }

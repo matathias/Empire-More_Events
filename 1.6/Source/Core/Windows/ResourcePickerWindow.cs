@@ -173,7 +173,7 @@ namespace FactionColonies.Events
             FCEventDef boostDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_immigrants_production_boost");
             if (boostDef == null)
             {
-                LogUtil.Error("ResourcePickerWindow: Could not find empireEvents_immigrants_production_boost def.");
+                LogEE.Error("ResourcePickerWindow: Could not find empireEvents_immigrants_production_boost def.");
                 return;
             }
 
@@ -181,7 +181,7 @@ namespace FactionColonies.Events
             FCEvent boostEvt = FCEventMaker.MakeRandomEvent(boostDef, targets);
             if (boostEvt == null)
             {
-                LogUtil.Warning("ResourcePickerWindow: Failed to create boost event.");
+                LogEE.Warning("ResourcePickerWindow: Failed to create boost event.");
                 return;
             }
 
@@ -204,7 +204,7 @@ namespace FactionColonies.Events
                 "EE_ImmigrantsAssignedDesc".Translate(resDef.LabelCap, settlement.Name),
                 LetterDefOf.PositiveEvent);
 
-            LogUtil.Message("ResourcePickerWindow: Boosted " + resDef.defName + " at " + settlement.Name);
+            LogEE.Message("ResourcePickerWindow: Boosted " + resDef.defName + " at " + settlement.Name);
         }
     }
 }
