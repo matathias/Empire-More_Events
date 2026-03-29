@@ -19,6 +19,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -105,7 +107,7 @@
 		<label>Deserters Integrated</label>
 		<desc>The deserters are folded into your military forces. Their combat experience bolsters your settlements' defenses significantly. But can they truly be trusted?</desc>
 		<category>EC_Military</category>
-		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>militaryBaseLevel</stat><value>2</value></li>
 		</statModifiers>
@@ -141,7 +143,7 @@
 		<label>Deserters (Under Watch)</label>
 		<desc>The deserters serve under careful supervision. Their contribution is limited by the restrictions, but your caution pays off — no incidents occur.</desc>
 		<category>EC_Military</category>
-		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>militaryBaseLevel</stat><value>1</value></li>
 		</statModifiers>
@@ -175,7 +177,7 @@
 		<label>Deserters (Military Training)</label>
 		<desc>The deserters are put through rigorous military training under close supervision. Your officers quickly identify the competent from the suspicious. The investment in training weeds out potential threats while producing capable soldiers.</desc>
 		<category>EC_Military</category>
-		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTrigger>900000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>militaryBaseLevel</stat><value>1</value></li>
 		</statModifiers>
@@ -194,12 +196,11 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_deserters_1e</defName>
 		<label>Deserters Enslaved</label>
-		<desc>The deserters are stripped of their weapons and put in chains. Whatever intelligence they might have carried is irrelevant — they'll spend their days in the mines and fields. Your settlements gain workers, though the brutality breeds resentment.</desc>
+		<desc>The deserters are stripped of their weapons and put in chains. Whatever intelligence they might have carried is irrelevant — they'll spend their days in the mines and fields.</desc>
 		<category>EC_Military</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>2</value></li>
-			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

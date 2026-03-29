@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<requiredResource>RTD_Food</requiredResource>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -109,7 +111,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_blight_1b</defName>
 		<label>Blight Treatment</label>
-		<desc>Medical supplies are repurposed to create fungicides and crop treatments. The blight is contained but not eliminated — food production suffers, and medical resources are stretched thin for the duration.</desc>
+		<desc>Medical supplies are repurposed to create fungicides and crop treatments. The blight is contained, but not eliminated; food production suffers, and medical resources are stretched thin for the duration.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
@@ -129,7 +131,7 @@
 		<label>Blight Runs Its Course</label>
 		<desc>Without intervention, the blight spreads through the fields unchecked. Crops wither and die across the affected settlements. It will be a long, hungry season before the land recovers naturally.</desc>
 		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTrigger>360000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>-2</value></li>
 		</statModifiers>

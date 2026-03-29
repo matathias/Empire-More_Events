@@ -5,7 +5,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_festival_0</defName>
 		<label>Festival Season</label>
-		<desc>Your citizens are requesting permission to hold a grand festival. The mood is right — people want to celebrate. How much support do you provide?</desc>
+		<desc>Your citizens are requesting permission to hold a grand festival. The mood is right; people want to celebrate. How much support do you provide?</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
 		<options>
@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>20</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>7</minDaysSinceFounded>
 		<minimumHappiness>50</minimumHappiness>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -36,7 +38,7 @@
 		<label>Fund a grand festival. Spare no expense.</label>
 		<parentEvent>empireEvents_festival_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>400</silverCost>
+		<silverCost>600</silverCost>
 		<successEvent>empireEvents_festival_1a</successEvent>
 	</FactionColonies.FCOptionDef>
 
@@ -46,7 +48,7 @@
 		<label>Allow a modest celebration. Keep costs down.</label>
 		<parentEvent>empireEvents_festival_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>100</silverCost>
+		<silverCost>200</silverCost>
 		<successEvent>empireEvents_festival_1b</successEvent>
 	</FactionColonies.FCOptionDef>
 
@@ -66,7 +68,7 @@
 		<label>The crown shall sponsor a grand celebration.</label>
 		<parentEvent>empireEvents_festival_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>300</silverCost>
+		<silverCost>450</silverCost>
 		<successEvent>empireEvents_festival_1d</successEvent>
 		<requiredPolicies>
 			<li>feudal</li>
@@ -81,7 +83,7 @@
 		<label>Let the people organize their own celebration.</label>
 		<parentEvent>empireEvents_festival_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>50</silverCost>
+		<silverCost>0</silverCost>
 		<successEvent>empireEvents_festival_1e</successEvent>
 		<requiredPolicies>
 			<li>egalitarian</li>
@@ -100,7 +102,7 @@
 			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
 			<li><stat>unrestLostBase</stat><value>3</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_festival_0</li>
@@ -130,7 +132,8 @@
 		<label>Festival Denied</label>
 		<desc>The citizens' request for a festival is denied. Disappointed murmurs ripple through the settlements. People feel their voices aren't being heard.</desc>
 		<category>EC_Settlement</category>
-		<timeTillTrigger>60000</timeTillTrigger>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<timeTillTriggerMax>300000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>

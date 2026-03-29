@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<maximumHappiness>60</maximumHappiness>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -33,7 +35,7 @@
 	<!-- Option A: Offer incentives -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_brainDrain_opt1</defName>
-		<label>Offer incentives to stay — better pay and conditions.</label>
+		<label>Offer incentives to stay: better pay and conditions.</label>
 		<parentEvent>empireEvents_brainDrain_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>500</silverCost>
@@ -92,7 +94,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_brainDrain_1a</defName>
 		<label>Brain Drain (Incentives)</label>
-		<desc>The improved conditions convince most of the skilled workers to stay. Some still leave, but the bleeding is staunched. Research capabilities take a minor hit.</desc>
+		<desc>The improved conditions convince many of the skilled workers to stay. Some still leave, but the bleeding is staunched. Research capabilities take a minor hit.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
@@ -109,7 +111,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_brainDrain_1b</defName>
 		<label>Brain Drain (Travel Restricted)</label>
-		<desc>Travel restrictions keep the workers in place, but they're not happy about it. Morale plummets as citizens chafe under the restrictions, loyalty falters, and unrest grows at the perceived tyranny.</desc>
+		<desc>Travel restrictions keep the workers in place, but they're not happy about it. Morale plummets as citizens chafe under the restrictions. Loyalty falters, and unrest grows at the perceived tyranny.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
@@ -136,6 +138,9 @@
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>-0.5</value></li>
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
 		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -168,7 +173,7 @@
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>unrestGainedBase</stat><value>1</value></li>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

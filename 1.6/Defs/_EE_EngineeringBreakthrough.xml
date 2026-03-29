@@ -7,13 +7,16 @@
 		<desc>Your researchers have made a significant breakthrough in construction methods and materials science. New techniques are being shared across your settlements, accelerating building projects and spurring further research.</desc>
 		<category>EC_Construction</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<requiredResource>RTD_Research</requiredResource>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<statModifiers>
-			<li><stat>buildTimeMultiplier</stat><value>0.3</value></li>
+			<li><stat>buildTimeMultiplier</stat><value>0.75</value></li>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
 		<incompatibleEvents>

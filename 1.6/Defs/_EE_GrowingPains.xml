@@ -140,7 +140,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_growingPains_authoritarian</defName>
 		<label>Iron Bureaucracy</label>
-		<desc>Under your authoritarian mandate, the bureaucracy falls in line with ruthless efficiency. There is no tax penalty — but the heavy-handed approach generates some unrest.</desc>
+		<desc>Under your authoritarian mandate, the bureaucracy falls in line with ruthless efficiency. There is no tax penalty, but the heavy-handed approach generates some unrest.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>

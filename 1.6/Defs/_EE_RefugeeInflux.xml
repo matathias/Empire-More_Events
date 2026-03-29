@@ -19,6 +19,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<requiredWealth>10000</requiredWealth>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -90,7 +92,7 @@
 	<!-- Option F: Slaver -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_refugees_opt6</defName>
-		<label>They'll serve the empire — one way or another.</label>
+		<label>They'll serve the empire... one way or another.</label>
 		<parentEvent>empireEvents_refugees_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
@@ -104,14 +106,17 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_refugees_welcome</defName>
 		<label>Refugees Welcomed</label>
-		<desc>The refugees pour into your settlements, eager to start new lives. The workforce surges, but integration is rough — cultural tensions rise and happiness dips.</desc>
+		<desc>The refugees pour into your settlements, eager to start new lives. The workforce surges, but integration is rough; cultural tensions rise and happiness dips.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>3</value></li>
-			<li><stat>happinessGainedBase</stat><value>-2</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>3</value></li>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -125,10 +130,10 @@
 		<label>Selective Immigration</label>
 		<desc>Only the most skilled refugees are admitted. The rest are turned away. Your settlements gain a small but quality workforce boost.</desc>
 		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>1</value></li>
-		</statModifiers>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -172,10 +177,10 @@
 		<label>Planned Integration</label>
 		<desc>Your expansionist administration has protocols for exactly this situation. The refugees are distributed across settlements with housing and job assignments ready. Integration is smooth and efficient.</desc>
 		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>2</value></li>
-		</statModifiers>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -190,10 +195,13 @@
 		<desc>The refugees are seized and put to work. Their labor bolsters your settlements significantly, but the brutal treatment breeds resentment among your own citizens.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>3</value></li>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>3</value></li>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>

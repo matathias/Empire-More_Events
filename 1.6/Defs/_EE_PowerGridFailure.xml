@@ -18,8 +18,11 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
+		<minTechLevel>Industrial</minTechLevel>
 		<requiredResource>RTD_Power</requiredResource>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_powerFailure_emergency</li>
@@ -53,7 +56,7 @@
 	<!-- Option C: Ration power -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_powerFailure_opt3</defName>
-		<label>Ration power usage until the grid recovers naturally.</label>
+		<label>Ration power usage until the grid recovers.</label>
 		<parentEvent>empireEvents_powerFailure_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
@@ -90,13 +93,13 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_powerFailure_emergency</defName>
 		<label>Emergency Repairs</label>
-		<desc>Repair crews work around the clock to restore the power grid. The fix is expensive but fast — systems come back online quickly.</desc>
+		<desc>Repair crews work around the clock to restore the power grid. The fix is expensive, but fast; systems come back online quickly.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>60000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>-2</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_powerFailure_0</li>
@@ -110,7 +113,7 @@
 		<desc>Power is being rerouted from neighboring settlements, spreading the load.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>1500</timeTillTrigger>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_powerFailure_0</li>
@@ -130,7 +133,7 @@
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>-1</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
 
@@ -144,7 +147,7 @@
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>-1</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
 
@@ -159,7 +162,7 @@
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>-1</value></li>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>-0.5</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_powerFailure_0</li>
@@ -176,7 +179,7 @@
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>-2</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_powerFailure_0</li>
@@ -187,13 +190,13 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_powerFailure_technocratic</defName>
 		<label>Redundant Systems</label>
-		<desc>Your engineers implement redundant power distribution systems. The failure is mitigated through clever engineering, and the improvements will reduce the impact of future outages.</desc>
+		<desc>Your engineers implement redundant power distribution systems. The failure is mitigated through clever engineering.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>-1</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<rangeSettlementsAffected>1~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_powerFailure_0</li>

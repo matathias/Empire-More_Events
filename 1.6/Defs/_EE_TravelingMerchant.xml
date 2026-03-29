@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>20</weight>
+		<cooldownTicks>300000</cooldownTicks>
+		<minDaysSinceFounded>5</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
@@ -25,7 +27,7 @@
 	<!-- Option A: Trade fairly -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_merchant_opt1</defName>
-		<label>Trade fairly — purchase their best wares at market price.</label>
+		<label>Trade fairly: purchase their best wares at market price.</label>
 		<parentEvent>empireEvents_merchant_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>500</silverCost>
@@ -45,7 +47,7 @@
 	<!-- Option C: Offer safe passage -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_merchant_opt3</defName>
-		<label>Offer safe passage and provisions — build goodwill with traveling merchants.</label>
+		<label>Offer safe passage and provisions; build goodwill with traveling merchants.</label>
 		<parentEvent>empireEvents_merchant_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>100</silverCost>
@@ -82,7 +84,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_merchant_1a</defName>
 		<label>Merchant Trade</label>
-		<desc>The deal is struck. The merchant's wares are distributed to your settlement — quality weapons and equipment that will serve your people well.</desc>
+		<desc>The deal is struck. The merchant's wares are distributed to your settlement: quality weapons and equipment that will serve your people well.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<randomThingRewardDef>RERD_Weapons</randomThingRewardDef>
@@ -99,7 +101,7 @@
 		<randomThingRewardDef>RERD_Apparel</randomThingRewardDef>
 		<randomThingValue>200</randomThingValue>
 		<statModifiers>
-			<li><stat>loyaltyGainedBase</stat><value>-1</value></li>
+			<li><stat>loyaltyLostBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

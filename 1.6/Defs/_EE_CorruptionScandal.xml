@@ -5,7 +5,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_corruption_0</defName>
 		<label>Corruption Scandal</label>
-		<desc>Local officials in your settlements have been caught skimming taxes. Citizens are furious — trust in your administration is eroding quickly. How do you handle this?</desc>
+		<desc>Local officials in your settlements have been caught skimming taxes. Citizens are furious; trust in your administration is eroding quickly. How do you handle this?</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>0</timeTillTrigger>
 		<options>
@@ -18,6 +18,9 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
+		<minSettlements>2</minSettlements>
 		<minimumProsperity>50</minimumProsperity>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -126,7 +129,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_corruption_recur</defName>
 		<label>Corruption Returns</label>
-		<desc>Just as you feared — new officials have picked up where the old ones left off. Without a public example, corruption has become an expected perk of office. Tax revenues suffer again.</desc>
+		<desc>Just as you feared: new officials have picked up where the old ones left off. Without a public example, corruption has become an expected perk of office. Tax revenues suffer again.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
@@ -143,9 +146,9 @@
 		<label>Administrative Fees</label>
 		<desc>The "administrative fee" is now official policy. Tax revenues actually improve slightly as the fees are now collected openly, but citizens see right through the relabeling. Resentment boils over as the brazen corruption is enshrined in law.</desc>
 		<category>EC_Economy</category>
-		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>unrestGainedBase</stat><value>3</value></li>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
 			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>

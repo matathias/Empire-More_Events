@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>20</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -32,7 +34,7 @@
 	<!-- Option A: Capitalize aggressively -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_marketBoom_opt1</defName>
-		<label>Capitalize aggressively — push workers to meet demand at any cost.</label>
+		<label>Capitalize aggressively. Push workers to meet demand at any cost.</label>
 		<parentEvent>empireEvents_marketBoom_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
@@ -42,7 +44,7 @@
 	<!-- Option B: Steady growth -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_marketBoom_opt2</defName>
-		<label>Maintain a steady pace — take what profit we can without overextending.</label>
+		<label>Maintain a steady pace. Take what profit we can without overextending.</label>
 		<parentEvent>empireEvents_marketBoom_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
@@ -75,7 +77,7 @@
 	<!-- Option E: Heavy Taxation -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_marketBoom_opt5</defName>
-		<label>Tax everything that moves.</label>
+		<label>Tax everything that moves!</label>
 		<parentEvent>empireEvents_marketBoom_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
@@ -92,6 +94,7 @@
 		<desc>Your settlements are working overtime to meet surging demand. Silver flows in, but the relentless pace is wearing on food supplies and forestry operations.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>0.2</value></li>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
@@ -111,6 +114,7 @@
 		<desc>Your settlements capitalize on the market boom at a sustainable pace. A modest but reliable increase in trade revenue.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>0.1</value></li>
 		</statModifiers>
@@ -128,17 +132,9 @@
 		<desc>Rather than chasing short-term profits, your settlements reinvest the boom's momentum into lasting infrastructure. Production efficiency improves across the board.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Apparel_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Research_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Power_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>0.1</value></li>
-			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>0.1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -151,9 +147,10 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_marketBoom_1d</defName>
 		<label>Market Boom (Trade Mastery)</label>
-		<desc>Your experienced traders leverage their networks perfectly, securing favorable deals without overworking the populace. Profits are strong and morale is high — your merchants have earned their keep.</desc>
+		<desc>Your experienced traders leverage their networks perfectly, securing favorable deals without overworking the populace. Profits are strong and morale is high; your merchants have earned their keep.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>0.15</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
@@ -172,9 +169,10 @@
 		<desc>Every transaction is taxed to the hilt. Silver pours into the treasury at an unprecedented rate, but citizens grumble under the crushing tax burden. The boom's benefits feel hollow when every coin is seized.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>0.25</value></li>
-			<li><stat>happinessGainedBase</stat><value>-1</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

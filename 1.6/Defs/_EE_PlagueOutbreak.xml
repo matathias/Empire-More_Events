@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>1200000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<requiredResource>RTD_Medicine</requiredResource>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -95,15 +97,9 @@
 		<desc>Settlements are locked down hard. The plague is contained, but all economic activity grinds to a halt within the quarantine zone.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>180000</timeTillTrigger>
+		<timeTillTriggerMax>300000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Apparel_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Research_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Power_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -119,9 +115,10 @@
 		<desc>Medical supplies are rushed to the affected settlements. The plague is fought back, though some workers are lost to the disease. The response saves lives but at significant cost.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>-1</value></li>
-			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+			<li><stat>happinessLostBase</stat><value>3</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -137,14 +134,15 @@
 		<desc>Without intervention, the plague ravages your settlements unchecked. Workers fall ill and die, morale plummets, and the disease shows no signs of stopping.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>-2</value></li>
-			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+			<li><stat>happinessLostBase</stat><value>3</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<splitEventFollows>true</splitEventFollows>
-		<splitEventChance>30</splitEventChance>
+		<splitEventChance>50</splitEventChance>
 		<followingEvent>empireEvents_plague_spread</followingEvent>
 		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
@@ -171,6 +169,7 @@
 		<desc>Your researchers develop an effective treatment in record time. The plague is contained with minimal casualties, and the medical breakthrough improves future preparedness.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>180000</timeTillTrigger>
+		<timeTillTriggerMax>300000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>-1</value></li>
 		</statModifiers>
@@ -188,9 +187,10 @@
 		<desc>Your stockpiled medical supplies are deployed immediately. The plague hits hard, but the prepared response limits its duration significantly.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>150000</timeTillTrigger>
+		<timeTillTriggerMax>240000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>-2</value></li>
-			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+			<li><stat>happinessLostBase</stat><value>3</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

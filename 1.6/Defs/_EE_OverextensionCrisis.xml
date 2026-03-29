@@ -18,6 +18,7 @@
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_tour</li>
@@ -109,6 +110,7 @@
 			<li><stat>loyaltyGainedBase</stat><value>3</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_0</li>
@@ -127,6 +129,7 @@
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_0</li>
@@ -137,37 +140,20 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_overextension_crackdown</defName>
 		<label>Military Crackdown</label>
-		<desc>Military forces are deployed to restore order. The show of force silences dissent, but the heavy-handed approach breeds deeper resentment. Some settlements may rebel.</desc>
+		<desc>Military forces are deployed to restore order. The show of force silences dissent, but the heavy-handed approach breeds deeper resentment.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>militaryBaseLevel</stat><value>1</value></li>
-			<li><stat>loyaltyLostBase</stat><value>-2</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
 			<li><stat>unrestGainedBase</stat><value>4</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
-		<splitEventFollows>true</splitEventFollows>
-		<splitEventChance>30</splitEventChance>
-		<followingEvent>empireEvents_overextension_revolt</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_0</li>
 		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
-
-	<!-- Revolt — triggered by crackdown (30% chance) -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_overextension_revolt</defName>
-		<label>Settlement Revolt</label>
-		<desc>The military crackdown pushed some settlements too far. Armed resistance erupts.</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>1500</timeTillTrigger>
-		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<modExtensions>
-			<li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack" />
-		</modExtensions>
 	</FactionColonies.FCEventDef>
 
 	<!-- Outcome D: Military Discipline — structured stabilization -->
@@ -179,9 +165,10 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>militaryBaseLevel</stat><value>2</value></li>
-			<li><stat>loyaltyLostBase</stat><value>-1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_0</li>
@@ -196,10 +183,11 @@
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>loyaltyLostBase</stat><value>-1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_0</li>
@@ -214,10 +202,11 @@
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>loyaltyLostBase</stat><value>-2</value></li>
-			<li><stat>happinessGainedBase</stat><value>-1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+			<li><stat>happinessGainedBase</stat><value>-2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>3~4</rangeSettlementsAffected>
+		<minSettlements>10</minSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_overextension_0</li>

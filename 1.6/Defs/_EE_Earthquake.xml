@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>5</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -88,9 +90,10 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_earthquake_1a</defName>
 		<label>Earthquake Recovery (Relief)</label>
-		<desc>Emergency supplies and work crews are dispatched immediately. The swift response limits the damage and lifts spirits — citizens feel cared for by their leaders.</desc>
+		<desc>Emergency supplies and work crews are dispatched immediately. The swift response limits the damage and lifts spirits; citizens feel cared for by their leaders.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>180000</timeTillTrigger>
+		<timeTillTriggerMax>300000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-0.5</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
@@ -128,10 +131,10 @@
 		<label>Reconstruction Complete</label>
 		<desc>The rebuilding effort is finished. New mining infrastructure is stronger and more efficient than what stood before. The investment pays dividends.</desc>
 		<category>EC_Construction</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.5</value></li>
-		</statModifiers>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
@@ -142,7 +145,8 @@
 		<label>Earthquake Aftermath</label>
 		<desc>Without aid from the capital, your settlements struggle to recover on their own. Workers dig through rubble with bare hands. The lack of response breeds resentment — citizens feel abandoned by their rulers.</desc>
 		<category>EC_Settlement</category>
-		<timeTillTrigger>180000</timeTillTrigger>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-1</value></li>
 			<li><stat>workerBaseMax</stat><value>-1</value></li>
@@ -159,7 +163,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_earthquake_1d</defName>
 		<label>Earthquake Recovery (Work Crews)</label>
-		<desc>Your industrious workforce mobilizes immediately, clearing rubble and shoring up damaged structures with practiced efficiency. The mining disruption is minimal — these people know how to rebuild.</desc>
+		<desc>Your industrious workforce mobilizes immediately, clearing rubble and shoring up damaged structures with practiced efficiency. The mining disruption is minimal; these people know how to rebuild.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>

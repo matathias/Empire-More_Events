@@ -5,7 +5,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_archaeology_0</defName>
 		<label>Archaeological Discovery</label>
-		<desc>Miners have uncovered the entrance to what appears to be ancient ruins beneath one of your settlements. Strange artifacts are visible just beyond the rubble. The site could hold valuable technology — or nothing but dust and danger.</desc>
+		<desc>Miners have uncovered what appears to be ancient ruins beneath one of your settlements. Strange artifacts are visible just beyond the rubble. The site could hold valuable technology — or nothing but dust and danger.</desc>
 		<category>EC_Construction</category>
 		<timeTillTrigger>0</timeTillTrigger>
 		<options>
@@ -17,6 +17,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>1200000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<requiredResource>RTD_Mining</requiredResource>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -78,12 +80,12 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_archaeology_1a_success</defName>
 		<label>Ancient Technology Unearthed</label>
-		<desc>The excavation is a triumph. Deep within the ruins, your miners discover intact technological artifacts and detailed schematics. Researchers across your settlements are electrified by the findings, and the recovered materials are enormously valuable.</desc>
+		<desc>The excavation is a triumph. Deep within the ruins, your miners discover intact technological artifacts and detailed schematics. Researchers across your settlements are delighted by the findings, and the recovered materials are enormously valuable.</desc>
 		<category>EC_Construction</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<statModifiers>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
-		</statModifiers>
+		</permanentStatModifiers>
 		<randomThingRewardDef>RERD_Weapons</randomThingRewardDef>
 		<randomThingValue>1000</randomThingValue>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>

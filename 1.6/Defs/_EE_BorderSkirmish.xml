@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<requiredWealth>10000</requiredWealth>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -42,10 +44,10 @@
 		<successEvent>empireEvents_skirmish_reinforce</successEvent>
 	</FactionColonies.FCOptionDef>
 
-	<!-- Option B: Warning patrol (50% success) -->
+	<!-- Option B: Patrol (70% success) -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_skirmish_opt2</defName>
-		<label>Send a warning patrol to assess the threat.</label>
+		<label>Send a patrol to assess the threat.</label>
 		<parentEvent>empireEvents_skirmish_0</parentEvent>
 		<baseChanceOfSuccess>70</baseChanceOfSuccess>
 		<silverCost>100</silverCost>
@@ -53,7 +55,7 @@
 		<failEvent>empireEvents_skirmish_patrol_fail</failEvent>
 	</FactionColonies.FCOptionDef>
 
-	<!-- Option C: Ignore (60% nothing, 40% surprise) -->
+	<!-- Option C: Ignore (50% nothing, 50% surprise) -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_skirmish_opt3</defName>
 		<label>Our borders are secure enough. Don't overreact.</label>
@@ -114,7 +116,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_skirmish_patrol_success</defName>
 		<label>Hostiles Retreat</label>
-		<desc>Your warning patrol discovers the raiders' camp and drives them off before they can organize a proper assault. The border is secure — for now.</desc>
+		<desc>Your patrol discovers the raiders' camp and drives them off before they can organize a proper assault. The border is secure — for now.</desc>
 		<category>EC_Military</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<incompatibleEvents>

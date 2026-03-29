@@ -12,13 +12,14 @@
 			<li>empireEvents_armsDealer_opt1</li>
 			<li>empireEvents_armsDealer_opt2</li>
 			<li>empireEvents_armsDealer_opt3</li>
-			<li>empireEvents_armsDealer_opt6</li>
 			<li>empireEvents_armsDealer_opt4</li>
 			<li>empireEvents_armsDealer_opt5</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -51,34 +52,21 @@
 	<!-- Option C: Training -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_armsDealer_opt3</defName>
-		<label>Skip the weapons — hire them to train our forces instead.</label>
+		<label>Skip the weapons. Hire them to train our forces instead.</label>
 		<parentEvent>empireEvents_armsDealer_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>200</silverCost>
 		<successEvent>empireEvents_armsDealer_1c</successEvent>
 	</FactionColonies.FCOptionDef>
 
-	<!-- Option F: Generic refuse -->
+	<!-- Option D: Generic refuse -->
 	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_armsDealer_opt6</defName>
+		<defName>empireEvents_armsDealer_opt4</defName>
 		<label>We're not interested.</label>
 		<parentEvent>empireEvents_armsDealer_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>Null</successEvent>
-	</FactionColonies.FCOptionDef>
-
-	<!-- Option D: Isolationist -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_armsDealer_opt4</defName>
-		<label>Send this dealer away. We forge our own weapons.</label>
-		<parentEvent>empireEvents_armsDealer_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
-		<requiredPolicies>
-			<li>isolationist</li>
-		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Option E: Militaristic -->
@@ -98,7 +86,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_armsDealer_1a</defName>
 		<label>Armed to the Teeth</label>
-		<desc>Crates of weapons and armor are distributed across your settlements. Military readiness surges. The dealer leaves satisfied — and your forces are significantly stronger for it.</desc>
+		<desc>Crates of weapons and armor are distributed across your settlements. Military readiness surges. The dealer leaves satisfied, and your forces are significantly stronger for it.</desc>
 		<category>EC_Military</category>
 		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
@@ -138,7 +126,7 @@
 		<category>EC_Military</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>militaryCombatEfficiency</stat><value>0.1</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

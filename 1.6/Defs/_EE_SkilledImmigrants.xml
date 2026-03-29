@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>7</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -107,7 +109,8 @@
 		<label>Skilled Workers (Production)</label>
 		<desc>The skilled immigrants are contributing to the settlement's production. Their expertise boosts output and adds extra workers to the labor pool.</desc>
 		<category>EC_Settlement</category>
-		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTrigger>450000</timeTillTrigger>
+		<timeTillTriggerMax>720000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>2</value></li>
 		</statModifiers>
@@ -128,8 +131,9 @@
 		<desc>The skilled workers are put to work on building projects. Their expertise accelerates construction across the settlement.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>buildTimeMultiplier</stat><value>0.3</value></li>
+			<li><stat>buildTimeMultiplier</stat><value>0.75</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -142,9 +146,10 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_immigrants_isolationist</defName>
 		<label>Self-Sufficient Pride</label>
-		<desc>The outsiders are firmly turned away at the gates. Your citizens take pride in their self-reliance — we built this settlement with our own hands, and we don't need anyone else.</desc>
+		<desc>The outsiders are firmly turned away at the gates. Your citizens take pride in their self-reliance; we built this settlement with our own hands, and we don't need anyone else.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>120000</timeTillTrigger>
+		<timeTillTriggerMax>200000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
 		</statModifiers>
@@ -162,10 +167,13 @@
 		<desc>The immigrants are welcomed with open arms and fully integrated into the settlement. Their diverse skills benefit the workforce, and the warm reception lifts spirits.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>2</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+		</permanentStatModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>

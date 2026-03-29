@@ -13,7 +13,7 @@
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
-		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
+		<targetAllSettlements>true</targetAllSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_goldenAge</li>

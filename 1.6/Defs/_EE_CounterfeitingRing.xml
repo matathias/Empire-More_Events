@@ -18,6 +18,8 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<requiredWealth>15000</requiredWealth>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -44,10 +46,10 @@
 	<!-- Option B: Crack down -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_counterfeiting_opt2</defName>
-		<label>Crack down hard — search every market stall and warehouse.</label>
+		<label>Crack down hard. Search every market stall and warehouse.</label>
 		<parentEvent>empireEvents_counterfeiting_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
+		<silverCost>100</silverCost>
 		<successEvent>empireEvents_counterfeiting_1b</successEvent>
 	</FactionColonies.FCOptionDef>
 
@@ -92,9 +94,10 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_counterfeiting_1a</defName>
 		<label>Investigation Failed</label>
-		<desc>Your investigators turned up nothing. The counterfeit silver continues to circulate, undermining tax collection for the foreseeable future.</desc>
+		<desc>Your investigators turned up nothing; the counterfeit silver continues to circulate. Nevertheless, the investigation spooked the perpetrators, who begin to cease operations on their own.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
 		</statModifiers>
@@ -114,7 +117,7 @@
 		<timeTillTrigger>150000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
-			<li><stat>happinessGainedBase</stat><value>-3</value></li>
+			<li><stat>happinessGainedBase</stat><value>-2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -127,11 +130,12 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_counterfeiting_1c</defName>
 		<label>Unchecked Counterfeiting</label>
-		<desc>Without intervention, the counterfeit silver runs its course through the economy. Tax revenues suffer until the forgeries naturally thin out.</desc>
+		<desc>Without intervention, the counterfeit silver runs its course through the economy. The counterfeiters grow brazen. Tax revenues suffer until the forgeries naturally thin out.</desc>
 		<category>EC_Economy</category>
-		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-0.2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -161,7 +165,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_counterfeiting_2</defName>
 		<label>Counterfeiting Ring Exposed</label>
-		<desc>Your investigators have traced the counterfeit silver to its source — a well-organized ring operating out of a local warehouse. You have them cornered. What do you do with them?</desc>
+		<desc>Your investigators have traced the counterfeit silver to its source: a well-organized ring operating out of a local warehouse. You have them cornered. What do you do with them?</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>0</timeTillTrigger>
 		<options>
@@ -189,7 +193,7 @@
 	<!-- Stage 2 Option B: Co-opt -->
 	<FactionColonies.FCOptionDef>
 		<defName>empireEvents_counterfeiting_opt5</defName>
-		<label>Offer them a deal — they work for us now, minting legitimate currency.</label>
+		<label>Offer them a deal: they work for us now, minting legitimate currency.</label>
 		<parentEvent>empireEvents_counterfeiting_2</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
@@ -214,7 +218,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_counterfeiting_2b</defName>
 		<label>Imperial Minters</label>
-		<desc>The former counterfeiters now work for the empire, lending their expertise to improve currency production. Tax collection improves noticeably — though some whisper about the arrangement's legitimacy.</desc>
+		<desc>The former counterfeiters now work for the empire, lending their expertise to improve currency production. Tax collection improves noticeably, though some whisper about the arrangement's legitimacy.</desc>
 		<category>EC_Economy</category>
 		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
