@@ -158,7 +158,7 @@
 		<category>EC_Military</category>
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>militaryCombatEfficiency</stat><value>-0.1</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.9</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -189,7 +189,7 @@
 		<category>EC_Military</category>
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -208,7 +208,7 @@
 		<category>EC_Military</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<statModifiers>
-			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

@@ -96,7 +96,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>titheValueMultiplier</stat><value>0.2</value></li>
+			<li><stat>titheValueMultiplier</stat><value>1.2</value></li>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
 		</statModifiers>
@@ -116,7 +116,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>titheValueMultiplier</stat><value>0.1</value></li>
+			<li><stat>titheValueMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -134,7 +134,7 @@
 		<timeTillTrigger>600000</timeTillTrigger>
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>workerProductionMultiplier</stat><value>0.1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -152,7 +152,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>titheValueMultiplier</stat><value>0.15</value></li>
+			<li><stat>titheValueMultiplier</stat><value>1.15</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
@@ -171,7 +171,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>titheValueMultiplier</stat><value>0.25</value></li>
+			<li><stat>titheValueMultiplier</stat><value>1.25</value></li>
 			<li><stat>happinessLostBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>

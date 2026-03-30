@@ -92,7 +92,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
-			<li><stat>militaryCombatEfficiency</stat><value>-0.05</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.95</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -110,7 +110,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
-			<li><stat>militaryCombatEfficiency</stat><value>-0.1</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.9</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -162,7 +162,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
-			<li><stat>militaryCombatEfficiency</stat><value>-0.05</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.95</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

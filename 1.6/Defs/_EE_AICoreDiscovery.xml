@@ -215,7 +215,7 @@ Or you could continue extracting insights from its dormant structure, slowly but
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
 			<li><stat>workerProductionMultiplier</stat><value>1.25</value></li>
-			<li><stat>militaryCombatEfficiency</stat><value>0.1</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

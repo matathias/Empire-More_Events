@@ -126,7 +126,7 @@
 		<category>EC_Military</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

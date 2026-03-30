@@ -140,7 +140,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>titheValueMultiplier</stat><value>0.1</value></li>
+			<li><stat>titheValueMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -172,7 +172,7 @@
 		<timeTillTrigger>120000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
-			<li><stat>militaryCombatEfficiency</stat><value>0.2</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
