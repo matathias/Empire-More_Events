@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Debris detected -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_0</defName>
+		<label>Orbital Debris</label>
+		<desc>A massive chunk of orbital debris has crashed near one of your settlements. Preliminary scans suggest recoverable technology inside, but the debris field is unstable and potentially contaminated with unknown substances. The impact has already disrupted local operations. How do you proceed?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_orbitalDebris_opt1</li>
+			<li>empireEvents_orbitalDebris_opt2</li>
+			<li>empireEvents_orbitalDebris_opt3</li>
+			<li>empireEvents_orbitalDebris_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minTechLevel>Spacer</minTechLevel>
+		<requiredWealth>50000</requiredWealth>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_orbitalDebris_1a</li>
+			<li>empireEvents_orbitalDebris_1b</li>
+			<li>empireEvents_orbitalDebris_1c</li>
+			<li>empireEvents_orbitalDebris_1d</li>
+			<li>empireEvents_orbitalDebris_contam</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Salvage aggressively (risk of contamination) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_orbitalDebris_opt1</defName>
+		<label>Salvage everything. Send crews in immediately; we can't let this opportunity rot.</label>
+		<parentEvent>empireEvents_orbitalDebris_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_orbitalDebris_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Secure area first (silver cost, safe) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_orbitalDebris_opt2</defName>
+		<label>Secure the area first. Decontaminate, then salvage carefully.</label>
+		<parentEvent>empireEvents_orbitalDebris_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_orbitalDebris_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Study the debris -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_orbitalDebris_opt3</defName>
+		<label>Forget salvage. Have our researchers study the wreckage — the knowledge is worth more than scrap.</label>
+		<parentEvent>empireEvents_orbitalDebris_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_orbitalDebris_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Ignore it -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_orbitalDebris_opt4</defName>
+		<label>Leave it alone. Whatever's in there isn't worth the risk.</label>
+		<parentEvent>empireEvents_orbitalDebris_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_orbitalDebris_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Aggressive Salvage — big loot + permanent research, but 30% contamination risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_1a</defName>
+		<label>Debris Salvaged</label>
+		<desc>Your crews tear into the wreckage with reckless enthusiasm. The haul is impressive — intact components, rare alloys, and fragments of advanced technology that your researchers are eager to study. The salvage operation yields a significant material windfall and the recovered schematics permanently advance your research capabilities.
+			
+But some workers report a strange residue coating parts of the wreckage, and several have developed skin irritation. It may be nothing — or it may be something far worse.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<randomThingValue>800</randomThingValue>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>30</splitEventChance>
+		<followingEvent>empireEvents_orbitalDebris_contam</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_orbitalDebris_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Contamination follow-up (30% chance after aggressive salvage) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_contam</defName>
+		<label>Debris Contamination</label>
+		<desc>The strange residue from the orbital debris turns out to be a toxic compound that has seeped into the local soil and water supply. Crops wither, livestock sicken, and the settlement's medical facilities are overwhelmed with cases of chemical poisoning. The contamination will take considerable time to remediate. The salvage was valuable, but the hidden cost is devastating.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>450000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Secure Salvage — smaller loot, no risk -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_1b</defName>
+		<label>Debris Secured</label>
+		<desc>Your teams methodically decontaminate the crash site before beginning salvage operations. The cautious approach means some volatile components are neutralized rather than recovered, reducing the total haul. But the operation is clean and safe — no workers are harmed, and no contamination reaches the settlement. A modest but risk-free recovery.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<randomThingValue>400</randomThingValue>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_orbitalDebris_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Study Debris — permanent research boost, no loot -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_1c</defName>
+		<label>Debris Studied</label>
+		<desc>Your researchers spend weeks carefully analyzing the wreckage in situ, documenting every component and material composition. The debris yields no immediate material wealth, but the knowledge gained is invaluable. Advanced propulsion theories, exotic metallurgy data, and fragments of navigation algorithms permanently enhance your settlements' research capabilities. The wreckage is eventually cleared away, but its scientific legacy endures.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_orbitalDebris_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Ignore — happiness penalty for wasted opportunity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_1d</defName>
+		<label>Debris Ignored</label>
+		<desc>You order the debris cordoned off and left alone. It rusts in the rain while your citizens look on with frustration. Scavengers from neighboring territories eventually pick the wreckage clean, and your people are left wondering what could have been. The sense of wasted potential weighs on morale.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_orbitalDebris_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

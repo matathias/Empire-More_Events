@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Boom arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_infrastructureBoom_0</defName>
+		<label>Infrastructure Boom</label>
+		<desc>Your settlement's growing prosperity has attracted a wave of builders, engineers, and craftspeople from across the region. They're eager to work and have the skills to make lasting improvements. Where should you direct their efforts?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_infrastructureBoom_opt1</li>
+			<li>empireEvents_infrastructureBoom_opt2</li>
+			<li>empireEvents_infrastructureBoom_opt3</li>
+			<li>empireEvents_infrastructureBoom_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minDaysSinceFounded>30</minDaysSinceFounded>
+		<minimumProsperity>50</minimumProsperity>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_infrastructureBoom_1a</li>
+			<li>empireEvents_infrastructureBoom_1b</li>
+			<li>empireEvents_infrastructureBoom_1c</li>
+			<li>empireEvents_infrastructureBoom_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Expand housing -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_infrastructureBoom_opt1</defName>
+		<label>Build more housing. A larger workforce is our greatest asset.</label>
+		<parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_infrastructureBoom_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Improve logistics -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_infrastructureBoom_opt2</defName>
+		<label>Improve roads and logistics. Faster construction across the board.</label>
+		<parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_infrastructureBoom_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Build market -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_infrastructureBoom_opt3</defName>
+		<label>Construct a proper market district. Trade is the lifeblood of growth.</label>
+		<parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_infrastructureBoom_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Expansionist ambitious -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_infrastructureBoom_opt4</defName>
+		<label>We do it all. Housing, roads, AND markets. Spare no expense.</label>
+		<parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<successEvent>empireEvents_infrastructureBoom_1d</successEvent>
+		<requiredPolicies>
+			<li>expansionist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Housing -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_infrastructureBoom_1a</defName>
+		<label>New Housing District</label>
+		<desc>New residential blocks rise quickly under the skilled builders' hands. The expanded housing attracts more settlers and workers, permanently increasing the settlement's population capacity.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Logistics -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_infrastructureBoom_1b</defName>
+		<label>Improved Logistics</label>
+		<desc>New roads, warehouses, and supply depots streamline the flow of materials. Construction projects that once took months can now be completed in weeks. The efficiency gains are permanent.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>buildTimeMultiplier</stat><value>0.9</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Market -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_infrastructureBoom_1c</defName>
+		<label>Market District Built</label>
+		<desc>A proper market district takes shape, complete with stalls, storage, and trading posts. Merchants begin arriving regularly, and the settlement's tax revenue sees a permanent increase from the improved commercial activity.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Expansionist all -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_infrastructureBoom_1d</defName>
+		<label>Ambitious Expansion</label>
+		<desc>Under your expansionist vision, the builders tackle everything at once. New housing, improved roads, and a bustling market district emerge simultaneously. The investment is steep, but the results transform the settlement permanently.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>buildTimeMultiplier</stat><value>0.95</value></li>
+			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

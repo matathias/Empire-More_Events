@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Storm arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tropicalStorm_0</defName>
+		<label>Tropical Storm Season</label>
+		<desc>Monsoon rains have arrived with a vengeance, flooding lowlands, battering structures, and turning roads to mud. Logging and mining operations grind to a halt — but the torrential rains are also soaking the soil, promising exceptional harvests if you can weather the storm.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_tropicalStorm_opt1</li>
+			<li>empireEvents_tropicalStorm_opt2</li>
+			<li>empireEvents_tropicalStorm_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>20</weight>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>TropicalRainforest</li>
+			<li>TropicalSwamp</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_tropicalStorm_1a</li>
+			<li>empireEvents_tropicalStorm_1b</li>
+			<li>empireEvents_tropicalStorm_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tropicalStorm_opt1</defName>
+		<label>Hunker down and wait for the skies to clear.</label>
+		<parentEvent>empireEvents_tropicalStorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_tropicalStorm_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tropicalStorm_opt2</defName>
+		<label>Build drainage channels to control the flooding.</label>
+		<parentEvent>empireEvents_tropicalStorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_tropicalStorm_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_tropicalStorm_opt3</defName>
+		<label>Harvest the rainwater. Build cisterns and irrigation systems.</label>
+		<parentEvent>empireEvents_tropicalStorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_tropicalStorm_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Hunker down — standard mixed penalties -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tropicalStorm_1a</defName>
+		<label>Riding Out the Storm</label>
+		<desc>Your settlements batten the hatches and endure. Logging and mining are impossible in the deluge, but the saturated soil promises good harvests once the rains end. A mixed blessing from nature.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Drainage — reduced penalties -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tropicalStorm_1b</defName>
+		<label>Drainage System</label>
+		<desc>The drainage channels direct floodwater away from work sites, allowing limited operations to continue. The investment pays off — logging and mining disruption is halved, while farms still benefit from the abundant moisture.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Rainwater harvest — permanent tradeoff -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_tropicalStorm_1c</defName>
+		<label>Rainwater Harvest</label>
+		<desc>Cisterns and irrigation channels capture the monsoon's bounty. Logging suffers permanently as the water infrastructure occupies woodland areas, but the reliable irrigation transforms farming in the region. Crops thrive year-round.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.25</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

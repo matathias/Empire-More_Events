@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Spill occurs -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelSpill_0</defName>
+		<label>Chemfuel Spill</label>
+		<desc>A storage tank has ruptured at one of your chemfuel processing facilities, spilling volatile fuel across the surrounding area. The contamination threatens both production and nearby farmland. How do you handle the situation?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_chemfuelSpill_opt1</li>
+			<li>empireEvents_chemfuelSpill_opt2</li>
+			<li>empireEvents_chemfuelSpill_opt3</li>
+			<li>empireEvents_chemfuelSpill_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<requiredResource>RTD_Chemfuel</requiredResource>
+		<minTechLevel>Industrial</minTechLevel>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_chemfuelSpill_1a</li>
+			<li>empireEvents_chemfuelSpill_1b</li>
+			<li>empireEvents_chemfuelSpill_1c</li>
+			<li>empireEvents_chemfuelSpill_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Clean up (costly, short) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelSpill_opt1</defName>
+		<label>Organize a full cleanup. Spare no expense.</label>
+		<parentEvent>empireEvents_chemfuelSpill_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_chemfuelSpill_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Let it dissipate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelSpill_opt2</defName>
+		<label>It'll evaporate eventually. Focus on other priorities.</label>
+		<parentEvent>empireEvents_chemfuelSpill_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_chemfuelSpill_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Burn it off -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelSpill_opt3</defName>
+		<label>Set a controlled burn. Quick and dirty.</label>
+		<parentEvent>empireEvents_chemfuelSpill_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_chemfuelSpill_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Industrious hazmat -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelSpill_opt4</defName>
+		<label>Deploy our hazmat protocols. We trained for this.</label>
+		<parentEvent>empireEvents_chemfuelSpill_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_chemfuelSpill_1d</successEvent>
+		<requiredPolicies>
+			<li>industrious</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Cleanup — short mild penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelSpill_1a</defName>
+		<label>Spill Contained</label>
+		<desc>Cleanup crews work around the clock to contain and neutralize the spill. Production is briefly disrupted, but the worst is avoided. Lessons are learned about storage safety.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Let dissipate — long, broader penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelSpill_1b</defName>
+		<label>Lingering Contamination</label>
+		<desc>The spill slowly evaporates, but toxic residue seeps into the soil. Chemfuel production is hampered by the damaged facility, and nearby farms report diminished yields from contaminated groundwater.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Burn off — fast but social penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelSpill_1c</defName>
+		<label>Controlled Burn</label>
+		<desc>The spill is incinerated in a spectacular blaze. The fire is contained, but the thick black smoke and acrid fumes leave residents coughing and unhappy. Some question whether this was the wisest approach.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Industrious hazmat — minimal penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelSpill_1d</defName>
+		<label>Hazmat Response</label>
+		<desc>Your well-trained hazmat teams respond with practiced efficiency. The spill is neutralized quickly with minimal environmental damage. Onlookers are impressed by the professionalism of the operation.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>-0.25</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ============================================================ -->
+	<!-- THE MERCHANT PRINCE — A 4-stage economy story                -->
+	<!-- A wealthy trader offers a lucrative but suspicious long-term  -->
+	<!-- deal that may not be what it seems.                           -->
+	<!-- ============================================================ -->
+
+	<!-- Stage 0: An Offer You Can't Refuse -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_0</defName>
+		<label>An Offer You Can't Refuse</label>
+		<desc>A lavishly dressed trader has arrived at your settlement with an entourage of guards and pack animals loaded with silver. He introduces himself as a "facilitator of opportunity" and proposes a long-term exclusive trade arrangement. The terms seem almost too good: premium prices for your goods, guaranteed buyers, no questions asked. Your instincts say there's a catch.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_merchantPrince_opt_accept</li>
+			<li>empireEvents_merchantPrince_opt_negotiate</li>
+			<li>empireEvents_merchantPrince_opt_decline</li>
+			<li>empireEvents_merchantPrince_opt_leverage</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<cooldownTicks>3600000</cooldownTicks>
+		<requiredWealth>15000</requiredWealth>
+		<minDaysSinceFounded>30</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_2a</li>
+			<li>empireEvents_merchantPrince_2b</li>
+			<li>empireEvents_merchantPrince_2b_fail</li>
+			<li>empireEvents_merchantPrince_2c</li>
+			<li>empireEvents_merchantPrince_decline</li>
+			<li>empireEvents_merchantPrince_3</li>
+			<li>empireEvents_merchantPrince_3_good</li>
+			<li>empireEvents_merchantPrince_4a</li>
+			<li>empireEvents_merchantPrince_4b</li>
+			<li>empireEvents_merchantPrince_4b_fail</li>
+			<li>empireEvents_merchantPrince_4c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Accept the deal -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_accept</defName>
+		<label>Accept the deal. Silver is silver, and his is as good as anyone's.</label>
+		<parentEvent>empireEvents_merchantPrince_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_2a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Negotiate better terms (50% success) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_negotiate</defName>
+		<label>Counter-offer. If he wants exclusivity, he pays a premium for it.</label>
+		<parentEvent>empireEvents_merchantPrince_0</parentEvent>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_2b</successEvent>
+		<failEvent>empireEvents_merchantPrince_2b_fail</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Decline -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_decline</defName>
+		<label>Decline. We don't need outsiders controlling our trade.</label>
+		<parentEvent>empireEvents_merchantPrince_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_decline</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Mercantile — Leverage trade network -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_leverage</defName>
+		<label>Our trade network gives us leverage. We'll deal, but as equal partners.</label>
+		<parentEvent>empireEvents_merchantPrince_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_2c</successEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- ================================ -->
+	<!-- Option C outcome: Declined       -->
+	<!-- Brief happiness penalty, ends.   -->
+	<!-- ================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_decline</defName>
+		<label>Opportunity Refused</label>
+		<desc>The merchant takes his rejection with a thin smile and departs with his caravan. Settlers who caught wind of the offer grumble about the lost opportunity. They'll get over it.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2A: Sweet Deal (accepted as-is)        -->
+	<!-- Good trade bonus, but settlers are uneasy    -->
+	<!-- Chains to Stage 3                            -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_2a</defName>
+		<label>Sweet Deal</label>
+		<desc>The merchant's operation moves in quickly. Within days, his agents are handling all trade coming through the settlement. Prices are excellent — noticeably better than before. But local merchants are being squeezed out, and the settler rumor mill churns with speculation about where his goods really come from.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.1</value></li>
+			<li><stat>happinessLostBase</stat><value>1.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_merchantPrince_3</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2B: Renegotiated Terms (negotiation OK) -->
+	<!-- Better deal, no happiness penalty            -->
+	<!-- Chains to Stage 3                            -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_2b</defName>
+		<label>Renegotiated Terms</label>
+		<desc>Your counter-offer impressed the merchant. The revised agreement protects local businesses while still granting him access to your markets. The arrangement is profitable without being predatory, and your settlers appreciate that their leaders drove a hard bargain.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_merchantPrince_3</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2B-fail: Insulted Merchant             -->
+	<!-- Negotiation failed — tax penalty, chain ends -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_2b_fail</defName>
+		<label>Insulted Merchant</label>
+		<desc>The merchant takes your counter-offer as an insult. He packs up and leaves — loudly. Worse, he makes good on his parting threat to badmouth your settlement to every caravan on the rim. Trade dries up for a season as merchants give your markets a wide berth.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2C: Partnership of Equals (mercantile) -->
+	<!-- Best terms, chains to Stage 3-good           -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_2c</defName>
+		<label>Partnership of Equals</label>
+		<desc>Your trade expertise forces the merchant to deal honestly. The resulting partnership is genuinely equitable: he gains access to your markets, you gain access to his supply chain, and both sides profit fairly. Your settlers are proud to see the empire's commercial strength on display.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.2</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_merchantPrince_3_good</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 3: The Merchant's True Colors          -->
+	<!-- Smuggling and undercutting discovered         -->
+	<!-- Reached from 2A and 2B                       -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_3</defName>
+		<label>The Merchant's True Colors</label>
+		<desc>Disturbing reports are filtering in. The merchant's agents have been caught smuggling contraband through your settlement, using your trade routes as cover. Local shopkeepers complain they're being systematically undercut — the merchant sells goods below cost to drive them out of business. His "sweet deal" is starting to look like a takeover.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_merchantPrince_opt_confront</li>
+			<li>empireEvents_merchantPrince_opt_investigate</li>
+			<li>empireEvents_merchantPrince_opt_ignore</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3 Option A: Confront -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_confront</defName>
+		<label>Confront him directly. This ends now.</label>
+		<parentEvent>empireEvents_merchantPrince_3</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 3 Option B: Investigate secretly (60% success) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_investigate</defName>
+		<label>Investigate secretly. Let's find out exactly what he's been doing before we act.</label>
+		<parentEvent>empireEvents_merchantPrince_3</parentEvent>
+		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4b</successEvent>
+		<failEvent>empireEvents_merchantPrince_4b_fail</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 3 Option C: Ignore -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_ignore</defName>
+		<label>Look the other way. The silver keeps flowing and that's what matters.</label>
+		<parentEvent>empireEvents_merchantPrince_3</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 3-good: Growing Partnership            -->
+	<!-- Mercantile path — honest partnership grows   -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_3_good</defName>
+		<label>Growing Partnership</label>
+		<desc>The partnership has been a genuine success. The merchant has proven himself trustworthy, and both sides have profited handsomely. He approaches you with a new proposal: expand the arrangement to cover more of your settlements. Alternatively, you could keep the partnership focused where it is.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_merchantPrince_opt_expand</li>
+			<li>empireEvents_merchantPrince_opt_contain</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3-good Option A: Expand -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_expand</defName>
+		<label>Expand the partnership across more settlements. A good thing shouldn't be limited.</label>
+		<parentEvent>empireEvents_merchantPrince_3_good</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_3_good_expand</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 3-good Option B: Keep contained -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_contain</defName>
+		<label>Keep the arrangement to this settlement. No need to spread the risk.</label>
+		<parentEvent>empireEvents_merchantPrince_3_good</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_3_good_contain</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 3-good Expand outcome -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_3_good_expand</defName>
+		<label>Trade Network Expanded</label>
+		<desc>The merchant's network now operates across multiple settlements, creating a reliable trade backbone for your empire. The arrangement is fair, profitable, and built on mutual trust. A rare success story on the rim.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.05</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3-good Contain outcome -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_3_good_contain</defName>
+		<label>Focused Partnership</label>
+		<desc>The partnership remains concentrated in a single settlement, where it continues to thrive. The merchant respects your caution and dedicates his full attention to making this one arrangement as profitable as possible.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.1</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 4A: The Bribe (confrontation path)     -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4a</defName>
+		<label>The Bribe</label>
+		<desc>You confront the merchant in his warehouse. He doesn't even try to deny it — he simply opens a chest overflowing with silver and slides it across the table. "Everyone has a price," he says with a knowing smile. "Think of it as a consulting fee for your continued... discretion."</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_merchantPrince_opt_takebribe</li>
+			<li>empireEvents_merchantPrince_opt_expel</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 4A Option A: Take the bribe -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_takebribe</defName>
+		<label>Take the silver. Everyone does have a price, and his is reasonable.</label>
+		<parentEvent>empireEvents_merchantPrince_4a</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4a_bribed</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 4A Option B: Refuse and expel -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_expel</defName>
+		<label>Refuse. Seize his goods and throw him out of the settlement.</label>
+		<parentEvent>empireEvents_merchantPrince_4a</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4a_expelled</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 4A-bribed: Took the bribe -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4a_bribed</defName>
+		<label>Pocketed Silver</label>
+		<desc>You take the merchant's silver and look the other way. The smuggling continues, but his "consulting fees" are generous. Somewhere in the back of your mind, you know this will catch up with you — the tax base erodes as the merchant's parallel economy thrives in the shadows.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>1000</randomThingValue>
+		<permanentStatModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.03</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 4A-expelled: Refused and expelled -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4a_expelled</defName>
+		<label>Merchant Expelled</label>
+		<desc>Guards escort the merchant and his people out of the settlement under the cheers of local shopkeepers. The smuggling network is dismantled, legitimate trade resumes, and your settlers are proud that their leaders couldn't be bought. It's a good day for the empire.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 4B: Evidence Found (investigation OK)  -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4b</defName>
+		<label>Evidence Found</label>
+		<desc>Your investigators have done excellent work. They've documented everything: the smuggling routes, the bribed customs officials, the warehouses full of contraband, and the merchant's personal ledger detailing every illegal transaction. You have him dead to rights. The question is what to do with this leverage.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_merchantPrince_opt_arrest</li>
+			<li>empireEvents_merchantPrince_opt_blackmail</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 4B Option A: Arrest and seize -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_arrest</defName>
+		<label>Arrest him and seize his goods. Justice must be public and decisive.</label>
+		<parentEvent>empireEvents_merchantPrince_4b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4b_arrest</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 4B Option B: Blackmail -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_merchantPrince_opt_blackmail</defName>
+		<label>Blackmail him. He works for us now — on our terms, with our cut.</label>
+		<parentEvent>empireEvents_merchantPrince_4b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_merchantPrince_4b_blackmail</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 4B-arrest: Arrested and goods seized -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4b_arrest</defName>
+		<label>Merchant Arrested</label>
+		<desc>The merchant is dragged before the settlement in chains, his warehouses emptied, his agents scattered. The seized goods are distributed among the settlers, and the public trial sends a clear message: the empire protects its own. Loyalty soars.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>1200</randomThingValue>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 4B-blackmail: Ongoing extortion -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4b_blackmail</defName>
+		<label>Merchant Under Thumb</label>
+		<desc>The merchant has no choice but to comply. His trade network now operates under your direction, funneling premium profits into your treasury. He does his work with a forced smile, knowing that one wrong move means the evidence goes public. The arrangement is lucrative, but your settlers sense something rotten about the whole affair.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.05</value></li>
+		</permanentStatModifiers>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 4B-fail: Spooked (investigation failed) -->
+	<!-- Merchant flees, chain ends                    -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4b_fail</defName>
+		<label>Spooked</label>
+		<desc>Your investigators were careless. The merchant caught wind of the probe and vanished overnight, along with his agents, his goods, and a disturbing amount of your settlement's trade contacts. The local economy stumbles without the established trade routes he controlled.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 4C: Monopoly (ignored the problems)    -->
+	<!-- Big trade bonus, massive morale/unrest cost  -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_merchantPrince_4c</defName>
+		<label>Monopoly</label>
+		<desc>By looking the other way, you allowed the merchant to consolidate total control over local trade. Every business in the settlement either works for him or is out of business. The silver flows like water — into his pockets first, then a generous cut to you.
+			
+But the citzens are furious. Local artisans have been ruined, prices are whatever the merchant says they are, and the settlement feels less like a community and more like a company town.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.2</value></li>
+			<li><stat>happinessLostBase</stat><value>1.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<prosperityLost>5</prosperityLost>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_merchantPrince_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

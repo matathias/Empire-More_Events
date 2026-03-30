@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Rival teams -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_researchRivalry_0</defName>
+		<label>Research Rivalry</label>
+		<desc>Two research teams at one of your settlements have developed competing theories on a critical subject and refuse to collaborate. Each team insists their approach is the only path forward. The infighting is starting to affect the whole department.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_researchRivalry_opt1</li>
+			<li>empireEvents_researchRivalry_opt2</li>
+			<li>empireEvents_researchRivalry_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<requiredResource>RTD_Research</requiredResource>
+		<minTechLevel>Industrial</minTechLevel>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_researchRivalry_1a</li>
+			<li>empireEvents_researchRivalry_1b</li>
+			<li>empireEvents_researchRivalry_1c_win</li>
+			<li>empireEvents_researchRivalry_1c_lose</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Force collaboration -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_researchRivalry_opt1</defName>
+		<label>Enough bickering. Force them to work together or find new jobs.</label>
+		<parentEvent>empireEvents_researchRivalry_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_researchRivalry_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Fund both -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_researchRivalry_opt2</defName>
+		<label>Fund both teams. Let them prove their theories independently.</label>
+		<parentEvent>empireEvents_researchRivalry_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<successEvent>empireEvents_researchRivalry_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Pick a winner (50% success) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_researchRivalry_opt3</defName>
+		<label>We'll review both theories and back the most promising one.</label>
+		<parentEvent>empireEvents_researchRivalry_0</parentEvent>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_researchRivalry_1c_win</successEvent>
+		<failEvent>empireEvents_researchRivalry_1c_lose</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Forced collaboration — research boost with unhappiness -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_researchRivalry_1a</defName>
+		<label>Reluctant Collaboration</label>
+		<desc>Under pressure, the rival teams grudgingly combine their efforts. The work is tense and the atmosphere frosty, but the merged approach produces results that neither team could have achieved alone. Morale, however, takes a hit.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Fund both — expensive but great results -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_researchRivalry_1b</defName>
+		<label>Dual Research Programs</label>
+		<desc>With independent funding, both teams throw themselves into their work with renewed vigor. The competitive energy drives innovation, and the settlement benefits from two parallel streams of discovery. Expensive, but the results speak for themselves.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C-win: Picked the right team -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_researchRivalry_1c_win</defName>
+		<label>Vindicated Theory</label>
+		<desc>Your assessment proves correct. The chosen team's theory bears fruit spectacularly, producing a breakthrough that permanently advances the settlement's research capabilities. The winning team is elated, and even the losing team grudgingly acknowledges the results.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C-lose: Picked the wrong team -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_researchRivalry_1c_lose</defName>
+		<label>Dead End</label>
+		<desc>The theory you backed turns out to be a dead end. Months of work are wasted, and the losing team's resentment is palpable. The other team's approach might have worked, but it's too late now. At least some useful methodology emerged from the effort.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>1.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Oasis discovered -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_desertOasis_0</defName>
+		<label>Desert Oasis Found</label>
+		<desc>Scouts have discovered a hidden water source near your settlement; a natural spring bubbling up through the rock, surrounded by unexpected greenery. In this parched landscape, water is power. How will you use this discovery?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_desertOasis_opt1</li>
+			<li>empireEvents_desertOasis_opt2</li>
+			<li>empireEvents_desertOasis_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>Desert</li>
+			<li>ExtremeDesert</li>
+			<li>AridShrubland</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_desertOasis_1a</li>
+			<li>empireEvents_desertOasis_1b</li>
+			<li>empireEvents_desertOasis_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_desertOasis_opt1</defName>
+		<label>Build irrigation channels to the settlement. We need food, not scenery.</label>
+		<parentEvent>empireEvents_desertOasis_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_desertOasis_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_desertOasis_opt2</defName>
+		<label>Establish a waystation there for travelers and traders.</label>
+		<parentEvent>empireEvents_desertOasis_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_desertOasis_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_desertOasis_opt3</defName>
+		<label>Keep it a secret. A private water source is a comfort in hard times.</label>
+		<parentEvent>empireEvents_desertOasis_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_desertOasis_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_desertOasis_1a</defName>
+		<label>Irrigated Farmland</label>
+		<desc>Engineers construct channels and aqueducts from the oasis to the settlement. For the first time, crops grow reliably in the desert soil. The settlement's food production is permanently improved.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_desertOasis_1b</defName>
+		<label>Desert Waystation</label>
+		<desc>A waystation built around the oasis becomes an essential stop for caravans crossing the desert. Traders pay handsomely for water and shelter, and the traffic brings new faces looking to settle.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_desertOasis_1c</defName>
+		<label>Hidden Spring</label>
+		<desc>The oasis remains your settlement's secret. Knowing there's a reliable water source nearby, even in the worst droughts, gives settlers a quiet confidence. Morale is permanently bolstered by the security of hidden reserves.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

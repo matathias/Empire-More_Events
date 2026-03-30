@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Volcanic winter begins -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_volcanicWinter_0</defName>
+		<label>Volcanic Winter</label>
+		<desc>A distant supervolcano has erupted, blanketing the sky with ash. Sunlight dims, temperatures plunge, and crops wither across the land. This is no ordinary cold snap — the effects will linger for a long time. Your entire empire is affected. How do you respond?</desc>
+		<category>EC_Economy</category>
+		<isNegative>true</isNegative>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_volcanicWinter_opt1</li>
+			<li>empireEvents_volcanicWinter_opt2</li>
+			<li>empireEvents_volcanicWinter_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>4</weight>
+		<cooldownTicks>7200000</cooldownTicks>
+		<minSettlements>3</minSettlements>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_volcanicWinter_greenhouse</li>
+			<li>empireEvents_volcanicWinter_imports</li>
+			<li>empireEvents_volcanicWinter_endure</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Greenhouse farming -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_volcanicWinter_opt1</defName>
+		<label>Construct emergency greenhouses. We'll grow food indoors.</label>
+		<parentEvent>empireEvents_volcanicWinter_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>1000</silverCost>
+		<successEvent>empireEvents_volcanicWinter_greenhouse</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Emergency imports -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_volcanicWinter_opt2</defName>
+		<label>Import food from unaffected regions. It won't be cheap.</label>
+		<parentEvent>empireEvents_volcanicWinter_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>600</silverCost>
+		<successEvent>empireEvents_volcanicWinter_imports</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Endure together -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_volcanicWinter_opt3</defName>
+		<label>We endure together. Shared hardship builds character.</label>
+		<parentEvent>empireEvents_volcanicWinter_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_volcanicWinter_endure</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Greenhouse — food penalty removed, logging and happiness penalties remain -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_volcanicWinter_greenhouse</defName>
+		<label>Greenhouse Initiative</label>
+		<desc>Emergency greenhouses spring up across your settlements, their glass walls glowing with artificial warmth. Food production is preserved, though the ashen skies still dampen logging operations and weigh on people's spirits.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>900000</timeTillTrigger>
+		<timeTillTriggerMax>1800000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_volcanicWinter_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Emergency imports — food penalty halved, logging and happiness penalties remain -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_volcanicWinter_imports</defName>
+		<label>Emergency Imports</label>
+		<desc>Caravans of imported food arrive at your settlements, staving off the worst of the famine. The supply lines are expensive and unreliable, so some food loss is unavoidable. Logging remains difficult in the ash-choked forests, and morale suffers under the grey skies.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>900000</timeTillTrigger>
+		<timeTillTriggerMax>1800000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_volcanicWinter_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Endure — full penalties, loyalty bonus -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_volcanicWinter_endure</defName>
+		<label>Enduring the Winter</label>
+		<desc>Your settlements hunker down and face the volcanic winter together. Food runs short, logging falters, and spirits sink — but the shared hardship forges bonds of loyalty that silver alone cannot buy.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>900000</timeTillTrigger>
+		<timeTillTriggerMax>1800000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_volcanicWinter_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Enhancement program proposed -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_cyberneticEnhancement_0</defName>
+		<label>Cybernetic Enhancement Program</label>
+		<desc>Researchers at your settlements have developed viable cybernetic implant technology. They propose a full-scale enhancement program that could fundamentally reshape your workforce — and your civilization. The implications are staggering: enhanced workers, augmented soldiers, or medical breakthroughs that extend human capability beyond its natural limits.
+			
+But not everyone is comfortable with blurring the line between flesh and machine. This decision will define what your empire becomes.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_cyberneticEnhancement_opt1</li>
+			<li>empireEvents_cyberneticEnhancement_opt2</li>
+			<li>empireEvents_cyberneticEnhancement_opt3</li>
+			<li>empireEvents_cyberneticEnhancement_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<cooldownTicks>3600000</cooldownTicks>
+		<minTechLevel>Spacer</minTechLevel>
+		<requiredResource>RTD_Medicine</requiredResource>
+		<requiredWealth>60000</requiredWealth>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_cyberneticEnhancement_1a</li>
+			<li>empireEvents_cyberneticEnhancement_1b</li>
+			<li>empireEvents_cyberneticEnhancement_1c</li>
+			<li>empireEvents_cyberneticEnhancement_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Universal enhancement -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_cyberneticEnhancement_opt1</defName>
+		<label>Enhance everyone. Every citizen gets implants — a new standard for human capability.</label>
+		<parentEvent>empireEvents_cyberneticEnhancement_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_cyberneticEnhancement_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Military focus -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_cyberneticEnhancement_opt2</defName>
+		<label>Focus on our soldiers. Combat augmentation will make our military unmatched.</label>
+		<parentEvent>empireEvents_cyberneticEnhancement_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_cyberneticEnhancement_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Medical focus -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_cyberneticEnhancement_opt3</defName>
+		<label>Apply the technology to medicine. Healing, longevity, and quality of life — that's what matters.</label>
+		<parentEvent>empireEvents_cyberneticEnhancement_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_cyberneticEnhancement_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Ban enhancements -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_cyberneticEnhancement_opt4</defName>
+		<label>Absolutely not. We remain human. Ban the program entirely.</label>
+		<parentEvent>empireEvents_cyberneticEnhancement_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_cyberneticEnhancement_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Universal Enhancement — permanent production boost, permanent happiness cost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_cyberneticEnhancement_1a</defName>
+		<label>Universal Augmentation</label>
+		<desc>Cybernetic implants are distributed across the population. Workers become faster, stronger, and more precise; production surges as augmented citizens outperform their unenhanced predecessors. But something intangible is lost. Many citizens report feeling disconnected, less human. Social bonds fray as people struggle to recognize themselves in the mirror. The enhancement is permanent, and so is the quiet unease it brings.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.5</value></li>
+			<li><stat>happinessLostBase</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_cyberneticEnhancement_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Military Focus — permanent combat efficiency and military level -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_cyberneticEnhancement_1b</defName>
+		<label>Military Augmentation</label>
+		<desc>Your soldiers are outfitted with combat-grade cybernetics: reinforced skeletal frames, neural targeting systems, and synthetic muscle fibers. The results are terrifying. Augmented troops move with inhuman speed and precision, their reaction times measured in milliseconds. Your military is transformed into something no unenhanced force can match. Enemy factions will think twice before provoking your settlements.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>militaryCombatEfficiency</stat><value>1.15</value></li>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_cyberneticEnhancement_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Medical Focus — permanent medicine production and worker capacity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_cyberneticEnhancement_1c</defName>
+		<label>Medical Breakthrough</label>
+		<desc>The cybernetic technology is channeled into medical applications: prosthetic organs that never fail, neural implants that accelerate healing, and diagnostic systems that catch illness before symptoms appear. Your settlements become beacons of health and longevity. Medical output increases as the technology enables mass production of advanced treatments, and the improved quality of life attracts new settlers eager to benefit from your healthcare system.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>workerBaseMax</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_cyberneticEnhancement_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Ban Enhancements — temporary happiness and loyalty boost (NOT permanent) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_cyberneticEnhancement_1d</defName>
+		<label>Enhancement Ban</label>
+		<desc>You outlaw the cybernetic enhancement program entirely. The researchers are disappointed, but the general population is relieved. Citizens rally around the decision, proud that their empire values humanity over raw efficiency.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_cyberneticEnhancement_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ===== TRANSCENDENT ARTIFACT: 4-stage Ultra chain ===== -->
+	<!-- Workers unearth a device that defies physical laws. -->
+
+	<!-- Stage 1: The Impossible Object (entry point with options) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_0</defName>
+		<label>The Impossible Object</label>
+		<desc>Excavation crews at your settlement have unearthed something that shouldn't exist. A device — if it can be called that — roughly the size of a human torso, composed of materials your instruments cannot identify. It has no seams, no moving parts, and no discernible power source, yet it emits a constant low hum and maintains a surface temperature precisely one degree above ambient, regardless of environment. Most disturbing: it weighs exactly nothing. Not light — nothing. It simply does not interact with gravity.
+			
+Your engineers are baffled, your researchers are ecstatic, and your workers refuse to go near it.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_transcendentArtifact_opt1</li>
+			<li>empireEvents_transcendentArtifact_opt2</li>
+			<li>empireEvents_transcendentArtifact_opt3</li>
+			<li>empireEvents_transcendentArtifact_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>2</weight>
+		<cooldownTicks>5400000</cooldownTicks>
+		<minTechLevel>Ultra</minTechLevel>
+		<requiredWealth>100000</requiredWealth>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_transcendentArtifact_2a</li>
+			<li>empireEvents_transcendentArtifact_2b</li>
+			<li>empireEvents_transcendentArtifact_sell</li>
+			<li>empireEvents_transcendentArtifact_destroy</li>
+			<li>empireEvents_transcendentArtifact_3a</li>
+			<li>empireEvents_transcendentArtifact_3b</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Harness it -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt1</defName>
+		<label>Attempt to harness it. If it can defy gravity, imagine what else it can do for us!</label>
+		<parentEvent>empireEvents_transcendentArtifact_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_2a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Contain and study -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt2</defName>
+		<label>Contain it in a research facility. Study it without trying to use it.</label>
+		<parentEvent>empireEvents_transcendentArtifact_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_2b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Sell -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt3</defName>
+		<label>Sell it. Something this exotic will fetch an extraordinary price from the right buyer.</label>
+		<parentEvent>empireEvents_transcendentArtifact_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_sell</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Destroy -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt4</defName>
+		<label>Destroy it. Things that defy physics have no place in our settlements.</label>
+		<parentEvent>empireEvents_transcendentArtifact_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_destroy</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome C: Sell — silver reward, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_sell</defName>
+		<label>Artifact Sold</label>
+		<desc>News of the artifact spreads through trader networks like wildfire. Bidders arrive within days — collectors, researchers, military officials, and representatives of factions you've never heard of. The bidding war is fierce and the final price staggering. The buyer, a representative of an archotech research collective, pays in raw silver and departs immediately, cradling the artifact like a newborn. You'll never know what they do with it, but the silver they left is impressive.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>5000</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Destroy — permanent military bonus, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_destroy</defName>
+		<label>Artifact Destroyed</label>
+		<desc>Destroying the artifact proves more difficult than expected. Conventional tools pass through it, energy weapons are absorbed, and explosives simply push it away without damage. Eventually, your engineers devise a containment field that collapses it into a singularity point that vanishes with a sound like tearing silk.
+			
+The relief is palpable. Your military takes note of the containment field technology developed during the process, incorporating the principles into their combat doctrine. Sometimes the most valuable discovery is the one you make while solving a different problem entirely.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>militaryCombatEfficiency</stat><value>1.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2A: Harnessing the Impossible — 300k, 60/40 split -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_2a</defName>
+		<label>Harnessing the Impossible</label>
+		<desc>Your engineers construct an interface framework around the artifact, attempting to channel its impossible properties into something useful. The work is equal parts engineering and guesswork — conventional physics offers no guidance. Energy readings fluctuate wildly. Instruments designed to measure the artifact's output keep returning values that crash the analysis software.
+			
+Something is happening inside that shell, something that could elevate your settlement to archotech-level capability... or tear a hole in the fabric of reality.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>60</splitEventChance>
+		<followingEvent>empireEvents_transcendentArtifact_3a</followingEvent>
+		<followingEvent2>empireEvents_transcendentArtifact_3b</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B: Careful Study — 600k, permanent research bonus, then options -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_2b</defName>
+		<label>Careful Study</label>
+		<desc>The artifact is sealed in a purpose-built research facility with multiple layers of containment. Your scientists approach it with instruments rather than interfaces, cataloging every anomalous property without attempting to exploit any of them.
+			
+The research is painstaking but revelatory. The artifact's gravity-defying properties lead to breakthroughs in field theory. Its unknown materials inspire new approaches to molecular engineering. The facility becomes your settlement's premier research institution, and insights flow steadily from its careful, methodical work.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1200000</timeTillTrigger>
+		<timeTillTriggerMax>3600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_transcendentArtifact_2b_choice</followingEvent>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B Choice: What to do after studying -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_2b_choice</defName>
+		<label>Beyond Observation</label>
+		<desc>Your research team has exhausted what passive observation can teach them. They've cataloged the artifact's properties, developed theoretical models for its behavior, and derived practical applications from its anomalies. But the artifact's true nature remains elusive. The team's lead researcher argues that the only way forward is active interaction — harnessing the artifact as originally proposed, but now with the benefit of extensive study and safeguards. Others advocate for continued passive research, arguing that the steady flow of insights is valuable enough without the risk of direct manipulation.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_transcendentArtifact_opt5</li>
+			<li>empireEvents_transcendentArtifact_opt6</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option: Harness with safeguards (80/20 split) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt5</defName>
+		<label>Now harness it. Our research gives us the best chance anyone has ever had to do this safely.</label>
+		<parentEvent>empireEvents_transcendentArtifact_2b_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_2a_safe</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option: Keep studying -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt6</defName>
+		<label>Keep studying it passively. The insights are worth more than the risk.</label>
+		<parentEvent>empireEvents_transcendentArtifact_2b_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_keep_studying</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2A-Safe: Harnessing with safeguards — 80/20 split favoring integration -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_2a_safe</defName>
+		<label>Informed Harnessing</label>
+		<desc>Armed with extensive research data and carefully designed safeguards, your engineers attempt to harness the artifact's properties. The interface framework is built on months of observational data, each connection point informed by theoretical models. The process is still unpredictable — the artifact operates on principles your physics can't fully describe — but your preparation gives you a significant advantage over a blind attempt.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>80</splitEventChance>
+		<followingEvent>empireEvents_transcendentArtifact_3a</followingEvent>
+		<followingEvent2>empireEvents_transcendentArtifact_3b</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Keep Studying: Additional permanent research, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_keep_studying</defName>
+		<label>Continued Observation</label>
+		<desc>Your team continues their passive study of the artifact, now focusing on second-order effects — how its presence influences chemical reactions, material properties, and energy fields in its vicinity. The work yields another wave of practical insights. While you'll never unlock the artifact's full potential this way, the steady accumulation of knowledge has permanently elevated your settlement's scientific capabilities.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3A: Archotech Integration — major permanent bonuses -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_3a</defName>
+		<label>Archotech Integration</label>
+		<desc>The harnessing succeeds spectacularly. The artifact's impossible properties are channeled through your interface framework, and the results defy everything your engineers thought they knew. Gravity manipulation enables frictionless manufacturing. The artifact's exotic energy emissions power medical devices of extraordinary precision. Research output explodes as your scientists gain access to experimental conditions that were previously theoretical impossibilities.
+			
+Your settlement has taken a step beyond conventional technology into something genuinely transcendent. Workers, researchers, and soldiers alike benefit from the integration of archotech principles into everyday operations.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.5</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>3</value></li>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3B: Reality Fracture — damage + modest permanent research, then options -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_3b</defName>
+		<label>Reality Fracture</label>
+		<desc>The harnessing goes catastrophically wrong.
+			
+The interface framework resonates with the artifact at a frequency that tears a localized hole in spacetime. For three terrifying seconds, a section of your settlement simply ceases to exist — replaced by a void that radiates cold and silence before collapsing back on itself. Workers vanish. Equipment is unmade.
+			
+The artifact survives, of course, floating serenely above the devastation it caused.
+			
+Your settlement reels from the loss. Yet even in the wreckage, your researchers note that the brief glimpse through the fracture revealed structures and phenomena of profound scientific significance.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>480000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-3</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.5</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_transcendentArtifact_3b_choice</followingEvent>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3B Choice: What to do after the fracture -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_3b_choice</defName>
+		<label>After the Fracture</label>
+		<desc>The settlement is rebuilding, but the artifact remains. Untouched, undamaged; indifferent to the devastation it caused.
+			
+Your advisors are divided. Some argue that the interface parameters were simply wrong, that a different approach could still yield the archotech integration you sought. Others want the artifact sealed away permanently, its power acknowledged but never again tested.
+			
+The data from the fracture event itself is scientifically invaluable, but the cost of another failure could be far worse.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_transcendentArtifact_opt7</li>
+			<li>empireEvents_transcendentArtifact_opt8</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option: Try again (risky 50/50 split) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt7</defName>
+		<label>Try again. The fracture data tells us what went wrong — we can correct the parameters.</label>
+		<parentEvent>empireEvents_transcendentArtifact_3b_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_2a_risky</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option: Seal it -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_transcendentArtifact_opt8</defName>
+		<label>Seal it away. We've learned enough — and paid enough. No more attempts.</label>
+		<parentEvent>empireEvents_transcendentArtifact_3b_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_transcendentArtifact_seal</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2A-Risky: Desperate second attempt -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_2a_risky</defName>
+		<label>Second Attempt</label>
+		<desc>With the fracture data guiding their adjustments, your engineers rebuild the interface framework and attempt harnessing again. The work is haunted by the memory of the last failure — every fluctuation in the readings sends a wave of panic through the team. But the data is clear: the parameters were wrong, not the concept. Whether the corrected approach will succeed or produce another catastrophe remains to be seen. Your settlement holds its collective breath.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>50</splitEventChance>
+		<followingEvent>empireEvents_transcendentArtifact_3a</followingEvent>
+		<followingEvent2>empireEvents_transcendentArtifact_3b</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Seal: Modest permanent research, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_transcendentArtifact_seal</defName>
+		<label>Artifact Sealed</label>
+		<desc>The artifact is enclosed in the strongest containment your engineers can devise: layered alloy, energy dampening fields, and a final tomb of reinforced stone buried deep beneath the settlement. It will rest there, silent and weightless, for as long as your empire endures.
+			
+The decision brings closure. Your researchers compile their findings — the fracture data, the observational records, the theoretical frameworks — into a body of knowledge that will benefit your settlement's scientific endeavors for years to come.
+			
+Sometimes, wisdom lies in knowing when to stop.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

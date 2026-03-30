@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Drought hits -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_0</defName>
+		<label>Drought</label>
+		<desc>A severe drought has gripped your settlements. Wells are running dry, crops are wilting in the fields, and livestock are growing gaunt. The water shortage threatens to devastate food and animal production alike. How do you respond?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_drought_opt1</li>
+			<li>empireEvents_drought_opt2</li>
+			<li>empireEvents_drought_opt3</li>
+			<li>empireEvents_drought_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>AridShrubland</li>
+			<li>TemperateForest</li>
+			<li>TropicalRainforest</li>
+			<li>TropicalSwamp</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_drought_1a</li>
+			<li>empireEvents_drought_1b</li>
+			<li>empireEvents_drought_1c</li>
+			<li>empireEvents_drought_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Ration water -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_drought_opt1</defName>
+		<label>Ration water supplies and tighten consumption. We'll endure.</label>
+		<parentEvent>empireEvents_drought_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_drought_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Dig wells -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_drought_opt2</defName>
+		<label>Hire crews to dig deep wells. There must be water below.</label>
+		<parentEvent>empireEvents_drought_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_drought_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Import food -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_drought_opt3</defName>
+		<label>Import food from outside the empire. Money solves everything.</label>
+		<parentEvent>empireEvents_drought_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<successEvent>empireEvents_drought_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Sacrifice livestock -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_drought_opt4</defName>
+		<label>Slaughter the livestock for food. The herds can't survive this anyway.</label>
+		<parentEvent>empireEvents_drought_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_drought_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Ration — full penalties, chance of drought breaking early -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_1a</defName>
+		<label>Water Rationed</label>
+		<desc>Strict water rationing is imposed across affected settlements. Citizens queue for their daily allotment as crops struggle and livestock grow thin. It's a grim existence, but the settlements endure. There's hope the rains may return sooner than expected.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-1.5</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_drought_breaks</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_drought_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Dig wells — halved food penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_1b</defName>
+		<label>Wells Dug</label>
+		<desc>Deep wells are sunk across the settlements, tapping into underground aquifers. The new water sources ease the worst of the crisis — crops still suffer, but the food loss is far less severe than it could have been. The timber and livestock take a lighter hit as well.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.75</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>-0.25</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.25</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_drought_breaks</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_drought_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Import food — food penalty removed -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_1c</defName>
+		<label>Food Imported</label>
+		<desc>Caravans of imported food pour into the affected settlements. While the drought still ravages the land — timber dries out and livestock struggle — the people are well fed. An expensive solution, but an effective one.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_drought_breaks</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_drought_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Sacrifice livestock — animal penalty removed, permanent animal production loss -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_1d</defName>
+		<label>Livestock Slaughtered</label>
+		<desc>The herds are culled, their meat salted and stored. The immediate food crisis is eased by the influx of meat, and the remaining water stretches further without thirsty livestock. But the breeding stock is gone — it will take a long time for animal production to recover, if it ever fully does.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-1.5</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>-0.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_drought_breaks</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_drought_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Follow-up: Drought Breaks (40% chance after rationing) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_breaks</defName>
+		<label>Drought Breaks</label>
+		<desc>The skies darken and rain finally falls. The drought has broken early, and the parched earth drinks deeply. Crops spring back to life and the settlements breathe a collective sigh of relief. Food production rebounds.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

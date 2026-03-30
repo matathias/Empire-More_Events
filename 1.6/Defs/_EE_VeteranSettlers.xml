@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Veterans arrive -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_veteranSettlers_0</defName>
+		<label>Veteran Settlers</label>
+		<desc>A group of retired soldiers has arrived at one of your settlements, looking to put down roots after years of fighting. They're experienced, disciplined, and willing to contribute — but in what capacity? Their combat skills are obvious, but they could serve the community in other ways.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_veteranSettlers_opt1</li>
+			<li>empireEvents_veteranSettlers_opt2</li>
+			<li>empireEvents_veteranSettlers_opt3</li>
+			<li>empireEvents_veteranSettlers_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>20</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_veteranSettlers_1a</li>
+			<li>empireEvents_veteranSettlers_1b</li>
+			<li>empireEvents_veteranSettlers_1c</li>
+			<li>empireEvents_veteranSettlers_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Recruit as militia -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_veteranSettlers_opt1</defName>
+		<label>Welcome them into the garrison. We can always use experienced fighters.</label>
+		<parentEvent>empireEvents_veteranSettlers_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_veteranSettlers_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Put them to work -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_veteranSettlers_opt2</defName>
+		<label>They've fought enough. Give them land and tools — we need workers.</label>
+		<parentEvent>empireEvents_veteranSettlers_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_veteranSettlers_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Honor their service -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_veteranSettlers_opt3</defName>
+		<label>Hold a ceremony in their honor. Let them retire in peace.</label>
+		<parentEvent>empireEvents_veteranSettlers_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_veteranSettlers_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Militaristic integration -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_veteranSettlers_opt4</defName>
+		<label>These veterans know how to command. Integrate them into our officer corps.</label>
+		<parentEvent>empireEvents_veteranSettlers_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_veteranSettlers_1d</successEvent>
+		<requiredPolicies>
+			<li>militaristic</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Militia — permanent military boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_veteranSettlers_1a</defName>
+		<label>Veterans Enlisted</label>
+		<desc>The veterans eagerly join the garrison, bringing years of combat experience. They quickly improve training regimens and defensive protocols. The settlement's military capability is permanently enhanced.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Workers — permanent workforce boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_veteranSettlers_1b</defName>
+		<label>Veterans Settled</label>
+		<desc>The veterans trade their weapons for tools and settle into civilian life. Their military discipline translates well into productive work — they're organized, efficient, and tireless. The settlement's workforce grows and improves.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>workerProductionBase</stat><value>1.1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Honor — temporary morale boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_veteranSettlers_1c</defName>
+		<label>Heroes Honored</label>
+		<desc>The ceremony is a moving tribute to the veterans' service. Citizens are inspired by their stories of sacrifice and duty. The veterans retire contentedly, and a wave of patriotic pride sweeps through the settlement.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Officer corps — permanent military + efficiency -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_veteranSettlers_1d</defName>
+		<label>Officers Integrated</label>
+		<desc>The veterans' command experience proves invaluable. Integrated into the officer corps, they restructure unit tactics and improve coordination between squads. The settlement's military becomes both larger and more efficient.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

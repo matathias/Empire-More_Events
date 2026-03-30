@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Golden harvest conditions -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenHarvest_0</defName>
+		<label>Golden Harvest</label>
+		<desc>Perfect growing conditions have descended upon your settlements — warm rains, mild temperatures, and rich soil combine for a harvest unlike any in living memory. Crops grow tall and livestock thrive in the lush pastures. How do you manage this extraordinary abundance?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_goldenHarvest_opt1</li>
+			<li>empireEvents_goldenHarvest_opt2</li>
+			<li>empireEvents_goldenHarvest_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<requiredResource>RTD_Food</requiredResource>
+		<restrictedBiomes>
+			<li>IceSheet</li>
+			<li>SeaIce</li>
+			<li>Desert</li>
+			<li>ExtremeDesert</li>
+		</restrictedBiomes>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenHarvest_maximize</li>
+			<li>empireEvents_goldenHarvest_export</li>
+			<li>empireEvents_goldenHarvest_feasts</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Maximize output -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_goldenHarvest_opt1</defName>
+		<label>Maximize output. Every field, every pasture — work them all.</label>
+		<parentEvent>empireEvents_goldenHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_goldenHarvest_maximize</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Export surplus -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_goldenHarvest_opt2</defName>
+		<label>Export the surplus to neighboring factions at premium prices.</label>
+		<parentEvent>empireEvents_goldenHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_goldenHarvest_export</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Season of feasts -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_goldenHarvest_opt3</defName>
+		<label>Declare a season of feasts. Let the people eat, drink, and be merry.</label>
+		<parentEvent>empireEvents_goldenHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_goldenHarvest_feasts</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Maximize — full standard bonuses -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenHarvest_maximize</defName>
+		<label>Maximum Harvest</label>
+		<desc>Every available hand is put to work in the fields and pastures. The harvest is staggering — granaries overflow, herds fatten, and the settlements bask in agricultural abundance. Spirits are high as citizens take pride in the fruits of their labor.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Export surplus — reduced food, tax revenue boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenHarvest_export</defName>
+		<label>Harvest Exports</label>
+		<desc>Caravans laden with premium produce roll out to neighboring factions, fetching excellent prices on the open market. The food bonus is reduced as much of the harvest leaves your settlements, but the trade revenue more than compensates. Livestock still thrive in the bountiful pastures.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.75</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Season of feasts — reduced food, happiness and loyalty surge -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenHarvest_feasts</defName>
+		<label>Season of Feasts</label>
+		<desc>Every settlement becomes a hub of celebration. Long tables are set in town squares, barrels of mead are tapped, and the smell of roasting meat fills the air for weeks on end. Much of the harvest is consumed in the revelry, but the bonds forged over shared meals create a deep sense of unity and contentment.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>1.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

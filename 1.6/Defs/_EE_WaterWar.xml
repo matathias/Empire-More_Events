@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ============================================================ -->
+	<!-- THE WATER WAR — A 4-stage desert biome chain                 -->
+	<!-- A water source dispute with a neighboring community escalates -->
+	<!-- ============================================================ -->
+
+	<!-- Stage 0: Disputed Spring -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_0</defName>
+		<label>Disputed Spring</label>
+		<desc>A natural spring has been discovered at the boundary between your settlement and a neighboring community. Both sides have been drawing water from it, but supplies are dwindling. The neighbors are fortifying their claim. Left unresolved, this could get ugly fast.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_waterWar_opt_negotiate</li>
+			<li>empireEvents_waterWar_opt_assert</li>
+			<li>empireEvents_waterWar_opt_alternative</li>
+			<li>empireEvents_waterWar_opt_share</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>Desert</li>
+			<li>ExtremeDesert</li>
+			<li>AridShrubland</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_2a</li>
+			<li>empireEvents_waterWar_2b</li>
+			<li>empireEvents_waterWar_2c</li>
+			<li>empireEvents_waterWar_share</li>
+			<li>empireEvents_waterWar_3a</li>
+			<li>empireEvents_waterWar_3a_resolve</li>
+			<li>empireEvents_waterWar_3a_arrange</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Negotiate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_negotiate</defName>
+		<label>Send an envoy to negotiate. There's enough water for everyone if we're reasonable about it.</label>
+		<parentEvent>empireEvents_waterWar_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_waterWar_2a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Assert dominance -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_assert</defName>
+		<label>Post guards at the spring. That water is ours and they know it.</label>
+		<parentEvent>empireEvents_waterWar_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_waterWar_2b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Find alternative water source -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_alternative</defName>
+		<label>Hire prospectors to find our own water source. We don't need their spring.</label>
+		<parentEvent>empireEvents_waterWar_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_waterWar_2c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Share the water -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_share</defName>
+		<label>Agree to share. Goodwill is worth more than water rights.</label>
+		<parentEvent>empireEvents_waterWar_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_waterWar_share</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- =============================== -->
+	<!-- Option D outcome: Shared Water   -->
+	<!-- Chain ends here.                 -->
+	<!-- =============================== -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_share</defName>
+		<label>Shared Water</label>
+		<desc>You agree to share the spring with the neighboring community. Food production suffers as rationing takes hold, but the gesture of goodwill earns the respect and loyalty of your citizens. Sometimes peace costs less than war.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2A: At the Table (negotiation path)    -->
+	<!-- 60% Uneasy Peace, 40% Escalation             -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_2a</defName>
+		<label>At the Table</label>
+		<desc>Your envoy sits down with the neighboring community's leaders. Talks are tense but productive. Both sides agree to a temporary moratorium on drawing water while terms are hammered out. Time will tell whether diplomacy holds.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>60</splitEventChance>
+		<followingEvent>empireEvents_waterWar_3a</followingEvent>
+		<followingEvent2>empireEvents_waterWar_2b</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2B: Escalation (confrontation path)    -->
+	<!-- Reached by Option B or 40% negotiation fail  -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_2b</defName>
+		<label>Escalation</label>
+		<desc>The situation at the spring has deteriorated. Armed settlers from both sides are staring each other down across a drying creek bed. Scuffles have broken out. One wrong move and this becomes a full-blown conflict. What are your orders?</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_waterWar_opt_backdown</li>
+			<li>empireEvents_waterWar_opt_force</li>
+			<li>empireEvents_waterWar_opt_terms</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B Option A: Back down -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_backdown</defName>
+		<label>Pull our people back. This isn't worth dying over.</label>
+		<parentEvent>empireEvents_waterWar_2b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_waterWar_2b_backdown</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2B Option B: Show of force -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_force</defName>
+		<label>Send in the militia. If they want a fight, they'll get one.</label>
+		<parentEvent>empireEvents_waterWar_2b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_waterWar_2b_force</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2B Option C: Offer generous terms -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_terms</defName>
+		<label>Offer a generous payment for full water rights. Money talks louder than weapons.</label>
+		<parentEvent>empireEvents_waterWar_2b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<successEvent>empireEvents_waterWar_3a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2B-A outcome: Backed down -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_2b_backdown</defName>
+		<label>Retreat from the Spring</label>
+		<desc>Your settlers withdraw from the disputed spring under the jeering of the neighboring community. The settlement loses access to the water source entirely. Morale plummets as word spreads that your nation backed down from a fight.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B-B outcome: Show of force (permanent) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_2b_force</defName>
+		<label>Water Seized by Force</label>
+		<desc>Your militia overwhelms the neighboring settlers in a brief but brutal confrontation. The spring is yours — but the violence leaves a mark. The neighbors won't forget this, and your own people are unsettled by the bloodshed. Still, the water flows freely now.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>1.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>1.5</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 2C: New Wells (alternative water path) -->
+	<!-- Transitional — temporary penalty, then perm  -->
+	<!-- Chain ends here.                             -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_2c</defName>
+		<label>New Wells</label>
+		<desc>Your prospectors strike water deep underground — it's not as convenient as the disputed spring, but it's yours alone. During the months of drilling and construction, food production dips as the old source becomes unreliable. Once the wells are operational, the settlement will be self-sufficient.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ============================================ -->
+	<!-- Stage 3A: Uneasy Peace                       -->
+	<!-- 50% clean resolution, 50% permanent arrange  -->
+	<!-- ============================================ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_3a</defName>
+		<label>Uneasy Peace</label>
+		<desc>A fragile agreement is in place: both communities share the spring under strict schedules. Nobody is happy about it, and the reduced access means less water for irrigation. The question is whether the neighbors will honor the deal — or find their own solution.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>50</splitEventChance>
+		<followingEvent>empireEvents_waterWar_3a_resolve</followingEvent>
+		<followingEvent2>empireEvents_waterWar_3a_arrange</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_waterWar_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3A — 50% outcome: Clean resolution -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_3a_resolve</defName>
+		<label>Neighbors Find Their Own Source</label>
+		<desc>Word arrives that the neighboring community has tapped into their own underground water source. They no longer need the disputed spring. The sharing agreement dissolves naturally, and your settlement regains full access. The crisis is over.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3A — 50% outcome: Permanent arrangement -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_3a_arrange</defName>
+		<label>Permanent Water Sharing</label>
+		<desc>The temporary arrangement has hardened into a permanent one. Neither side is willing to renegotiate, and the shared schedule is now simply how things are done. Food production takes a lasting hit.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

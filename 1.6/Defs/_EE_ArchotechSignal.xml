@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ===== ARCHOTECH SIGNAL: Standalone Ultra event with options ===== -->
+	<!-- Every settlement receives an incomprehensible archotech transmission. -->
+
+	<!-- Stage 0: The Signal (entry point with options) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archotechSignal_0</defName>
+		<label>Archotech Signal</label>
+		<desc>Every comms array in your empire activates simultaneously, blaring an identical transmission that no one initiated. The signal is dense, structured, and utterly incomprehensible — a torrent of data encoded in mathematical frameworks that make your best cryptographers weep with frustration. Analysis confirms it originates from no known source. The signal repeats on a seventeen-minute cycle, each repetition identical to the last.
+			
+Your settlements are in uproar. Some citizens claim they can almost understand it, hearing patterns in the noise that speak to something deeper than language. Others are terrified, insisting the signal be jammed before something answers back.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_archotechSignal_opt1</li>
+			<li>empireEvents_archotechSignal_opt2</li>
+			<li>empireEvents_archotechSignal_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>3</weight>
+		<cooldownTicks>5400000</cooldownTicks>
+		<minTechLevel>Ultra</minTechLevel>
+		<requiredWealth>100000</requiredWealth>
+		<minSettlements>5</minSettlements>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_archotechSignal_embrace</li>
+			<li>empireEvents_archotechSignal_decode_success</li>
+			<li>empireEvents_archotechSignal_decode_fail</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Embrace the signal -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archotechSignal_opt1</defName>
+		<label>Open every channel. Let the signal saturate our networks. If something is speaking, we should listen.</label>
+		<parentEvent>empireEvents_archotechSignal_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_archotechSignal_embrace</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Jam the signal -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archotechSignal_opt2</defName>
+		<label>Jam it. Whatever this is, we want no part of it. Activate countermeasures on all frequencies.</label>
+		<parentEvent>empireEvents_archotechSignal_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Attempt to decode -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_archotechSignal_opt3</defName>
+		<label>Put every cryptographer we have on this. If something is encoding a message this carefully, it wants to be understood.</label>
+		<parentEvent>empireEvents_archotechSignal_0</parentEvent>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_archotechSignal_decode_success</successEvent>
+		<failEvent>empireEvents_archotechSignal_decode_fail</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Embrace — research surge but unrest and unhappiness, permanent research on resolution -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archotechSignal_embrace</defName>
+		<label>Signal Immersion</label>
+		<desc>Your comms arrays are opened wide. The signal floods every network, every speaker, every display. Citizens are divided — some sit transfixed, claiming the patterns reveal fundamental truths about reality itself. Others barricade themselves indoors, unable to sleep through the omnipresent hum. Your researchers, however, are ecstatic. Fragments of the signal correspond to advanced physics, exotic material structures, and computational architectures that defy conventional understanding. Research accelerates dramatically, but the constant alien presence grinds on public morale and breeds paranoid unrest.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C-success: Decode — major permanent research and medicine -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archotechSignal_decode_success</defName>
+		<label>Signal Decoded</label>
+		<desc>After weeks of obsessive work, your cryptographers crack a framework within the signal. It's not a message in any conventional sense.
+			
+It's a blueprint.
+			
+A schematic for computational and biological processes so advanced they border on incomprehensible. But your best minds can follow enough of it to extract revolutionary insights. Medical science leaps forward as the biological schematics reveal cellular mechanisms previously unknown. Research methodology is permanently transformed by the computational frameworks embedded in the signal.
+			
+Then, as suddenly as it began, the signal stops. Whatever sent it has apparently decided you received the message.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.0</value></li>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C-failure: Decode failed — permanent happiness penalty from existential dread -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_archotechSignal_decode_fail</defName>
+		<label>Signal Incomprehensible</label>
+		<desc>Your cryptographers fail. Not partially — completely. After exhaustive analysis, they conclude that the signal's encoding is not merely complex but fundamentally beyond human comprehension. The mathematical structures require modes of reasoning that human minds simply cannot perform.
+			
+The realization is crushing. Your best and brightest have confronted the absolute ceiling of human intelligence, and it wasn't even close. A pall of existential dread settles over the empire. The signal eventually fades on its own, leaving nothing behind but the uncomfortable knowledge that something out there operates on a level your species may never reach.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>happinessLostBase</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

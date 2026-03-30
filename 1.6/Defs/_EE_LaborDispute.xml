@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Dispute erupts -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_laborDispute_0</defName>
+		<label>Labor Dispute</label>
+		<desc>Workers at several of your settlements are demanding better conditions and fairer treatment. Tensions are rising, and production is already slowing as workers engage in deliberate work slowdowns. You need to address this before it escalates further.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_laborDispute_opt1</li>
+			<li>empireEvents_laborDispute_opt2</li>
+			<li>empireEvents_laborDispute_opt3</li>
+			<li>empireEvents_laborDispute_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<minDaysSinceFounded>30</minDaysSinceFounded>
+		<minimumUnrest>10</minimumUnrest>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_laborDispute_1a</li>
+			<li>empireEvents_laborDispute_1b</li>
+			<li>empireEvents_laborDispute_1c</li>
+			<li>empireEvents_laborDispute_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Negotiate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_laborDispute_opt1</defName>
+		<label>Sit down with their representatives. Let's find a compromise.</label>
+		<parentEvent>empireEvents_laborDispute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_laborDispute_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Authoritarian crackdown -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_laborDispute_opt2</defName>
+		<label>This is insubordination. Arrest the ringleaders and get everyone back to work.</label>
+		<parentEvent>empireEvents_laborDispute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_laborDispute_1b</successEvent>
+		<requiredPolicies>
+			<li>authoritarian</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Concede -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_laborDispute_opt3</defName>
+		<label>They have a point. Grant their demands in full.</label>
+		<parentEvent>empireEvents_laborDispute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_laborDispute_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Replace workers -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_laborDispute_opt4</defName>
+		<label>Bring in outside workers to replace the troublemakers.</label>
+		<parentEvent>empireEvents_laborDispute_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_laborDispute_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Negotiate — calm unrest, slight cost increase -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_laborDispute_1a</defName>
+		<label>Negotiated Settlement</label>
+		<desc>After tense but productive talks, you reach a compromise. Workers return to their posts, satisfied that their voices were heard. The agreement includes modest improvements to working conditions that permanently increase labor costs — but unrest dissolves.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>-1</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseCost</stat><value>5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Crackdown — fast but more unrest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_laborDispute_1b</defName>
+		<label>Order Restored</label>
+		<desc>Guards round up the organizers and make an example of them. Workers grudgingly return to their stations, but fear replaces cooperation. The dispute is over, but the underlying resentment festers.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>180000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Concede — happy workers, tax hit -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_laborDispute_1c</defName>
+		<label>Demands Met</label>
+		<desc>The workers are thrilled — better pay, shorter hours, improved conditions. Morale soars and the settlements buzz with renewed enthusiasm. The treasury takes a hit from the increased costs, but a content workforce is a productive one.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseCost</stat><value>10</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Replace — loyalty hit but new workers -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_laborDispute_1d</defName>
+		<label>Workers Replaced</label>
+		<desc>Outside laborers are brought in to replace the dissatisfied workers. The transition is messy; longtime residents are bitter about being replaced, and loyalty takes a serious hit. But the newcomers are grateful for the opportunity and the settlement's capacity grows.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyLostBase</stat><value>3</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

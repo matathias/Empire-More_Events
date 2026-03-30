@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Outpost discovered -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_0</defName>
+		<label>Abandoned Outpost</label>
+		<desc>Scouts have discovered an abandoned outpost near one of your settlements. The structure is weathered, but intact; whoever built it left in a hurry. The site could be repurposed in several ways, depending on your priorities.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_abandonedOutpost_opt1</li>
+			<li>empireEvents_abandonedOutpost_opt2</li>
+			<li>empireEvents_abandonedOutpost_opt3</li>
+			<li>empireEvents_abandonedOutpost_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_abandonedOutpost_1a</li>
+			<li>empireEvents_abandonedOutpost_1b</li>
+			<li>empireEvents_abandonedOutpost_1c</li>
+			<li>empireEvents_abandonedOutpost_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Salvage -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_abandonedOutpost_opt1</defName>
+		<label>Strip it for materials. Everything useful goes back to the settlement.</label>
+		<parentEvent>empireEvents_abandonedOutpost_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_abandonedOutpost_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Watchtower -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_abandonedOutpost_opt2</defName>
+		<label>Fortify it as a watchtower. Good defensive position.</label>
+		<parentEvent>empireEvents_abandonedOutpost_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_abandonedOutpost_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Workshop -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_abandonedOutpost_opt3</defName>
+		<label>Convert it into a workshop. More production capacity is always welcome.</label>
+		<parentEvent>empireEvents_abandonedOutpost_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_abandonedOutpost_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Waystation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_abandonedOutpost_opt4</defName>
+		<label>Restore it as a waystation for travelers and traders.</label>
+		<parentEvent>empireEvents_abandonedOutpost_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_abandonedOutpost_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Salvage — loot -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_1a</defName>
+		<label>Outpost Salvaged</label>
+		<desc>Work crews methodically dismantle the outpost, recovering usable building materials, forgotten supplies, and a few valuable items the previous occupants left behind. The haul is respectable.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>500</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Watchtower — permanent military -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_1b</defName>
+		<label>Watchtower Established</label>
+		<desc>The outpost is reinforced and garrisoned as a forward observation post. Its elevated position provides excellent sightlines, giving your settlement early warning of approaching threats and a defensive staging area.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Workshop — permanent production -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_1c</defName>
+		<label>Workshop Opened</label>
+		<desc>The outpost is renovated into a functioning workshop. New workbenches and tool racks are installed, and workers begin using the space immediately. The additional production capacity is a welcome boost to the settlement's output.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerProductionBase</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Waystation — permanent trade + workers -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_1d</defName>
+		<label>Waystation Restored</label>
+		<desc>The restored waystation quickly becomes a hub for passing travelers and traders. A small permanent staff maintains the facilities, and the increased foot traffic brings new trade opportunities and a few settlers looking to put down roots.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>taxBasePercentage</stat><value>0.03</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

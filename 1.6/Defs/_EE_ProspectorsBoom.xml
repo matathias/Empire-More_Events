@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Prospectors discover rich deposits -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_prospectorsBoom_0</defName>
+		<label>Prospector's Boom</label>
+		<desc>Prospectors have struck rich mineral veins near your settlements! Word spreads fast and eager miners flood into the area, ready to dig. The deposits are substantial, but how they're exploited will determine whether this is a blessing or a curse.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_prospectorsBoom_opt1</li>
+			<li>empireEvents_prospectorsBoom_opt2</li>
+			<li>empireEvents_prospectorsBoom_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<requiredResource>RTD_Mining</requiredResource>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_prospectorsBoom_regulate</li>
+			<li>empireEvents_prospectorsBoom_freeForAll</li>
+			<li>empireEvents_prospectorsBoom_controlled</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Regulate extraction -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_prospectorsBoom_opt1</defName>
+		<label>Regulate the extraction. Orderly mining, fair distribution.</label>
+		<parentEvent>empireEvents_prospectorsBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_prospectorsBoom_regulate</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Free-for-all -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_prospectorsBoom_opt2</defName>
+		<label>Let anyone dig. First come, first served — maximum yield.</label>
+		<parentEvent>empireEvents_prospectorsBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_prospectorsBoom_freeForAll</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Controlled expansion -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_prospectorsBoom_opt3</defName>
+		<label>Invest in proper mining infrastructure for long-term gain.</label>
+		<parentEvent>empireEvents_prospectorsBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_prospectorsBoom_controlled</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Regulated extraction — standard bonuses -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_prospectorsBoom_regulate</defName>
+		<label>Regulated Mining Boom</label>
+		<desc>Under careful regulation, the mining boom proceeds in an orderly fashion. Output is strong, new workers join the settlements, and while the grueling labor dampens spirits somewhat, the overall impact is solidly positive.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>2</value></li>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_prospectorsBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Free-for-all — maximum mining, happiness and unrest penalties -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_prospectorsBoom_freeForAll</defName>
+		<label>Mining Frenzy</label>
+		<desc>The unregulated rush for minerals turns your settlements into chaotic boomtowns. Mining output is extraordinary, but the lawless atmosphere breeds crime, injury, and bitter disputes over claims. Workers pour in, but happiness plummets and unrest rises.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>3</value></li>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>happinessLostBase</stat><value>2.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>1.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_prospectorsBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Controlled expansion — halved temporary bonuses, permanent mining boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_prospectorsBoom_controlled</defName>
+		<label>Mining Infrastructure</label>
+		<desc>Your investment builds proper mine shafts, ore processing facilities, and safety equipment. The immediate yield is modest as resources go toward construction, but the infrastructure ensures that these deposits will be producing ore long after the boom fades.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1</value></li>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>happinessLostBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_prospectorsBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

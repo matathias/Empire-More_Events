@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Healer arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_wanderingHealer_0</defName>
+		<label>Wandering Healer</label>
+		<desc>A skilled healer with an impressive collection of remedies and surgical tools has arrived at one of your settlements. They're willing to offer their services — for the right price. Their knowledge could benefit your medical infrastructure.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_wanderingHealer_opt1</li>
+			<li>empireEvents_wanderingHealer_opt2</li>
+			<li>empireEvents_wanderingHealer_opt3</li>
+			<li>empireEvents_wanderingHealer_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<requiredResource>RTD_Medicine</requiredResource>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_wanderingHealer_1a</li>
+			<li>empireEvents_wanderingHealer_1b</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Hire permanently -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_wanderingHealer_opt1</defName>
+		<label>Offer them a permanent position. We need skilled healers.</label>
+		<parentEvent>empireEvents_wanderingHealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>600</silverCost>
+		<successEvent>empireEvents_wanderingHealer_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Commission training -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_wanderingHealer_opt2</defName>
+		<label>Ask them to train our medics before they move on.</label>
+		<parentEvent>empireEvents_wanderingHealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>100</silverCost>
+		<successEvent>empireEvents_wanderingHealer_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Let them pass -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_wanderingHealer_opt3</defName>
+		<label>We appreciate the offer, but we're managing fine.</label>
+		<parentEvent>empireEvents_wanderingHealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Mercantile discount -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_wanderingHealer_opt4</defName>
+		<label>Our trade contacts can sweeten the deal. Welcome aboard.</label>
+		<parentEvent>empireEvents_wanderingHealer_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_wanderingHealer_1c</successEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Hired permanently — permanent medicine boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_wanderingHealer_1a</defName>
+		<label>Healer Hired</label>
+		<desc>The wandering healer accepts your offer and settles into the community. Their expertise immediately improves the quality of medical care, and they begin training local practitioners in advanced techniques.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Training — temporary boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_wanderingHealer_1b</defName>
+		<label>Medical Training</label>
+		<desc>The healer spends time teaching your medics advanced techniques before continuing their journey.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Mercantile hire — better deal -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_wanderingHealer_1c</defName>
+		<label>Healer Recruited</label>
+		<desc>Your trade connections help negotiate favorable terms. The healer joins your settlement, bringing not only medical expertise but also knowledge of rare medicinal herbs from their travels. Your researchers take note.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

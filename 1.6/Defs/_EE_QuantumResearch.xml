@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ===== QUANTUM RESEARCH INITIATIVE: 3-stage Spacer faction-wide chain ===== -->
+	<!-- Empire-wide coordinated research effort with variable funding levels. -->
+
+	<!-- Stage 1: The Proposal (entry point with options) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_0</defName>
+		<label>Quantum Research Initiative</label>
+		<desc>Your top researchers have proposed something unprecedented: a coordinated, empire-wide quantum research initiative. By synchronizing experiments across all settlements simultaneously, they believe they can achieve breakthroughs impossible in isolated labs.
+			
+The theoretical framework is sound, but the logistics are daunting. Every settlement would need to dedicate resources, and the cost of coordination alone is staggering. Still, the potential payoff — advances in medicine, materials science, and fundamental physics — could reshape your empire's future.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_quantumResearch_opt1</li>
+			<li>empireEvents_quantumResearch_opt2</li>
+			<li>empireEvents_quantumResearch_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<cooldownTicks>3600000</cooldownTicks>
+		<minTechLevel>Spacer</minTechLevel>
+		<requiredResource>RTD_Research</requiredResource>
+		<requiredWealth>70000</requiredWealth>
+		<minSettlements>4</minSettlements>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_quantumResearch_2a</li>
+			<li>empireEvents_quantumResearch_2b</li>
+			<li>empireEvents_quantumResearch_reject</li>
+			<li>empireEvents_quantumResearch_success</li>
+			<li>empireEvents_quantumResearch_failure</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Full funding -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_quantumResearch_opt1</defName>
+		<label>Fund it fully. Spare no expense — this could define our empire for generations.</label>
+		<parentEvent>empireEvents_quantumResearch_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>2500</silverCost>
+		<successEvent>empireEvents_quantumResearch_2a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Partial funding -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_quantumResearch_opt2</defName>
+		<label>Provide partial funding. We believe in the research, but we can't bankrupt ourselves for theory.</label>
+		<parentEvent>empireEvents_quantumResearch_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>1000</silverCost>
+		<successEvent>empireEvents_quantumResearch_2b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Reject -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_quantumResearch_opt3</defName>
+		<label>Reject the proposal. We need our resources for practical concerns, not theoretical flights of fancy.</label>
+		<parentEvent>empireEvents_quantumResearch_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_quantumResearch_reject</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Reject: Morale penalty, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_reject</defName>
+		<label>Initiative Rejected</label>
+		<desc>The research proposal is shelved. Your top scientists are visibly dejected, and word spreads through the academic community that your empire doesn't value bold inquiry. Morale among the educated class drops, and several promising researchers quietly begin looking for opportunities elsewhere.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2A: Full Steam Ahead — strong research boost, worker penalty, 80% success -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_2a</defName>
+		<label>Full Steam Ahead</label>
+		<desc>With full funding secured, every settlement in your empire redirects resources toward the quantum research initiative. Laboratories operate around the clock. Workers are pulled from production lines to assist with experiments. The research output is extraordinary — quantum entanglement communication, novel material synthesis, and theoretical frameworks that rewrite your understanding of physics. But the diversion of labor takes its toll on everyday production across the empire.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>900000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>2</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>80</splitEventChance>
+		<followingEvent>empireEvents_quantumResearch_success</followingEvent>
+		<followingEvent2>empireEvents_quantumResearch_failure</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B: Shoestring Budget — modest research boost, 50% success -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_2b</defName>
+		<label>Shoestring Budget</label>
+		<desc>The quantum research initiative proceeds with limited funding. Researchers make do with improvised equipment and volunteer assistants. The work is slower and less comprehensive than the full program would have been, but the core experiments still run. Your scientists do their best with what they have.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>900000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>50</splitEventChance>
+		<followingEvent>empireEvents_quantumResearch_success</followingEvent>
+		<followingEvent2>empireEvents_quantumResearch_failure</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Success: Major permanent bonuses + silver reward -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_success</defName>
+		<label>Quantum Breakthrough</label>
+		<desc>The initiative succeeds beyond all projections. Synchronized experiments across your settlements produce a cascade of breakthroughs: quantum-locked material composites, entanglement-based diagnostic tools, and computational methods that accelerate every field of research. Medical science leaps forward as quantum imaging reveals cellular processes invisible to conventional instruments.
+			
+Your empire's researchers are the envy of the known world, and the commercial applications alone generate substantial revenue.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>800</randomThingValue>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Failure: Minor permanent research gain, morale/loyalty hit -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_failure</defName>
+		<label>Inconclusive Results</label>
+		<desc>The quantum research initiative ends not with a bang, but with a shrug. Cross-settlement synchronization proved more difficult than anticipated — timing errors, equipment incompatibilities, and communication breakdowns plagued the experiments. The data is noisy and the conclusions ambiguous.
+			
+Your researchers salvage what they can: some incremental methodological improvements, a few promising leads for future work. But the grand unified breakthrough never materializes. Citizens and officials who supported the funding are disappointed, and questions about your judgment circulate through the empire.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+			<li><stat>loyaltyLostBase</stat><value>1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

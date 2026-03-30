@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Bountiful harvest detected -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulHarvest_0</defName>
+		<label>Bountiful Harvest Season</label>
+		<desc>An unusually fertile season has blessed your settlements with abundant crops. Fields overflow with produce, and granaries are filling faster than anyone anticipated. How do you use the surplus?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_bountifulHarvest_opt1</li>
+			<li>empireEvents_bountifulHarvest_opt2</li>
+			<li>empireEvents_bountifulHarvest_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<requiredResource>RTD_Food</requiredResource>
+		<targetAllSettlements>true</targetAllSettlements>
+		<restrictedBiomes>
+			<li>IceSheet</li>
+			<li>SeaIce</li>
+		</restrictedBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulHarvest_store</li>
+			<li>empireEvents_bountifulHarvest_feast</li>
+			<li>empireEvents_bountifulHarvest_sell</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Store the surplus -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_bountifulHarvest_opt1</defName>
+		<label>Store the surplus. Build up our reserves for harder times.</label>
+		<parentEvent>empireEvents_bountifulHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_bountifulHarvest_store</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Feast and celebrate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_bountifulHarvest_opt2</defName>
+		<label>Declare a harvest feast! Let the people celebrate abundance.</label>
+		<parentEvent>empireEvents_bountifulHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_bountifulHarvest_feast</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Sell at market -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_bountifulHarvest_opt3</defName>
+		<label>Sell the surplus at market. Turn food into silver.</label>
+		<parentEvent>empireEvents_bountifulHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_bountifulHarvest_sell</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Store surplus — standard food and happiness bonuses -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulHarvest_store</defName>
+		<label>Harvest Stored</label>
+		<desc>The bountiful harvest is carefully preserved and stored. Granaries swell with produce, and your settlements enjoy increased food production and a general sense of well-being from the abundance.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Feast — reduced food, boosted happiness and loyalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulHarvest_feast</defName>
+		<label>Harvest Feast</label>
+		<desc>Tables groan under the weight of the feast. Music and laughter echo across every settlement as citizens celebrate the bountiful season. The festivities consume much of the surplus, but the joy and solidarity they bring are priceless.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Sell at market — reduced food, tax revenue boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulHarvest_sell</defName>
+		<label>Harvest Sold</label>
+		<desc>Wagons laden with surplus produce head to market, where demand is high and prices are favorable. The food bonus is diminished, but your treasury benefits handsomely from the trade.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.25</value></li>
+			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

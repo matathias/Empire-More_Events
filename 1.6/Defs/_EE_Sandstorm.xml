@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Sandstorm hits -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_sandstorm_0</defName>
+		<label>Sandstorm</label>
+		<desc>A massive sandstorm has swept through your desert settlements, burying equipment, clogging machinery, and forcing workers indoors. Visibility is zero and the abrasive sand damages everything exposed. How do you respond?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_sandstorm_opt1</li>
+			<li>empireEvents_sandstorm_opt2</li>
+			<li>empireEvents_sandstorm_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>20</weight>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>Desert</li>
+			<li>ExtremeDesert</li>
+			<li>AridShrubland</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_sandstorm_1a</li>
+			<li>empireEvents_sandstorm_1b</li>
+			<li>empireEvents_sandstorm_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_sandstorm_opt1</defName>
+		<label>Wait it out. The desert always wins in the end.</label>
+		<parentEvent>empireEvents_sandstorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_sandstorm_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_sandstorm_opt2</defName>
+		<label>Organize dig-out crews as soon as the wind drops. Get back to work fast.</label>
+		<parentEvent>empireEvents_sandstorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_sandstorm_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_sandstorm_opt3</defName>
+		<label>Build permanent barriers and shelters. This won't be the last storm.</label>
+		<parentEvent>empireEvents_sandstorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_sandstorm_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Wait it out — full penalties -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_sandstorm_1a</defName>
+		<label>Storm Aftermath</label>
+		<desc>The sandstorm eventually passes, leaving behind dunes of sand piled against buildings and drifts covering roadways. Workers slowly dig out and resume operations, but the disruption lingers as equipment is cleaned and repaired.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<timeTillTriggerMax>300000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>0.5</value></li>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Dig out early — halved penalties -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_sandstorm_1b</defName>
+		<label>Rapid Recovery</label>
+		<desc>Dig-out crews spring into action the moment the winds die down. Their organized effort clears critical infrastructure quickly, and operations resume ahead of schedule. The investment in rapid response pays off.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>60000</timeTillTrigger>
+		<timeTillTriggerMax>150000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>0.75</value></li>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>-0.25</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Build barriers — permanent improvement -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_sandstorm_1c</defName>
+		<label>Storm Barriers Erected</label>
+		<desc>Your engineers design and construct permanent sand barriers, sheltered equipment bays, and covered walkways. The current storm's damage is mitigated, and future storms will be far less disruptive. The settlement learns from adversity.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>0.75</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerProductionBase</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

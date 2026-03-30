@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ===== THE CARAVAN: 3-stage mystery chain ===== -->
+
+	<!-- Stage 1: Caravan arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_0</defName>
+		<label>The Mysterious Caravan</label>
+		<desc>A caravan unlike any you've seen before arrives at your settlement — strange wares from distant lands, exotic fabrics, and travelers who speak in riddles. Their leader offers to trade, but also hints at stories worth hearing. Something about them feels... significant.</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_mysteriousCaravan_opt1</li>
+			<li>empireEvents_mysteriousCaravan_opt2</li>
+			<li>empireEvents_mysteriousCaravan_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_mysteriousCaravan_1a</li>
+			<li>empireEvents_mysteriousCaravan_1b</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Trade -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_mysteriousCaravan_opt1</defName>
+		<label>Let's see what they're selling. Exotic goods are always welcome.</label>
+		<parentEvent>empireEvents_mysteriousCaravan_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_mysteriousCaravan_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Ask about journey -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_mysteriousCaravan_opt2</defName>
+		<label>Forget the goods. I want to hear their stories.</label>
+		<parentEvent>empireEvents_mysteriousCaravan_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_mysteriousCaravan_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Send away -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_mysteriousCaravan_opt3</defName>
+		<label>We don't deal with strangers. Move along.</label>
+		<parentEvent>empireEvents_mysteriousCaravan_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 1 Outcome A: Trade — loot, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_1a</defName>
+		<label>Exotic Wares</label>
+		<desc>The traders spread their wares: strange fabrics, unusual tools, and curiosities from lands you've never heard of. The exchange is profitable, and the goods are unlike anything your craftspeople have seen. The caravan departs at dawn, leaving only dust and wonder behind.</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>500</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2: Tales of Hidden Wealth -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_1b</defName>
+		<label>Tales of Hidden Wealth</label>
+		<desc>Around the campfire, the caravan leader speaks of their journey through ancient ruins. They describe a cache left by a long-dead traveler — sealed in stone, marked with symbols their cartographer sketched before they moved on. The location, they say, is not far from here. The leader offers the sketch for a fair price... or for the promise of a share if you find it.</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_mysteriousCaravan_opt4</li>
+			<li>empireEvents_mysteriousCaravan_opt5</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2 Option A: Investigate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_mysteriousCaravan_opt4</defName>
+		<label>Send an expedition to investigate. The cache could be worth a fortune.</label>
+		<parentEvent>empireEvents_mysteriousCaravan_1b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_mysteriousCaravan_2</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2 Option B: Too risky -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_mysteriousCaravan_opt5</defName>
+		<label>Interesting tale, but we have enough real problems. Pass.</label>
+		<parentEvent>empireEvents_mysteriousCaravan_1b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>Null</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 3: The Cache — 3-way split -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_2</defName>
+		<label>The Expedition</label>
+		<desc>Your expedition follows the caravan's sketch through treacherous terrain. After days of searching, they find the marker stones exactly as described. The cache entrance is sealed with heavy slabs of worked stone. As they pry it open, the air that escapes is ancient and cold...</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>57</splitEventChance>
+		<followingEvent>empireEvents_mysteriousCaravan_3a</followingEvent>
+		<followingEvent2>empireEvents_mysteriousCaravan_3bc</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Rich Cache outcome -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_3a</defName>
+		<label>Rich Cache</label>
+		<desc>The cache is a treasure trove — crates of preserved minerals, refined metals, and meticulously stored ore samples. Whoever left this was a master prospector who never returned for their life's work.
+
+Your miners study the samples and learn techniques that permanently improve extraction in the area.</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<randomThingValue>600</randomThingValue>
+		<permanentStatModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Intermediate split: Trap or Knowledge -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_3bc</defName>
+		<label>Opening the Cache</label>
+		<desc>The heavy stone slabs grind aside...</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>50</splitEventChance>
+		<followingEvent>empireEvents_mysteriousCaravan_3b</followingEvent>
+		<followingEvent2>empireEvents_mysteriousCaravan_3c</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Trap outcome -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_3b</defName>
+		<label>It Was a Trap</label>
+		<desc>The cache was bait. As your expedition enters, concealed mechanisms trigger a cave-in. Several workers are trapped and injured, and the military escort takes casualties fighting off opportunistic raiders who were clearly waiting for someone to spring the trap. The caravan knew exactly what they were sending you into.</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-2</value></li>
+			<li><stat>militaryBaseLevel</stat><value>-1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Ancient Knowledge outcome -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_mysteriousCaravan_3c</defName>
+		<label>Ancient Knowledge</label>
+		<desc>The cache contains no treasure — but something far more valuable. Shelves of preserved texts, diagrams, and experimental notes from an ancient research facility.
+			
+Your scholars are ecstatic. The knowledge within permanently advances your settlement's research capabilities.</desc>
+		<category>EC_Other</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

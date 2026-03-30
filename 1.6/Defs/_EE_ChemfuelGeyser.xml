@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Geyser discovered -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelGeyser_0</defName>
+		<label>Chemfuel Geyser</label>
+		<desc>Excavation workers have struck a natural chemfuel seep — a pressurized underground deposit that bubbles to the surface in a steady stream. This is a significant find. The raw fuel could be tapped for production, sold for immediate profit, or used to power local operations.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_chemfuelGeyser_opt1</li>
+			<li>empireEvents_chemfuelGeyser_opt2</li>
+			<li>empireEvents_chemfuelGeyser_opt3</li>
+			<li>empireEvents_chemfuelGeyser_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<requiredResource>RTD_Chemfuel</requiredResource>
+		<minTechLevel>Industrial</minTechLevel>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_chemfuelGeyser_1a</li>
+			<li>empireEvents_chemfuelGeyser_1b</li>
+			<li>empireEvents_chemfuelGeyser_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Tap the source -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelGeyser_opt1</defName>
+		<label>Cap it and run pipes to our processing facility. We'll use it as a permanent fuel source.</label>
+		<parentEvent>empireEvents_chemfuelGeyser_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_chemfuelGeyser_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Sell extraction rights -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelGeyser_opt2</defName>
+		<label>Sell the extraction rights to outside interests. Take the silver now.</label>
+		<parentEvent>empireEvents_chemfuelGeyser_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_chemfuelGeyser_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Use as fuel depot -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelGeyser_opt3</defName>
+		<label>Use it as both a fuel source and power generator. It'll exhaust faster, but it's useful.</label>
+		<parentEvent>empireEvents_chemfuelGeyser_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_chemfuelGeyser_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Mercantile royalty deal -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_chemfuelGeyser_opt4</defName>
+		<label>Our trade network can broker a royalty deal — we keep the fuel AND get paid.</label>
+		<parentEvent>empireEvents_chemfuelGeyser_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_chemfuelGeyser_1d</successEvent>
+		<requiredPolicies>
+			<li>mercantile</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Tap — permanent chemfuel boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelGeyser_1a</defName>
+		<label>Geyser Tapped</label>
+		<desc>Engineers cap the geyser and install collection pipes routing raw chemfuel directly to your processing facility. The steady supply permanently improves the settlement's fuel production capabilities.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Sell rights — silver reward -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelGeyser_1b</defName>
+		<label>Extraction Rights Sold</label>
+		<desc>Outside investors eagerly purchase the extraction rights. The silver flows in immediately, though some settlers grumble about giving away a valuable long-term resource for short-term gain.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>800</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Fuel depot — temporary dual boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelGeyser_1c</defName>
+		<label>Fuel Depot Established</label>
+		<desc>The geyser is rigged as both a chemfuel collection point and a power generation source. The setup is crude but effective — fuel and electricity flow freely, though the geyser's pressure will diminish over time.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>0.75</value></li>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>0.75</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Mercantile royalty — permanent boost + silver -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_chemfuelGeyser_1d</defName>
+		<label>Royalty Agreement</label>
+		<desc>Your trade connections broker an elegant arrangement: your settlement maintains production rights while licensing limited access to outside parties. The result is a permanent fuel supply AND a royalty payment.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>400</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

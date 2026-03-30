@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Automation opportunity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_factoryAutomation_0</defName>
+		<label>Factory Automation</label>
+		<desc>Engineers at your settlements have developed plans for automating key production lines. The technology is ready; the question is how far to take it. Full automation would boost output dramatically but eliminate jobs. Workers are already nervous. How do you proceed?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_factoryAutomation_opt1</li>
+			<li>empireEvents_factoryAutomation_opt2</li>
+			<li>empireEvents_factoryAutomation_opt3</li>
+			<li>empireEvents_factoryAutomation_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minTechLevel>Industrial</minTechLevel>
+		<requiredResource>RTD_Power</requiredResource>
+		<requiredWealth>25000</requiredWealth>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_factoryAutomation_1a</li>
+			<li>empireEvents_factoryAutomation_1b</li>
+			<li>empireEvents_factoryAutomation_1c</li>
+			<li>empireEvents_factoryAutomation_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Full automation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_factoryAutomation_opt1</defName>
+		<label>Automate everything. Machines don't complain or take breaks.</label>
+		<parentEvent>empireEvents_factoryAutomation_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_factoryAutomation_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Partial automation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_factoryAutomation_opt2</defName>
+		<label>Automate the most dangerous tasks. Keep workers for everything else.</label>
+		<parentEvent>empireEvents_factoryAutomation_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_factoryAutomation_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Resist automation -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_factoryAutomation_opt3</defName>
+		<label>Shelve the plans. Our workers are our strength, not machines.</label>
+		<parentEvent>empireEvents_factoryAutomation_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_factoryAutomation_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Industrious phased rollout -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_factoryAutomation_opt4</defName>
+		<label>Phase it in gradually. Retrain workers as machine operators.</label>
+		<parentEvent>empireEvents_factoryAutomation_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_factoryAutomation_1d</successEvent>
+		<requiredPolicies>
+			<li>industrious</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Full automation — permanent production boost, permanent worker loss -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_factoryAutomation_1a</defName>
+		<label>Full Automation</label>
+		<desc>The factories hum with mechanical precision as automated systems replace manual labor across the board. Production surges, but displaced workers flood the streets. The settlement's workforce capacity is permanently reduced as entire job categories cease to exist.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.5</value></li>
+			<li><stat>workerBaseMax</stat><value>-5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_factoryAutomation_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Partial automation — temporary production boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_factoryAutomation_1b</defName>
+		<label>Partial Automation</label>
+		<desc>Dangerous and repetitive tasks are handed off to machines while skilled workers handle the rest. It's a balanced approach — productivity increases noticeably, and workers appreciate not having to risk their lives on the factory floor. The boost lasts while the new equipment is at peak performance.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_factoryAutomation_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Resist — workers rally, temporary happiness and loyalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_factoryAutomation_1c</defName>
+		<label>Automation Rejected</label>
+		<desc>The automation plans are publicly shelved, and workers celebrate. Your decision to value human labor over mechanical efficiency earns deep loyalty and a surge of morale. Productivity may not have improved, but your people know you stand with them.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_factoryAutomation_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Industrious phased rollout — permanent production boost, no worker loss -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_factoryAutomation_1d</defName>
+		<label>Phased Rollout</label>
+		<desc>Under the careful guidance of your industrious administration, automation is introduced gradually. Workers are retrained as machine operators and maintenance technicians rather than replaced. The transition takes time, but the result is a permanent increase in productivity with no loss of workforce. A masterful balance of progress and pragmatism.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.35</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_factoryAutomation_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

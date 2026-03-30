@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Cultural flourishing begins -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_culturalFlourishing_0</defName>
+		<label>Cultural Flourishing</label>
+		<desc>A wave of artistic and intellectual creativity is sweeping through your settlements. Poets compose, painters paint, musicians play, and scholars debate in lively taverns. The people are happy and inspired. How do you nurture this cultural bloom?</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_culturalFlourishing_opt1</li>
+			<li>empireEvents_culturalFlourishing_opt2</li>
+			<li>empireEvents_culturalFlourishing_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minDaysSinceFounded>30</minDaysSinceFounded>
+		<minimumHappiness>50</minimumHappiness>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_culturalFlourishing_patronize</li>
+			<li>empireEvents_culturalFlourishing_bloom</li>
+			<li>empireEvents_culturalFlourishing_research</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Patronize the arts -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_culturalFlourishing_opt1</defName>
+		<label>Patronize the arts. Fund galleries, performances, and public works.</label>
+		<parentEvent>empireEvents_culturalFlourishing_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_culturalFlourishing_patronize</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Let it bloom naturally -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_culturalFlourishing_opt2</defName>
+		<label>Let it bloom on its own. The best art comes from freedom.</label>
+		<parentEvent>empireEvents_culturalFlourishing_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_culturalFlourishing_bloom</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Direct to research -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_culturalFlourishing_opt3</defName>
+		<label>Channel this intellectual energy into research and scholarship.</label>
+		<parentEvent>empireEvents_culturalFlourishing_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_culturalFlourishing_research</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Patronize — standard bonuses plus prosperity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_culturalFlourishing_patronize</defName>
+		<label>Artistic Renaissance</label>
+		<desc>Your generous patronage transforms the cultural bloom into a full renaissance. Grand murals adorn public buildings, orchestras perform in town squares, and poets compose epics celebrating your nation. Happiness soars, loyalty deepens, unrest fades, and the settlements prosper under the warmth of artistic achievement.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+			<li><stat>unrestGainedBase</stat><value>-1</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>prosperityGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_culturalFlourishing_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Let it bloom — standard bonuses -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_culturalFlourishing_bloom</defName>
+		<label>Cultural Bloom</label>
+		<desc>Left to flourish naturally, the cultural movement takes on a life of its own. Street performers, amateur philosophers, and self-taught artists fill the settlements with color and ideas. The movement is organic and genuine, boosting morale and calming tensions.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>-0.5</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_culturalFlourishing_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Direct to research — remove happiness bonus, boost research -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_culturalFlourishing_research</defName>
+		<label>Scholarly Pursuit</label>
+		<desc>You redirect the intellectual energy away from art and toward practical scholarship. Laboratories replace galleries, debates turn to engineering problems, and research output surges. The people lose some of the joyful spontaneity, but the knowledge gained is invaluable.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>-0.5</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_culturalFlourishing_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

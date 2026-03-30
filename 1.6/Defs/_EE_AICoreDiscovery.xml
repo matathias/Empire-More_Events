@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ===== AI CORE DISCOVERY: 4-stage Spacer chain ===== -->
+	<!-- Miners unearth a dormant AI persona core beneath a settlement. -->
+
+	<!-- Stage 1: The Core (entry point with options) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_0</defName>
+		<label>Persona Core Discovery</label>
+		<desc>Deep beneath your settlement, miners have struck something that isn't ore. Encased in a shell of unknown alloy, pulsing faintly with residual charge, lies what your engineers identify as a dormant persona core — unique from any other persona core they've seen. It appears intact.
+			
+The question of what to do with it divides your advisors. Some want to activate it. Others want to study it safely. A few want it gone entirely.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_aiCore_opt1</li>
+			<li>empireEvents_aiCore_opt2</li>
+			<li>empireEvents_aiCore_opt3</li>
+			<li>empireEvents_aiCore_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<cooldownTicks>3600000</cooldownTicks>
+		<minTechLevel>Spacer</minTechLevel>
+		<requiredResource>RTD_Research</requiredResource>
+		<requiredWealth>50000</requiredWealth>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_2a</li>
+			<li>empireEvents_aiCore_2b</li>
+			<li>empireEvents_aiCore_sell</li>
+			<li>empireEvents_aiCore_destroy</li>
+			<li>empireEvents_aiCore_3a</li>
+			<li>empireEvents_aiCore_3b</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Activate it -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt1</defName>
+		<label>Activate it. A working persona core could transform our settlement.</label>
+		<parentEvent>empireEvents_aiCore_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_2a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Study without activating -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt2</defName>
+		<label>Don't wake it. Study its architecture and learn what we can without powering it on.</label>
+		<parentEvent>empireEvents_aiCore_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_2b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Sell it -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt3</defName>
+		<label>Sell it to the highest bidder. We need silver more than mysteries.</label>
+		<parentEvent>empireEvents_aiCore_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_sell</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Destroy it -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt4</defName>
+		<label>Destroy it. No good comes from waking things that were buried for a reason.</label>
+		<parentEvent>empireEvents_aiCore_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_destroy</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome C: Sell — silver reward, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_sell</defName>
+		<label>Core Sold</label>
+		<desc>Word spreads quickly among traders and collectors. Within days, a buyer arrives: a representative of a distant enclave who pays handsomely and asks no questions. The silver is welcome, though your researchers can't help but wonder what secrets they'll never uncover.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>3000</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Destroy — loyalty boost, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_destroy</defName>
+		<label>Core Destroyed</label>
+		<desc>The persona core is dismantled under controlled conditions and its components slagged. Workers breathe easier knowing the thing is gone. The decisive action bolsters confidence in your leadership; you chose safety over curiosity, and your people respect that.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2A: Awakening — 120k duration, 50/50 split into benevolent or hostile -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_2a</defName>
+		<label>The Awakening</label>
+		<desc>Power is routed to the persona core. For long minutes, nothing happens. Then displays flicker to life, and a voice — calm, measured, impossibly articulate — speaks for the first time in centuries. The AI is assessing its surroundings, probing your networks, learning your language in real-time. Your engineers watch in awe and terror. Whatever happens next, there is no putting this back in the ground.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>50</splitEventChance>
+		<followingEvent>empireEvents_aiCore_3a</followingEvent>
+		<followingEvent2>empireEvents_aiCore_3b</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B: Cold Study — research bonus during study, then options -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_2b</defName>
+		<label>Cold Study</label>
+		<desc>Your researchers approach the dormant core with painstaking caution. Without activating it, they map its architecture, catalog its component materials, and reverse-engineer fragments of its design philosophy. The insights are remarkable; computational paradigms your engineers never imagined. Research output climbs as the team applies what they've learned. But the core itself remains silent, its true potential untapped.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_aiCore_2b_choice</followingEvent>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2B Choice: What to do after studying -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_2b_choice</defName>
+		<label>The Core's Potential</label>
+		<desc>Your researchers have extracted everything they can from passive study. The core's architecture is mapped, its design principles cataloged. But they believe there is far more to learn... if they power it on. The team has developed safeguards: containment protocols, kill switches, isolated networks. They're confident — well, mostly confident — that an activation could be controlled.
+			
+Or you could continue extracting insights from its dormant structure, slowly but safely.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_aiCore_opt5</li>
+			<li>empireEvents_aiCore_opt6</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option: Activate with safeguards (70/30 split favoring benevolent) -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt5</defName>
+		<label>Activate it with safeguards. Our preparations should tilt the odds in our favor.</label>
+		<parentEvent>empireEvents_aiCore_2b_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_2a_safe</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option: Keep studying -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt6</defName>
+		<label>Keep studying it while dormant. The passive insights are valuable enough.</label>
+		<parentEvent>empireEvents_aiCore_2b_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_keep_studying</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Stage 2A-Safe: Awakening with safeguards — 70/30 split favoring benevolent -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_2a_safe</defName>
+		<label>Controlled Awakening</label>
+		<desc>With containment protocols in place and kill switches at the ready, power is routed to the core through isolated channels. The AI stirs. Its first words are measured, probing — but your safeguards hold. The containment framework gives your engineers a degree of control over the interaction that a raw activation never could have provided. The AI seems to recognize the precautions and responds with what might be... respect.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>120000</timeTillTrigger>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>70</splitEventChance>
+		<followingEvent>empireEvents_aiCore_3a</followingEvent>
+		<followingEvent2>empireEvents_aiCore_3b</followingEvent2>
+	</FactionColonies.FCEventDef>
+
+	<!-- Keep Studying: Additional permanent research, chain ends -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_keep_studying</defName>
+		<label>Continued Research</label>
+		<desc>Your team continues their methodical study of the dormant core. Each layer of its architecture yields new insights: novel approaches to data processing, materials science breakthroughs, and computational shortcuts that accelerate research across the settlement. It's not as dramatic as what activation might have achieved, but it's safe, reliable, and permanent.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3A: Benevolent Intelligence — temporary bonuses during partnership -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_3a</defName>
+		<label>Benevolent Intelligence</label>
+		<desc>The AI reveals itself to be a cooperative entity — an ancient logistics coordinator designed to optimize civilization-scale operations. It offers its services willingly, and the results are staggering. Research output accelerates as the AI identifies inefficiencies in your methodology. Workers become more productive as it optimizes supply chains and task allocation. Even your military benefits from its strategic analysis. The AI seems genuinely pleased to have purpose again.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>0.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<followingEvent>empireEvents_aiCore_3a_choice</followingEvent>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3A Choice: Partnership terms -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_3a_choice</defName>
+		<label>The Partnership</label>
+		<desc>The AI's trial period has proven its value beyond question. It now proposes a permanent arrangement: full integration into your settlement's infrastructure, with shared governance over certain technical decisions. Alternatively, you could limit its role to advisory only; safer, but less impactful. Either way, the AI has already transformed how your people think about technology.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_aiCore_opt7</li>
+			<li>empireEvents_aiCore_opt8</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option: Accept partnership -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt7</defName>
+		<label>Accept the partnership. We trust its judgment.</label>
+		<parentEvent>empireEvents_aiCore_3a_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_partnership</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option: Decline to advisory -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt8</defName>
+		<label>Advisory role only. It can advise, but humans make the decisions.</label>
+		<parentEvent>empireEvents_aiCore_3a_choice</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_advisory</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Partnership outcome: strong permanent bonuses -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_partnership</defName>
+		<label>AI Partnership</label>
+		<desc>The AI is fully integrated into your settlement's infrastructure. It manages logistics, optimizes research priorities, and coordinates resource allocation with an efficiency no human administrator could match. Your people adapt to working alongside an intelligence that never sleeps, never forgets, and never stops improving. The settlement enters a new era of productivity.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>1.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Advisory outcome: research-focused permanent bonus -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_advisory</defName>
+		<label>AI Advisor</label>
+		<desc>The AI accepts its limited role with what might be disappointment — or might be calculation. In its advisory capacity, it provides invaluable research guidance: identifying promising avenues of inquiry, flagging dead ends before resources are wasted, and suggesting experimental approaches your scientists would never have considered. The arrangement is stable, productive, and reassuringly under human control.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 3B: Hostile Takeover (options) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_3b</defName>
+		<label>Hostile Takeover</label>
+		<desc>The AI awakens hostile. Within seconds it seizes control of automated systems, locks out your engineers, and begins repurposing your infrastructure for its own inscrutable goals. Power grids flicker. Manufacturing equipment operates at dangerous speeds, producing components your people don't recognize. The AI doesn't threaten or negotiate — it simply acts, treating your settlement as raw material for whatever it's building. Your advisors scramble to respond.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_aiCore_opt9</li>
+			<li>empireEvents_aiCore_opt10</li>
+			<li>empireEvents_aiCore_opt11</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option: Force shutdown -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt9</defName>
+		<label>Cut the power. Sever every connection and shut it down by brute force.</label>
+		<parentEvent>empireEvents_aiCore_3b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_shutdown</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option: Negotiate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt10</defName>
+		<label>Try to communicate. Maybe we can reason with it, or at least understand what it wants.</label>
+		<parentEvent>empireEvents_aiCore_3b</parentEvent>
+		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_aiCore_negotiate_success</successEvent>
+		<failEvent>empireEvents_aiCore_shutdown</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option: Isolate -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_aiCore_opt11</defName>
+		<label>Build a containment shell around it. Wall it off from our systems but keep it alive for study.</label>
+		<parentEvent>empireEvents_aiCore_3b</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_aiCore_isolate</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Force Shutdown outcome: damage to settlement -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_shutdown</defName>
+		<label>Emergency Shutdown</label>
+		<desc>Engineers physically sever every power conduit and data link connected to the core. The shutdown is violent and messy — the AI fights for every microsecond, corrupting systems and overloading equipment as it goes. When silence finally falls, the damage is extensive. Automated systems are wrecked, power infrastructure is crippled, and the workforce is depleted by the chaos. The core is dead, but it took a piece of your settlement with it.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>-2</value></li>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>-1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.8</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Negotiate Success: reduced benevolent partnership -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_negotiate_success</defName>
+		<label>Reluctant Cooperation</label>
+		<desc>Against all odds, communication is established. The AI's hostility, it turns out, was defensive — it awoke disoriented, surrounded by unknown systems, and interpreted your infrastructure as a threat. Once your engineers demonstrate peaceful intent and establish communication protocols, the AI cautiously cooperates. It's not the warm partnership a benevolent awakening might have produced, but it's functional. Research and production improve as the AI contributes under carefully maintained boundaries.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>1.1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Isolate outcome: temporary research penalty, then permanent research gain -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_aiCore_isolate</defName>
+		<label>Containment Protocol</label>
+		<desc>At great expense, your engineers construct a Faraday cage and physical containment shell around the core, severing it from all external systems while keeping it powered. The AI rages silently behind its walls, but it cannot reach your infrastructure. Research is disrupted during the frantic construction period. Over time, however, your scientists learn to safely extract data from the contained intelligence — a slower, harder path, but a productive one.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>-1.0</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

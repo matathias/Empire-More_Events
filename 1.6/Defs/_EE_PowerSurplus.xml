@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Power surplus detected -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_powerSurplus_0</defName>
+		<label>Power Surplus</label>
+		<desc>Your settlements are generating more power than they can consume. The excess energy crackles through the grid, waiting to be put to use. This is a rare opportunity to invest the surplus into something productive. What do you do with the extra power?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_powerSurplus_opt1</li>
+			<li>empireEvents_powerSurplus_opt2</li>
+			<li>empireEvents_powerSurplus_opt3</li>
+			<li>empireEvents_powerSurplus_opt4</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>15</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minTechLevel>Industrial</minTechLevel>
+		<requiredResource>RTD_Power</requiredResource>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_powerSurplus_1a</li>
+			<li>empireEvents_powerSurplus_1b</li>
+			<li>empireEvents_powerSurplus_1c</li>
+			<li>empireEvents_powerSurplus_1d</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Sell excess power -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_powerSurplus_opt1</defName>
+		<label>Sell the excess power to neighboring factions. Profit is profit.</label>
+		<parentEvent>empireEvents_powerSurplus_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_powerSurplus_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Expand research -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_powerSurplus_opt2</defName>
+		<label>Power the research labs around the clock. Knowledge is the real currency.</label>
+		<parentEvent>empireEvents_powerSurplus_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_powerSurplus_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Electrify manufacturing -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_powerSurplus_opt3</defName>
+		<label>Route the power into manufacturing. More energy means more output.</label>
+		<parentEvent>empireEvents_powerSurplus_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_powerSurplus_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Subsidize growth -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_powerSurplus_opt4</defName>
+		<label>Use the surplus to power expansion projects. Grow the settlements.</label>
+		<parentEvent>empireEvents_powerSurplus_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_powerSurplus_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Sell power — temporary tax boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_powerSurplus_1a</defName>
+		<label>Power Exported</label>
+		<desc>Neighboring factions eagerly purchase your excess power. Silver flows in as your settlements become regional energy suppliers. The revenue stream lasts as long as the surplus holds out.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_powerSurplus_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Expand research — permanent research boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_powerSurplus_1b</defName>
+		<label>Research Expansion</label>
+		<desc>The surplus power is channeled into research facilities, enabling round-the-clock experimentation and data processing. New equipment is installed, and the expanded capacity permanently accelerates the pace of discovery.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_powerSurplus_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Electrify manufacturing — permanent production boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_powerSurplus_1c</defName>
+		<label>Manufacturing Electrified</label>
+		<desc>Excess power is routed directly into the manufacturing sector. Electric tools replace manual ones, assembly lines accelerate, and output increases across the board. The infrastructure improvements are permanent — your factories will never go back to the old ways.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.1</value></li>
+		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_powerSurplus_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Subsidize growth — temporary worker and happiness boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_powerSurplus_1d</defName>
+		<label>Growth Subsidized</label>
+		<desc>The surplus power fuels an ambitious expansion program. New housing is built, public amenities are electrified, and the settlements buzz with opportunity. Workers flock to the growing communities, and morale rises as quality of life improves. The growth spurt lasts as long as the power surplus holds.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_powerSurplus_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>
