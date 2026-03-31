@@ -91,7 +91,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>-5</value></li>
 			<li><stat>militaryCombatEfficiency</stat><value>0.95</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
@@ -109,7 +109,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>-5</value></li>
 			<li><stat>militaryCombatEfficiency</stat><value>0.9</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>
@@ -161,7 +161,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>-5</value></li>
 			<li><stat>militaryCombatEfficiency</stat><value>0.95</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~99</rangeSettlementsAffected>

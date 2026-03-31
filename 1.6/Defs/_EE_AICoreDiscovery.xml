@@ -88,6 +88,9 @@ The question of what to do with it divides your advisors. Some want to activate 
 		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
 		<randomThingValue>3000</randomThingValue>
 		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 	<!-- Outcome D: Destroy — loyalty boost, chain ends -->
@@ -102,6 +105,9 @@ The question of what to do with it divides your advisors. Some want to activate 
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 	<!-- Stage 2A: Awakening — 120k duration, 50/50 split into benevolent or hostile -->
@@ -118,6 +124,9 @@ The question of what to do with it divides your advisors. Some want to activate 
 		<splitEventChance>50</splitEventChance>
 		<followingEvent>empireEvents_aiCore_3a</followingEvent>
 		<followingEvent2>empireEvents_aiCore_3b</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 	<!-- Stage 2B: Cold Study — research bonus during study, then options -->
@@ -134,6 +143,9 @@ The question of what to do with it divides your advisors. Some want to activate 
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<eventFollows>true</eventFollows>
 		<followingEvent>empireEvents_aiCore_2b_choice</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 	<!-- Stage 2B Choice: What to do after studying -->
@@ -221,6 +233,9 @@ Or you could continue extracting insights from its dormant structure, slowly but
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<eventFollows>true</eventFollows>
 		<followingEvent>empireEvents_aiCore_3a_choice</followingEvent>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 	<!-- Stage 3A Choice: Partnership terms -->
@@ -303,6 +318,9 @@ Or you could continue extracting insights from its dormant structure, slowly but
 		<activateAtStart>true</activateAtStart>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_aiCore_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 	<!-- Option: Force shutdown -->

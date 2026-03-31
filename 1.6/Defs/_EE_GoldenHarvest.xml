@@ -125,7 +125,7 @@
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.75</value></li>
 			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.5</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

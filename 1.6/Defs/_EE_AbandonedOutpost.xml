@@ -128,7 +128,7 @@
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>1</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.03</value></li>
+			<li><stat>taxBasePercentage</stat><value>3</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>

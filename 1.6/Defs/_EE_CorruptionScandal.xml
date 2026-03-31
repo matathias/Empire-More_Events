@@ -133,7 +133,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-10</value></li>
 			<li><stat>unrestGainedBase</stat><value>1</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
@@ -149,7 +149,7 @@
 		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>unrestGainedBase</stat><value>2</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

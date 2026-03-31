@@ -68,7 +68,7 @@
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>1.1</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
@@ -88,7 +88,7 @@
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>1.2</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>loyaltyLostBase</stat><value>2</value></li>
 		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
@@ -108,7 +108,7 @@
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>titheValueMultiplier</stat><value>1.05</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.025</value></li>
+			<li><stat>taxBasePercentage</stat><value>2.5</value></li>
 		</statModifiers>
 		<permanentStatModifiers>
 			<li><stat>titheValueMultiplier</stat><value>1.05</value></li>

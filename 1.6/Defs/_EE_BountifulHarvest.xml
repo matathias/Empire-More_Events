@@ -140,7 +140,7 @@
 		<timeTillTriggerMax>600000</timeTillTriggerMax>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.25</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>

@@ -122,7 +122,7 @@
 		<category>EC_Settlement</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
-			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
@@ -137,7 +137,7 @@
 		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>1</value></li>
 			<li><stat>buildTimeMultiplier</stat><value>0.95</value></li>
-			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
@@ -150,7 +150,7 @@
 		<category>EC_Settlement</category>
 		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>buildTimeMultiplier</stat><value>0.9</value></li>
 		</statModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>

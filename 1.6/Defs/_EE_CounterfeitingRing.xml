@@ -99,7 +99,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-10</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -116,7 +116,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>150000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-10</value></li>
 			<li><stat>happinessGainedBase</stat><value>-2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
@@ -135,7 +135,7 @@
 		<timeTillTrigger>600000</timeTillTrigger>
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.2</value></li>
+			<li><stat>taxBasePercentage</stat><value>-20</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -222,7 +222,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>600000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -240,7 +240,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>180000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>-5</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>-2</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>2~3</rangeSettlementsAffected>

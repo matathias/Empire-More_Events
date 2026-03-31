@@ -114,7 +114,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
-			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-10</value></li>
 		</statModifiers>
 		<permanentStatModifiers>
 			<li><stat>workerBaseCost</stat><value>10</value></li>

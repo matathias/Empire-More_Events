@@ -77,7 +77,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
-			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
 			<li><stat>workerBaseMax</stat><value>1</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>

@@ -170,7 +170,7 @@
 		<timeTillTrigger>600000</timeTillTrigger>
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.05</value></li>
+			<li><stat>taxBasePercentage</stat><value>-5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -382,7 +382,7 @@
 		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
 		<randomThingValue>1000</randomThingValue>
 		<permanentStatModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.03</value></li>
+			<li><stat>taxBasePercentage</stat><value>-3</value></li>
 		</permanentStatModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
@@ -490,7 +490,7 @@
 		<category>EC_Economy</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>-0.1</value></li>
+			<li><stat>taxBasePercentage</stat><value>-10</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
