@@ -18,6 +18,7 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>15</weight>
+		<cooldownTicks>1800000</cooldownTicks>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<requiredResource>RTD_Chemfuel</requiredResource>
 		<minTechLevel>Industrial</minTechLevel>

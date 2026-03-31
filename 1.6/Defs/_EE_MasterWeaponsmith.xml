@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Weaponsmith arrives -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_masterWeaponsmith_0</defName>
+		<label>Master Weaponsmith</label>
+		<desc>A legendary weaponsmith, renowned across multiple settlements for forging arms of exceptional quality, has arrived seeking a permanent workshop. Word of your weapon production has reached her, and she offers her services. This is a rare opportunity.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_masterWeaponsmith_opt1</li>
+			<li>empireEvents_masterWeaponsmith_opt2</li>
+			<li>empireEvents_masterWeaponsmith_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<requiredResource>RTD_Weapons</requiredResource>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_masterWeaponsmith_1a</li>
+			<li>empireEvents_masterWeaponsmith_1b</li>
+			<li>empireEvents_masterWeaponsmith_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Hire permanently -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_masterWeaponsmith_opt1</defName>
+		<label>Offer her a permanent position. The best arms deserve the best smith.</label>
+		<parentEvent>empireEvents_masterWeaponsmith_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_masterWeaponsmith_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Short contract -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_masterWeaponsmith_opt2</defName>
+		<label>Offer a short-term contract. Get what we can while she's here.</label>
+		<parentEvent>empireEvents_masterWeaponsmith_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_masterWeaponsmith_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Training program -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_masterWeaponsmith_opt3</defName>
+		<label>Ask her to train our smiths. Knowledge lasts longer than any contract.</label>
+		<parentEvent>empireEvents_masterWeaponsmith_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_masterWeaponsmith_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Permanent hire -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_masterWeaponsmith_1a</defName>
+		<label>Master Smith Retained</label>
+		<desc>The weaponsmith accepts your generous offer and establishes a permanent forge in the settlement. Her techniques and expertise permanently elevate weapons production. Arms of remarkable quality begin flowing from her workshop.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Short contract -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_masterWeaponsmith_1b</defName>
+		<label>Contract Smith</label>
+		<desc>The weaponsmith agrees to a limited engagement. For the duration of her stay, weapons production surges as she works tirelessly and teaches a few tricks to your existing smiths.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>1.1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Training -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_masterWeaponsmith_1c</defName>
+		<label>Smithing School</label>
+		<desc>Rather than forging weapons herself, the master smith spends her time training your smiths in advanced techniques. The lessons take time to absorb, but your workers gradually improve their craft. The settlement's weapons production is permanently, if modestly, enhanced.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>1.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

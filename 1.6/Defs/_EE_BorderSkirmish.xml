@@ -8,6 +8,7 @@
 		<desc>Scouts report hostile forces massing near your border settlements. Small raiding parties have already been spotted probing your defenses. This could escalate quickly. How do you respond?</desc>
 		<category>EC_Military</category>
 		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
 		<options>
 			<li>empireEvents_skirmish_opt1</li>
 			<li>empireEvents_skirmish_opt2</li>

@@ -8,6 +8,7 @@
 		<desc>Skilled workers and researchers are leaving your settlements for greener pastures. Dissatisfaction with conditions is driving your best people away. How do you respond?</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
 		<options>
 			<li>empireEvents_brainDrain_opt1</li>
 			<li>empireEvents_brainDrain_opt2</li>

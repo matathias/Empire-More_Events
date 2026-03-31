@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Fire breaks out -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armoryFire_0</defName>
+		<label>Armory Fire</label>
+		<desc>Fire has broken out in your settlement's armory. Weapons stockpiles are ablaze, forging equipment is damaged, and the intense heat makes firefighting dangerous. Explosions from heated ammunition rock the building. How do you respond?</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
+		<options>
+			<li>empireEvents_armoryFire_opt1</li>
+			<li>empireEvents_armoryFire_opt2</li>
+			<li>empireEvents_armoryFire_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>12</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<requiredResource>RTD_Weapons</requiredResource>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_armoryFire_1a</li>
+			<li>empireEvents_armoryFire_1b</li>
+			<li>empireEvents_armoryFire_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Rebuild from scratch -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armoryFire_opt1</defName>
+		<label>Clear the wreckage and rebuild. It will take time but cost nothing extra.</label>
+		<parentEvent>empireEvents_armoryFire_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_armoryFire_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Emergency procurement -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armoryFire_opt2</defName>
+		<label>Buy replacement weapons from outside sources. Get armed again fast.</label>
+		<parentEvent>empireEvents_armoryFire_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<successEvent>empireEvents_armoryFire_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Redesign armory -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_armoryFire_opt3</defName>
+		<label>Redesign the armory with fireproofing and better storage. Learn from this disaster.</label>
+		<parentEvent>empireEvents_armoryFire_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<successEvent>empireEvents_armoryFire_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Rebuild — long penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armoryFire_1a</defName>
+		<label>Armory Rebuilding</label>
+		<desc>Workers sift through charred wreckage and begin the long process of rebuilding the armory from scratch. Weapons production is crippled until new forges are constructed and raw materials are restocked.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>-1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Emergency procurement — shorter, milder penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armoryFire_1b</defName>
+		<label>Emergency Procurement</label>
+		<desc>Outside weapons are purchased at inflated prices to replace lost stockpiles. The gap in production is shortened, though the emergency spending stings.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>-0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Redesign — penalty + permanent bonus -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_armoryFire_1c</defName>
+		<label>Armory Redesigned</label>
+		<desc>Rather than simply rebuilding, your engineers design a new armory with fireproof storage, blast-resistant walls, and improved ventilation. Production suffers during the extended reconstruction, but the end result is a facility far superior to what burned. Weapons production is permanently enhanced.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>-0.75</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -8,6 +8,7 @@
 		<desc>A violent earthquake has struck your settlements! Mines have collapsed, buildings are damaged, and workers are injured. The damage is significant. How do you respond to the crisis?</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
 		<options>
 			<li>empireEvents_earthquake_opt1</li>
 			<li>empireEvents_earthquake_opt2</li>
@@ -18,7 +19,7 @@
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
-		<cooldownTicks>900000</cooldownTicks>
+		<cooldownTicks>1800000</cooldownTicks>
 		<minDaysSinceFounded>5</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

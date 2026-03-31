@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Land opportunity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_landRush_0</defName>
+		<label>Land Rush</label>
+		<desc>Word has spread of unclaimed, resource-rich land near your empire's borders. Prospectors, farmers, and entrepreneurs are eager to stake their claims. The opportunity could reduce the cost of founding new settlements, enrich existing ones, or simply fill your treasury through land auctions.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_landRush_opt1</li>
+			<li>empireEvents_landRush_opt2</li>
+			<li>empireEvents_landRush_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<cooldownTicks>3600000</cooldownTicks>
+		<minSettlements>2</minSettlements>
+		<minDaysSinceFounded>30</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_landRush_1a</li>
+			<li>empireEvents_landRush_1b</li>
+			<li>empireEvents_landRush_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Encourage settlement -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_landRush_opt1</defName>
+		<label>Encourage new settlement. Lower the barriers and let pioneers claim the land.</label>
+		<parentEvent>empireEvents_landRush_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_landRush_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Auction the claims -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_landRush_opt2</defName>
+		<label>Auction the land rights. Let the highest bidder take the risk.</label>
+		<parentEvent>empireEvents_landRush_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_landRush_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Annex for existing settlements -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_landRush_opt3</defName>
+		<label>Annex the land for our existing settlements. More territory means more workers.</label>
+		<parentEvent>empireEvents_landRush_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_landRush_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Settlement cost reduction -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_landRush_1a</defName>
+		<label>Land Rush Boom</label>
+		<desc>With reduced founding costs, pioneers rush to claim the new territory. The surge of activity creates favorable conditions for establishing new settlements across your empire.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>createSettlementBaseCost</stat><value>-500</value></li>
+			<li><stat>createSettlementMultiplier</stat><value>0.85</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Silver reward -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_landRush_1b</defName>
+		<label>Land Auction</label>
+		<desc>The auction draws wealthy buyers from across the region. Bidding is fierce, and the final prices exceed expectations. Your treasury swells with the proceeds.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>2500</randomThingValue>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Worker capacity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_landRush_1c</defName>
+		<label>Territory Expanded</label>
+		<desc>Your existing settlements annex the newly discovered land, expanding their borders and attracting new workers drawn by the opportunity. The additional territory permanently increases workforce capacity.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

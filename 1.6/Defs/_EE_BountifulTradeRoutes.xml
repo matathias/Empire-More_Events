@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- No-options positive event (like Engineering Breakthrough) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulTradeRoutes</defName>
+		<label>Bountiful Trade Routes</label>
+		<desc>Trade routes across your empire's territory are thriving. Bandit activity is at a low, roads are in excellent condition, and merchant caravans report record profits. The favorable conditions boost both tithe collection and trade revenue. Your empire benefits from a season of safe and productive commerce.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minSettlements>3</minSettlements>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>titheValueMultiplier</stat><value>1.1</value></li>
+			<li><stat>taxBonusFlat</stat><value>3</value></li>
+		</statModifiers>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulTradeRoutes</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

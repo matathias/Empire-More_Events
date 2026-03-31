@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Grove discovered -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_ancientGrove_0</defName>
+		<label>Ancient Grove</label>
+		<desc>Scouts have discovered a magnificent primeval forest near your settlement — ancient trees of extraordinary size, their trunks wider than houses. The grove has somehow escaped logging for centuries, and its timber is of exceptional quality. This is a rare find.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_ancientGrove_opt1</li>
+			<li>empireEvents_ancientGrove_opt2</li>
+			<li>empireEvents_ancientGrove_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>BorealForest</li>
+			<li>TemperateForest</li>
+			<li>TropicalRainforest</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_ancientGrove_1a</li>
+			<li>empireEvents_ancientGrove_1b</li>
+			<li>empireEvents_ancientGrove_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Harvest immediately -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_ancientGrove_opt1</defName>
+		<label>Fell the trees. Timber this fine will fuel our growth.</label>
+		<parentEvent>empireEvents_ancientGrove_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_ancientGrove_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Sustainable forestry -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_ancientGrove_opt2</defName>
+		<label>Establish a sustainable logging operation. Harvest carefully and let the grove regenerate.</label>
+		<parentEvent>empireEvents_ancientGrove_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_ancientGrove_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Preserve as park -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_ancientGrove_opt3</defName>
+		<label>Preserve it. A place of beauty like this is worth more than timber.</label>
+		<parentEvent>empireEvents_ancientGrove_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_ancientGrove_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Immediate harvest -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_ancientGrove_1a</defName>
+		<label>Grove Harvested</label>
+		<desc>Logging crews descend on the ancient grove with enthusiasm. The massive trunks yield timber of extraordinary quality and quantity. Production surges temporarily, though once the grove is felled, it will not grow back.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Sustainable forestry -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_ancientGrove_1b</defName>
+		<label>Sustainable Forestry</label>
+		<desc>A managed logging operation is established in the grove. Selective harvesting preserves the forest's health while providing a permanent supply of premium timber. The grove becomes a renewable resource for generations.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Preserved park -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_ancientGrove_1c</defName>
+		<label>Grove Preserved</label>
+		<desc>The ancient forest is declared a protected reserve. Workers who visit speak of a deep peace among the towering trees, and the grove becomes a beloved landmark. Settlers take pride in their community's commitment to preservation, and morale permanently improves.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

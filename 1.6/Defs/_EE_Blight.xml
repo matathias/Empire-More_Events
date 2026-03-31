@@ -8,6 +8,7 @@
 		<desc>A blight is spreading across the farmland of your settlements. Crops are withering and rotting in the fields. If left unchecked, it will devastate food production for weeks. How do you handle it?</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
 		<options>
 			<li>empireEvents_blight_opt1</li>
 			<li>empireEvents_blight_opt2</li>

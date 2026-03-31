@@ -8,6 +8,7 @@
 		<desc>A devastating plague has broken out in your settlements. Workers are falling ill, productivity has collapsed, and fear is spreading faster than the disease itself. How do you respond?</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
 		<options>
 			<li>empireEvents_plague_opt1</li>
 			<li>empireEvents_plague_opt2</li>

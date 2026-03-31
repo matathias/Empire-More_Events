@@ -246,7 +246,7 @@ Your settlement reels from the loss. Yet even in the wreckage, your researchers 
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>-3</value></li>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>-1</value></li>
-			<li><stat>workerProductionMultiplier</stat><value>0.5</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.7</value></li>
 		</statModifiers>
 		<permanentStatModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>

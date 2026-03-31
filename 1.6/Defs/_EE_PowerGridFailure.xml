@@ -8,6 +8,7 @@
 		<desc>The power grid serving your settlements has suffered a catastrophic failure. Generators have overloaded, power lines are down, and essential systems are offline. How do you restore power?</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
+		<isNegative>true</isNegative>
 		<options>
 			<li>empireEvents_powerFailure_opt1</li>
 			<li>empireEvents_powerFailure_opt2</li>

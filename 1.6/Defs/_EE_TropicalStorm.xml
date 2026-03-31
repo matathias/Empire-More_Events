@@ -16,7 +16,8 @@
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
-		<weight>20</weight>
+		<weight>12</weight>
+		<cooldownTicks>1200000</cooldownTicks>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<applicableBiomes>
 			<li>TropicalRainforest</li>
