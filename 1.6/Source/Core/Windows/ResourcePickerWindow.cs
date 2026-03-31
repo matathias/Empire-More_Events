@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -155,9 +153,10 @@ namespace FactionColonies.Events
             }
             else
             {
-                GUI.color = new Color(0.5f, 0.5f, 0.5f);
-                Widgets.ButtonText(buttonRect, "EE_NoActiveResources".Translate());
-                GUI.color = colorBefore;
+                if (Widgets.ButtonText(buttonRect, "EE_NoActiveResources".Translate()))
+                {
+                    Close();
+                }
             }
 
             Text.Font = fontBefore;

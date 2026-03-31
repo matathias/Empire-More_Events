@@ -8,7 +8,7 @@
 	<!-- Resource Picker Window -->
 	<EE_ResourcePickerDesc>Choose which resource these skilled workers will specialize in.</EE_ResourcePickerDesc>
 	<EE_SelectResource>Select Resource</EE_SelectResource>
-	<EE_NoActiveResources>No active resources</EE_NoActiveResources>
+	<EE_NoActiveResources>No active resources (dismiss)</EE_NoActiveResources>
 
 	<!-- Skilled Immigrants -->
 	<EE_ImmigrantsSourceLabel>Skilled Immigrants ({0})</EE_ImmigrantsSourceLabel>

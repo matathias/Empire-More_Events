@@ -17,13 +17,16 @@ namespace FactionColonies.Events
         {
             // Create the main penalty event on the originally affected settlements
             FCEventDef mainDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_powerFailure_reroute_main");
-            if (mainDef != null)
+            if (mainDef == null)
             {
-                FCEvent mainEvt = FCEventMaker.MakeRandomEvent(mainDef, evt.settlementTraitLocations);
-                if (mainEvt != null)
-                {
-                    faction.AddEvent(mainEvt);
-                }
+                LogEE.Error("PowerReroute: Could not find empireEvents_powerFailure_reroute_main def.");
+                return true;
+            }
+
+            FCEvent mainEvt = FCEventMaker.MakeRandomEvent(mainDef, evt.settlementTraitLocations);
+            if (mainEvt != null)
+            {
+                faction.AddEvent(mainEvt);
             }
 
             // Find settlements NOT already affected
