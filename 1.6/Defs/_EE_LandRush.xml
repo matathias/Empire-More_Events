@@ -12,6 +12,8 @@
 			<li>empireEvents_landRush_opt1</li>
 			<li>empireEvents_landRush_opt2</li>
 			<li>empireEvents_landRush_opt3</li>
+			<li>empireEvents_landRush_opt_feudal</li>
+			<li>empireEvents_landRush_opt_expansionist</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -25,6 +27,8 @@
 			<li>empireEvents_landRush_1a</li>
 			<li>empireEvents_landRush_1b</li>
 			<li>empireEvents_landRush_1c</li>
+			<li>empireEvents_landRush_fiefdoms</li>
+			<li>empireEvents_landRush_claim</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -56,6 +60,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>200</silverCost>
 		<successEvent>empireEvents_landRush_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Feudal — grant fiefdoms -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_landRush_opt_feudal</defName>
+		<label>Grant fiefdoms to loyal vassals. Land for loyalty.</label>
+		<parentEvent>empireEvents_landRush_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_landRush_fiefdoms</successEvent>
+		<requiredPolicies>
+			<li>feudal</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Expansionist — claim and found outposts -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_landRush_opt_expansionist</defName>
+		<label>Claim the land and found new outposts immediately. We were made for this.</label>
+		<parentEvent>empireEvents_landRush_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_landRush_claim</successEvent>
+		<requiredPolicies>
+			<li>expansionist</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Settlement cost reduction -->
@@ -94,6 +124,36 @@
 		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>1</value></li>
 		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Fiefdoms — feudal land grants -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_landRush_fiefdoms</defName>
+		<label>Fiefdoms Granted</label>
+		<desc>The new territory is divided among your most loyal vassals, each granted a fief in exchange for continued service and fealty. The recipients pour their personal resources into developing the land, expanding the workforce and deepening their loyalty to the crown.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>0.25</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Expansionist claim — enhanced settlement discount -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_landRush_claim</defName>
+		<label>Territory Claimed</label>
+		<desc>Your expansion apparatus springs into action with practiced efficiency. Surveyors mark boundaries, supply trains are dispatched, and the infrastructure for new settlements is laid out before the dust settles.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>createSettlementBaseCost</stat><value>-750</value></li>
+			<li><stat>createSettlementMultiplier</stat><value>0.75</value></li>
+		</statModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
 

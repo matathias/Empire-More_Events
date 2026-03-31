@@ -12,6 +12,7 @@
 			<li>empireEvents_ancientGrove_opt1</li>
 			<li>empireEvents_ancientGrove_opt2</li>
 			<li>empireEvents_ancientGrove_opt3</li>
+			<li>empireEvents_ancientGrove_opt_roadBuilders</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -28,6 +29,7 @@
 			<li>empireEvents_ancientGrove_1a</li>
 			<li>empireEvents_ancientGrove_1b</li>
 			<li>empireEvents_ancientGrove_1c</li>
+			<li>empireEvents_ancientGrove_road</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -96,6 +98,35 @@
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option D: Road Builders — logging road through the grove -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_ancientGrove_opt_roadBuilders</defName>
+		<label>Build a logging road through the grove. Access improves everything.</label>
+		<parentEvent>empireEvents_ancientGrove_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>150</silverCost>
+		<successEvent>empireEvents_ancientGrove_road</successEvent>
+		<requiredPolicies>
+			<li>roadBuilders</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome D: Logging road — permanent modest logging + temporary construction boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_ancientGrove_road</defName>
+		<label>Logging Road</label>
+		<desc>A well-engineered road is cut through the grove, carefully routed to minimize damage while maximizing access. The improved logistics make timber extraction more efficient and the road itself serves as a supply line that accelerates construction projects in the settlement.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>buildTimeMultiplier</stat><value>0.9</value></li>
+		</statModifiers>
+		<permanentStatModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>0.25</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>

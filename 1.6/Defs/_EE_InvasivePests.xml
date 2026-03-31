@@ -13,6 +13,7 @@
 			<li>empireEvents_invasivePests_opt1</li>
 			<li>empireEvents_invasivePests_opt2</li>
 			<li>empireEvents_invasivePests_opt3</li>
+			<li>empireEvents_invasivePests_opt_isolationist</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -61,6 +62,19 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_invasivePests_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Isolationist — disciplined internal response -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_invasivePests_opt_isolationist</defName>
+		<label>Seal the borders. No imported species — we handle this ourselves.</label>
+		<parentEvent>empireEvents_invasivePests_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<successEvent>empireEvents_invasivePests_1a</successEvent>
+		<requiredPolicies>
+			<li>isolationist</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Controlled burn — short disruption, some permanent habitat loss -->

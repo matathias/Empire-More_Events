@@ -12,6 +12,7 @@
 			<li>empireEvents_economicBoom_opt1</li>
 			<li>empireEvents_economicBoom_opt2</li>
 			<li>empireEvents_economicBoom_opt3</li>
+			<li>empireEvents_economicBoom_opt_feudal</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -25,6 +26,7 @@
 			<li>empireEvents_economicBoom_1a</li>
 			<li>empireEvents_economicBoom_1b</li>
 			<li>empireEvents_economicBoom_1c</li>
+			<li>empireEvents_economicBoom_estates</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -56,6 +58,19 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_economicBoom_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Feudal — noble estates -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_economicBoom_opt_feudal</defName>
+		<label>Invest in noble estates. Let the highborn secure our prosperity.</label>
+		<parentEvent>empireEvents_economicBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_economicBoom_estates</successEvent>
+		<requiredPolicies>
+			<li>feudal</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Growth investment -->
@@ -97,6 +112,21 @@
 		<statModifiers>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Noble estates — feudal prosperity + loyalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_economicBoom_estates</defName>
+		<label>Noble Estates</label>
+		<desc>The economic windfall is channeled into grand estates for the highborn: manors, hunting grounds, and ornamental gardens that proclaim the empire's prosperity. The nobility responds with renewed devotion, strengthening the bonds of fealty that hold the feudal order together.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>prosperityGainedBase</stat><value>0.75</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.75</value></li>
 		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>

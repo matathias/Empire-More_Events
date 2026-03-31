@@ -12,6 +12,8 @@
 			<li>empireEvents_prospectorsBoom_opt1</li>
 			<li>empireEvents_prospectorsBoom_opt2</li>
 			<li>empireEvents_prospectorsBoom_opt3</li>
+			<li>empireEvents_prospectorsBoom_opt_egalitarian</li>
+			<li>empireEvents_prospectorsBoom_opt_slaver</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -24,6 +26,8 @@
 			<li>empireEvents_prospectorsBoom_regulate</li>
 			<li>empireEvents_prospectorsBoom_freeForAll</li>
 			<li>empireEvents_prospectorsBoom_controlled</li>
+			<li>empireEvents_prospectorsBoom_coop</li>
+			<li>empireEvents_prospectorsBoom_forced</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -55,6 +59,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>300</silverCost>
 		<successEvent>empireEvents_prospectorsBoom_controlled</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Egalitarian — community cooperative -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_prospectorsBoom_opt_egalitarian</defName>
+		<label>Establish a community mining cooperative. The profits belong to everyone.</label>
+		<parentEvent>empireEvents_prospectorsBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_prospectorsBoom_coop</successEvent>
+		<requiredPolicies>
+			<li>egalitarian</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Slaver — forced labor in the mines -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_prospectorsBoom_opt_slaver</defName>
+		<label>Conscript laborers for the mines. We need output, not comfort.</label>
+		<parentEvent>empireEvents_prospectorsBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_prospectorsBoom_forced</successEvent>
+		<requiredPolicies>
+			<li>slaver</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Regulated extraction — standard bonuses -->
@@ -114,6 +144,47 @@
 		<permanentStatModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.25</value></li>
 		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_prospectorsBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Community cooperative — egalitarian -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_prospectorsBoom_coop</defName>
+		<label>Mining Cooperative</label>
+		<desc>A community-owned mining cooperative is established. Every worker has an equal share in the profits, and the democratic structure ensures fair treatment and reasonable hours. Output is strong — not as extreme as an unregulated rush, but sustained and steady. Best of all, the shared prosperity means no one resents the work.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_prospectorsBoom_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Forced labor — slaver -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_prospectorsBoom_forced</defName>
+		<label>Forced Mining</label>
+		<desc>Conscripted laborers are marched to the mines under armed guard. The output is extraordinary — every vein is exploited, every shaft extended to its limit. Additional workers are pressed into service from surrounding settlements.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>3</value></li>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>unrestGainedBase</stat><value>2</value></li>
+		</statModifiers>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>

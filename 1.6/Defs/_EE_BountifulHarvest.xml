@@ -12,6 +12,8 @@
 			<li>empireEvents_bountifulHarvest_opt1</li>
 			<li>empireEvents_bountifulHarvest_opt2</li>
 			<li>empireEvents_bountifulHarvest_opt3</li>
+			<li>empireEvents_bountifulHarvest_opt_pacifist</li>
+			<li>empireEvents_bountifulHarvest_opt_slaver</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -28,6 +30,8 @@
 			<li>empireEvents_bountifulHarvest_store</li>
 			<li>empireEvents_bountifulHarvest_feast</li>
 			<li>empireEvents_bountifulHarvest_sell</li>
+			<li>empireEvents_bountifulHarvest_share</li>
+			<li>empireEvents_bountifulHarvest_forced</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -59,6 +63,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_bountifulHarvest_sell</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Pacifist — share with neighbors -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_bountifulHarvest_opt_pacifist</defName>
+		<label>Share surplus with struggling neighboring factions. Goodwill buys more than grain.</label>
+		<parentEvent>empireEvents_bountifulHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_bountifulHarvest_share</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Slaver — forced harvest quotas -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_bountifulHarvest_opt_slaver</defName>
+		<label>Double the harvest quotas. Work them until the fields are bare.</label>
+		<parentEvent>empireEvents_bountifulHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_bountifulHarvest_forced</successEvent>
+		<requiredPolicies>
+			<li>slaver</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Store surplus — standard food and happiness bonuses -->
@@ -111,6 +141,46 @@
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.25</value></li>
 			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Share with neighbors — pacifist generosity -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulHarvest_share</defName>
+		<label>Harvest Shared</label>
+		<desc>Wagons of surplus food are sent to struggling communities across the region. The generosity is noticed and appreciated — your empire's reputation as a benevolent neighbor grows. Citizens take pride in their collective charity, and the resulting goodwill strengthens bonds both within and beyond your borders.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_bountifulHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Forced labor — slaver extraction -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_bountifulHarvest_forced</defName>
+		<label>Forced Harvest</label>
+		<desc>Overseers crack whips as laborers work the fields from dawn to dusk and beyond. The harvest yield is extraordinary — every grain is collected, every field stripped bare. Additional workers are pressed into service to handle the volume. But the brutality of the operation leaves its mark on morale.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
 		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>

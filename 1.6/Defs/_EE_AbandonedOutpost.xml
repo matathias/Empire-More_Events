@@ -13,6 +13,8 @@
 			<li>empireEvents_abandonedOutpost_opt2</li>
 			<li>empireEvents_abandonedOutpost_opt3</li>
 			<li>empireEvents_abandonedOutpost_opt4</li>
+			<li>empireEvents_abandonedOutpost_opt_pacifist</li>
+			<li>empireEvents_abandonedOutpost_opt_raiders</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -25,6 +27,8 @@
 			<li>empireEvents_abandonedOutpost_1b</li>
 			<li>empireEvents_abandonedOutpost_1c</li>
 			<li>empireEvents_abandonedOutpost_1d</li>
+			<li>empireEvents_abandonedOutpost_healingHouse</li>
+			<li>empireEvents_abandonedOutpost_ransack</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -117,6 +121,58 @@
 			<li><stat>workerBaseMax</stat><value>1</value></li>
 			<li><stat>taxBasePercentage</stat><value>0.03</value></li>
 		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option E: Pacifist — healing house -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_abandonedOutpost_opt_pacifist</defName>
+		<label>Convert it to a healing house. Tend to travelers and the sick.</label>
+		<parentEvent>empireEvents_abandonedOutpost_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_abandonedOutpost_healingHouse</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Raiders — ransack -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_abandonedOutpost_opt_raiders</defName>
+		<label>Strip it bare. Take everything that isn't nailed down, then take the nails.</label>
+		<parentEvent>empireEvents_abandonedOutpost_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_abandonedOutpost_ransack</successEvent>
+		<requiredPolicies>
+			<li>raiders</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome E: Healing house — pacifist humanitarian -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_healingHouse</defName>
+		<label>Healing House</label>
+		<desc>The outpost is transformed into a place of healing. Clean beds, medicinal herb gardens, and a small staff of medics welcome the sick and injured from across the region. The settlement's reputation as a compassionate community grows, and the medical knowledge gained from treating diverse ailments improves local healthcare.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome F: Ransack — raiders enhanced loot -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_abandonedOutpost_ransack</defName>
+		<label>Outpost Ransacked</label>
+		<desc>Your scavengers tear through the outpost with practiced efficiency, prying up floorboards, checking hollow walls, and dismantling anything of value. They find caches the previous occupants hid, materials embedded in the structure itself, and items that a more careful salvage operation would have overlooked. The haul is impressive.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<randomThingValue>800</randomThingValue>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
 

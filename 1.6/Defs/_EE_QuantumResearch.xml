@@ -17,6 +17,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
 			<li>empireEvents_quantumResearch_opt1</li>
 			<li>empireEvents_quantumResearch_opt2</li>
 			<li>empireEvents_quantumResearch_opt3</li>
+			<li>empireEvents_quantumResearch_opt_technocratic</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -34,6 +35,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
 			<li>empireEvents_quantumResearch_reject</li>
 			<li>empireEvents_quantumResearch_success</li>
 			<li>empireEvents_quantumResearch_failure</li>
+			<li>empireEvents_quantumResearch_2a_technocratic</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -65,6 +67,19 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_quantumResearch_reject</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Technocratic — state-coordinated initiative -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_quantumResearch_opt_technocratic</defName>
+		<label>State-coordinated research initiative. Every lab, every resource, one objective.</label>
+		<parentEvent>empireEvents_quantumResearch_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>2000</silverCost>
+		<successEvent>empireEvents_quantumResearch_2a_technocratic</successEvent>
+		<requiredPolicies>
+			<li>technocratic</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Reject: Morale penalty, chain ends -->
@@ -160,6 +175,29 @@ Your researchers salvage what they can: some incremental methodological improvem
 		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Stage 2A-Technocratic: Efficient state coordination — 90% success, less production penalty -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_quantumResearch_2a_technocratic</defName>
+		<label>State-Directed Research</label>
+		<desc>Your technocratic government coordinates the initiative with characteristic efficiency. Research directives flow through established bureaucratic channels, resources are allocated by central planning, and every settlement's laboratory receives precisely the equipment and personnel it needs.
+			
+The result is a research program that runs like clockwork — less disruptive to everyday production than a chaotic full mobilization, yet nearly as effective.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>900000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>2</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.75</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<eventFollows>true</eventFollows>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>90</splitEventChance>
+		<followingEvent>empireEvents_quantumResearch_success</followingEvent>
+		<followingEvent2>empireEvents_quantumResearch_failure</followingEvent2>
 	</FactionColonies.FCEventDef>
 
 </Defs>

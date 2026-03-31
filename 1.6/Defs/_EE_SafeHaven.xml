@@ -12,6 +12,7 @@
 			<li>empireEvents_safeHaven_opt1</li>
 			<li>empireEvents_safeHaven_opt2</li>
 			<li>empireEvents_safeHaven_opt3</li>
+			<li>empireEvents_safeHaven_opt_pacifist</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -25,6 +26,7 @@
 			<li>empireEvents_safeHaven_1a</li>
 			<li>empireEvents_safeHaven_1b</li>
 			<li>empireEvents_safeHaven_1c</li>
+			<li>empireEvents_safeHaven_sanctuary</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -56,6 +58,19 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_safeHaven_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Pacifist — formal sanctuary -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_safeHaven_opt_pacifist</defName>
+		<label>Declare a formal sanctuary. We protect all who seek peace.</label>
+		<parentEvent>empireEvents_safeHaven_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_safeHaven_sanctuary</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Welcome — big workers but threat increase -->
@@ -96,6 +111,20 @@
 		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>1</value></li>
 			<li><stat>workerProductionBase</stat><value>0.1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Sanctuary — pacifist balanced welcoming -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_safeHaven_sanctuary</defName>
+		<label>Formal Sanctuary</label>
+		<desc>Your settlements are formally declared sanctuaries — places where anyone fleeing violence or hardship is guaranteed shelter and safety. The declaration resonates across the region, drawing a steady stream of grateful newcomers.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.25</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>

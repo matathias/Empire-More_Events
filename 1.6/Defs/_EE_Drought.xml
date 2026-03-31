@@ -14,6 +14,8 @@
 			<li>empireEvents_drought_opt2</li>
 			<li>empireEvents_drought_opt3</li>
 			<li>empireEvents_drought_opt4</li>
+			<li>empireEvents_drought_opt_pacifist</li>
+			<li>empireEvents_drought_opt_slaver</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -32,6 +34,8 @@
 			<li>empireEvents_drought_1b</li>
 			<li>empireEvents_drought_1c</li>
 			<li>empireEvents_drought_1d</li>
+			<li>empireEvents_drought_diplomatic</li>
+			<li>empireEvents_drought_rations_cut</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -73,6 +77,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_drought_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Pacifist — diplomatic aid -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_drought_opt_pacifist</defName>
+		<label>Appeal to allied factions for aid. Diplomacy sustains where force cannot.</label>
+		<parentEvent>empireEvents_drought_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_drought_diplomatic</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Slaver — cut rations for expendable -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_drought_opt_slaver</defName>
+		<label>Cut rations for the expendable. Our productive citizens eat first.</label>
+		<parentEvent>empireEvents_drought_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_drought_rations_cut</successEvent>
+		<requiredPolicies>
+			<li>slaver</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Ration — full penalties, chance of drought breaking early -->
@@ -185,6 +215,53 @@
 		</statModifiers>
 		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Diplomatic aid — pacifist -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_diplomatic</defName>
+		<label>Diplomatic Aid</label>
+		<desc>Your appeals to allied factions bear fruit. Caravans of water and food begin arriving — not as expensive imports, but as acts of solidarity between nations. The aid is modest but enough to blunt the worst of the drought.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_drought_breaks</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_drought_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome F: Rations cut — slaver -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_drought_rations_cut</defName>
+		<label>Rations Cut</label>
+		<desc>The expendable eat last, and eat least. Productive workers and overseers receive full rations while laborers subsist on scraps. Food reserves are preserved remarkably well — but many of the slaves don't survive.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.25</value></li>
+			<li><stat>workerBaseMax</stat><value>-2</value></li>
+			<li><stat>unrestGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>40</splitEventChance>
+		<followingEvent>empireEvents_drought_breaks</followingEvent>
+		<followingEvent2>Null</followingEvent2>
+		<incompatibleEvents>
+			<li>empireEvents_drought_0</li>
+		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
 </Defs>

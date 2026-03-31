@@ -14,6 +14,7 @@
 			<li>empireEvents_orbitalDebris_opt2</li>
 			<li>empireEvents_orbitalDebris_opt3</li>
 			<li>empireEvents_orbitalDebris_opt4</li>
+			<li>empireEvents_orbitalDebris_opt_raiders</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -29,6 +30,7 @@
 			<li>empireEvents_orbitalDebris_1c</li>
 			<li>empireEvents_orbitalDebris_1d</li>
 			<li>empireEvents_orbitalDebris_contam</li>
+			<li>empireEvents_orbitalDebris_raiderSalvage</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -70,6 +72,19 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_orbitalDebris_1d</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Raiders — aggressive strip-mining of wreckage -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_orbitalDebris_opt_raiders</defName>
+		<label>Aggressive salvage. Take everything, worry about contamination later.</label>
+		<parentEvent>empireEvents_orbitalDebris_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_orbitalDebris_raiderSalvage</successEvent>
+		<requiredPolicies>
+			<li>raiders</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Aggressive Salvage — big loot + permanent research, but 30% contamination risk -->
@@ -158,6 +173,31 @@ But some workers report a strange residue coating parts of the wreckage, and sev
 		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_orbitalDebris_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Raider salvage — maximum loot, reduced contamination risk (experienced scavengers) -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_orbitalDebris_raiderSalvage</defName>
+		<label>Raider Salvage</label>
+		<desc>Your experienced scavengers descend on the wreckage like vultures on a carcass. They know what's valuable and what's dangerous — years of raiding have honed their instincts. The haul is enormous, exceeding what a cautious operation would recover.
+			
+More importantly, they know how to handle hazardous materials from bitter experience. The risk of contamination is reduced, though not eliminated.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<randomThingValue>1200</randomThingValue>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<splitEventFollows>true</splitEventFollows>
+		<splitEventChance>15</splitEventChance>
+		<followingEvent>empireEvents_orbitalDebris_contam</followingEvent>
+		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_orbitalDebris_0</li>
 		</incompatibleEvents>

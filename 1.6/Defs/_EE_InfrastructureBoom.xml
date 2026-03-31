@@ -13,6 +13,7 @@
 			<li>empireEvents_infrastructureBoom_opt2</li>
 			<li>empireEvents_infrastructureBoom_opt3</li>
 			<li>empireEvents_infrastructureBoom_opt4</li>
+			<li>empireEvents_infrastructureBoom_opt_roadBuilders</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -27,6 +28,7 @@
 			<li>empireEvents_infrastructureBoom_1b</li>
 			<li>empireEvents_infrastructureBoom_1c</li>
 			<li>empireEvents_infrastructureBoom_1d</li>
+			<li>empireEvents_infraBoom_roads</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -70,6 +72,19 @@
 		<successEvent>empireEvents_infrastructureBoom_1d</successEvent>
 		<requiredPolicies>
 			<li>expansionist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Road Builders — road networks -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_infrastructureBoom_opt_roadBuilders</defName>
+		<label>Prioritize road networks. Connected settlements are strong settlements.</label>
+		<parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_infraBoom_roads</successEvent>
+		<requiredPolicies>
+			<li>roadBuilders</li>
 		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
@@ -124,6 +139,20 @@
 			<li><stat>buildTimeMultiplier</stat><value>0.95</value></li>
 			<li><stat>taxBasePercentage</stat><value>0.05</value></li>
 		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Road networks — road builders trade + construction boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_infraBoom_roads</defName>
+		<label>Road Network Expansion</label>
+		<desc>The builders are directed to construct and improve road networks connecting your settlements to trade routes and each other. The improved logistics accelerate construction projects across the affected settlements and the increased traffic brings new commercial opportunities.</desc>
+		<category>EC_Settlement</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>0.1</value></li>
+			<li><stat>buildTimeMultiplier</stat><value>0.9</value></li>
+		</statModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>
 

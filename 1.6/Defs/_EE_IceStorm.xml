@@ -13,6 +13,7 @@
 			<li>empireEvents_iceStorm_opt1</li>
 			<li>empireEvents_iceStorm_opt2</li>
 			<li>empireEvents_iceStorm_opt3</li>
+			<li>empireEvents_iceStorm_opt_defenseInDepth</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -60,6 +61,19 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>500</silverCost>
 		<successEvent>empireEvents_iceStorm_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Defense in Depth — contingency shelters -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_iceStorm_opt_defenseInDepth</defName>
+		<label>Activate our contingency shelters. We planned for this.</label>
+		<parentEvent>empireEvents_iceStorm_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>150</silverCost>
+		<successEvent>empireEvents_iceStorm_1b</successEvent>
+		<requiredPolicies>
+			<li>defenseInDepth</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Full penalties -->

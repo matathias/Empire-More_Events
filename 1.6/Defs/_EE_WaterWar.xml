@@ -18,6 +18,7 @@
 			<li>empireEvents_waterWar_opt_assert</li>
 			<li>empireEvents_waterWar_opt_alternative</li>
 			<li>empireEvents_waterWar_opt_share</li>
+			<li>empireEvents_waterWar_opt_pacifist</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -38,6 +39,7 @@
 			<li>empireEvents_waterWar_3a</li>
 			<li>empireEvents_waterWar_3a_resolve</li>
 			<li>empireEvents_waterWar_3a_arrange</li>
+			<li>empireEvents_waterWar_treaty</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -79,6 +81,19 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_waterWar_share</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Pacifist — water-sharing treaty -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_waterWar_opt_pacifist</defName>
+		<label>Propose a formal water-sharing treaty. Cooperation is more efficient than competition.</label>
+		<parentEvent>empireEvents_waterWar_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_waterWar_treaty</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- =============================== -->
@@ -289,6 +304,22 @@
 		<permanentStatModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>-0.25</value></li>
 		</permanentStatModifiers>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Water-sharing treaty — pacifist diplomatic resolution -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_waterWar_treaty</defName>
+		<label>Water-Sharing Treaty</label>
+		<desc>Your diplomatic envoy proposes not just sharing, but a formal cooperative management system. Both communities contribute to maintaining the spring, schedule access fairly, and invest jointly in expanding the water supply. The result is better than either side could achieve alone — yields actually improve as cooperative management proves more efficient than competition.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.25</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>

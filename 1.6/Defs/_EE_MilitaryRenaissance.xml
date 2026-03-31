@@ -12,6 +12,9 @@
 			<li>empireEvents_militaryRenaissance_opt1</li>
 			<li>empireEvents_militaryRenaissance_opt2</li>
 			<li>empireEvents_militaryRenaissance_opt3</li>
+			<li>empireEvents_militaryRenaissance_opt_pacifist</li>
+			<li>empireEvents_militaryRenaissance_opt_feudal</li>
+			<li>empireEvents_militaryRenaissance_opt_raiders</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -24,6 +27,9 @@
 			<li>empireEvents_militaryRenaissance_channel</li>
 			<li>empireEvents_militaryRenaissance_wargames</li>
 			<li>empireEvents_militaryRenaissance_training</li>
+			<li>empireEvents_militaryRenaissance_civic</li>
+			<li>empireEvents_militaryRenaissance_tournament</li>
+			<li>empireEvents_militaryRenaissance_raids</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -55,6 +61,45 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>500</silverCost>
 		<successEvent>empireEvents_militaryRenaissance_training</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Pacifist — redirect to civic works -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_militaryRenaissance_opt_pacifist</defName>
+		<label>Redirect this energy into civic works. Swords into plowshares.</label>
+		<parentEvent>empireEvents_militaryRenaissance_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_militaryRenaissance_civic</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Feudal — grand tournament -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_militaryRenaissance_opt_feudal</defName>
+		<label>Hold a grand tournament. Let our champions compete for honor and glory.</label>
+		<parentEvent>empireEvents_militaryRenaissance_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<successEvent>empireEvents_militaryRenaissance_tournament</successEvent>
+		<requiredPolicies>
+			<li>feudal</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option F: Raiders — aggressive raiding -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_militaryRenaissance_opt_raiders</defName>
+		<label>Point this energy outward. Let them raid our enemies.</label>
+		<parentEvent>empireEvents_militaryRenaissance_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_militaryRenaissance_raids</successEvent>
+		<requiredPolicies>
+			<li>raiders</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Channel energy — standard military bonuses -->
@@ -114,6 +159,65 @@
 		<permanentStatModifiers>
 			<li><stat>militaryBaseLevel</stat><value>0.5</value></li>
 		</permanentStatModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_militaryRenaissance_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Civic works — pacifist redirect to production -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_militaryRenaissance_civic</defName>
+		<label>Civic Works Program</label>
+		<desc>The surge of martial energy is channeled into construction, farming, and infrastructure projects. Soldiers trade swords for hammers, and their discipline and teamwork translate surprisingly well to civilian labor. Production rises across the board, and citizens welcome the visible investment in their communities.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>1.15</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_militaryRenaissance_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Grand tournament — feudal martial tradition -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_militaryRenaissance_tournament</defName>
+		<label>Grand Tournament</label>
+		<desc>Champions from across the empire gather for a spectacular tournament. Knights joust, soldiers compete in feats of arms, and the crowds roar with delight. The spectacle hones martial skills while building fierce loyalty — warriors fight harder for a liege who honors their prowess.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>1</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<targetAllSettlements>true</targetAllSettlements>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_militaryRenaissance_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome F: Raiding posture — aggressive military focus -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_militaryRenaissance_raids</defName>
+		<label>Raiding Campaign</label>
+		<desc>The martial enthusiasm is directed outward in a campaign of aggressive raiding. Soldiers eager for glory strike at enemy supply lines, outposts, and caravans. The plunder is impressive and military capabilities surge — but the constant offensive posture breeds a culture of violence that takes its toll back home.</desc>
+		<category>EC_Military</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>militaryBaseLevel</stat><value>2</value></li>
+			<li><stat>militaryCombatEfficiency</stat><value>1.15</value></li>
+			<li><stat>unrestGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
 		<targetAllSettlements>true</targetAllSettlements>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>

@@ -12,6 +12,7 @@
 			<li>empireEvents_researchRivalry_opt1</li>
 			<li>empireEvents_researchRivalry_opt2</li>
 			<li>empireEvents_researchRivalry_opt3</li>
+			<li>empireEvents_researchRivalry_opt_egalitarian</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -26,6 +27,7 @@
 			<li>empireEvents_researchRivalry_1b</li>
 			<li>empireEvents_researchRivalry_1c_win</li>
 			<li>empireEvents_researchRivalry_1c_lose</li>
+			<li>empireEvents_researchRivalry_open</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -58,6 +60,19 @@
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_researchRivalry_1c_win</successEvent>
 		<failEvent>empireEvents_researchRivalry_1c_lose</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Egalitarian — open research -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_researchRivalry_opt_egalitarian</defName>
+		<label>Open the research to the public. Knowledge is a common good.</label>
+		<parentEvent>empireEvents_researchRivalry_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_researchRivalry_open</successEvent>
+		<requiredPolicies>
+			<li>egalitarian</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Forced collaboration — research boost with unhappiness -->
@@ -115,6 +130,21 @@
 		</permanentStatModifiers>
 		<statModifiers>
 			<li><stat>loyaltyLostBase</stat><value>1.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Open research — egalitarian shared knowledge -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_researchRivalry_open</defName>
+		<label>Open Research</label>
+		<desc>The research is declassified and opened to the entire settlement. Citizens, workers, and amateur thinkers alike contribute ideas and observations. The democratic approach produces less raw output than a dedicated team, but the inclusive process generates genuine enthusiasm and a sense of shared purpose.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>600000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.75</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>

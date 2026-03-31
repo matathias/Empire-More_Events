@@ -12,6 +12,8 @@
 			<li>empireEvents_goldenHarvest_opt1</li>
 			<li>empireEvents_goldenHarvest_opt2</li>
 			<li>empireEvents_goldenHarvest_opt3</li>
+			<li>empireEvents_goldenHarvest_opt_feudal</li>
+			<li>empireEvents_goldenHarvest_opt_egalitarian</li>
 		</options>
 		<activateAtStart>true</activateAtStart>
 		<isRandomEvent>true</isRandomEvent>
@@ -30,6 +32,8 @@
 			<li>empireEvents_goldenHarvest_maximize</li>
 			<li>empireEvents_goldenHarvest_export</li>
 			<li>empireEvents_goldenHarvest_feasts</li>
+			<li>empireEvents_goldenHarvest_tribute</li>
+			<li>empireEvents_goldenHarvest_distribute</li>
 		</incompatibleEvents>
 	</FactionColonies.FCEventDef>
 
@@ -61,6 +65,32 @@
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
 		<successEvent>empireEvents_goldenHarvest_feasts</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Feudal — tribute to the crown -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_goldenHarvest_opt_feudal</defName>
+		<label>Present the finest produce as tribute. A generous harvest deserves a generous offering.</label>
+		<parentEvent>empireEvents_goldenHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_goldenHarvest_tribute</successEvent>
+		<requiredPolicies>
+			<li>feudal</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option E: Egalitarian — equal distribution -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_goldenHarvest_opt_egalitarian</defName>
+		<label>Distribute the bounty equally. Every citizen eats well this season.</label>
+		<parentEvent>empireEvents_goldenHarvest_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_goldenHarvest_distribute</successEvent>
+		<requiredPolicies>
+			<li>egalitarian</li>
+		</requiredPolicies>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Outcome A: Maximize — full standard bonuses -->
@@ -117,6 +147,48 @@
 			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.25</value></li>
 			<li><stat>happinessGainedBase</stat><value>1.5</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Tribute — feudal offering -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenHarvest_tribute</defName>
+		<label>Harvest Tribute</label>
+		<desc>The finest produce of the season is selected and presented as tribute: great amounts of golden grain, prime livestock, and barrels of the best cider. The offering honors the feudal compact and strengthens the bonds of fealty. Tithe values surge as the quality of the tribute draws admiration, and subjects take pride in their generous contribution.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.75</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.25</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+			<li><stat>titheValueMultiplier</stat><value>1.15</value></li>
+		</statModifiers>
+		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_goldenHarvest_0</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome E: Equal distribution — egalitarian -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_goldenHarvest_distribute</defName>
+		<label>Harvest Distributed</label>
+		<desc>The bounty is divided equally among all citizens. Every table has fresh bread, every household has meat and produce. No one goes hungry, and no one feasts while others watch. The simple fairness of the distribution builds genuine contentment and a sense of shared purpose that money cannot buy.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1</value></li>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>unrestLostBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
