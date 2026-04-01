@@ -22,6 +22,7 @@ Your settlements are in uproar. Some citizens claim they can almost understand i
 		<isRandomEvent>true</isRandomEvent>
 		<weight>3</weight>
 		<cooldownTicks>5400000</cooldownTicks>
+		<maxFireCount>1</maxFireCount>
 		<minTechLevel>Ultra</minTechLevel>
 		<requiredWealth>100000</requiredWealth>
 		<minSettlements>5</minSettlements>

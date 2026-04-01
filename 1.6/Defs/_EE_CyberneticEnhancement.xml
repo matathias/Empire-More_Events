@@ -20,6 +20,7 @@ But not everyone is comfortable with blurring the line between flesh and machine
 		<isRandomEvent>true</isRandomEvent>
 		<weight>5</weight>
 		<cooldownTicks>3600000</cooldownTicks>
+		<maxFireCount>1</maxFireCount>
 		<minTechLevel>Spacer</minTechLevel>
 		<requiredResource>RTD_Medicine</requiredResource>
 		<requiredWealth>60000</requiredWealth>

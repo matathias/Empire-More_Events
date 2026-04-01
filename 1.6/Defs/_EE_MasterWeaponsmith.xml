@@ -17,6 +17,7 @@
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
 		<cooldownTicks>1800000</cooldownTicks>
+		<maxFireCount>3</maxFireCount>
 		<requiredResource>RTD_Weapons</requiredResource>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>

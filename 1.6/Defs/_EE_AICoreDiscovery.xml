@@ -23,6 +23,7 @@ The question of what to do with it divides your advisors. Some want to activate 
 		<isRandomEvent>true</isRandomEvent>
 		<weight>5</weight>
 		<cooldownTicks>3600000</cooldownTicks>
+		<maxFireCount>1</maxFireCount>
 		<minTechLevel>Spacer</minTechLevel>
 		<requiredResource>RTD_Research</requiredResource>
 		<requiredWealth>50000</requiredWealth>

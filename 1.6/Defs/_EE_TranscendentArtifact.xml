@@ -23,6 +23,7 @@ Your engineers are baffled, your researchers are ecstatic, and your workers refu
 		<isRandomEvent>true</isRandomEvent>
 		<weight>2</weight>
 		<cooldownTicks>5400000</cooldownTicks>
+		<maxFireCount>1</maxFireCount>
 		<minTechLevel>Ultra</minTechLevel>
 		<requiredWealth>100000</requiredWealth>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>

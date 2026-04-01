@@ -23,6 +23,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
 		<isRandomEvent>true</isRandomEvent>
 		<weight>5</weight>
 		<cooldownTicks>3600000</cooldownTicks>
+		<maxFireCount>2</maxFireCount>
 		<minTechLevel>Spacer</minTechLevel>
 		<requiredResource>RTD_Research</requiredResource>
 		<requiredWealth>70000</requiredWealth>

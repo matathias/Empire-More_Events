@@ -19,6 +19,7 @@
 		<isRandomEvent>true</isRandomEvent>
 		<weight>8</weight>
 		<cooldownTicks>1800000</cooldownTicks>
+		<maxFireCount>2</maxFireCount>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<requiredResource>RTD_Research</requiredResource>
 		<minTechLevel>Industrial</minTechLevel>
