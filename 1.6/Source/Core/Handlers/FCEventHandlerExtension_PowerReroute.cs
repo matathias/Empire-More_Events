@@ -16,8 +16,8 @@ namespace FactionColonies.Events
         public override bool ResolveEvent(FCEvent evt, FactionFC faction)
         {
             // Create the main penalty event on the originally affected settlements
-            FCEventDef mainDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_powerFailure_reroute_main");
-            if (mainDef == null)
+            FCEventDef mainDef = MoreEventsDefOf.empireEvents_powerFailure_reroute_main;
+            if (mainDef is null)
             {
                 LogEE.Error("PowerReroute: Could not find empireEvents_powerFailure_reroute_main def.");
                 return true;
@@ -30,8 +30,8 @@ namespace FactionColonies.Events
             }
 
             // Find settlements NOT already affected
-            FCEventDef drainDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_powerFailure_reroute_drain");
-            if (drainDef == null)
+            FCEventDef drainDef = MoreEventsDefOf.empireEvents_powerFailure_reroute_drain;
+            if (drainDef is null)
             {
                 LogEE.Error("PowerReroute: Could not find empireEvents_powerFailure_reroute_drain def.");
                 return true;
@@ -65,7 +65,7 @@ namespace FactionColonies.Events
             List<WorldSettlementFC> targets = eligible.InRandomOrder().Take(count).ToList();
 
             FCEvent drainEvt = FCEventMaker.MakeRandomEvent(drainDef, targets);
-            if (drainEvt == null)
+            if (drainEvt is null)
             {
                 LogEE.Warning("PowerReroute: Failed to create drain event.");
                 return true;

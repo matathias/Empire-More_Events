@@ -37,7 +37,7 @@ namespace FactionColonies.Events
             if (Find.TickManager.TicksGame % CheckInterval != 0) return;
 
             FactionFC faction = FactionCache.FactionComp;
-            if (faction == null || !faction.settlements.Any()) return;
+            if (faction is null || !faction.settlements.Any()) return;
 
             int now = Find.TickManager.TicksGame;
 
@@ -78,8 +78,8 @@ namespace FactionColonies.Events
 
             if (now - goldenAgeQualifyingSince < GoldenAgeSustainTicks) return;
 
-            FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_goldenAge");
-            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            FCEventDef def = MoreEventsDefOf.empireEvents_goldenAge;
+            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastGoldenAgeTick = now;
@@ -91,8 +91,8 @@ namespace FactionColonies.Events
             if (now - lastGrowingPainsTick < CooldownTicks) return;
             if (faction.settlements.Count <= 6) return;
 
-            FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_growingPains_0");
-            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            FCEventDef def = MoreEventsDefOf.empireEvents_growingPains_0;
+            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastGrowingPainsTick = now;
@@ -104,8 +104,8 @@ namespace FactionColonies.Events
             if (faction.settlements.Count <= 8) return;
             if (faction.averageLoyalty >= 60) return;
 
-            FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_overextension_0");
-            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            FCEventDef def = MoreEventsDefOf.empireEvents_overextension_0;
+            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastOverextensionTick = now;
@@ -141,8 +141,8 @@ namespace FactionColonies.Events
 
             if (!hasNearbyHostile) return;
 
-            FCEventDef def = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_tribute_0");
-            if (def == null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            FCEventDef def = MoreEventsDefOf.empireEvents_tribute_0;
+            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastTributeTick = now;
@@ -155,7 +155,7 @@ namespace FactionColonies.Events
         {
             foreach (FCEvent evt in faction.events)
             {
-                if (evt.def == null) continue;
+                if (evt.def is null) continue;
                 if (evt.def == def) return false;
 
                 foreach (FCEventDef incompat in evt.def.incompatibleEvents)
@@ -174,7 +174,7 @@ namespace FactionColonies.Events
         private void TryFireEvent(FCEventDef def, FactionFC faction)
         {
             FCEvent evt = FCEventMaker.MakeRandomEvent(def, null);
-            if (evt == null) return;
+            if (evt is null) return;
 
             faction.AddEvent(evt);
 

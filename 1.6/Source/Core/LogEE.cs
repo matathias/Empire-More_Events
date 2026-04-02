@@ -4,12 +4,16 @@ namespace FactionColonies.Events
 {
     public static class LogEE
     {
-        public const string Slug = "[Empire-Events]";
+        private const string Slug = "[Empire-Events]";
 
         public static void Message(string message)
         {
             if (EmpireEventsSettings.PrintDebug)
                 Log.Message(Slug + " " + message);
+        }
+        public static void MessageForce(string message)
+        {
+            Log.Message(Slug + " " + message);
         }
 
         public static void Warning(string message)

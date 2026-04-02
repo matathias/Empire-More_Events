@@ -14,10 +14,10 @@ namespace FactionColonies.Events
     {
         public override bool ResolveEvent(FCEvent evt, FactionFC faction)
         {
-            FCEventDef plagueDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_plague_medicine");
-            if (plagueDef == null)
+            FCEventDef plagueDef = MoreEventsDefOf.empireEvents_plague_0;
+            if (plagueDef is null)
             {
-                LogEE.Error("PlagueSpread: Could not find empireEvents_plague_medicine def.");
+                LogEE.Error("PlagueSpread: Could not find empireEvents_plague_0 def.");
                 return true;
             }
 

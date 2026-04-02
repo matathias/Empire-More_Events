@@ -27,10 +27,7 @@ namespace FactionColonies.Events
         private float cachedDescHeight;
         private float cachedSettlementHeight;
 
-        public override Vector2 InitialSize
-        {
-            get { return new Vector2(WindowWidth, 0f); }
-        }
+        public override Vector2 InitialSize => new Vector2(WindowWidth, 0f);
 
         public ResourcePickerWindow(WorldSettlementFC settlement, FCEvent sourceEvt)
         {
