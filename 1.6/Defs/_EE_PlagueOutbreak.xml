@@ -21,7 +21,6 @@
 		<weight>10</weight>
 		<cooldownTicks>1200000</cooldownTicks>
 		<minDaysSinceFounded>15</minDaysSinceFounded>
-		<requiredResource>RTD_Medicine</requiredResource>
 		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
