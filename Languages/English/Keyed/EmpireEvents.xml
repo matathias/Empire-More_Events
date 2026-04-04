@@ -23,4 +23,7 @@
 	<EE_PowerReroutedTitle>Power Rerouted</EE_PowerReroutedTitle>
 	<EE_PowerReroutedDesc>Power has been rerouted to stabilize the affected settlements. Nearby settlements are sharing the load.\n\n{0} (drain):\n{1}</EE_PowerReroutedDesc>
 
+	<EV_PatchTitle>Patch Notes: More Events</EV_PatchTitle>
+	<EV_OpenPatchNotes>Open Patch Notes</EV_OpenPatchNotes>
+
 </LanguageData>

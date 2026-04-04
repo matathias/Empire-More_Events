@@ -1,3 +1,4 @@
+using FactionColonies;
 using UnityEngine;
 using Verse;
 
@@ -19,6 +20,11 @@ namespace FactionColonies.Events
             Listing_Standard ls = new Listing_Standard();
             ls.Begin(inRect);
             ls.CheckboxLabeled("EE_SettingsDebugLogging".Translate(), ref printDebug);
+
+            ls.Gap(12f);
+            if (ls.ButtonText("EV_OpenPatchNotes".Translate()))
+                Find.WindowStack.Add(new PatchNotesDisplayWindow("matathias.empire.events", "EV_PatchTitle".Translate()));
+
             ls.End();
         }
     }
@@ -30,6 +36,16 @@ namespace FactionColonies.Events
         public EmpireEventsMod(ModContentPack content) : base(content)
         {
             settings = GetSettings<EmpireEventsSettings>();
+            
+            string modVersion = content?.ModMetaData?.ModVersion;
+            if (modVersion.NullOrEmpty())
+            {
+                LogEE.MessageForce("Did not load a mod version");
+            }
+            else
+            {
+                LogEE.MessageForce($"v{modVersion}");
+            }
         }
 
         public override string SettingsCategory() => "EE_SettingsCategory".Translate();
