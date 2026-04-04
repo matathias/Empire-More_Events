@@ -24,5 +24,6 @@
 	</loadAfter>
 
 	<description>A sub-mod for Empire Refactored adding new events with choices, tradeoffs, and broader stat coverage.</description>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/Icons/EmpireLogo</modIconPath>
 
 </ModMetaData>

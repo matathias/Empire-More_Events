@@ -3,7 +3,7 @@
 
 	<!-- Settings -->
 	<EE_SettingsDebugLogging>Enable debug logging</EE_SettingsDebugLogging>
-	<EE_SettingsCategory>Empire Refactored: More Events</EE_SettingsCategory>
+	<EE_SettingsCategory>Empire: More Events</EE_SettingsCategory>
 
 	<!-- Resource Picker Window -->
 	<EE_ResourcePickerDesc>Choose which resource these skilled workers will specialize in.</EE_ResourcePickerDesc>
