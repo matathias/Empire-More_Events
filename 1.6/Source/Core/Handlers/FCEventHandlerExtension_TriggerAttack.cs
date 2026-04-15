@@ -30,7 +30,7 @@ namespace FactionColonies.Events
                 return true;
             }
 
-            militaryForce force = militaryForce.CreateMilitaryForceFromFaction(enemy, true);
+            MilitaryForce force = MilitaryForce.CreateMilitaryForceFromFaction(enemy, true);
 
             WorldSettlementFC target;
             if (evt.settlementTraitLocations != null && evt.settlementTraitLocations.Any())

@@ -80,7 +80,7 @@ namespace FactionColonies.Events
 
             Find.LetterStack.ReceiveLetter(
                 "EE_PowerReroutedTitle".Translate(),
-                "EE_PowerReroutedDesc".Translate("EventAffectingSettlements".Translate(), drainNames),
+                "EE_PowerReroutedDesc".Translate("FCEventAffectingSettlements".Translate(), drainNames),
                 LetterDefOf.NeutralEvent);
 
             LogEE.Message("PowerReroute: Created main + drain events. Drain on " + count + " settlement(s).");

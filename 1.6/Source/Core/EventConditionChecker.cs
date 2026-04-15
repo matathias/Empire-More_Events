@@ -183,7 +183,7 @@ namespace FactionColonies.Events
             string desc = def.desc;
             if (!settlementString.NullOrEmpty())
             {
-                desc += "\n" + "EventAffectingSettlements".Translate() + "\n" + settlementString;
+                desc += "\n" + "FCEventAffectingSettlements".Translate() + "\n" + settlementString;
             }
 
             Find.LetterStack.ReceiveLetter(def.label, desc, LetterDefOf.NeutralEvent);

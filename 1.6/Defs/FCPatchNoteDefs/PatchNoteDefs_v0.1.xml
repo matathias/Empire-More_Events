@@ -13,4 +13,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_0_1_1</defName>
+		<label>Minor update</label>
+		<description>Minor update to account for a class rename in the main Empire Refactored mod.</description>
+		<releaseDate>2026-04-15</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>militaryForce -&gt; MilitaryForce</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>

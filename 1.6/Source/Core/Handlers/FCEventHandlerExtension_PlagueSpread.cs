@@ -78,7 +78,7 @@ namespace FactionColonies.Events
             string names = string.Join("\n", targets.Select(s => " " + s.Name));
             Find.LetterStack.ReceiveLetter(
                 "EE_PlagueSpreadsTitle".Translate(),
-                "EE_PlagueSpreadsDesc".Translate("EventAffectingSettlements".Translate(), names),
+                "EE_PlagueSpreadsDesc".Translate("FCEventAffectingSettlements".Translate(), names),
                 LetterDefOf.ThreatSmall);
 
             LogEE.Message("PlagueSpread: Plague spread to " + count + " new settlement(s).");
