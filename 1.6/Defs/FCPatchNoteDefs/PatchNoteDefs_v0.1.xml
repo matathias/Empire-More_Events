@@ -27,4 +27,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_0_1_2</defName>
+		<label>Events backend change</label>
+		<description>Update to handle Empire Refactored&apos;s new events API.</description>
+		<releaseDate>2026-04-15</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>faction.events -&gt; faction.Events</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>

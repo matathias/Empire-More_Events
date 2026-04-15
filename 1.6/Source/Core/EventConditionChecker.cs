@@ -153,7 +153,7 @@ namespace FactionColonies.Events
         /// </summary>
         private bool IsEligible(FCEventDef def, FactionFC faction)
         {
-            foreach (FCEvent evt in faction.events)
+            foreach (FCEvent evt in faction.Events)
             {
                 if (evt.def is null) continue;
                 if (evt.def == def) return false;

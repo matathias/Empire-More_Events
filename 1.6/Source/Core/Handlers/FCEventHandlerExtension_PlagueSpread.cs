@@ -32,7 +32,7 @@ namespace FactionColonies.Events
             }
 
             // Also check any other active plague events
-            foreach (FCEvent active in faction.events)
+            foreach (FCEvent active in faction.Events)
             {
                 if (active.def is null) continue;
                 if (active.def.defName != null && active.def.defName.StartsWith("empireEvents_plague"))
