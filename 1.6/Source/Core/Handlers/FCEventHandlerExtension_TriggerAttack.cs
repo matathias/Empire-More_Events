@@ -30,7 +30,8 @@ namespace FactionColonies.Events
                 return true;
             }
 
-            MilitaryForce force = MilitaryForce.CreateMilitaryForceFromFaction(enemy, true);
+            MilitaryDeploymentUtil.GetTechLevelBaseline(enemy.def.techLevel, out double level, out double efficiency);
+            MilitaryForce force = new MilitaryForce(level, efficiency, null, enemy);
 
             WorldSettlementFC target;
             if (evt.settlementTraitLocations != null && evt.settlementTraitLocations.Any())
@@ -42,7 +43,7 @@ namespace FactionColonies.Events
                 target = faction.settlements.RandomElement();
             }
 
-            MilitaryUtilFC.AttackPlayerSettlement(force, target, enemy);
+            MilitaryOperationsUtil.AttackPlayerSettlement(force, target, enemy);
             LogEE.Message("TriggerAttack: Launched attack on " + target.Name + " by " + enemy.Name);
 
             return true;
