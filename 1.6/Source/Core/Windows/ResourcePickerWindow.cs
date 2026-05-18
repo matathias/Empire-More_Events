@@ -163,7 +163,7 @@ namespace FactionColonies.Events
 
         private void ApplyResourceBoost(ResourceTypeDef resDef)
         {
-            FactionFC faction = FactionCache.FactionComp;
+            FactionFC faction = FindFC.FactionComp;
             if (faction == null) return;
 
             FCEventDef boostDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_immigrants_production_boost");
@@ -181,7 +181,7 @@ namespace FactionColonies.Events
                 return;
             }
 
-            faction.AddEvent(boostEvt);
+            faction.eventManager.AddEvent(boostEvt);
 
             // Add resource-specific production bonus
             FCStatDef additiveStat = resDef.productionAdditiveStat;

@@ -36,7 +36,7 @@ namespace FactionColonies.Events
         {
             if (Find.TickManager.TicksGame % CheckInterval != 0) return;
 
-            FactionFC faction = FactionCache.FactionComp;
+            FactionFC faction = FindFC.FactionComp;
             if (faction is null || !faction.settlements.Any()) return;
 
             int now = Find.TickManager.TicksGame;
@@ -116,7 +116,7 @@ namespace FactionColonies.Events
             if (now - lastTributeTick < CooldownTicks) return;
 
             // Check if any hostile faction has a settlement within proximity of any player settlement
-            Faction playerFaction = FactionCache.PlayerColonyFaction;
+            Faction playerFaction = FindFC.EmpireFaction;
             if (playerFaction == null) return;
 
             bool hasNearbyHostile = false;
@@ -176,7 +176,7 @@ namespace FactionColonies.Events
             FCEvent evt = FCEventMaker.MakeRandomEvent(def, null);
             if (evt is null) return;
 
-            faction.AddEvent(evt);
+            faction.eventManager.AddEvent(evt);
 
             string settlementString = string.Join("\n", evt.settlementTraitLocations.Select(s => " " + s.Name));
 

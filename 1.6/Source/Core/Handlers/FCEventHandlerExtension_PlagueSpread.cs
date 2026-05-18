@@ -73,7 +73,7 @@ namespace FactionColonies.Events
                 return true;
             }
 
-            faction.AddEvent(newEvt);
+            faction.eventManager.AddEvent(newEvt);
 
             string names = string.Join("\n", targets.Select(s => " " + s.Name));
             Find.LetterStack.ReceiveLetter(

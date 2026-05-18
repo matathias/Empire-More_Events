@@ -26,7 +26,7 @@ namespace FactionColonies.Events
             FCEvent mainEvt = FCEventMaker.MakeRandomEvent(mainDef, evt.settlementTraitLocations);
             if (mainEvt != null)
             {
-                faction.AddEvent(mainEvt);
+                faction.eventManager.AddEvent(mainEvt);
             }
 
             // Find settlements NOT already affected
@@ -71,7 +71,7 @@ namespace FactionColonies.Events
                 return true;
             }
 
-            faction.AddEvent(drainEvt);
+            faction.eventManager.AddEvent(drainEvt);
 
             string mainNames = evt.settlementTraitLocations != null
                 ? string.Join("\n", evt.settlementTraitLocations.Select(s => " " + s.Name))
