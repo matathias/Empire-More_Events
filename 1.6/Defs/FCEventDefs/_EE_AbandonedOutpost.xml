@@ -5,7 +5,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_abandonedOutpost_0</defName>
 		<label>Abandoned Outpost</label>
-		<desc>Scouts have discovered an abandoned outpost near one of your settlements. The structure is weathered, but intact; whoever built it left in a hurry. The site could be repurposed in several ways, depending on your priorities.</desc>
+		<desc>Scouts have discovered an abandoned outpost near one of your settlements. The structure is weathered, but intact; whoever built it left in a hurry. The site could be repurposed in one of several ways.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>0</timeTillTrigger>
 		<options>
@@ -76,7 +76,7 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_abandonedOutpost_1a</defName>
 		<label>Outpost Salvaged</label>
-		<desc>Work crews methodically dismantle the outpost, recovering usable building materials, forgotten supplies, and a few valuable items the previous occupants left behind. The haul is respectable.</desc>
+		<desc>Work crews methodically dismantle the outpost, recovering usable building materials, forgotten supplies, and a few valuable items the previous occupants left behind.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
@@ -111,7 +111,7 @@
 		<category>EC_Settlement</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
-			<li><stat>workerProductionBase</stat><value>0.25</value></li>
+			<li><stat>workerProductionBase</stat><value>0.2</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
@@ -166,10 +166,13 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_abandonedOutpost_healingHouse</defName>
 		<label>Healing House</label>
-		<desc>The outpost is transformed into a place of healing. Clean beds, medicinal herb gardens, and a small staff of medics welcome the sick and injured from across the region. The settlement's reputation as a compassionate community grows, and the medical knowledge gained from treating diverse ailments improves local healthcare.</desc>
+		<desc>The outpost is transformed into a place of healing. Clean beds and a small staff of medics welcome the sick and injured from across the region. The settlement's reputation as a compassionate community grows.
+
+The need for dedicated staff reduces the size of the employment pool, but the medical knowledge gained from treating diverse ailments is a welcome trade-off.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>-1</value></li>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.25</value></li>
 		</permanentStatModifiers>
@@ -183,11 +186,11 @@
 	<FactionColonies.FCEventDef>
 		<defName>empireEvents_abandonedOutpost_ransack</defName>
 		<label>Outpost Ransacked</label>
-		<desc>Your scavengers tear through the outpost with practiced efficiency, prying up floorboards, checking hollow walls, and dismantling anything of value. They find caches the previous occupants hid, materials embedded in the structure itself, and items that a more careful salvage operation would have overlooked. The haul is impressive.</desc>
+		<desc>Your scavengers tear through the outpost with practiced efficiency, prying up floorboards, checking hollow walls, and dismantling anything of value. They find caches the previous occupants hid, materials embedded in the structure itself, and items that a more cautious salvage operation would have overlooked.</desc>
 		<category>EC_Settlement</category>
 		<timeTillTrigger>1500</timeTillTrigger>
 		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
-		<randomThingValue>800</randomThingValue>
+		<randomThingValue>1000</randomThingValue>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<incompatibleEvents>
 			<li>empireEvents_abandonedOutpost_0</li>
