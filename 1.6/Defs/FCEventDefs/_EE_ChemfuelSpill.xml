@@ -83,6 +83,10 @@
         <stat>RTD_Chemfuel_ProductionAdditive</stat>
         <value>-0.5</value>
       </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
+      </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
 
@@ -101,6 +105,10 @@
       <li>
         <stat>RTD_Food_ProductionAdditive</stat>
         <value>-0.5</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>

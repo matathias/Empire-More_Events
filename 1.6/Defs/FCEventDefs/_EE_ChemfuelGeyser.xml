@@ -95,7 +95,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_chemfuelGeyser_1c</defName>
     <label>Fuel Depot Established</label>
-    <desc>The geyser is rigged as both a chemfuel collection point and a power generation source. The setup is crude but effective — fuel and electricity flow freely, though the geyser's pressure will diminish over time.</desc>
+    <desc>The geyser is rigged as both a chemfuel collection point and a power generation source. The setup is crude, but effective — fuel and electricity flow freely, though the geyser's pressure will diminish over time.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <statModifiers>
