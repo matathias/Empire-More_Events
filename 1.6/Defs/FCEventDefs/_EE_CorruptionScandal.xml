@@ -112,7 +112,6 @@
       <li>empireEvents_corruption_0</li>
     </incompatibleEvents>
     <followingEvent>empireEvents_corruption_recur</followingEvent>
-    <followingEvent2>Null</followingEvent2>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>40</splitEventChance>
   </FactionColonies.FCEventDef>

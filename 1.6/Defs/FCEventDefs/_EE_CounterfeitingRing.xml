@@ -221,7 +221,6 @@
     <timeTillTrigger>600000</timeTillTrigger>
     <rangeSettlementsAffected>2~3</rangeSettlementsAffected>
     <followingEvent>empireEvents_counterfeiting_scandal</followingEvent>
-    <followingEvent2>Null</followingEvent2>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>30</splitEventChance>
     <statModifiers>

@@ -57,7 +57,6 @@
 		<parentEvent>empireEvents_hermitSage_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Stage 2A: Scholar moves in — research boost but unhappiness -->

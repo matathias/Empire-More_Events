@@ -123,7 +123,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>40</splitEventChance>
 		<followingEvent>empireEvents_drought_breaks</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_drought_0</li>
 		</incompatibleEvents>
@@ -147,7 +146,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>40</splitEventChance>
 		<followingEvent>empireEvents_drought_breaks</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_drought_0</li>
 		</incompatibleEvents>
@@ -170,7 +168,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>40</splitEventChance>
 		<followingEvent>empireEvents_drought_breaks</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_drought_0</li>
 		</incompatibleEvents>
@@ -197,7 +194,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>40</splitEventChance>
 		<followingEvent>empireEvents_drought_breaks</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_drought_0</li>
 		</incompatibleEvents>
@@ -234,7 +230,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>40</splitEventChance>
 		<followingEvent>empireEvents_drought_breaks</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_drought_0</li>
 		</incompatibleEvents>
@@ -258,7 +253,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>40</splitEventChance>
 		<followingEvent>empireEvents_drought_breaks</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_drought_0</li>
 		</incompatibleEvents>

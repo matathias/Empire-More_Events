@@ -106,7 +106,6 @@ But some workers report a strange residue coating parts of the wreckage, and sev
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>30</splitEventChance>
 		<followingEvent>empireEvents_orbitalDebris_contam</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_orbitalDebris_0</li>
 		</incompatibleEvents>
@@ -197,7 +196,6 @@ More importantly, they know how to handle hazardous materials from bitter experi
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>15</splitEventChance>
 		<followingEvent>empireEvents_orbitalDebris_contam</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_orbitalDebris_0</li>
 		</incompatibleEvents>

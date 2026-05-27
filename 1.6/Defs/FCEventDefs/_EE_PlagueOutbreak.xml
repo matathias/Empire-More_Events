@@ -144,7 +144,6 @@
 		<splitEventFollows>true</splitEventFollows>
 		<splitEventChance>50</splitEventChance>
 		<followingEvent>empireEvents_plague_spread</followingEvent>
-		<followingEvent2>Null</followingEvent2>
 		<incompatibleEvents>
 			<li>empireEvents_plague_0</li>
 		</incompatibleEvents>

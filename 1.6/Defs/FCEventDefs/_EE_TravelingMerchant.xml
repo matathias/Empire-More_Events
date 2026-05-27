@@ -61,7 +61,6 @@
 		<parentEvent>empireEvents_merchant_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
 		<requiredPolicies>
 			<li>isolationist</li>
 		</requiredPolicies>

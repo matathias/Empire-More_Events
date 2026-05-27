@@ -55,7 +55,6 @@
 		<parentEvent>empireEvents_mysteriousCaravan_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Stage 1 Outcome A: Trade — loot, chain ends -->
@@ -102,7 +101,6 @@
 		<parentEvent>empireEvents_mysteriousCaravan_1b</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Stage 3: The Cache — 3-way split -->

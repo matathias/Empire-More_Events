@@ -52,7 +52,6 @@ The site could hold valuable technology... or nothing but dust and danger.</desc
     <label>Seal it off. Whatever's down there can stay buried.</label>
     <parentEvent>empireEvents_archaeology_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <successEvent>Null</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>

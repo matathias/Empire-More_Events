@@ -36,7 +36,6 @@
 		<parentEvent>empireEvents_tribute_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>1000</silverCost>
-		<successEvent>Null</successEvent>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Option B: Refuse -->
@@ -67,7 +66,6 @@
 		<parentEvent>empireEvents_tribute_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
 		<requiredPolicies>
 			<li>isolationist</li>
 		</requiredPolicies>

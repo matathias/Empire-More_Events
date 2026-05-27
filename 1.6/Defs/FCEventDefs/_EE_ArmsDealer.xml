@@ -66,7 +66,6 @@
 		<parentEvent>empireEvents_armsDealer_0</parentEvent>
 		<baseChanceOfSuccess>100</baseChanceOfSuccess>
 		<silverCost>0</silverCost>
-		<successEvent>Null</successEvent>
 	</FactionColonies.FCOptionDef>
 
 	<!-- Option E: Militaristic -->
