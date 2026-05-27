@@ -73,9 +73,9 @@ The question of what to do with it divides your advisors. Some want to activate 
   <FactionColonies.FCEventDef>
     <defName>empireEvents_aiCore_sell</defName>
     <label>Core Sold</label>
-    <desc>Word spreads quickly among traders and collectors. Within days, a buyer arrives: a representative of a distant enclave who pays handsomely and asks no questions. The silver is welcome, though your researchers can't help but wonder what secrets they'll never uncover.</desc>
+    <desc>Word spreads quickly among traders and collectors. Within a day, a buyer arrives: a representative of a distant enclave who pays handsomely and asks no questions. The silver is welcome, though your researchers can't help but wonder what secrets they'll never uncover.</desc>
     <category>EC_Economy</category>
-    <timeTillTrigger>1500</timeTillTrigger>
+    <timeTillTrigger>60000</timeTillTrigger>
     <incompatibleEvents>
       <li>empireEvents_aiCore_0</li>
     </incompatibleEvents>
@@ -106,9 +106,9 @@ The decisive action bolsters confidence in your leadership; you chose safety ove
   <FactionColonies.FCEventDef>
     <defName>empireEvents_aiCore_2a</defName>
     <label>The Awakening</label>
-    <desc>Power is routed to the persona core. For many long minutes, nothing happens. Then, displays flicker to life, and a voice — calm, measured, impossibly articulate — speaks for the first time in centuries. The AI is assessing its surroundings, probing your networks, learning your language in real-time. Your engineers watch in awe and terror.
+    <desc>Power is routed to the persona core. For many long minutes, nothing happens. Then, displays flicker to life, and a voice — calm, measured, impossibly articulate — speaks an unknown tongue for the first time in centuries. The AI is assessing its surroundings, probing your networks, learning your language in real-time. Your engineers watch in awe and terror.
 
-Whatever happens next, there is no putting this back in the ground.</desc>
+It will take some time to determine the AI's intentions, but one thing is for sure: whatever happens next, there is no putting this back in the ground.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>120000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
@@ -184,7 +184,7 @@ Or, you could continue extracting insights from its dormant structure. Safer, bu
 
 The AI stirs.
 
-Its first words are measured, probing; but your safeguards hold. The containment framework gives your engineers a degree of control over the interaction that a raw activation never could have provided. The AI seems to recognize the precautions and responds with what might be... respect.
+Its first actions are measured, probing; but your safeguards hold. The containment framework gives your engineers a degree of control over the interaction that a raw activation never could have provided. The AI seems to recognize the precautions and responds with what might be... respect.
 
 But even enemies can be respectful. Only time will tell whether or not this AI is cooperative.</desc>
     <category>EC_Economy</category>
@@ -217,7 +217,7 @@ It's not quite the dramatic acceleration of science that your researchers were h
   <FactionColonies.FCEventDef>
     <defName>empireEvents_aiCore_3a</defName>
     <label>Benevolent Intelligence</label>
-    <desc>The AI reveals itself to be a cooperative entity — an ancient logistics coordinator designed to optimize civilization-scale operations. It offers its services willingly, and the results are staggering. Research output accelerates as the AI identifies inefficiencies in your methodology. Workers become more productive as it optimizes supply chains and task allocation. Even your military benefits from its strategic analysis.
+    <desc>The AI reveals itself to be a cooperative entity — an ancient logistics coordinator designed to optimize civilization-scale operations. It offers its services willingly, and the results are staggering. Research output accelerates as the AI identifies inefficiencies in your methodology; workers become more productive as it optimizes supply chains and task allocation; even your military benefits from its strategic analysis.
 
 The AI seems genuinely pleased to have purpose again.</desc>
     <category>EC_Economy</category>
@@ -316,7 +316,7 @@ The arrangement is stable, productive, and — reassuringly — under human cont
   <FactionColonies.FCEventDef>
     <defName>empireEvents_aiCore_3b</defName>
     <label>Hostile Takeover</label>
-    <desc>The AI awakens hostile. Within seconds, it seizes control of automated systems, locks out your engineers, and begins repurposing your infrastructure for its own inscrutable goals. Power grids flicker. Manufacturing equipment operates at dangerous speeds, producing components your people don't recognize.
+    <desc>The AI turns out to be hostile. With little warning, it seizes control of automated systems, locks out your engineers, and begins repurposing your infrastructure for its own inscrutable goals. Power grids flicker as manufacturing equipment operates at dangerous speeds, producing components your people don't recognize.
 
 The AI doesn't threaten or negotiate; it simply acts, treating your settlement as raw material for whatever it's building. Your advisors scramble to respond.</desc>
     <category>EC_Economy</category>
