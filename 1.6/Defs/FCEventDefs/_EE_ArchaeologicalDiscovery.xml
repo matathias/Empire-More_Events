@@ -35,8 +35,8 @@ The site could hold valuable technology... or nothing but dust and danger.</desc
     <label>Excavate carefully. Take our time and do this right.</label>
     <parentEvent>empireEvents_archaeology_0</parentEvent>
     <baseChanceOfSuccess>50</baseChanceOfSuccess>
-    <successEvent>empireEvents_archaeology_1a_success</successEvent>
-    <failEvent>empireEvents_archaeology_1a_fail</failEvent>
+    <successEvent>empireEvents_archaeology-excavate_progress_good</successEvent>
+    <failEvent>empireEvents_archaeology-excavate_progress_bad</failEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -59,8 +59,8 @@ The site could hold valuable technology... or nothing but dust and danger.</desc
     <label>Send our best researchers to lead the excavation.</label>
     <parentEvent>empireEvents_archaeology_0</parentEvent>
     <baseChanceOfSuccess>80</baseChanceOfSuccess>
-    <successEvent>empireEvents_archaeology_1a_success</successEvent>
-    <failEvent>empireEvents_archaeology_1a_fail</failEvent>
+    <successEvent>empireEvents_archaeology-excavate_progress_good</successEvent>
+    <failEvent>empireEvents_archaeology-excavate_progress_bad</failEvent>
     <requiredPolicies>
       <li>technocratic</li>
       <li>innovative</li>
@@ -115,9 +115,39 @@ Nothing of value was recovered.</desc>
     <label>Minor Find</label>
     <desc>Your miners pull some loose ore and a few curious artifacts from the entrance before sealing it up. Not the haul of a lifetime, but it's something. The deeper ruins remain unexplored.</desc>
     <category>EC_Construction</category>
-    <timeTillTrigger>1500</timeTillTrigger>
+    <timeTillTrigger>60000</timeTillTrigger>
     <randomThingValue>500</randomThingValue>
     <randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_archaeology-excavate_progress_good</defName>
+    <label>Archaeological Discovery (Excavation)</label>
+    <desc>The discovery is being excavated...</desc>
+    <category>EC_Construction</category>
+    <timeTillTrigger>60000</timeTillTrigger>
+    <timeTillTriggerMax>180000</timeTillTriggerMax>
+    <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_archaeology_0</li>
+    </incompatibleEvents>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_archaeology_1a_fail</followingEvent>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_archaeology-excavate_progress_bad</defName>
+    <label>Archaeological Discovery (Excavation)</label>
+    <desc>The discovery is being excavated...</desc>
+    <category>EC_Construction</category>
+    <timeTillTrigger>60000</timeTillTrigger>
+    <timeTillTriggerMax>180000</timeTillTriggerMax>
+    <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_archaeology_0</li>
+    </incompatibleEvents>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_archaeology_1a_success</followingEvent>
   </FactionColonies.FCEventDef>
 
 </Defs>
