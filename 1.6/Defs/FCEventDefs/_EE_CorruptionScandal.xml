@@ -119,7 +119,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_corruption_recur</defName>
     <label>Corruption Returns</label>
-    <desc>It turns out that refusing to hold criminals accountable can come with drawbacks. New officials have picked up where the old ones left off, and their corruption is even more brazen. Without a public example, corruption has become an expected perk of office. Tax revenues suffer again.</desc>
+    <desc>It turns out that refusing to hold criminals accountable can come with drawbacks. New officials have picked up where the old ones left off, and their corruption is even more brazen. Without a public example, corruption has become an expected perk of office.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>900000</timeTillTriggerMax>
@@ -184,7 +184,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_corruption_1e</defName>
     <label>Oversight Committee</label>
-    <desc>A citizen oversight committee is established to monitor government spending. The corrupt officials are removed through due process, and the new transparency lifts morale. The system works — and citizens have a voice in keeping it honest.</desc>
+    <desc>A citizen oversight committee is established to monitor government spending. The corrupt officials are removed through due process, and the new transparency lifts morale.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
