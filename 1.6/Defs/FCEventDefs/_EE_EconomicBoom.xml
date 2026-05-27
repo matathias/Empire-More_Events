@@ -1,135 +1,142 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<!-- Stage 0: Economic surge -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_economicBoom_0</defName>
-		<label>Economic Boom</label>
-		<desc>A surge of investment and growth is flowing through your empire. Trade is booming, new businesses are opening, and citizens are spending freely. The prosperity of your settlements has attracted attention and opportunity. How do you channel this momentum?</desc>
-		<category>EC_Economy</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<options>
-			<li>empireEvents_economicBoom_opt1</li>
-			<li>empireEvents_economicBoom_opt2</li>
-			<li>empireEvents_economicBoom_opt3</li>
-			<li>empireEvents_economicBoom_opt_feudal</li>
-		</options>
-		<activateAtStart>true</activateAtStart>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>10</weight>
-		<cooldownTicks>1800000</cooldownTicks>
-		<minSettlements>3</minSettlements>
-		<minimumProsperity>50</minimumProsperity>
-		<targetAllSettlements>true</targetAllSettlements>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_economicBoom_1a</li>
-			<li>empireEvents_economicBoom_1b</li>
-			<li>empireEvents_economicBoom_1c</li>
-			<li>empireEvents_economicBoom_estates</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_economicBoom_0</defName>
+    <label>Economic Boom</label>
+    <desc>A surge of investment and growth is flowing through your empire. Trade is booming, new businesses are opening, and citizens are spending freely. The prosperity of your settlements has attracted attention and opportunity. How do you channel this momentum?</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>1800000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>10</weight>
+    <minimumProsperity>50</minimumProsperity>
+    <minSettlements>3</minSettlements>
+    <targetAllSettlements>true</targetAllSettlements>
+    <incompatibleEvents>
+      <li>empireEvents_economicBoom_1a</li>
+      <li>empireEvents_economicBoom_1b</li>
+      <li>empireEvents_economicBoom_1c</li>
+      <li>empireEvents_economicBoom_estates</li>
+    </incompatibleEvents>
+    <options>
+      <li>empireEvents_economicBoom_opt1</li>
+      <li>empireEvents_economicBoom_opt2</li>
+      <li>empireEvents_economicBoom_opt3</li>
+      <li>empireEvents_economicBoom_opt_feudal</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Option A: Invest in growth -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_economicBoom_opt1</defName>
-		<label>Reinvest the profits. Fuel the fire of growth.</label>
-		<parentEvent>empireEvents_economicBoom_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_economicBoom_1a</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_economicBoom_opt1</defName>
+    <label>Reinvest the profits. Fuel the fire of growth.</label>
+    <parentEvent>empireEvents_economicBoom_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_economicBoom_1a</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option B: Stabilize economy -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_economicBoom_opt2</defName>
-		<label>Stabilize the economy. Steady growth is better than a bubble.</label>
-		<parentEvent>empireEvents_economicBoom_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_economicBoom_1b</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_economicBoom_opt2</defName>
+    <label>Stabilize the economy. Steady growth is better than a bubble.</label>
+    <parentEvent>empireEvents_economicBoom_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_economicBoom_1b</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option C: Distribute wealth -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_economicBoom_opt3</defName>
-		<label>Share the wealth with the people. A happy populace is the best investment.</label>
-		<parentEvent>empireEvents_economicBoom_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_economicBoom_1c</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_economicBoom_opt3</defName>
+    <label>Share the wealth with the people. A happy populace is the best investment.</label>
+    <parentEvent>empireEvents_economicBoom_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_economicBoom_1c</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option D: Feudal — noble estates -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_economicBoom_opt_feudal</defName>
-		<label>Invest in noble estates. Let the highborn secure our prosperity.</label>
-		<parentEvent>empireEvents_economicBoom_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_economicBoom_estates</successEvent>
-		<requiredPolicies>
-			<li>feudal</li>
-		</requiredPolicies>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_economicBoom_opt_feudal</defName>
+    <label>Invest in noble estates. Let the highborn secure our prosperity.</label>
+    <parentEvent>empireEvents_economicBoom_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_economicBoom_estates</successEvent>
+    <requiredPolicies>
+      <li>feudal</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Outcome A: Growth investment -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_economicBoom_1a</defName>
-		<label>Growth Surge</label>
-		<desc>The economic momentum is channeled directly into expanding productive capacity. New workshops open, existing operations scale up, and the prosperity of your settlements climbs at an accelerated rate.</desc>
-		<category>EC_Economy</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>prosperityGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<targetAllSettlements>true</targetAllSettlements>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_economicBoom_1a</defName>
+    <label>Growth Surge</label>
+    <desc>The economic momentum is channeled directly into expanding productive capacity. New workshops open, existing operations scale up, and the prosperity of your settlements climbs at an accelerated rate.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>420000</timeTillTriggerMax>
+    <targetAllSettlements>true</targetAllSettlements>
+    <statModifiers>
+      <li>
+        <stat>prosperityGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome B: Stabilized economy -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_economicBoom_1b</defName>
-		<label>Economic Stabilization</label>
-		<desc>Rather than chasing explosive growth, you invest in sustainable economic infrastructure. Prosperity gains are moderate but steady, and improved tax collection fills the treasury.</desc>
-		<category>EC_Economy</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>prosperityGainedBase</stat><value>0.5</value></li>
-			<li><stat>taxBonusFlat</stat><value>3</value></li>
-		</statModifiers>
-		<targetAllSettlements>true</targetAllSettlements>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_economicBoom_1b</defName>
+    <label>Economic Stabilization</label>
+    <desc>Rather than chasing explosive growth, you invest in sustainable economic infrastructure. Prosperity gains are moderate but steady, and improved tax collection fills the treasury.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>420000</timeTillTriggerMax>
+    <targetAllSettlements>true</targetAllSettlements>
+    <statModifiers>
+      <li>
+        <stat>prosperityGainedBase</stat>
+        <value>0.5</value>
+      </li>
+      <li>
+        <stat>taxBonusFlat</stat>
+        <value>3</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome C: Wealth distributed -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_economicBoom_1c</defName>
-		<label>Wealth Distributed</label>
-		<desc>The economic windfall is shared broadly among the populace. Citizens celebrate their leaders' generosity, and the improved quality of life strengthens their dedication to your nation.</desc>
-		<category>EC_Economy</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
-			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
-		</statModifiers>
-		<targetAllSettlements>true</targetAllSettlements>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_economicBoom_1c</defName>
+    <label>Wealth Distributed</label>
+    <desc>The economic windfall is shared broadly among the populace. Citizens celebrate their leaders' generosity, and the improved quality of life strengthens their dedication to your nation.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>420000</timeTillTriggerMax>
+    <targetAllSettlements>true</targetAllSettlements>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome D: Noble estates — feudal prosperity + loyalty -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_economicBoom_estates</defName>
-		<label>Noble Estates</label>
-		<desc>The economic windfall is channeled into grand estates for the highborn: manors, hunting grounds, and ornamental gardens that proclaim the empire's prosperity. The nobility responds with renewed devotion, strengthening the bonds of fealty that hold the feudal order together.</desc>
-		<category>EC_Economy</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>prosperityGainedBase</stat><value>0.75</value></li>
-			<li><stat>loyaltyGainedBase</stat><value>0.75</value></li>
-		</statModifiers>
-		<targetAllSettlements>true</targetAllSettlements>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_economicBoom_estates</defName>
+    <label>Noble Estates</label>
+    <desc>The economic windfall is channeled into grand estates for the highborn: manors, hunting grounds, and ornamental gardens that proclaim the empire's prosperity. The nobility responds with renewed devotion, strengthening the bonds of fealty that hold the feudal order together.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>420000</timeTillTriggerMax>
+    <targetAllSettlements>true</targetAllSettlements>
+    <statModifiers>
+      <li>
+        <stat>prosperityGainedBase</stat>
+        <value>0.75</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>
