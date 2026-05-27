@@ -48,7 +48,7 @@
     <label>Redesign the armory with fireproofing and better storage. Learn from this disaster.</label>
     <parentEvent>empireEvents_armoryFire_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>500</silverCost>
+    <silverCost>600</silverCost>
     <successEvent>empireEvents_armoryFire_1c</successEvent>
   </FactionColonies.FCOptionDef>
 
