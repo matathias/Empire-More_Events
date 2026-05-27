@@ -132,7 +132,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_bountifulHarvest_sell</defName>
     <label>Harvest Sold</label>
-    <desc>Wagons laden with surplus produce head to market, where demand is high and prices are favorable. The food bonus is diminished, but your treasury benefits handsomely from the trade.</desc>
+    <desc>Shipments of surplus produce head to market, where demand is high and prices are favorable. The food bonus is diminished, but your treasury benefits handsomely from the trade.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>
@@ -155,7 +155,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_bountifulHarvest_share</defName>
     <label>Harvest Shared</label>
-    <desc>Wagons of surplus food are sent to struggling communities across the region. The generosity is noticed and appreciated — your empire's reputation as a benevolent neighbor grows. Citizens take pride in their collective charity, and the resulting goodwill strengthens bonds both within and beyond your borders.</desc>
+    <desc>Shipments of surplus food are sent to struggling communities across the region. The generosity is noticed and appreciated — your empire's reputation as a benevolent neighbor grows. Citizens take pride in their collective charity.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>
