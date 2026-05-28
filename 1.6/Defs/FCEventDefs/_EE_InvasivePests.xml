@@ -20,9 +20,9 @@
     </applicableBiomes>
     <incompatibleEvents>
       <li>empireEvents_invasivePests_0</li>
-      <li>empireEvents_invasivePests_1a</li>
-      <li>empireEvents_invasivePests_1b</li>
-      <li>empireEvents_invasivePests_1c</li>
+      <li>empireEvents_invasivePests-controlled_burn</li>
+      <li>empireEvents_invasivePests-intro_predators</li>
+      <li>empireEvents_invasivePests-unchecked_infest</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_invasivePests_opt1</li>
@@ -37,7 +37,7 @@
     <parentEvent>empireEvents_invasivePests_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>300</silverCost>
-    <successEvent>empireEvents_invasivePests_1a</successEvent>
+    <successEvent>empireEvents_invasivePests-controlled_burn</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -46,7 +46,7 @@
     <parentEvent>empireEvents_invasivePests_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>300</silverCost>
-    <successEvent>empireEvents_invasivePests_1b</successEvent>
+    <successEvent>empireEvents_invasivePests-intro_predators</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -54,11 +54,11 @@
     <label>Do nothing. The forest has survived worse. It will adapt.</label>
     <parentEvent>empireEvents_invasivePests_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <successEvent>empireEvents_invasivePests_1c</successEvent>
+    <successEvent>empireEvents_invasivePests-unchecked_infest</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1a</defName>
+    <defName>empireEvents_invasivePests-controlled_burn</defName>
     <label>Controlled Burn</label>
     <desc>Fire crews set controlled burns through the infested sections of forest. The pests are eradicated quickly, but the scorched areas will take a long time to regrow.</desc>
     <category>EC_Economy</category>
@@ -67,20 +67,20 @@
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
-        <value>-0.75</value>
+        <value>-1.5</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b</defName>
+    <defName>empireEvents_invasivePests-intro_predators</defName>
     <label>Invasive Pests (Predator Introduction)</label>
     <desc>Imported predator insects are released into the forest. They take to their new environment eagerly, hunting the invasive pests with efficient ruthlessness. But many question the wisdom of using foreign predators for pest control.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_invasivePests_1b_2</followingEvent>
+    <followingEvent>empireEvents_invasivePests-invasive_predators</followingEvent>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>75</splitEventChance>
     <statModifiers>
@@ -92,7 +92,7 @@
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c</defName>
+    <defName>empireEvents_invasivePests-unchecked_infest</defName>
     <label>Unchecked Infestation</label>
     <desc>Without intervention, the pests spread unchecked through the forest. Mature trees die standing, their hollowed trunks collapsing without warning. Wildlife flees the devastated areas. Logging becomes dangerous and animal husbandry suffers as the ecosystem unravels. The forest will eventually recover, but the process is agonizingly slow.</desc>
     <category>EC_Economy</category>
@@ -111,48 +111,47 @@
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_2</defName>
+    <defName>empireEvents_invasivePests-invasive_predators</defName>
     <label>Invasive Pests (Invasive Predators)</label>
     <desc>The imported predators successfully got rid of the original pests, but have now themselves become an invasive issue. The situation is even worse than before.
 
 What do you do now?</desc>
     <category>EC_Economy</category>
     <options>
-      <li></li>
-      <li>empireEvents_invasivePests_opt1_2</li>
-      <li>empireEvents_invasivePests_opt2_2</li>
-      <li>empireEvents_invasivePests_opt3_2</li>
+      <li>empireEvents_invasivePests-invasive_predators_opt1</li>
+      <li>empireEvents_invasivePests-invasive_predators_opt2</li>
+      <li>empireEvents_invasivePests-invasive_predators_opt3</li>
     </options>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt1_2</defName>
+    <defName>empireEvents_invasivePests-invasive_predators_opt1</defName>
     <label>We have no choice. Burn it all down.</label>
-    <parentEvent>empireEvents_invasivePests_1b_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_predators</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>300</silverCost>
-    <successEvent>empireEvents_invasivePests_1a</successEvent>
+    <successEvent>empireEvents_invasivePests-controlled_burn</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_predators_opt2</defName>
     <label>Import predators of the predators. If it worked once, it'll work again!</label>
-    <parentEvent>empireEvents_invasivePests_1b_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_predators</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>400</silverCost>
-    <successEvent>empireEvents_invasivePests_1b_3</successEvent>
+    <successEvent>empireEvents_invasivePests-intro_rodents</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt3_2</defName>
+    <defName>empireEvents_invasivePests-invasive_predators_opt3</defName>
     <label>Do nothing. We tried to intervene once; it's time to let nature run its course.</label>
-    <parentEvent>empireEvents_invasivePests_1b_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_predators</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <successEvent>empireEvents_invasivePests_1c_2</successEvent>
+    <successEvent>empireEvents_invasivePests-unchecked_predators</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c_2</defName>
+    <defName>empireEvents_invasivePests-unchecked_predators</defName>
     <label>Unchecked Infestation (Predator Insects)</label>
     <desc>Without intervention, the predator insects spread unchecked through the forest. The predators don't kill as many trees as the pests they feasted on, but they nonetheless overrun the ecosystem, causing widespread, untold damage. The forest will never look the same.</desc>
     <category>EC_Economy</category>
@@ -181,7 +180,7 @@ What do you do now?</desc>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_3</defName>
+    <defName>empireEvents_invasivePests-intro_rodents</defName>
     <label>Invasive Pests (Predator Introduction II)</label>
     <desc>Imported insectivore rodents are released into the forest. They eagerly take to the forest and put a hefty dent into the population of invasive predator insects — as well as the population of insects in general.
 
@@ -190,7 +189,7 @@ Many question your decision to double down on importing animals, but hey, this t
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_invasivePests_1b_2_2</followingEvent>
+    <followingEvent>empireEvents_invasivePests-invasive_rodents</followingEvent>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>75</splitEventChance>
     <statModifiers>
@@ -206,83 +205,47 @@ Many question your decision to double down on importing animals, but hey, this t
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_rodents</defName>
     <label>Invasive Pests (Invasive Rodents)</label>
     <desc>The rodents that were imported to deal with the issue of invasive imported predator insects have now, themselves, become invasive. They have pushed local wildlife out of their niches, and prove more resilient against local predators, as well. If left unchecked, the forest could well see a total ecosystem collapse.
 
 What do you do now?</desc>
     <category>EC_Economy</category>
     <options>
-      <li></li>
-      <li>empireEvents_invasivePests_opt1_2_2</li>
-      <li>empireEvents_invasivePests_opt2_2_2</li>
-      <li>empireEvents_invasivePests_opt3_2_2</li>
+      <li>empireEvents_invasivePests-invasive_rodents_opt1</li>
+      <li>empireEvents_invasivePests-invasive_rodents_opt2</li>
+      <li>empireEvents_invasivePests-invasive_rodents_opt3</li>
     </options>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt1_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_rodents_opt1</defName>
     <label>This was all a mistake. Time to burn it down and start over.</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_rodents</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>300</silverCost>
-    <successEvent>empireEvents_invasivePests_1a</successEvent>
+    <successEvent>empireEvents_invasivePests-controlled_burn</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt2_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_rodents_opt2</defName>
     <label>We shan't be bested by rodents. Find beasts to cull their numbers!</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_rodents</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>500</silverCost>
-    <successEvent>empireEvents_invasivePests_1b_3_2</successEvent>
+    <successEvent>empireEvents_invasivePests-intro_beasts</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt3_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_rodents_opt3</defName>
     <label>There's nothing more to be done. Leave the forest be.</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_rodents</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <successEvent>empireEvents_invasivePests_1c_2_2</successEvent>
+    <successEvent>empireEvents_invasivePests-unchecked_rodents</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c_2_2</defName>
-    <label>Unchecked Infestation (Insectivore Rodents)</label>
-    <desc>Without intervention, the rodents take over the forest. The trees themselves mostly survive, but the insect population is decimated — and with them, the plants and flowers. The rodents' hardiness against local predators also has serious effects on the food chain as a whole.
-
-The forest will eventually recover, somewhat. But it will always remain a husk of what it once was.</desc>
-    <category>EC_Economy</category>
-    <timeTillTrigger>900000</timeTillTrigger>
-    <timeTillTriggerMax>1200000</timeTillTriggerMax>
-    <statModifiers>
-      <li>
-        <stat>RTD_Logging_ProductionAdditive</stat>
-        <value>-0.25</value>
-      </li>
-      <li>
-        <stat>RTD_Food_ProductionMultiplier</stat>
-        <value>0.75</value>
-      </li>
-      <li>
-        <stat>RTD_Animals_ProductionMultiplier</stat>
-        <value>0.75</value>
-      </li>
-    </statModifiers>
-    <permanentStatModifiers>
-      <li>
-        <stat>RTD_Animals_ProductionAdditive</stat>
-        <value>-0.5</value>
-      </li>
-      <li>
-        <stat>RTD_Food_ProductionAdditive</stat>
-        <value>-0.5</value>
-      </li>
-    </permanentStatModifiers>
-  </FactionColonies.FCEventDef>
-
-  <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_3_2</defName>
+    <defName>empireEvents_invasivePests-intro_beasts</defName>
     <label>Invasive Pests (Predator Introduction III)</label>
     <desc>In what many call a highly questionable move, carnivorous beasts are imported from afar to deal with the issue of the imported rodents. The rodents quickly find their match, and their numbers rapidly diminish.
 
@@ -291,7 +254,7 @@ But many point out that the last two times you imported animals, the situation o
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_invasivePests_1b_2_2_2</followingEvent>
+    <followingEvent>empireEvents_invasivePests-invasive_beasts</followingEvent>
     <splitEventChance>75</splitEventChance>
     <statModifiers>
       <li>
@@ -314,57 +277,126 @@ But many point out that the last two times you imported animals, the situation o
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_2_2_2</defName>
+    <defName>empireEvents_invasivePests-unchecked_rodents</defName>
+    <label>Unchecked Infestation (Insectivore Rodents)</label>
+    <desc>Without intervention, the rodents take over the forest. The trees themselves mostly survive, but the insect population is decimated — and with them, the plants and flowers. The rodents' hardiness against local predators also has serious effects on the food chain as a whole.
+
+The forest will eventually recover, somewhat. But it will always remain a husk of what it once was.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>900000</timeTillTrigger>
+    <timeTillTriggerMax>1200000</timeTillTriggerMax>
+    <statModifiers>
+      <li>
+        <stat>RTD_Food_ProductionMultiplier</stat>
+        <value>0.75</value>
+      </li>
+      <li>
+        <stat>RTD_Animals_ProductionMultiplier</stat>
+        <value>0.75</value>
+      </li>
+    </statModifiers>
+    <permanentStatModifiers>
+      <li>
+        <stat>RTD_Animals_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+      <li>
+        <stat>RTD_Food_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+      <li>
+        <stat>RTD_Logging_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_invasivePests-invasive_beasts</defName>
     <label>Invasive Pests (Invasive Beasts)</label>
     <desc>In a turn that surprises few, the beasts you imported to cull the rodent population have taken over the forest. Nothing preys on them locally, and their aggressive nature makes it difficult to get work done. Several citizens even report being charged at by wild beasts the moment they step foot outside the settlement!
 
 The situation has grown out of hand. Your citizens demand that you do something to fix this — without importing further pests.</desc>
     <category>EC_Economy</category>
     <options>
-      <li>empireEvents_invasivePests_opt1_2_2_2</li>
-      <li>empireEvents_invasivePests_opt2_2_2_2</li>
-      <li>empireEvents_invasivePests_opt3_2_2_2</li>
-      <li>empireEvents_invasivePests_opt3_2_2_3</li>
+      <li>empireEvents_invasivePests-invasive_beasts_opt1</li>
+      <li>empireEvents_invasivePests-invasive_beasts_opt2</li>
+      <li>empireEvents_invasivePests-invasive_beasts_opt3</li>
+      <li>empireEvents_invasivePests-invasive_beasts_opt4</li>
     </options>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt1_2_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_beasts_opt1</defName>
     <label>There can't be a problem if there isn't a forest. Burn it down!</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_beasts</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>300</silverCost>
-    <successEvent>empireEvents_invasivePests_1a</successEvent>
+    <successEvent>empireEvents_invasivePests-controlled_burn</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt2_2_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_beasts_opt2</defName>
     <label>The citizens simply do not understand. Find the most magnificent of beasts to cull the boars!</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_beasts</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>750</silverCost>
-    <successEvent>empireEvents_invasivePests_1b_3_2_2</successEvent>
+    <successEvent>empireEvents_invasivePests-intro_bigbeast</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt3_2_2_2</defName>
+    <defName>empireEvents_invasivePests-invasive_beasts_opt3</defName>
     <label>Fair enough. Organize a hunt to cull the herds.</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_beasts</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>250</silverCost>
-    <successEvent>empireEvents_invasivePests_1c_2_2_2_2</successEvent>
+    <successEvent>empireEvents_invasivePests-beast_hunt</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
-    <defName>empireEvents_invasivePests_opt3_2_2_3</defName>
+    <defName>empireEvents_invasivePests-invasive_beasts_opt4</defName>
     <label>Further action will simply make things worse. Let's leave this in the hands of mother nature.</label>
-    <parentEvent>empireEvents_invasivePests_1b_2_2_2</parentEvent>
+    <parentEvent>empireEvents_invasivePests-invasive_beasts</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <successEvent>empireEvents_invasivePests_1c_2_2_2</successEvent>
+    <successEvent>empireEvents_invasivePests-unchecked_beasts</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c_2_2_2</defName>
+    <defName>empireEvents_invasivePests-intro_bigbeast</defName>
+    <label>Invasive Pests (Predator Introduction IV)</label>
+    <desc>When the order is sent out to import even more foreign wildlife, your people nearly riot. Careful diplomatic maneuvering eventually calms them as you send investigators out in search of an animal that can prey on the aggressive invasive beasts.
+
+Only time will tell if such an animal actually exists. In the meantime, work continues at a slowed pace.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>600000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_invasivePests-bigbeast_found</followingEvent>
+    <followingEvent2>empireEvents_invasivePests-bigbeast_notfound</followingEvent2>
+    <splitEventFollows>true</splitEventFollows>
+    <splitEventChance>25</splitEventChance>
+    <statModifiers>
+      <li>
+        <stat>loyaltyLostBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>workerProductionMultiplier</stat>
+        <value>0.8</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_invasivePests-unchecked_beasts</defName>
     <label>Unchecked Infestation (Wild Boars)</label>
     <desc>Without intervention, the beasts completely take over the forest. In time, the ecosystem itself actually seems to recover... but the aggressive beasts make it substantially more difficult to get any kind of work done. The settlement's productivity decreases permanently.</desc>
     <category>EC_Economy</category>
@@ -389,17 +421,17 @@ The situation has grown out of hand. Your citizens demand that you do something 
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c_2_2_2_2</defName>
+    <defName>empireEvents_invasivePests-beast_hunt</defName>
     <label>Unchecked Infestation (Beast Hunt)</label>
-    <desc>A grant hunt is organized in an attempt to cull the invasive beasts. Only time will tell if it's successful.
+    <desc>A grand hunt is organized in an attempt to cull the invasive beasts. Only time will tell if it's successful.
 
 In the meantime, the beasts continue to make it difficult to get any work done.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>180000</timeTillTrigger>
     <timeTillTriggerMax>360000</timeTillTriggerMax>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_invasivePests_1c_2_2_2_2_2</followingEvent>
-    <followingEvent2>empireEvents_invasivePests_1c_2_2_2_2_2_2</followingEvent2>
+    <followingEvent>empireEvents_invasivePests-beast_hunt_success</followingEvent>
+    <followingEvent2>empireEvents_invasivePests-beast_hunt_fail</followingEvent2>
     <splitEventFollows>true</splitEventFollows>
     <statModifiers>
       <li>
@@ -410,7 +442,7 @@ In the meantime, the beasts continue to make it difficult to get any work done.<
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c_2_2_2_2_2</defName>
+    <defName>empireEvents_invasivePests-beast_hunt_success</defName>
     <label>Unchecked Infestation (Successful Hunt)</label>
     <desc>Through a combination of masterful hunting and an incredible stroke of luck, your people manage to cull the beasts down to manageable numbers. The forest quickly recovers, and a portion of the hunt's results are sent on to you.</desc>
     <category>EC_Economy</category>
@@ -420,7 +452,7 @@ In the meantime, the beasts continue to make it difficult to get any work done.<
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1c_2_2_2_2_2_2</defName>
+    <defName>empireEvents_invasivePests-beast_hunt_fail</defName>
     <label>Unchecked Infestation (Unsuccessful Hunt)</label>
     <desc>The hunt fails spectacularly. The beasts prove far more aggressive and dangerous than initially thought, managing to inflict numerous casualties on your hunters and workers. Eventually, your people are forced back to within the bounds of the settlement to lick their wounds, having put barely a dent into the population of the beasts.
 
@@ -455,71 +487,7 @@ Your people won't soon forget this blow to their pride, nor will they forget tha
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_3_2_2</defName>
-    <label>Invasive Pests (Predator Introduction IV)</label>
-    <desc>When the order is sent out to import even more foreign wildlife, your people nearly riot. Careful diplomatic maneuvering eventually calm them as you send investigators out in search of an animal that can prey on the aggressive invasive beasts.
-
-Only time will tell if such an animal actually exists. In the meantime, work continues at a slowed pace.</desc>
-    <category>EC_Economy</category>
-    <timeTillTrigger>300000</timeTillTrigger>
-    <timeTillTriggerMax>600000</timeTillTriggerMax>
-    <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_invasivePests_1b_2_2_2_2_2</followingEvent>
-    <followingEvent2>empireEvents_invasivePests_1b_2_2_2_2</followingEvent2>
-    <splitEventFollows>true</splitEventFollows>
-    <splitEventChance>25</splitEventChance>
-    <statModifiers>
-      <li>
-        <stat>loyaltyLostBase</stat>
-        <value>2</value>
-      </li>
-      <li>
-        <stat>unrestGainedBase</stat>
-        <value>2</value>
-      </li>
-      <li>
-        <stat>happinessLostBase</stat>
-        <value>2</value>
-      </li>
-      <li>
-        <stat>workerProductionMultiplier</stat>
-        <value>0.8</value>
-      </li>
-    </statModifiers>
-  </FactionColonies.FCEventDef>
-
-  <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_2_2_2_2</defName>
-    <label>Invasive Pests (Search Failure)</label>
-    <desc>The search for a bigger predators has failed. The invasive beasts are left to take over the forest, permanently reducing the settlement's production.
-
-The forest itself survives this ordeal, but trust in your leadership has shattered. Your name becomes synonymous with fools and idiots; it isn't clear that the settlement will ever respect you again.
-
-But hey, at least you stuck to your guns. That has to count for something. ...Right?</desc>
-    <category>EC_Economy</category>
-    <timeTillTrigger>1500</timeTillTrigger>
-    <permanentStatModifiers>
-      <li>
-        <stat>happinessLostBase</stat>
-        <value>2</value>
-      </li>
-      <li>
-        <stat>unrestGainedBase</stat>
-        <value>1</value>
-      </li>
-      <li>
-        <stat>loyaltyLostBase</stat>
-        <value>2</value>
-      </li>
-      <li>
-        <stat>workerProductionMultiplier</stat>
-        <value>0.75</value>
-      </li>
-    </permanentStatModifiers>
-  </FactionColonies.FCEventDef>
-
-  <FactionColonies.FCEventDef>
-    <defName>empireEvents_invasivePests_1b_2_2_2_2_2</defName>
+    <defName>empireEvents_invasivePests-bigbeast_found</defName>
     <label>Invasive Pests (Search Success)</label>
     <desc>Against all belief, the search for a larger animal has prevailed!
 
@@ -551,6 +519,36 @@ Before long, the settlement ends up in an even better position than before the o
       <li>
         <stat>militaryBaseLevel</stat>
         <value>1</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_invasivePests-bigbeast_notfound</defName>
+    <label>Invasive Pests (Search Failure)</label>
+    <desc>The search for a bigger predator has failed. The invasive beasts are left to take over the forest, permanently reducing the settlement's production.
+
+The forest itself survives this ordeal, but trust in your leadership has shattered. Your name becomes synonymous with fools and idiots; it isn't clear that the settlement will ever respect you again.
+
+But hey, at least you stuck to your guns. That has to count for something. ...Right?</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <permanentStatModifiers>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>loyaltyLostBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>workerProductionMultiplier</stat>
+        <value>0.75</value>
       </li>
     </permanentStatModifiers>
   </FactionColonies.FCEventDef>
