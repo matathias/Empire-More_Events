@@ -96,7 +96,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_tribute_attack</defName>
     <label>Retaliatory Attack</label>
-    <desc>The faction whose demands you refused has launched an attack on your settlements.</desc>
+    <desc>The faction whose demands you refused is launching an attack on your settlements.</desc>
     <category>EC_Military</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
@@ -147,12 +147,46 @@
       <li>empireEvents_tribute_0</li>
     </incompatibleEvents>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_tribute_attack</followingEvent>
+    <followingEvent>empireEvents_tribute_attack_militaristic</followingEvent>
     <statModifiers>
       <li>
         <stat>loyaltyGainedBase</stat>
         <value>2</value>
       </li>
+      <li>
+        <stat>militaryCombatEfficiency</stat>
+        <value>1.2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_tribute_attack_militaristic</defName>
+    <label>Retaliatory Attack</label>
+    <desc>The faction whose demands you defied is launching an attack on your settlements. Your mobilized forces are ready to repel them.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_tribute_militaristic_ready</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>militaryCombatEfficiency</stat>
+        <value>1.2</value>
+      </li>
+    </statModifiers>
+    <modExtensions>
+      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack"/>
+    </modExtensions>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_tribute_militaristic_ready</defName>
+    <label>Mobilized Forces</label>
+    <desc>Your standing army has mobilized to repel the incoming attack. Your forces will remain on a war footing until the threat passes.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>75000</timeTillTrigger>
+    <statModifiers>
       <li>
         <stat>militaryCombatEfficiency</stat>
         <value>1.2</value>
