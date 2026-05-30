@@ -1,182 +1,187 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<!-- Stage 0: Citizens want a festival -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_festival_0</defName>
-		<label>Festival Season</label>
-		<desc>Your citizens are requesting permission to hold a grand festival. The mood is right; people want to celebrate. How much support do you provide?</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<options>
-			<li>empireEvents_festival_opt1</li>
-			<li>empireEvents_festival_opt2</li>
-			<li>empireEvents_festival_opt3</li>
-			<li>empireEvents_festival_opt4</li>
-			<li>empireEvents_festival_opt5</li>
-		</options>
-		<activateAtStart>true</activateAtStart>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>20</weight>
-		<cooldownTicks>600000</cooldownTicks>
-		<minDaysSinceFounded>7</minDaysSinceFounded>
-		<minimumHappiness>50</minimumHappiness>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_festival_1a</li>
-			<li>empireEvents_festival_1b</li>
-			<li>empireEvents_festival_1c</li>
-			<li>empireEvents_festival_1d</li>
-			<li>empireEvents_festival_1e</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_0</defName>
+    <label>Festival Season</label>
+    <desc>Your citizens are requesting permission to hold a grand festival. The mood is right; people want to celebrate. How much support do you provide?</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>600000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>20</weight>
+    <minimumHappiness>50</minimumHappiness>
+    <minDaysSinceFounded>7</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_1a</li>
+      <li>empireEvents_festival_1b</li>
+      <li>empireEvents_festival_1c</li>
+      <li>empireEvents_festival_1d</li>
+      <li>empireEvents_festival_1e</li>
+    </incompatibleEvents>
+    <options>
+      <li>empireEvents_festival_opt1</li>
+      <li>empireEvents_festival_opt2</li>
+      <li>empireEvents_festival_opt3</li>
+      <li>empireEvents_festival_opt4</li>
+      <li>empireEvents_festival_opt5</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Option A: Fund the festival -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_festival_opt1</defName>
-		<label>Fund a grand festival. Spare no expense.</label>
-		<parentEvent>empireEvents_festival_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>600</silverCost>
-		<successEvent>empireEvents_festival_1a</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_festival_opt1</defName>
+    <label>Fund a grand festival. Spare no expense.</label>
+    <parentEvent>empireEvents_festival_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>600</silverCost>
+    <successEvent>empireEvents_festival_1a</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option B: Modest celebration -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_festival_opt2</defName>
-		<label>Allow a modest celebration. Keep costs down.</label>
-		<parentEvent>empireEvents_festival_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>200</silverCost>
-		<successEvent>empireEvents_festival_1b</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_festival_opt2</defName>
+    <label>Allow a modest celebration. Keep costs down.</label>
+    <parentEvent>empireEvents_festival_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>200</silverCost>
+    <successEvent>empireEvents_festival_1b</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option C: Deny -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_festival_opt3</defName>
-		<label>There's no time for festivals. Back to work.</label>
-		<parentEvent>empireEvents_festival_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_festival_1c</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_festival_opt3</defName>
+    <label>There's no time for festivals. Back to work.</label>
+    <parentEvent>empireEvents_festival_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_festival_1c</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option D: Feudal/Royal Heritage -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_festival_opt4</defName>
-		<label>The crown shall sponsor a grand celebration.</label>
-		<parentEvent>empireEvents_festival_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>450</silverCost>
-		<successEvent>empireEvents_festival_1d</successEvent>
-		<requiredPolicies>
-			<li>feudal</li>
-			<li>royalHeritage</li>
-		</requiredPolicies>
-		<requirementMode>Any</requirementMode>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_festival_opt4</defName>
+    <label>The crown shall sponsor a grand celebration.</label>
+    <parentEvent>empireEvents_festival_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>450</silverCost>
+    <successEvent>empireEvents_festival_1d</successEvent>
+    <requiredPolicies>
+      <li>feudal</li>
+      <li>royalHeritage</li>
+    </requiredPolicies>
+    <requirementMode>Any</requirementMode>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option E: Egalitarian -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_festival_opt5</defName>
-		<label>Let the people organize their own celebration.</label>
-		<parentEvent>empireEvents_festival_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_festival_1e</successEvent>
-		<requiredPolicies>
-			<li>egalitarian</li>
-		</requiredPolicies>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_festival_opt5</defName>
+    <label>Let the people organize their own celebration.</label>
+    <parentEvent>empireEvents_festival_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_festival_1e</successEvent>
+    <requiredPolicies>
+      <li>egalitarian</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Outcome A: Grand festival -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_festival_1a</defName>
-		<label>Grand Festival</label>
-		<desc>The festival is a spectacular success! Music, feasting, and games bring your settlements together. Citizens feel proud to be part of the empire, and unrest melts away amid the celebrations.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>120000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>happinessGainedBase</stat><value>4</value></li>
-			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
-			<li><stat>unrestLostBase</stat><value>3</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~5</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_festival_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_1a</defName>
+    <label>Grand Festival</label>
+    <desc>The festival is a spectacular success! Music, feasting, and games bring your settlements together. Citizens feel proud to be part of the empire, and unrest melts away amid the celebrations.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>120000</timeTillTrigger>
+    <rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>4</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>unrestLostBase</stat>
+        <value>3</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome B: Modest celebration -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_festival_1b</defName>
-		<label>Modest Festival</label>
-		<desc>A small but cheerful celebration brightens the mood across your settlements. Nothing extravagant, but the people appreciate the gesture.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>120000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>happinessGainedBase</stat><value>2</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_festival_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_1b</defName>
+    <label>Modest Festival</label>
+    <desc>A small but cheerful celebration brightens the mood across your settlements. Nothing extravagant, but the people appreciate the gesture.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>120000</timeTillTrigger>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome C: Denied -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_festival_1c</defName>
-		<label>Festival Denied</label>
-		<desc>The citizens' request for a festival is denied. Disappointed murmurs ripple through the settlements. People feel their voices aren't being heard.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>180000</timeTillTrigger>
-		<timeTillTriggerMax>300000</timeTillTriggerMax>
-		<statModifiers>
-			<li><stat>unrestGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_festival_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_1c</defName>
+    <label>Festival Denied</label>
+    <desc>The citizens' request for a festival is denied. Disappointed murmurs ripple through the settlements. People feel their voices aren't being heard.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>180000</timeTillTrigger>
+    <timeTillTriggerMax>300000</timeTillTriggerMax>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome D: Royal Patronage — loyalty-focused -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_festival_1d</defName>
-		<label>Royal Festival</label>
-		<desc>The crown sponsors a lavish celebration in its own honor. Citizens revel in the pageantry and feel a renewed connection to their rulers. The festival costs less than a full grand affair, but the royal touch inspires lasting loyalty.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
-			<li><stat>happinessGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_festival_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_1d</defName>
+    <label>Royal Festival</label>
+    <desc>The crown sponsors a lavish celebration in its own honor. Citizens revel in the pageantry and feel a renewed connection to their rulers. The festival costs less than a full grand affair, but the royal touch inspires lasting loyalty.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>2</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome E: People's Festival — cheap, sustained happiness -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_festival_1e</defName>
-		<label>People's Festival</label>
-		<desc>The citizens organize their own celebration with minimal funding. What it lacks in grandeur, it makes up for in genuine community spirit. The people feel ownership over their joy — and that feeling lingers.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>happinessGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_festival_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_1e</defName>
+    <label>People's Festival</label>
+    <desc>The citizens organize their own celebration with minimal funding. What it lacks in grandeur, it makes up for in community spirit.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>
