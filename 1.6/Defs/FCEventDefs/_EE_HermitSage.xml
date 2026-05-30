@@ -1,193 +1,338 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<!-- ===== THE HERMIT SAGE: 3-stage research chain ===== -->
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_0</defName>
+    <label>Smoke in the Hills</label>
+    <desc>Settlers report seeing smoke rising from a cabin deep in the wilderness near your settlement. Investigation reveals a hermit scholar surrounded by towering stacks of books, half-finished experiments, and scrawled equations covering every surface. They seem surprised to have visitors, but not entirely displeased.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>1800000</cooldownTicks>
+    <maxFireCount>2</maxFireCount>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>8</weight>
+    <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <requiredResource>RTD_Research</requiredResource>
+    <minTechLevel>Industrial</minTechLevel>
+    <incompatibleEvents>
+      <li>empireEvents_hermitSage_1a</li>
+      <li>empireEvents_hermitSage_1b</li>
+    </incompatibleEvents>
+    <options>
+      <li>empireEvents_hermitSage_opt1</li>
+      <li>empireEvents_hermitSage_opt2</li>
+      <li>empireEvents_hermitSage_opt3</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Stage 1: Smoke in the hills -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_0</defName>
-		<label>Smoke in the Hills</label>
-		<desc>Settlers report seeing smoke rising from a cabin deep in the wilderness near your settlement. Investigation reveals a hermit scholar surrounded by towering stacks of books, half-finished experiments, and scrawled equations covering every surface. They seem surprised to have visitors, but not entirely displeased.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<options>
-			<li>empireEvents_hermitSage_opt1</li>
-			<li>empireEvents_hermitSage_opt2</li>
-			<li>empireEvents_hermitSage_opt3</li>
-		</options>
-		<activateAtStart>true</activateAtStart>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>8</weight>
-		<cooldownTicks>1800000</cooldownTicks>
-		<maxFireCount>2</maxFireCount>
-		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
-		<requiredResource>RTD_Research</requiredResource>
-		<minTechLevel>Industrial</minTechLevel>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_hermitSage_1a</li>
-			<li>empireEvents_hermitSage_1b</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_hermitSage_opt1</defName>
+    <label>Invite them to join the settlement. We could use a brilliant mind.</label>
+    <parentEvent>empireEvents_hermitSage_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_hermitSage_1a</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option A: Invite to settlement -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_hermitSage_opt1</defName>
-		<label>Invite them to join the settlement. We could use a brilliant mind.</label>
-		<parentEvent>empireEvents_hermitSage_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_hermitSage_1a</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_hermitSage_opt2</defName>
+    <label>Respect their solitude. Send gifts and research materials instead.</label>
+    <parentEvent>empireEvents_hermitSage_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>400</silverCost>
+    <successEvent>empireEvents_hermitSage_1b</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option B: Send gifts -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_hermitSage_opt2</defName>
-		<label>Respect their solitude. Send gifts and research materials instead.</label>
-		<parentEvent>empireEvents_hermitSage_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>300</silverCost>
-		<successEvent>empireEvents_hermitSage_1b</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_hermitSage_opt3</defName>
+    <label>Leave the hermit be. We have our own researchers.</label>
+    <parentEvent>empireEvents_hermitSage_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option C: Ignore -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_hermitSage_opt3</defName>
-		<label>Leave the hermit be. We have our own researchers.</label>
-		<parentEvent>empireEvents_hermitSage_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_1a</defName>
+    <label>The Scholar Arrives</label>
+    <desc>The hermit reluctantly agrees to relocate, hauling cartloads of books and equipment. Their knowledge is vast and their contributions immediate — research output surges. Unfortunately, their personality is... difficult. They argue with everyone, keep bizarre hours, and their experiments occasionally produce unsettling smells.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>450000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_hermitSage_2a_eureka</followingEvent>
+    <followingEvent2>empireEvents_hermitSage_2a_outburst</followingEvent2>
+    <splitEventFollows>true</splitEventFollows>
+    <splitEventChance>60</splitEventChance>
+    <statModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Stage 2A: Scholar moves in — research boost but unhappiness -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_1a</defName>
-		<label>The Scholar Arrives</label>
-		<desc>The hermit reluctantly agrees to relocate, hauling cartloads of books and equipment. Their knowledge is vast and their contributions immediate — research output surges. Unfortunately, their personality is... difficult. They argue with everyone, keep bizarre hours, and their experiments occasionally produce unsettling smells.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
-			<li><stat>happinessLostBase</stat><value>1</value></li>
-		</statModifiers>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<eventFollows>true</eventFollows>
-		<splitEventFollows>true</splitEventFollows>
-		<splitEventChance>60</splitEventChance>
-		<followingEvent>empireEvents_hermitSage_2a_eureka</followingEvent>
-		<followingEvent2>empireEvents_hermitSage_2a_outburst</followingEvent2>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_1b</defName>
+    <label>Correspondence</label>
+    <desc>The hermit accepts your gifts graciously and begins exchanging letters with your researchers. The correspondence is slow — the hermit writes in dense, cryptic prose — but the insights are useful. A steady trickle of breakthroughs emerges from the exchange.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>450000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_hermitSage_2b_invitation</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>0.5</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Stage 2B: Correspondence — slower but safe -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_1b</defName>
-		<label>Correspondence</label>
-		<desc>The hermit accepts your gifts graciously and begins exchanging letters with your researchers. The correspondence is slow — the hermit writes in dense, cryptic prose — but the insights are genuine. A steady trickle of breakthroughs emerges from the exchange.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
-		</statModifiers>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<eventFollows>true</eventFollows>
-		<followingEvent>empireEvents_hermitSage_2b_invitation</followingEvent>
-	</FactionColonies.FCEventDef>
-
-	<!-- Stage 3A-success: Eureka! -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_2a_eureka</defName>
-		<label>Eureka!</label>
-		<desc>One morning, the hermit bursts from their workshop shouting incoherently about a breakthrough. The discovery is real — a fundamental advance that permanently reshapes the settlement's research capabilities.
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_2a_eureka</defName>
+    <label>Eureka!</label>
+    <desc>One morning, the hermit bursts from their workshop shouting incoherently about a breakthrough. After calming them down and getting a proper explanation, your researchers quickly see the light — a fundamental advance that permanently reshapes the settlement's research capabilities.
 			
 Even more surprisingly, the hermit's success mellows them considerably. They settle into community life with newfound contentment, even offering medical insights from their pharmaceutical experiments.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>1500</timeTillTrigger>
-		<permanentStatModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>1</value></li>
-			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>0.5</value></li>
-		</permanentStatModifiers>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+    <category>EC_Other</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <permanentStatModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>RTD_Medicine_ProductionAdditive</stat>
+        <value>0.5</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Stage 3A-failure: Outburst and departure -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_2a_outburst</defName>
-		<label>The Outburst</label>
-		<desc>The hermit suffers a spectacular breakdown — smashing equipment, burning notes, and screaming about failures both real and imagined. They flee into the wilderness, leaving behind a devastated laboratory. Research output plummets as your team picks up the pieces.
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_2a_outburst</defName>
+    <label>The Outburst</label>
+    <desc>The hermit suffers a spectacular breakdown — smashing equipment, burning notes, and screaming about failures both real and imagined. They flee into the wilderness, leaving behind a devastated laboratory. Research output drops as your team picks up the pieces.
 			
-However, the hermit's surviving notes contain genuine insights that, once deciphered, permanently advance your understanding.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>-1</value></li>
-			<li><stat>happinessLostBase</stat><value>1</value></li>
-		</statModifiers>
-		<permanentStatModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.25</value></li>
-		</permanentStatModifiers>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+However, the hermit's surviving notes contain surprisingly useful insights that, once deciphered, permanently advance your understanding.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <permanentStatModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>0.25</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Stage 3B: An Invitation -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_2b_invitation</defName>
-		<label>An Invitation</label>
-		<desc>After months of correspondence, the hermit finally invites your researchers to visit their workshop. This is extraordinary — the hermit is notoriously reclusive. They want to collaborate on a project that's too complex for letters alone. Who do you send?</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<options>
-			<li>empireEvents_hermitSage_opt4</li>
-			<li>empireEvents_hermitSage_opt5</li>
-		</options>
-		<activateAtStart>true</activateAtStart>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_2b_invitation</defName>
+    <label>An Invitation</label>
+    <desc>After weeks of correspondence, the hermit finally invites your researchers to visit their workshop. This is extraordinary — the hermit is notoriously reclusive. They want to collaborate on a project that's too complex for letters alone. Who do you send?</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <options>
+      <li>empireEvents_hermitSage_opt4</li>
+      <li>empireEvents_hermitSage_opt5</li>
+      <li>empireEvents_hermitSage_opt6</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Option: Send your best -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_hermitSage_opt4</defName>
-		<label>Send our top researchers. This collaboration could be historic.</label>
-		<parentEvent>empireEvents_hermitSage_2b_invitation</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_hermitSage_3b_best</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_hermitSage_opt4</defName>
+    <label>Send our top researchers. This collaboration could be historic.</label>
+    <parentEvent>empireEvents_hermitSage_2b_invitation</parentEvent>
+    <baseChanceOfSuccess>70</baseChanceOfSuccess>
+    <successEvent>empireEvents_hermitSage_collab-success</successEvent>
+    <failEvent>empireEvents_hermitSage_collab-fail</failEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option: Send apprentices -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_hermitSage_opt5</defName>
-		<label>Send promising apprentices. They'll learn more from this than any school.</label>
-		<parentEvent>empireEvents_hermitSage_2b_invitation</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_hermitSage_3b_apprentices</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_hermitSage_opt5</defName>
+    <label>Send promising apprentices. They'll learn more from this than any school.</label>
+    <parentEvent>empireEvents_hermitSage_2b_invitation</parentEvent>
+    <baseChanceOfSuccess>50</baseChanceOfSuccess>
+    <successEvent>empireEvents_hermitSage_apprentices-good</successEvent>
+    <failEvent>empireEvents_hermitSage_apprentices-bad</failEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Stage 3B-best: Expert collaboration -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_3b_best</defName>
-		<label>Expert Collaboration</label>
-		<desc>Your top researchers spend weeks at the hermit's workshop. The collaboration is intense and productive — the hermit's theoretical brilliance combined with your team's practical expertise produces breakthroughs neither could achieve alone. The settlement's research capabilities are permanently enhanced.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>1500</timeTillTrigger>
-		<permanentStatModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.75</value></li>
-		</permanentStatModifiers>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_hermitSage_opt6</defName>
+    <label>Send no one. We can't spare the labor.</label>
+    <parentEvent>empireEvents_hermitSage_2b_invitation</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Stage 3B-apprentices: Training -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_hermitSage_3b_apprentices</defName>
-		<label>Apprentices Trained</label>
-		<desc>The apprentices return transformed — full of new ideas, techniques, and confidence. The hermit's teaching methods are unorthodox but effective. Research improves, and the trained apprentices also bring practical insights that improve general worker efficiency.</desc>
-		<category>EC_Other</category>
-		<timeTillTrigger>1500</timeTillTrigger>
-		<permanentStatModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
-			<li><stat>workerProductionBase</stat><value>1.1</value></li>
-		</permanentStatModifiers>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_apprentices-good</defName>
+    <label>Apprentice Training</label>
+    <desc>The hermit is displeased to be sent a bunch of wide-eyed students rather than peer collaborators, and they make this opinion well known. But, surprisingly, they don't turn your people away. There may yet be a gain.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>450000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_hermitSage_apprentices-good-result</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_apprentices-good-result</defName>
+    <label>Apprentices Trained</label>
+    <desc>The apprentices return transformed — full of new ideas, techniques, and confidence. The hermit's teaching methods are unorthodox but effective. Research improves, and the trained apprentices also bring practical insights that improve general worker efficiency.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <permanentStatModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>0.5</value>
+      </li>
+      <li>
+        <stat>workerProductionBase</stat>
+        <value>1.2</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_apprentices-bad</defName>
+    <label>Apprentice Training</label>
+    <desc>The hermit is displeased to be sent a bunch of wide-eyed students rather than peer collaborators, and they make this opinion well known. But, surprisingly, they don't turn your people away. There may yet be a gain.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>450000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_hermitSage_apprentices-bad-result</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_apprentices-bad-result</defName>
+    <label>Apprentices Transformed</label>
+    <desc>The apprentices return transformed — into horrific organic monstrosities!
+
+Their minds apparently shattered, they swoop down onto your settlement in the dark of night, attacking everything in sight with wild abandon. The militia is eventually able to put them down, but not before they cause untold chaos and destruction.
+
+In the aftermath, your people swiftly return to the hermit to demand answers. But when they arrive, the hermit is gone without a trace, save for a single note disparaging you for not respecting their intellect.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-2</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <prosperityLost>10</prosperityLost>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_collab-success</defName>
+    <label>Expert Collaboration</label>
+    <desc>Your top researchers are working with the hermit toward something they assure you is extraordinary. In the meantime, you'll have to make do with slightly less labor.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>450000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_hermitSage_collab-success-result</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_collab-success-result</defName>
+    <label>Expert Collaboration</label>
+    <desc>Your top researchers spend weeks at the hermit's workshop. The collaboration is intense and productive — the hermit's theoretical brilliance combined with your team's practical expertise produces breakthroughs neither could achieve alone. The settlement's research capabilities are permanently enhanced.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <permanentStatModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>1.5</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_collab-fail</defName>
+    <label>Expert Collaboration</label>
+    <desc>Your top researchers are working with the hermit toward something they assure you is extraordinary. In the meantime, you'll have to make do with slightly less labor.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>450000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_hermitSage_collab-fail-result</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_hermitSage_collab-fail-result</defName>
+    <label>Collaboration Failure</label>
+    <desc>The collaboration with the hermit ends in a failure. The hermit's ideas proved too strange and esoteric for your researchers to grasp; some of them are convinced that the hermit is actually little more than a raving lunatic.
+
+There remains something to be learned from the hermit's notes and equipment, at least.</desc>
+    <category>EC_Other</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>0.5</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>
