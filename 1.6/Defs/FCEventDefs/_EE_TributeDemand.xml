@@ -101,7 +101,9 @@
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
     <modExtensions>
-      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack"/>
+      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack">
+        <attackCount>2~2</attackCount>
+      </li>
     </modExtensions>
   </FactionColonies.FCEventDef>
 
@@ -176,7 +178,9 @@
       </li>
     </statModifiers>
     <modExtensions>
-      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack"/>
+      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack">
+        <attackCount>2~2</attackCount>
+      </li>
     </modExtensions>
   </FactionColonies.FCEventDef>
 
