@@ -1,209 +1,214 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<!-- Stage 0: Deserters arrive -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_0</defName>
-		<label>Deserters Offer Service</label>
-		<desc>A group of soldiers from a hostile faction has defected and arrived at your borders. They claim to be disillusioned with their leaders and offer to serve in your military. Do you accept them?</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<options>
-			<li>empireEvents_deserters_opt1</li>
-			<li>empireEvents_deserters_opt2</li>
-			<li>empireEvents_deserters_opt3</li>
-			<li>empireEvents_deserters_opt4</li>
-			<li>empireEvents_deserters_opt5</li>
-			<li>empireEvents_deserters_opt6</li>
-		</options>
-		<activateAtStart>true</activateAtStart>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>10</weight>
-		<cooldownTicks>600000</cooldownTicks>
-		<minDaysSinceFounded>10</minDaysSinceFounded>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_deserters_1a</li>
-			<li>empireEvents_deserters_1b</li>
-			<li>empireEvents_deserters_1c</li>
-			<li>empireEvents_deserters_1d</li>
-			<li>empireEvents_deserters_1e</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_0</defName>
+    <label>Deserters Offer Service</label>
+    <desc>A group of soldiers from a hostile faction has defected and arrived at your borders. They claim to be disillusioned with their leaders and offer to serve in your military. Do you accept them?</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>600000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>10</weight>
+    <minDaysSinceFounded>10</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_deserters_1a</li>
+      <li>empireEvents_deserters_1b</li>
+      <li>empireEvents_deserters_1d</li>
+      <li>empireEvents_deserters_1e</li>
+    </incompatibleEvents>
+    <options>
+      <li>empireEvents_deserters_opt1</li>
+      <li>empireEvents_deserters_opt2</li>
+      <li>empireEvents_deserters_opt3</li>
+      <li>empireEvents_deserters_opt4</li>
+      <li>empireEvents_deserters_opt5</li>
+      <li>empireEvents_deserters_opt6</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Option A: Accept fully -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_deserters_opt1</defName>
-		<label>Accept them into our ranks. We can use the manpower.</label>
-		<parentEvent>empireEvents_deserters_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_deserters_1a</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_deserters_opt1</defName>
+    <label>Accept them into our ranks. We can use the manpower.</label>
+    <parentEvent>empireEvents_deserters_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_deserters_1a</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option B: Accept with caution -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_deserters_opt2</defName>
-		<label>Accept them, but keep them under close watch.</label>
-		<parentEvent>empireEvents_deserters_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_deserters_1b</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_deserters_opt2</defName>
+    <label>Accept them, but keep them under close watch.</label>
+    <parentEvent>empireEvents_deserters_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_deserters_1b</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option C: Turn them away -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_deserters_opt3</defName>
-		<label>Turn them away. Deserters can't be trusted.</label>
-		<parentEvent>empireEvents_deserters_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_deserters_1c</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_deserters_opt3</defName>
+    <label>Turn them away. Deserters can't be trusted.</label>
+    <parentEvent>empireEvents_deserters_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option D: Isolationist -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_deserters_opt4</defName>
-		<label>Our borders are closed to all outsiders. Send them away.</label>
-		<parentEvent>empireEvents_deserters_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<requiredPolicies>
-			<li>isolationist</li>
-		</requiredPolicies>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_deserters_opt4</defName>
+    <label>Our borders are closed to all outsiders. Send them away.</label>
+    <parentEvent>empireEvents_deserters_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <requiredPolicies>
+      <li>isolationist</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option E: Militaristic -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_deserters_opt5</defName>
-		<label>Put them through military training. We'll know if they're spies.</label>
-		<parentEvent>empireEvents_deserters_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>100</silverCost>
-		<successEvent>empireEvents_deserters_1d</successEvent>
-		<requiredPolicies>
-			<li>militaristic</li>
-		</requiredPolicies>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_deserters_opt5</defName>
+    <label>Put them through military training. We'll know if they're spies.</label>
+    <parentEvent>empireEvents_deserters_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>100</silverCost>
+    <successEvent>empireEvents_deserters_1d</successEvent>
+    <requiredPolicies>
+      <li>militaristic</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option F: Slaver -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_deserters_opt6</defName>
-		<label>Collars and chains. They'll work.</label>
-		<parentEvent>empireEvents_deserters_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_deserters_1e</successEvent>
-		<requiredPolicies>
-			<li>slaver</li>
-		</requiredPolicies>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_deserters_opt6</defName>
+    <label>Collars and chains. They'll work.</label>
+    <parentEvent>empireEvents_deserters_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_deserters_1e</successEvent>
+    <requiredPolicies>
+      <li>slaver</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Outcome A: Accepted — big military boost, spy risk -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_1a</defName>
-		<label>Deserters Integrated</label>
-		<desc>The deserters are folded into your military forces. Their combat experience bolsters your settlements' defenses significantly. But can they truly be trusted?</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>militaryBaseLevel</stat><value>2</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<splitEventFollows>true</splitEventFollows>
-		<splitEventChance>25</splitEventChance>
-		<followingEvent>empireEvents_deserters_spy</followingEvent>
-		<incompatibleEvents>
-			<li>empireEvents_deserters_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_1a</defName>
+    <label>Deserters Integrated</label>
+    <desc>The deserters are folded into your military forces. Their combat experience bolsters your settlements' defenses significantly. But can they truly be trusted?</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>600000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_deserters_0</li>
+    </incompatibleEvents>
+    <followingEvent>empireEvents_deserters_spy</followingEvent>
+    <splitEventFollows>true</splitEventFollows>
+    <splitEventChance>35</splitEventChance>
+    <statModifiers>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Spy follow-up (25% chance) -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_spy</defName>
-		<label>Spy Among Deserters</label>
-		<desc>It was a trap. One of the deserters was a spy feeding intelligence back to their original faction. They've sabotaged defenses and sown confusion before being caught. Your settlements' military readiness takes a serious hit.</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>180000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>militaryBaseLevel</stat><value>-2</value></li>
-			<li><stat>unrestGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_spy</defName>
+    <label>Spy Among Deserters</label>
+    <desc>It was a trap. One of the deserters was a spy feeding intelligence back to their original faction. They've sabotaged defenses and sown confusion before being caught. Your settlements' military readiness takes a serious hit.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_deserters_spy_followup</followingEvent>
+    <statModifiers>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>-2</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <modExtensions>
+      <li Class="FactionColonies.FCEventHandlerExtension_TriggerAttack">
+        <attackCount>1~2</attackCount>
+      </li>
+    </modExtensions>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome B: Accepted with caution — moderate boost, no risk -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_1b</defName>
-		<label>Deserters (Under Watch)</label>
-		<desc>The deserters serve under careful supervision. Their contribution is limited by the restrictions, but your caution pays off — no incidents occur.</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>militaryBaseLevel</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_deserters_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_1b</defName>
+    <label>Deserters (Under Watch)</label>
+    <desc>The deserters serve under careful supervision. Their contribution is limited by the restrictions, but so is the potential for sabotage.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>600000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_deserters_0</li>
+    </incompatibleEvents>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_deserters_spy</followingEvent>
+    <splitEventChance>20</splitEventChance>
+    <statModifiers>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome C: Turned away — loyalty boost -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_1c</defName>
-		<label>Deserters Refused</label>
-		<desc>The deserters are sent packing. Your citizens appreciate the caution — better to rely on your own people than trust strangers of uncertain loyalty.</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>120000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_deserters_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_1d</defName>
+    <label>Deserters (Military Training)</label>
+    <desc>The deserters are put through rigorous military training under close supervision. Your officers quickly identify the competent from the suspicious. The investment in training weeds out potential threats while producing capable soldiers.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>900000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_deserters_0</li>
+    </incompatibleEvents>
+    <followingEvent>empireEvents_deserters_spy</followingEvent>
+    <splitEventFollows>true</splitEventFollows>
+    <splitEventChance>10</splitEventChance>
+    <statModifiers>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome D: Militaristic — military boost, reduced spy risk -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_1d</defName>
-		<label>Deserters (Military Training)</label>
-		<desc>The deserters are put through rigorous military training under close supervision. Your officers quickly identify the competent from the suspicious. The investment in training weeds out potential threats while producing capable soldiers.</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>900000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>militaryBaseLevel</stat><value>1</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<splitEventFollows>true</splitEventFollows>
-		<splitEventChance>10</splitEventChance>
-		<followingEvent>empireEvents_deserters_spy</followingEvent>
-		<incompatibleEvents>
-			<li>empireEvents_deserters_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_1e</defName>
+    <label>Deserters Enslaved</label>
+    <desc>The deserters are stripped of their weapons and put in chains. Whatever intelligence they might have carried is irrelevant — they'll spend their days in the mines and fields.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_deserters_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome E: Slaver — workers, no spy risk, unrest -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_deserters_1e</defName>
-		<label>Deserters Enslaved</label>
-		<desc>The deserters are stripped of their weapons and put in chains. Whatever intelligence they might have carried is irrelevant — they'll spend their days in the mines and fields.</desc>
-		<category>EC_Military</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>2</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_deserters_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_deserters_spy_followup</defName>
+    <label>Spy Among Deserters</label>
+    <desc>It was a trap. One of the deserters was a spy feeding intelligence back to their original faction. They've sabotaged defenses and sown confusion before being caught. Your settlements' military readiness takes a serious hit.</desc>
+    <category>EC_Military</category>
+    <timeTillTrigger>180000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <statModifiers>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>-2</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>
