@@ -1,186 +1,196 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<!-- Stage 0: Skilled workers leaving -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_brainDrain_0</defName>
-		<label>Brain Drain</label>
-		<desc>Skilled workers and researchers are leaving your settlements for greener pastures. Dissatisfaction with conditions is driving your best people away. How do you respond?</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<isNegative>true</isNegative>
-		<options>
-			<li>empireEvents_brainDrain_opt1</li>
-			<li>empireEvents_brainDrain_opt2</li>
-			<li>empireEvents_brainDrain_opt3</li>
-			<li>empireEvents_brainDrain_opt4</li>
-			<li>empireEvents_brainDrain_opt5</li>
-		</options>
-		<activateAtStart>true</activateAtStart>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>15</weight>
-		<cooldownTicks>600000</cooldownTicks>
-		<minDaysSinceFounded>15</minDaysSinceFounded>
-		<maximumHappiness>60</maximumHappiness>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_brainDrain_1a</li>
-			<li>empireEvents_brainDrain_1b</li>
-			<li>empireEvents_brainDrain_1c</li>
-			<li>empireEvents_brainDrain_1d</li>
-			<li>empireEvents_brainDrain_1e</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_brainDrain_0</defName>
+    <label>Brain Drain</label>
+    <desc>Skilled workers and researchers are leaving your settlements for greener pastures. Dissatisfaction with conditions is driving your best people away. How do you respond?</desc>
+    <category>EC_Settlement</category>
+    <isNegative>true</isNegative>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>600000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>15</weight>
+    <maximumHappiness>60</maximumHappiness>
+    <minDaysSinceFounded>15</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_brainDrain_1a</li>
+      <li>empireEvents_brainDrain_1b</li>
+      <li>empireEvents_brainDrain_1c</li>
+      <li>empireEvents_brainDrain_1d</li>
+      <li>empireEvents_brainDrain_1e</li>
+    </incompatibleEvents>
+    <options>
+      <li>empireEvents_brainDrain_opt1</li>
+      <li>empireEvents_brainDrain_opt2</li>
+      <li>empireEvents_brainDrain_opt3</li>
+      <li>empireEvents_brainDrain_opt4</li>
+      <li>empireEvents_brainDrain_opt5</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Option A: Offer incentives -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_brainDrain_opt1</defName>
-		<label>Offer incentives to stay: better pay and conditions.</label>
-		<parentEvent>empireEvents_brainDrain_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>500</silverCost>
-		<successEvent>empireEvents_brainDrain_1a</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_brainDrain_opt1</defName>
+    <label>Offer incentives to stay: better pay and conditions.</label>
+    <parentEvent>empireEvents_brainDrain_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>500</silverCost>
+    <successEvent>empireEvents_brainDrain_1a</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option B: Restrict travel -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_brainDrain_opt2</defName>
-		<label>Restrict travel. Nobody leaves without authorization.</label>
-		<parentEvent>empireEvents_brainDrain_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_brainDrain_1b</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_brainDrain_opt2</defName>
+    <label>Restrict travel. Nobody leaves without authorization.</label>
+    <parentEvent>empireEvents_brainDrain_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_brainDrain_1b</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option C: Let them go -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_brainDrain_opt3</defName>
-		<label>Let them go freely. We won't hold anyone against their will.</label>
-		<parentEvent>empireEvents_brainDrain_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_brainDrain_1c</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_brainDrain_opt3</defName>
+    <label>Let them go freely. We won't hold anyone against their will.</label>
+    <parentEvent>empireEvents_brainDrain_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_brainDrain_1c</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option D: Technocratic/Science Foundation -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_brainDrain_opt4</defName>
-		<label>Fund a research initiative to retain our best minds.</label>
-		<parentEvent>empireEvents_brainDrain_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>300</silverCost>
-		<successEvent>empireEvents_brainDrain_1d</successEvent>
-		<requiredPolicies>
-			<li>technocratic</li>
-			<li>scienceFoundation</li>
-		</requiredPolicies>
-		<requirementMode>Any</requirementMode>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_brainDrain_opt4</defName>
+    <label>Fund a research initiative to retain our best minds.</label>
+    <parentEvent>empireEvents_brainDrain_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>500</silverCost>
+    <successEvent>empireEvents_brainDrain_1d</successEvent>
+    <requiredPolicies>
+      <li>technocratic</li>
+      <li>scienceFoundation</li>
+    </requiredPolicies>
+    <requirementMode>Any</requirementMode>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Option E: Authoritarian -->
-	<FactionColonies.FCOptionDef>
-		<defName>empireEvents_brainDrain_opt5</defName>
-		<label>No one leaves without permission.</label>
-		<parentEvent>empireEvents_brainDrain_0</parentEvent>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<successEvent>empireEvents_brainDrain_1e</successEvent>
-		<requiredPolicies>
-			<li>authoritarian</li>
-		</requiredPolicies>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_brainDrain_opt5</defName>
+    <label>No one leaves without permission.</label>
+    <parentEvent>empireEvents_brainDrain_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_brainDrain_1e</successEvent>
+    <requiredPolicies>
+      <li>authoritarian</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
 
-	<!-- Outcome A: Incentives — reduced penalties -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_brainDrain_1a</defName>
-		<label>Brain Drain (Incentives)</label>
-		<desc>The improved conditions convince many of the skilled workers to stay. Some still leave, but the bleeding is staunched. Research capabilities take a minor hit.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>-0.5</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_brainDrain_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_brainDrain_1a</defName>
+    <label>Brain Drain (Incentives)</label>
+    <desc>The improved conditions convince many of the skilled workers to stay. Some still leave, but the bleeding is staunched. Research capabilities take a minor hit.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_brainDrain_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome B: Restricted — full penalties + unrest -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_brainDrain_1b</defName>
-		<label>Brain Drain (Travel Restricted)</label>
-		<desc>Travel restrictions keep the workers in place, but they're not happy about it. Morale plummets as citizens chafe under the restrictions. Loyalty falters, and unrest grows at the perceived tyranny.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>happinessGainedBase</stat><value>-2</value></li>
-			<li><stat>loyaltyGainedBase</stat><value>-1</value></li>
-			<li><stat>unrestGainedBase</stat><value>2</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_brainDrain_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_brainDrain_1b</defName>
+    <label>Brain Drain (Travel Restricted)</label>
+    <desc>Travel restrictions keep the workers in place, but they're not happy about it. Morale plummets as citizens chafe under the restrictions.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_brainDrain_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>-2</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome C: Let them go — full penalties + happiness -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_brainDrain_1c</defName>
-		<label>Brain Drain (Free to Leave)</label>
-		<desc>The skilled workers depart peacefully. Your settlements lose valuable expertise, but those who remain appreciate the freedom and fair treatment. Morale improves even as capabilities decline.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>-1</value></li>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>-0.5</value></li>
-			<li><stat>happinessGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<permanentStatModifiers>
-			<li><stat>workerBaseMax</stat><value>-1</value></li>
-		</permanentStatModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_brainDrain_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_brainDrain_1c</defName>
+    <label>Brain Drain (Free to Leave)</label>
+    <desc>The skilled workers depart peacefully. Your settlements lose valuable expertise, but those who remain appreciate the freedom and fair treatment. Morale improves even as capabilities decline.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_brainDrain_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>-0.5</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <permanentStatModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>-1</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome D: Technocratic — research initiative turns brain drain into brain gain -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_brainDrain_1d</defName>
-		<label>Research Initiative</label>
-		<desc>A well-funded research initiative attracts new talent and convinces departing researchers to stay. The investment transforms the brain drain into a brain gain — your settlements become a hub of innovation.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>0.5</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_brainDrain_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_brainDrain_1d</defName>
+    <label>Research Initiative</label>
+    <desc>A well-funded research initiative attracts new talent and convinces departing researchers to stay. The investment transforms the brain drain into a brain gain — your settlements become a hub of innovation.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_brainDrain_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Research_ProductionAdditive</stat>
+        <value>0.5</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Outcome E: Authoritarian — no brain drain, but unrest -->
-	<FactionColonies.FCEventDef>
-		<defName>empireEvents_brainDrain_1e</defName>
-		<label>Travel Banned</label>
-		<desc>Under your authoritarian decree, all skilled workers are forbidden from leaving. The enforcement is swift and efficient — nobody escapes. But the heavy-handed approach breeds quiet resentment among the populace.</desc>
-		<category>EC_Settlement</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<statModifiers>
-			<li><stat>unrestGainedBase</stat><value>2</value></li>
-		</statModifiers>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<incompatibleEvents>
-			<li>empireEvents_brainDrain_0</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_brainDrain_1e</defName>
+    <label>Travel Banned</label>
+    <desc>Under your authoritarian decree, all skilled workers are forbidden from leaving. The enforcement is swift and efficient — nobody escapes. But the heavy-handed approach breeds quiet resentment among the populace.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_brainDrain_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>
