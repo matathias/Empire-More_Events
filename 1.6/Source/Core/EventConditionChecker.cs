@@ -43,7 +43,6 @@ namespace FactionColonies.Events
 
             CheckGoldenAge(faction, now);
             CheckGrowingPains(faction, now);
-            CheckOverextensionCrisis(faction, now);
 
             // CheckTributeDemand does a proximity check, which is a little more expensive than I'd like.
             //   So we'll call it less frequently than the other checks.
@@ -96,19 +95,6 @@ namespace FactionColonies.Events
 
             TryFireEvent(def, faction);
             lastGrowingPainsTick = now;
-        }
-
-        private void CheckOverextensionCrisis(FactionFC faction, int now)
-        {
-            if (now - lastOverextensionTick < CooldownTicks) return;
-            if (faction.settlements.Count <= 8) return;
-            if (faction.averageLoyalty >= 60) return;
-
-            FCEventDef def = MoreEventsDefOf.empireEvents_overextension_0;
-            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
-
-            TryFireEvent(def, faction);
-            lastOverextensionTick = now;
         }
 
         private void CheckTributeDemand(FactionFC faction, int now)

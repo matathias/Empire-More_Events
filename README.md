@@ -87,9 +87,6 @@ Citizens request permission to hold a grand festival.
 **Golden Age** — Condition | Requires sustained high happiness, loyalty, prosperity and low unrest\
 Your empire enters a golden age, boosting tithe values, happiness, and loyalty across all settlements.
 
-**Golden Harvest** — Common | Requires food production, excludes ice and desert biomes\
-Perfect growing conditions produce an extraordinary harvest.
-
 **Growing Pains** — Condition | Triggers at 6+ settlements\
 Your empire is growing faster than its administration can handle.
 
@@ -111,9 +108,6 @@ Workers demand better conditions.
 **Land Rush** — Rare | Requires 2+ settlements\
 Unclaimed resource-rich land is discovered near your borders.
 
-**Market Boom** — Common\
-Demand for your goods surges.
-
 **Master Weaponsmith** — Uncommon | Requires weapons production\
 A legendary weaponsmith arrives offering her services.
 
@@ -123,14 +117,8 @@ A lavishly dressed trader proposes a long-term business arrangement.
 **Military Renaissance** — Uncommon | Requires 3+ settlements\
 Martial enthusiasm sweeps the empire.
 
-**Mysterious Caravan** — Uncommon\
-A strange caravan arrives with exotic wares and cryptic hints about a hidden cache.
-
 **Orbital Debris** — Rare | Spacer tech\
 A massive chunk of orbital debris crashes near a settlement.
-
-**Overextension Crisis** — Condition | Triggers at 8+ settlements with low loyalty\
-Your empire has grown too far, too fast.
 
 **Permafrost Thaw** — Uncommon | Tundra and boreal biomes only\
 Warming temperatures expose new ground.
@@ -174,9 +162,6 @@ A parasitic infestation destroys textile stores.
 **The Impossible Object** — Very Rare | Ultra tech\
 Excavation crews unearth a gravity-defying artifact of unknown origin.
 
-**Trade Season** — Common\
-Favorable conditions create the most promising trade season in years.
-
 **Traveling Merchant** — Common\
 A well-stocked merchant caravan passes through your territory.
 
@@ -188,9 +173,6 @@ Monsoon rains flood settlements but promise good harvests.
 
 **Veteran Settlers** — Common\
 Retired soldiers arrive looking to settle down.
-
-**Volcanic Winter** — Rare\
-A supervolcano erupts, blanketing the sky with ash empire-wide.
 
 **Wandering Healer** — Common\
 A skilled healer arrives offering services.
