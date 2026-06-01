@@ -51,6 +51,7 @@
     <label>Route the power into manufacturing. More energy means more output.</label>
     <parentEvent>empireEvents_powerSurplus_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_powerSurplus_1c</successEvent>
   </FactionColonies.FCOptionDef>
 

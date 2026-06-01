@@ -40,7 +40,7 @@
     <label>Fund both teams. Let them prove their theories independently.</label>
     <parentEvent>empireEvents_researchRivalry_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>1000</silverCost>
+    <silverCost>300</silverCost>
     <successEvent>empireEvents_researchRivalry_1b</successEvent>
   </FactionColonies.FCOptionDef>
 

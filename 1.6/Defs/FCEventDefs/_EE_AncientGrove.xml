@@ -44,7 +44,7 @@
     <label>Establish a sustainable logging operation. Harvest carefully and let the grove regenerate.</label>
     <parentEvent>empireEvents_ancientGrove_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>300</silverCost>
+    <silverCost>800</silverCost>
     <successEvent>empireEvents_ancientGrove_1b</successEvent>
   </FactionColonies.FCOptionDef>
 

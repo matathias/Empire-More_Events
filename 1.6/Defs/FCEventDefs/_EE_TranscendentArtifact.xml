@@ -38,6 +38,7 @@ Your engineers are baffled, your researchers ecstatic. And your workers refuse t
     <label>Attempt to harness it. If it can defy gravity, imagine what else it can do for us!</label>
     <parentEvent>empireEvents_transcendentArtifact_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_transcendentArtifact_2a</successEvent>
   </FactionColonies.FCOptionDef>
 
@@ -46,7 +47,7 @@ Your engineers are baffled, your researchers ecstatic. And your workers refuse t
     <label>Contain it in a research facility. Study it without trying to use it.</label>
     <parentEvent>empireEvents_transcendentArtifact_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>300</silverCost>
+    <silverCost>3000</silverCost>
     <successEvent>empireEvents_transcendentArtifact_2b</successEvent>
   </FactionColonies.FCOptionDef>
 

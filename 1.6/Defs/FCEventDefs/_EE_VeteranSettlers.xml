@@ -40,6 +40,7 @@
     <label>They've fought enough. Give them land and tools — we need workers.</label>
     <parentEvent>empireEvents_veteranSettlers_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1000</silverCost>
     <successEvent>empireEvents_veteranSettlers_1b</successEvent>
   </FactionColonies.FCOptionDef>
 
@@ -89,7 +90,7 @@
         <value>1</value>
       </li>
       <li>
-        <stat>workerProductionBase</stat>
+        <stat>workerProductionMultiplier</stat>
         <value>1.1</value>
       </li>
     </permanentStatModifiers>

@@ -139,7 +139,7 @@
       </li>
       <li>
         <stat>RTD_Research_ProductionAdditive</stat>
-        <value>1.5</value>
+        <value>0.75</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>

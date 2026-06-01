@@ -34,7 +34,13 @@
     <label>Automate everything. Machines don't complain or take breaks.</label>
     <parentEvent>empireEvents_factoryAutomation_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>3000</silverCost>
     <successEvent>empireEvents_factoryAutomation_1a</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.04</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -42,7 +48,13 @@
     <label>Automate the most dangerous tasks. Keep workers for everything else.</label>
     <parentEvent>empireEvents_factoryAutomation_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_factoryAutomation_1b</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.04</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -58,10 +70,16 @@
     <label>Phase it in gradually. Retrain workers as machine operators.</label>
     <parentEvent>empireEvents_factoryAutomation_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>2000</silverCost>
     <successEvent>empireEvents_factoryAutomation_1d</successEvent>
     <requiredPolicies>
       <li>industrious</li>
     </requiredPolicies>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.04</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>

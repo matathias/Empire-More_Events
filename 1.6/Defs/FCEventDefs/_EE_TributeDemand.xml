@@ -46,7 +46,7 @@
     <label>Counter with a trade agreement instead.</label>
     <parentEvent>empireEvents_tribute_0</parentEvent>
     <baseChanceOfSuccess>50</baseChanceOfSuccess>
-    <silverCost>5</silverCost>
+    <silverCost>200</silverCost>
     <successEvent>empireEvents_tribute_counter_success</successEvent>
     <failEvent>empireEvents_tribute_counter_fail</failEvent>
   </FactionColonies.FCOptionDef>

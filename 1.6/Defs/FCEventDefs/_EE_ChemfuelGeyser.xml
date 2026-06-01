@@ -38,6 +38,7 @@
     <label>Cap it and run pipes to our processing facility. We'll use it as a permanent fuel source.</label>
     <parentEvent>empireEvents_chemfuelGeyser_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1000</silverCost>
     <successEvent>empireEvents_chemfuelGeyser_1a</successEvent>
   </FactionColonies.FCOptionDef>
 
@@ -88,7 +89,7 @@
     <desc>Outside investors eagerly purchase the extraction rights. The silver flows in immediately, though some settlers grumble about giving away a valuable long-term resource for short-term gain.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
-    <randomThingValue>1000</randomThingValue>
+    <randomThingValue>2000</randomThingValue>
     <randomThingRewardDef>RERD_Silver</randomThingRewardDef>
   </FactionColonies.FCEventDef>
 

@@ -44,7 +44,7 @@
     <label>Invest in rebuilding with better materials. We won't be caught off guard again.</label>
     <parentEvent>empireEvents_earthquake_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>300</silverCost>
+    <silverCost>1000</silverCost>
     <successEvent>empireEvents_earthquake_1b</successEvent>
   </FactionColonies.FCOptionDef>
 

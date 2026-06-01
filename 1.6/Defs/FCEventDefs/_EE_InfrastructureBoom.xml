@@ -51,6 +51,7 @@
     <label>Construct a proper market district. Trade is the lifeblood of growth.</label>
     <parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>800</silverCost>
     <successEvent>empireEvents_infrastructureBoom_1c</successEvent>
   </FactionColonies.FCOptionDef>
 
@@ -59,7 +60,7 @@
     <label>We do it all. Housing, roads, AND markets. Spare no expense.</label>
     <parentEvent>empireEvents_infrastructureBoom_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>800</silverCost>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_infrastructureBoom_1d</successEvent>
     <requiredPolicies>
       <li>expansionist</li>

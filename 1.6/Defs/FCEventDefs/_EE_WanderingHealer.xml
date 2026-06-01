@@ -31,8 +31,13 @@
     <label>Offer them a permanent position. We need skilled healers.</label>
     <parentEvent>empireEvents_wanderingHealer_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>600</silverCost>
+    <silverCost>1000</silverCost>
     <successEvent>empireEvents_wanderingHealer_1a</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.02</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -56,7 +61,7 @@
     <label>Our trade contacts can sweeten the deal. Welcome aboard.</label>
     <parentEvent>empireEvents_wanderingHealer_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>300</silverCost>
+    <silverCost>700</silverCost>
     <successEvent>empireEvents_wanderingHealer_1c</successEvent>
     <requiredPolicies>
       <li>mercantile</li>

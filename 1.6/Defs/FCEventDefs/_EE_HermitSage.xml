@@ -39,7 +39,7 @@
     <label>Respect their solitude. Send gifts and research materials instead.</label>
     <parentEvent>empireEvents_hermitSage_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>400</silverCost>
+    <silverCost>1000</silverCost>
     <successEvent>empireEvents_hermitSage_1b</successEvent>
   </FactionColonies.FCOptionDef>
 
@@ -102,11 +102,11 @@ Even more surprisingly, the hermit's success mellows them considerably. They set
     <permanentStatModifiers>
       <li>
         <stat>RTD_Research_ProductionAdditive</stat>
-        <value>1</value>
+        <value>0.5</value>
       </li>
       <li>
         <stat>RTD_Medicine_ProductionAdditive</stat>
-        <value>0.5</value>
+        <value>0.25</value>
       </li>
     </permanentStatModifiers>
   </FactionColonies.FCEventDef>
@@ -209,7 +209,7 @@ However, the hermit's surviving notes contain surprisingly useful insights that,
         <value>0.5</value>
       </li>
       <li>
-        <stat>workerProductionBase</stat>
+        <stat>workerProductionMultiplier</stat>
         <value>1.2</value>
       </li>
     </permanentStatModifiers>
@@ -293,7 +293,7 @@ In the aftermath, your people swiftly return to the hermit to demand answers. Bu
     <permanentStatModifiers>
       <li>
         <stat>RTD_Research_ProductionAdditive</stat>
-        <value>1.5</value>
+        <value>0.75</value>
       </li>
     </permanentStatModifiers>
   </FactionColonies.FCEventDef>

@@ -31,8 +31,13 @@
     <label>Offer her a permanent position. The best arms deserve the best smith.</label>
     <parentEvent>empireEvents_masterWeaponsmith_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>500</silverCost>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_masterWeaponsmith_1a</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.02</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -49,8 +54,13 @@
     <label>Ask her to train our smiths. Knowledge lasts longer than any contract.</label>
     <parentEvent>empireEvents_masterWeaponsmith_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>500</silverCost>
+    <silverCost>1000</silverCost>
     <successEvent>empireEvents_masterWeaponsmith_1c</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.02</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>

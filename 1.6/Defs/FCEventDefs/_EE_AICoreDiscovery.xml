@@ -41,8 +41,13 @@ The question of what to do with it divides your advisors. Some want to activate 
     <label>Activate it. A working persona core could transform our settlement.</label>
     <parentEvent>empireEvents_aiCore_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>200</silverCost>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_aiCore_2a</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.05</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -50,8 +55,13 @@ The question of what to do with it divides your advisors. Some want to activate 
     <label>Don't wake it. Study its architecture and learn what we can without powering it on.</label>
     <parentEvent>empireEvents_aiCore_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>500</silverCost>
+    <silverCost>2000</silverCost>
     <successEvent>empireEvents_aiCore_2b</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.05</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -79,7 +89,7 @@ The question of what to do with it divides your advisors. Some want to activate 
     <incompatibleEvents>
       <li>empireEvents_aiCore_0</li>
     </incompatibleEvents>
-    <randomThingValue>3000</randomThingValue>
+    <randomThingValue>5000</randomThingValue>
     <randomThingRewardDef>RERD_Silver</randomThingRewardDef>
   </FactionColonies.FCEventDef>
 

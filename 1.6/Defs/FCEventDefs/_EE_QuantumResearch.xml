@@ -40,8 +40,13 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
     <label>Fund it fully. Spare no expense — this could define our empire for generations.</label>
     <parentEvent>empireEvents_quantumResearch_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>2500</silverCost>
+    <silverCost>3000</silverCost>
     <successEvent>empireEvents_quantumResearch_2a</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.05</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -49,8 +54,13 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
     <label>Provide partial funding. We believe in the research, but we can't bankrupt ourselves for theory.</label>
     <parentEvent>empireEvents_quantumResearch_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>1000</silverCost>
+    <silverCost>1500</silverCost>
     <successEvent>empireEvents_quantumResearch_2b</successEvent>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.05</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -66,11 +76,16 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
     <label>State-coordinated research initiative. Every lab, every resource, one objective.</label>
     <parentEvent>empireEvents_quantumResearch_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <silverCost>2000</silverCost>
+    <silverCost>2500</silverCost>
     <successEvent>empireEvents_quantumResearch_2a_technocratic</successEvent>
     <requiredPolicies>
       <li>technocratic</li>
     </requiredPolicies>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.05</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>

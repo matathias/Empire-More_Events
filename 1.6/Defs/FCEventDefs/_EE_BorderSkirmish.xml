@@ -104,6 +104,10 @@
         <stat>militaryBaseLevel</stat>
         <value>2</value>
       </li>
+      <li>
+        <stat>militaryCombatEfficiency</stat>
+        <value>1.2</value>
+      </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
 
@@ -185,6 +189,10 @@
       <li>
         <stat>militaryCombatEfficiency</stat>
         <value>1.2</value>
+      </li>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>2</value>
       </li>
     </statModifiers>
     <modExtensions>
@@ -327,6 +335,10 @@
       <li>
         <stat>militaryCombatEfficiency</stat>
         <value>1.2</value>
+      </li>
+      <li>
+        <stat>militaryBaseLevel</stat>
+        <value>2</value>
       </li>
     </statModifiers>
     <modExtensions>
