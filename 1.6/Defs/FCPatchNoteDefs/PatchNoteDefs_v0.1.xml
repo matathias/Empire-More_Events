@@ -69,4 +69,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_0_1_5</defName>
+		<label>Event Balance Pass</label>
+		<description>Balances several of the event costs and modifiers to mitigate trap options and require actual silver investment for serious gains.</description>
+		<releaseDate>2026-06-01</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Edited many option costs and event modifiers</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
