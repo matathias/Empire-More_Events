@@ -55,4 +55,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_0_1_4</defName>
+		<label>Events Edit Pass</label>
+		<description>An edit and tweak pass on all events. Some were culled, a couple chains were expanded.</description>
+		<releaseDate>2026-05-31</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Numerous changes to events across the board.</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
