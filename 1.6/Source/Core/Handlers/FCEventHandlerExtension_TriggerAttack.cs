@@ -28,8 +28,7 @@ namespace FactionColonies.Events
                 return true;
             }
 
-            double etl = ThreatScalingUtil.ComputeEmpireThreatLevel(faction);
-            Faction enemy = ThreatScalingUtil.PickWeightedEnemyFaction(etl);
+            Faction enemy = ThreatScalingUtil.PickWeightedEnemyFaction(faction);
             if (enemy == null)
             {
                 LogEE.Warning("TriggerAttack: No hostile factions available.");

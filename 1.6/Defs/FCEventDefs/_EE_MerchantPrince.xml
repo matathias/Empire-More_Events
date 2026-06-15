@@ -155,7 +155,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_merchantPrince_2c</defName>
     <label>Partnership of Equals</label>
-    <desc>Your trade expertise forces the merchant to deal honestly. The resulting partnership is quite equitable: he gains access to your markets, you gain access to his supply chain, and both sides profit fairly. Your settlers are proud to see the empire's commercial strength on display.</desc>
+    <desc>Your trade expertise forces the merchant to deal honestly. The resulting partnership is quite equitable: he gains access to your markets, you gain access to his supply chain, and both sides profit fairly. Your settlers are proud to see the {FACTION_TITLE}'s commercial strength on display.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
@@ -257,7 +257,7 @@ His "sweet deal" is starting to look like a takeover.</desc>
   <FactionColonies.FCEventDef>
     <defName>empireEvents_merchantPrince_3_good_expand</defName>
     <label>Trade Network Expanded</label>
-    <desc>The merchant's network now operates across multiple settlements, creating a reliable trade backbone for your empire.</desc>
+    <desc>The merchant's network now operates across multiple settlements, creating a reliable trade backbone for your {FACTION_TITLE}.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~5</rangeSettlementsAffected>
@@ -337,7 +337,7 @@ His "sweet deal" is starting to look like a takeover.</desc>
   <FactionColonies.FCEventDef>
     <defName>empireEvents_merchantPrince_4a_expelled</defName>
     <label>Merchant Expelled</label>
-    <desc>Guards escort the merchant and his people out of the settlement under the cheers of local shopkeepers. The smuggling network is dismantled, legitimate trade resumes, and your settlers are proud that their leaders couldn't be bought. It's a good day for the empire.</desc>
+    <desc>Guards escort the merchant and his people out of the settlement under the cheers of local shopkeepers. The smuggling network is dismantled, legitimate trade resumes, and your settlers are proud that their leaders couldn't be bought. It's a good day for the {FACTION_TITLE}.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
@@ -389,7 +389,7 @@ His "sweet deal" is starting to look like a takeover.</desc>
   <FactionColonies.FCEventDef>
     <defName>empireEvents_merchantPrince_4b_arrest</defName>
     <label>Merchant Arrested</label>
-    <desc>The merchant is dragged before the settlement in chains, his warehouses emptied, his agents scattered. The seized goods are distributed among the settlers, and the public trial sends a clear message: the empire protects its own. Loyalty soars.</desc>
+    <desc>The merchant is dragged before the settlement in chains, his warehouses emptied, his agents scattered. The seized goods are distributed among the settlers, and the public trial sends a clear message: the {FACTION_TITLE} protects its own. Loyalty soars.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>

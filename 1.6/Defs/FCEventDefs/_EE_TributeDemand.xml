@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_tribute_0</defName>
     <label>Tribute Demand</label>
-    <desc>A powerful faction has sent emissaries demanding tribute from your empire. They claim your settlements are encroaching on their territory and insist on payment. How do you respond to their demands?</desc>
+    <desc>A powerful faction has sent emissaries demanding tribute from {FACTION}. They claim your settlements are encroaching on their territory and insist on payment. How do you respond to their demands?</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>

@@ -84,7 +84,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_festival_1a</defName>
     <label>Grand Festival</label>
-    <desc>The festival is a spectacular success! Music, feasting, and games bring your settlements together. Citizens feel proud to be part of the empire, and unrest melts away amid the celebrations.</desc>
+    <desc>The festival is a spectacular success! Music, feasting, and games bring your settlements together. Citizens feel proud to be part of {FACTION}, and unrest melts away amid the celebrations.</desc>
     <category>EC_Settlement</category>
     <timeTillTrigger>120000</timeTillTrigger>
     <rangeSettlementsAffected>1~5</rangeSettlementsAffected>

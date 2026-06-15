@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_economicBoom_0</defName>
     <label>Economic Boom</label>
-    <desc>A surge of investment and growth is flowing through your empire. Trade is booming, new businesses are opening, and citizens are spending freely. The prosperity of your settlements has attracted attention and opportunity. How do you channel this momentum?</desc>
+    <desc>A surge of investment and growth is flowing through your {FACTION_TITLE}. Trade is booming, new businesses are opening, and citizens are spending freely. The prosperity of your settlements has attracted attention and opportunity. How do you channel this momentum?</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>
@@ -122,7 +122,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_economicBoom_estates</defName>
     <label>Noble Estates</label>
-    <desc>The economic windfall is channeled into grand estates for the highborn: manors, hunting grounds, and ornamental gardens that proclaim the empire's prosperity. The nobility responds with renewed devotion, strengthening the bonds of fealty that hold the feudal order together.</desc>
+    <desc>The economic windfall is channeled into grand estates for the highborn: manors, hunting grounds, and ornamental gardens that proclaim the {FACTION_TITLE}'s prosperity. The nobility responds with renewed devotion, strengthening the bonds of fealty that hold the feudal order together.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>420000</timeTillTriggerMax>

@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_refugees_0</defName>
     <label>Refugee Influx</label>
-    <desc>A large group of refugees has arrived at your borders, fleeing conflict in a neighboring region. They're desperate and willing to work. How does your empire respond?</desc>
+    <desc>A large group of refugees has arrived at your borders, fleeing conflict in a neighboring region. They're desperate and willing to work. How does your {FACTION_TITLE} respond?</desc>
     <category>EC_Settlement</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>
@@ -67,7 +67,7 @@
 
   <FactionColonies.FCOptionDef>
     <defName>empireEvents_refugees_opt5</defName>
-    <label>New citizens for our growing empire.</label>
+    <label>New citizens for our growing nation.</label>
     <parentEvent>empireEvents_refugees_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <successEvent>empireEvents_refugees_expansionist</successEvent>
@@ -78,7 +78,7 @@
 
   <FactionColonies.FCOptionDef>
     <defName>empireEvents_refugees_opt6</defName>
-    <label>They'll serve the empire... one way or another.</label>
+    <label>They'll serve the nation... one way or another.</label>
     <parentEvent>empireEvents_refugees_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <successEvent>empireEvents_refugees_slaver</successEvent>
@@ -141,7 +141,7 @@ The rejected workers won't simply disappear, however. Some seem to harbor a grud
   <FactionColonies.FCEventDef>
     <defName>empireEvents_refugees_turnaway</defName>
     <label>Refugees Turned Away</label>
-    <desc>The refugees are denied entry. Most scatter to find other havens, but some among them harbor resentment toward your empire.</desc>
+    <desc>The refugees are denied entry. Most scatter to find other havens, but some among them harbor resentment toward your {FACTION_TITLE}.</desc>
     <category>EC_Settlement</category>
     <timeTillTrigger>60000</timeTillTrigger>
     <incompatibleEvents>
@@ -155,7 +155,7 @@ The rejected workers won't simply disappear, however. Some seem to harbor a grud
   <FactionColonies.FCEventDef>
     <defName>empireEvents_refugees_attack</defName>
     <label>Refugee Retaliation</label>
-    <desc>Some of the turned-away refugees have banded together with local raiders to strike back at your empire.</desc>
+    <desc>Some of the turned-away refugees have banded together with local raiders to strike back at your {FACTION_TITLE}.</desc>
     <category>EC_Military</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>2~3</rangeSettlementsAffected>

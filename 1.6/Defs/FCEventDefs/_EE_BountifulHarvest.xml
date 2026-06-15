@@ -155,7 +155,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_bountifulHarvest_share</defName>
     <label>Harvest Shared</label>
-    <desc>Shipments of surplus food are sent to struggling communities across the region. The generosity is noticed and appreciated — your empire's reputation as a benevolent neighbor grows. Citizens take pride in their collective charity.</desc>
+    <desc>Shipments of surplus food are sent to struggling communities across the region. The generosity is noticed and appreciated — your {FACTION_TITLE}'s reputation as a benevolent neighbor grows. Citizens take pride in their collective charity.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>

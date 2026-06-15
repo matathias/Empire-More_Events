@@ -56,7 +56,7 @@
 
   <FactionColonies.FCOptionDef>
     <defName>empireEvents_drought_opt3</defName>
-    <label>Import food from outside the empire. Money solves everything.</label>
+    <label>Import food. Money solves everything.</label>
     <parentEvent>empireEvents_drought_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>900</silverCost>

@@ -161,7 +161,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_corruption_1d</defName>
     <label>Public Executions</label>
-    <desc>The corrupt officials are executed before a stunned crowd. The message is unmistakable: the empire does not tolerate betrayal. Citizens are both terrified and oddly reassured — at least their leaders take corruption seriously.</desc>
+    <desc>The corrupt officials are executed before a stunned crowd. The message is unmistakable: the {FACTION_TITLE} does not tolerate betrayal. Citizens are both terrified and oddly reassured — at least their leaders take corruption seriously.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>120000</timeTillTrigger>
     <timeTillTriggerMax>240000</timeTillTriggerMax>

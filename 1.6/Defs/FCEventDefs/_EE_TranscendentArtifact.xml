@@ -312,7 +312,7 @@ The data from the fracture event itself is scientifically invaluable, but the co
   <FactionColonies.FCEventDef>
     <defName>empireEvents_transcendentArtifact_seal</defName>
     <label>Artifact Sealed</label>
-    <desc>The artifact is enclosed in the strongest containment your engineers can devise: layered alloy, energy dampening fields, and a final tomb of reinforced stone buried deep beneath the settlement. It will rest there, silent and weightless, for as long as your empire endures.
+    <desc>The artifact is enclosed in the strongest containment your engineers can devise: layered alloy, energy dampening fields, and a final tomb of reinforced stone buried deep beneath the settlement. It will rest there, silent and weightless, for as long as your {FACTION_TITLE} endures.
 			
 The decision brings closure. Your researchers compile their findings into a body of knowledge that will benefit your settlement's scientific endeavors for years to come.
 			

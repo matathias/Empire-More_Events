@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_landRush_0</defName>
     <label>Land Rush</label>
-    <desc>Word has spread of unclaimed, resource-rich land near your empire's borders. Prospectors, farmers, and entrepreneurs are eager to stake their claims. The opportunity could reduce the cost of founding new settlements, enrich existing ones, or simply fill your treasury through land auctions.</desc>
+    <desc>Word has spread of unclaimed, resource-rich land near {FACTION}'s borders. Prospectors, farmers, and entrepreneurs are eager to stake their claims. The opportunity could reduce the cost of founding new settlements, enrich existing ones, or simply fill your treasury through land auctions.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>

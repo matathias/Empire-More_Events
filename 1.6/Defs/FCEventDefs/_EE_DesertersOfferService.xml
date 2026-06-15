@@ -126,7 +126,7 @@
       </li>
     </statModifiers>
     <modExtensions>
-      <li Class="FactionColonies.FCEventHandlerExtension_TriggerAttack">
+      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack">
         <attackCount>1~2</attackCount>
       </li>
     </modExtensions>

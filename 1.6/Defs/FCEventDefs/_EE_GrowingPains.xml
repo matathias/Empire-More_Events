@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_growingPains_0</defName>
     <label>Growing Pains</label>
-    <desc>Your empire is growing faster than its administrative infrastructure can handle. Officials are overwhelmed, leading to inefficient tax collection and sluggish military coordination. How do you address the bureaucratic strain?</desc>
+    <desc>{FACTION} is growing faster than its administrative infrastructure can handle. Officials are overwhelmed, leading to inefficient tax collection and sluggish military coordination. How do you address the bureaucratic strain?</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>
@@ -155,7 +155,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_growingPains_expansionist</defName>
     <label>Planned Growth</label>
-    <desc>Your empire's expansion plans accounted for this level of growth. Experienced administrators from earlier settlements train the new ones, and the transition is relatively smooth.</desc>
+    <desc>Your {FACTION_TITLE}'s expansion plans accounted for this level of growth. Experienced administrators from earlier settlements train the new ones, and the transition is relatively smooth.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~99</rangeSettlementsAffected>

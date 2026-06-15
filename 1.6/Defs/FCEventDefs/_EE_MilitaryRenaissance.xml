@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_militaryRenaissance_0</defName>
     <label>Military Renaissance</label>
-    <desc>A surge of martial enthusiasm sweeps through your empire. Veteran soldiers share tales of glory, inspiring young recruits to train with unprecedented fervor as smiths work overtime forging weapons and armor. Your military has never been stronger — but where do you direct this energy?</desc>
+    <desc>A surge of martial enthusiasm sweeps through {FACTION}. Veteran soldiers share tales of glory, inspiring young recruits to train with unprecedented fervor as smiths work overtime forging weapons and armor. Your military has never been stronger — but where do you direct this energy?</desc>
     <category>EC_Military</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>
@@ -41,7 +41,7 @@
 
   <FactionColonies.FCOptionDef>
     <defName>empireEvents_militaryRenaissance_opt2</defName>
-    <label>Hold war games across the empire. Test our mettle in mock battles.</label>
+    <label>Hold war games across the nation. Test our mettle in mock battles.</label>
     <parentEvent>empireEvents_militaryRenaissance_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>750</silverCost>
@@ -120,8 +120,8 @@
 
   <FactionColonies.FCEventDef>
     <defName>empireEvents_militaryRenaissance_wargames</defName>
-    <label>Empire War Games</label>
-    <desc>Mock battles rage across the empire as settlements pit their garrisons against one another. The competition is fierce and the training invaluable — but word of your military exercises reaches hostile ears. Rivals take notice of your growing strength.</desc>
+    <label>War Games</label>
+    <desc>Mock battles rage across the {FACTION_TITLE} as settlements pit their garrisons against one another. The competition is fierce and the training invaluable — but word of your military exercises reaches hostile ears. Rivals take notice of your growing strength.</desc>
     <category>EC_Military</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <timeTillTriggerMax>900000</timeTillTriggerMax>
@@ -152,7 +152,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_militaryRenaissance_training</defName>
     <label>Military Academy</label>
-    <desc>Your investment funds permanent training grounds, weapons ranges, and drill fields across the empire. The immediate effects are modest as resources are diverted to construction, but the long-term improvement to military readiness is undeniable.</desc>
+    <desc>Your investment funds permanent training grounds, weapons ranges, and drill fields across the {FACTION_TITLE}. The immediate effects are modest as resources are diverted to construction, but the long-term improvement to military readiness is undeniable.</desc>
     <category>EC_Military</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <timeTillTriggerMax>900000</timeTillTriggerMax>
@@ -208,7 +208,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_militaryRenaissance_tournament</defName>
     <label>Grand Tournament</label>
-    <desc>Champions from across the empire gather for a spectacular tournament. Crowds roar in delight as they watch Knights joust and soldiers compete in feats of arms. The spectacle hones martial skills while building fierce loyalty — warriors fight harder for a liege who honors their prowess.</desc>
+    <desc>Champions from across the {FACTION_TITLE} gather for a spectacular tournament. Crowds roar in delight as they watch Knights joust and soldiers compete in feats of arms. The spectacle hones martial skills while building fierce loyalty — warriors fight harder for a liege who honors their prowess.</desc>
     <category>EC_Military</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <timeTillTriggerMax>900000</timeTillTriggerMax>

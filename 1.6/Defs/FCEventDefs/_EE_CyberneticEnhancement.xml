@@ -6,7 +6,7 @@
     <label>Cybernetic Enhancement Program</label>
     <desc>Researchers at your settlements have developed viable cybernetic implant technology. They propose a full-scale enhancement program that could fundamentally reshape your workforce — and your civilization. The implications are staggering: enhanced workers, augmented soldiers, or medical breakthroughs that extend human capability beyond its natural limits.
 			
-But not everyone is comfortable with blurring the line between flesh and machine. This decision will define what your empire becomes.</desc>
+But not everyone is comfortable with blurring the line between flesh and machine. This decision will define what your {FACTION_TITLE} becomes.</desc>
     <category>EC_Settlement</category>
     <timeTillTrigger>0</timeTillTrigger>
     <activateAtStart>true</activateAtStart>
@@ -151,7 +151,7 @@ But not everyone is comfortable with blurring the line between flesh and machine
   <FactionColonies.FCEventDef>
     <defName>empireEvents_cyberneticEnhancement_1d</defName>
     <label>Enhancement Ban</label>
-    <desc>You outlaw the cybernetic enhancement program entirely. The researchers are disappointed, but the general population is relieved. Citizens rally around the decision, proud that their empire values humanity over raw efficiency.</desc>
+    <desc>You outlaw the cybernetic enhancement program entirely. The researchers are disappointed, but the general population is relieved. Citizens rally around the decision, proud that their {FACTION_TITLE} values humanity over raw efficiency.</desc>
     <category>EC_Settlement</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <rangeSettlementsAffected>1~3</rangeSettlementsAffected>

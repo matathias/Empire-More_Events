@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_bountifulTradeRoutes</defName>
     <label>Lucrative Trade Routes</label>
-    <desc>Trade routes across your empire's territory are thriving. Between low bandit activity and excellent road conditions, merchant caravans are reporting record profits.</desc>
+    <desc>Trade routes across your {FACTION_TITLE}'s territory are thriving. Between low bandit activity and excellent road conditions, merchant caravans are reporting record profits.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <timeTillTriggerMax>600000</timeTillTriggerMax>

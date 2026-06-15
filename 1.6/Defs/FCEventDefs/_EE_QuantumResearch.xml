@@ -4,7 +4,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_quantumResearch_0</defName>
     <label>Quantum Research Initiative</label>
-    <desc>Your top researchers have proposed something unprecedented: a coordinated, empire-wide quantum research initiative. By synchronizing experiments across all settlements simultaneously, they believe they can achieve breakthroughs impossible in isolated labs.
+    <desc>Your top researchers have proposed something unprecedented: a coordinated quantum research initiative across all of {FACTION}. By synchronizing experiments across all settlements simultaneously, they believe they can achieve breakthroughs impossible in isolated labs.
 			
 The theoretical framework is sound, but the logistics are daunting. Every settlement would need to dedicate resources, and the cost of coordination alone is staggering. Still, the potential payoff  is substantial.</desc>
     <category>EC_Economy</category>
@@ -37,7 +37,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
 
   <FactionColonies.FCOptionDef>
     <defName>empireEvents_quantumResearch_opt1</defName>
-    <label>Fund it fully. Spare no expense — this could define our empire for generations.</label>
+    <label>Fund it fully. Spare no expense — this could define our nation for generations.</label>
     <parentEvent>empireEvents_quantumResearch_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>3000</silverCost>
@@ -91,7 +91,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
   <FactionColonies.FCEventDef>
     <defName>empireEvents_quantumResearch_reject</defName>
     <label>Initiative Rejected</label>
-    <desc>The research proposal is shelved. Your top scientists are visibly dejected, and word spreads through the academic community that your empire doesn't value bold inquiry. Morale among the educated class drops, and several promising researchers quietly begin looking for opportunities elsewhere.</desc>
+    <desc>The research proposal is shelved. Your top scientists are visibly dejected, and word spreads through the academic community that your {FACTION_TITLE} doesn't value bold inquiry. Morale among the educated class drops, and several promising researchers quietly begin looking for opportunities elsewhere.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <targetAllSettlements>true</targetAllSettlements>
@@ -106,7 +106,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
   <FactionColonies.FCEventDef>
     <defName>empireEvents_quantumResearch_2a</defName>
     <label>Full Steam Ahead</label>
-    <desc>With full funding secured, every settlement in your empire redirects resources toward the quantum research initiative. Laboratories operate around the clock. Workers are pulled from production lines to assist with experiments. The research output is extraordinary — but the diversion of labor takes its toll on everyday production across the empire.</desc>
+    <desc>With full funding secured, every settlement in your {FACTION_TITLE} redirects resources toward the quantum research initiative. Laboratories operate around the clock. Workers are pulled from production lines to assist with experiments. The research output is extraordinary — but the diversion of labor takes its toll on everyday production across the {FACTION_TITLE}.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>900000</timeTillTrigger>
     <targetAllSettlements>true</targetAllSettlements>
@@ -155,7 +155,7 @@ The theoretical framework is sound, but the logistics are daunting. Every settle
     <label>Quantum Breakthrough</label>
     <desc>The initiative succeeds beyond all projections. Synchronized experiments across your settlements produce a cascade of breakthroughs: quantum-locked material composites, entanglement-based diagnostic tools, and computational methods that accelerate every field of research. Medical science leaps forward as quantum imaging reveals cellular processes invisible to conventional instruments.
 			
-Your empire's researchers are the envy of the known world, and the commercial applications alone generate substantial revenue.</desc>
+{FACTION}'s researchers are the envy of the known world, and the commercial applications alone generate substantial revenue.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <targetAllSettlements>true</targetAllSettlements>
@@ -186,7 +186,7 @@ Your empire's researchers are the envy of the known world, and the commercial ap
     <label>Inconclusive Results</label>
     <desc>The quantum research initiative ends not with a bang, but with a shrug. Cross-settlement synchronization proved more difficult than anticipated — timing errors, equipment incompatibilities, and communication breakdowns plagued the experiments. The data is noisy and the conclusions ambiguous.
 			
-Your researchers salvage what they can: some incremental methodological improvements, a few promising leads for future work. But the grand unified breakthrough never materializes. Citizens and officials who supported the funding are disappointed, and questions about your judgment circulate through the empire.</desc>
+Your researchers salvage what they can: some incremental methodological improvements, a few promising leads for future work. But the grand unified breakthrough never materializes. Citizens and officials who supported the funding are disappointed, and questions about your judgment circulate through the {FACTION_TITLE}.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <targetAllSettlements>true</targetAllSettlements>

@@ -216,7 +216,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_counterfeiting_2b</defName>
     <label>Imperial Minters</label>
-    <desc>The former counterfeiters now work for the empire, lending their expertise to improve currency production. Tax collection improves noticeably, though some whisper about the arrangement's legitimacy.</desc>
+    <desc>The former counterfeiters now work for the {FACTION_TITLE}, lending their expertise to improve currency production. Tax collection improves noticeably, though some whisper about the arrangement's legitimacy.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <rangeSettlementsAffected>2~3</rangeSettlementsAffected>
@@ -234,7 +234,7 @@
   <FactionColonies.FCEventDef>
     <defName>empireEvents_counterfeiting_scandal</defName>
     <label>Minting Scandal</label>
-    <desc>Word has gotten out that the empire recruited known counterfeiters into its treasury. Citizens question the integrity of the currency and the leadership's judgment. Loyalty suffers and tax collection dips.</desc>
+    <desc>Word has gotten out that the {FACTION_TITLE} recruited known counterfeiters into its treasury. Citizens question the integrity of the currency and the leadership's judgment. Loyalty suffers and tax collection dips.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>180000</timeTillTrigger>
     <timeTillTriggerMax>300000</timeTillTriggerMax>
