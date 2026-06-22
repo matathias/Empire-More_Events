@@ -144,6 +144,7 @@
     </incompatibleEvents>
     <eventFollows>true</eventFollows>
     <followingEvent>empireEvents_deserters_spy</followingEvent>
+    <splitEventFollows>true</splitEventFollows>
     <splitEventChance>20</splitEventChance>
     <statModifiers>
       <li>

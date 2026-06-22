@@ -255,6 +255,7 @@ But many point out that the last two times you imported animals, the situation o
     <timeTillTriggerMax>600000</timeTillTriggerMax>
     <eventFollows>true</eventFollows>
     <followingEvent>empireEvents_invasivePests-invasive_beasts</followingEvent>
+    <splitEventFollows>true</splitEventFollows>
     <splitEventChance>75</splitEventChance>
     <statModifiers>
       <li>
