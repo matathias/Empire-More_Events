@@ -18,14 +18,12 @@
     <minTechLevel>Industrial</minTechLevel>
     <incompatibleEvents>
       <li>empireEvents_powerFailure_emergency</li>
-      <li>empireEvents_powerFailure_reroute</li>
       <li>empireEvents_powerFailure_ration</li>
       <li>empireEvents_powerFailure_industrious</li>
       <li>empireEvents_powerFailure_technocratic</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_powerFailure_opt1</li>
-      <li>empireEvents_powerFailure_opt2</li>
       <li>empireEvents_powerFailure_opt3</li>
       <li>empireEvents_powerFailure_opt4</li>
       <li>empireEvents_powerFailure_opt5</li>
@@ -39,14 +37,6 @@
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <silverCost>1000</silverCost>
     <successEvent>empireEvents_powerFailure_emergency</successEvent>
-  </FactionColonies.FCOptionDef>
-
-  <FactionColonies.FCOptionDef>
-    <defName>empireEvents_powerFailure_opt2</defName>
-    <label>Reroute power from neighboring settlements.</label>
-    <parentEvent>empireEvents_powerFailure_0</parentEvent>
-    <baseChanceOfSuccess>100</baseChanceOfSuccess>
-    <successEvent>empireEvents_powerFailure_reroute</successEvent>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -95,51 +85,6 @@
       <li>
         <stat>RTD_Power_ProductionAdditive</stat>
         <value>-2</value>
-      </li>
-    </statModifiers>
-  </FactionColonies.FCEventDef>
-
-  <FactionColonies.FCEventDef>
-    <defName>empireEvents_powerFailure_reroute</defName>
-    <label>Power Rerouted</label>
-    <desc>Power is being rerouted from neighboring settlements, spreading the load.</desc>
-    <category>EC_Settlement</category>
-    <timeTillTrigger>1500</timeTillTrigger>
-    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
-    <incompatibleEvents>
-      <li>empireEvents_powerFailure_0</li>
-    </incompatibleEvents>
-    <modExtensions>
-      <li Class="FactionColonies.Events.FCEventHandlerExtension_PowerReroute"/>
-    </modExtensions>
-  </FactionColonies.FCEventDef>
-
-  <FactionColonies.FCEventDef>
-    <defName>empireEvents_powerFailure_reroute_main</defName>
-    <label>Power Rerouted (Local)</label>
-    <desc>The affected settlements have partial power restored through rerouting, but output remains reduced while repairs continue.</desc>
-    <category>EC_Settlement</category>
-    <timeTillTrigger>180000</timeTillTrigger>
-    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
-    <statModifiers>
-      <li>
-        <stat>RTD_Power_ProductionAdditive</stat>
-        <value>-1</value>
-      </li>
-    </statModifiers>
-  </FactionColonies.FCEventDef>
-
-  <FactionColonies.FCEventDef>
-    <defName>empireEvents_powerFailure_reroute_drain</defName>
-    <label>Power Rerouted (Drain)</label>
-    <desc>Power is being diverted from these settlements to support repairs elsewhere. Production is temporarily reduced.</desc>
-    <category>EC_Settlement</category>
-    <timeTillTrigger>180000</timeTillTrigger>
-    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
-    <statModifiers>
-      <li>
-        <stat>RTD_Power_ProductionAdditive</stat>
-        <value>-1</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
