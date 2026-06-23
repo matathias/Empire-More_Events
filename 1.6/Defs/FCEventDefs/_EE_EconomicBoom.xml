@@ -19,11 +19,13 @@
       <li>empireEvents_economicBoom_1b</li>
       <li>empireEvents_economicBoom_1c</li>
       <li>empireEvents_economicBoom_estates</li>
+      <li>empireEvents_economicBoom_guilty</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_economicBoom_opt1</li>
       <li>empireEvents_economicBoom_opt2</li>
       <li>empireEvents_economicBoom_opt3</li>
+      <li>empireEvents_economicBoom_opt_guilty</li>
       <li>empireEvents_economicBoom_opt_feudal</li>
     </options>
   </FactionColonies.FCEventDef>
@@ -50,6 +52,17 @@
     <parentEvent>empireEvents_economicBoom_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <successEvent>empireEvents_economicBoom_1c</successEvent>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_economicBoom_opt_guilty</defName>
+    <label>We have too much. Pour the surplus into charity and public works — let us atone for our excess.</label>
+    <parentEvent>empireEvents_economicBoom_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_economicBoom_guilty</successEvent>
+    <requiredMemes>
+      <li>Guilty</li>
+    </requiredMemes>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -135,6 +148,30 @@
       <li>
         <stat>loyaltyGainedBase</stat>
         <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_economicBoom_guilty</defName>
+    <label>Penance of Plenty</label>
+    <desc>Rather than hoard the windfall, your {FACTION_TITLE} pours it into hospitals and public works. The act is framed not as generosity, but as atonement — a reckoning with the discomfort of having so much. The people are relieved to be free of their monetary burden.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>420000</timeTillTriggerMax>
+    <targetAllSettlements>true</targetAllSettlements>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1.5</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>0.75</value>
+      </li>
+      <li>
+        <stat>prosperityGainedBase</stat>
+        <value>0.25</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>

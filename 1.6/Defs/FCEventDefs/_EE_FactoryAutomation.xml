@@ -14,17 +14,21 @@
     <requiredWealth>25000</requiredWealth>
     <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
     <requiredResource>RTD_Power</requiredResource>
-    <minTechLevel>Industrial</minTechLevel>
+    <minTechLevel>Spacer</minTechLevel>
     <incompatibleEvents>
       <li>empireEvents_factoryAutomation_1a</li>
+      <li>empireEvents_factoryAutomation_1a_transhumanist</li>
       <li>empireEvents_factoryAutomation_1b</li>
       <li>empireEvents_factoryAutomation_1c</li>
+      <li>empireEvents_factoryAutomation_1c_naturePrimacy</li>
       <li>empireEvents_factoryAutomation_1d</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_factoryAutomation_opt1</li>
+      <li>empireEvents_factoryAutomation_opt_transhumanist</li>
       <li>empireEvents_factoryAutomation_opt2</li>
       <li>empireEvents_factoryAutomation_opt3</li>
+      <li>empireEvents_factoryAutomation_opt_naturePrimacy</li>
       <li>empireEvents_factoryAutomation_opt4</li>
     </options>
   </FactionColonies.FCEventDef>
@@ -80,6 +84,34 @@
         <costPerEmpireIncomeUnit>0.04</costPerEmpireIncomeUnit>
       </li>
     </modExtensions>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_factoryAutomation_opt_transhumanist</defName>
+    <label>Automate everything — and merge our people with the machines. Worker and tool, one and the same.</label>
+    <parentEvent>empireEvents_factoryAutomation_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>3000</silverCost>
+    <successEvent>empireEvents_factoryAutomation_1a_transhumanist</successEvent>
+    <requiredMemes>
+      <li>Transhumanist</li>
+    </requiredMemes>
+    <modExtensions>
+      <li Class="FactionColonies.FCDynamicCostExtension">
+        <costPerEmpireIncomeUnit>0.04</costPerEmpireIncomeUnit>
+      </li>
+    </modExtensions>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_factoryAutomation_opt_naturePrimacy</defName>
+    <label>Burn the blueprints. Honest hands and honest craft built this nation — not soulless machines.</label>
+    <parentEvent>empireEvents_factoryAutomation_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_factoryAutomation_1c_naturePrimacy</successEvent>
+    <requiredMemes>
+      <li>NaturePrimacy</li>
+    </requiredMemes>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
@@ -173,6 +205,50 @@
       <li>
         <stat>workerProductionMultiplier</stat>
         <value>1.35</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_factoryAutomation_1a_transhumanist</defName>
+    <label>Human-Machine Synthesis</label>
+    <desc>There are no displaced workers, because there is no line between worker and machine. Neural interfaces and powered exoframes turn every laborer into something more — tireless, precise, exultant. Output soars, and your people do not mourn the old ways. They have become the future they were promised, and they wear it with pride.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_factoryAutomation_0</li>
+    </incompatibleEvents>
+    <permanentStatModifiers>
+      <li>
+        <stat>workerProductionMultiplier</stat>
+        <value>1.5</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>0.5</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_factoryAutomation_1c_naturePrimacy</defName>
+    <label>The Craft Endures</label>
+    <desc>The blueprints are burned in the town square to roaring approval. Your settlements recommit to the dignity of human hands and the honest rhythm of craft over the cold efficiency of the machine. It is a defining declaration of who your people are, and their devotion to your {FACTION_TITLE} deepens for good.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_factoryAutomation_0</li>
+    </incompatibleEvents>
+    <permanentStatModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>0.5</value>
       </li>
     </permanentStatModifiers>
   </FactionColonies.FCEventDef>

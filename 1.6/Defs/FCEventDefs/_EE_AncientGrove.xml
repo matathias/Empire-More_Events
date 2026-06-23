@@ -19,14 +19,18 @@
     </applicableBiomes>
     <incompatibleEvents>
       <li>empireEvents_ancientGrove_1a</li>
+      <li>empireEvents_ancientGrove_1a_supremacist</li>
       <li>empireEvents_ancientGrove_1b</li>
       <li>empireEvents_ancientGrove_1c</li>
+      <li>empireEvents_ancientGrove_1c_naturePrimacy</li>
       <li>empireEvents_ancientGrove_road</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_ancientGrove_opt1</li>
       <li>empireEvents_ancientGrove_opt2</li>
       <li>empireEvents_ancientGrove_opt3</li>
+      <li>empireEvents_ancientGrove_opt_naturePrimacy</li>
+      <li>empireEvents_ancientGrove_opt_supremacist</li>
       <li>empireEvents_ancientGrove_opt_roadBuilders</li>
     </options>
   </FactionColonies.FCEventDef>
@@ -54,6 +58,28 @@
     <parentEvent>empireEvents_ancientGrove_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <successEvent>empireEvents_ancientGrove_1c</successEvent>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_ancientGrove_opt_naturePrimacy</defName>
+    <label>The grove is sacred. Not one tree falls — we will guard it for the generations to come.</label>
+    <parentEvent>empireEvents_ancientGrove_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_ancientGrove_1c_naturePrimacy</successEvent>
+    <requiredMemes>
+      <li>NaturePrimacy</li>
+    </requiredMemes>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_ancientGrove_opt_supremacist</defName>
+    <label>Clear-cut all of it. This land and everything on it is ours by right.</label>
+    <parentEvent>empireEvents_ancientGrove_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_ancientGrove_1a_supremacist</successEvent>
+    <requiredMemes>
+      <li>Supremacist</li>
+    </requiredMemes>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCOptionDef>
@@ -109,6 +135,49 @@
         <value>0.5</value>
       </li>
     </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_ancientGrove_1c_naturePrimacy</defName>
+    <label>Sacred Grove</label>
+    <desc>The ancient forest is consecrated as holy ground, forbidden to axe and saw alike. Pilgrims walk its paths in reverent silence, proud that their {FACTION_TITLE} keeps faith with the living world. The grove will stand for as long as your nation does.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>1500</timeTillTrigger>
+    <incompatibleEvents>
+      <li>empireEvents_ancientGrove_0</li>
+    </incompatibleEvents>
+    <permanentStatModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>0.5</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>0.5</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_ancientGrove_1a_supremacist</defName>
+    <label>Grove Stripped</label>
+    <desc>The grove is razed to the last stump with ruthless efficiency. The timber yield is staggering — far beyond a careful harvest — and proclaims your dominion over the land for all to see. Some among your people are unsettled by the speed and totality of the destruction, but the warehouses are full.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>600000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_ancientGrove_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Logging_ProductionAdditive</stat>
+        <value>2.5</value>
+      </li>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>0.5</value>
+      </li>
+    </statModifiers>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>

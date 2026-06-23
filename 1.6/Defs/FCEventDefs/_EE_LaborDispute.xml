@@ -20,12 +20,16 @@
       <li>empireEvents_laborDispute_1b</li>
       <li>empireEvents_laborDispute_1c</li>
       <li>empireEvents_laborDispute_1d</li>
+      <li>empireEvents_laborDispute_1_collectivist</li>
+      <li>empireEvents_laborDispute_1_individualist</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_laborDispute_opt1</li>
       <li>empireEvents_laborDispute_opt2</li>
       <li>empireEvents_laborDispute_opt3</li>
       <li>empireEvents_laborDispute_opt4</li>
+      <li>empireEvents_laborDispute_opt_collectivist</li>
+      <li>empireEvents_laborDispute_opt_individualist</li>
     </options>
   </FactionColonies.FCEventDef>
 
@@ -63,6 +67,28 @@
     <parentEvent>empireEvents_laborDispute_0</parentEvent>
     <baseChanceOfSuccess>100</baseChanceOfSuccess>
     <successEvent>empireEvents_laborDispute_1d</successEvent>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_laborDispute_opt_collectivist</defName>
+    <label>Recognize their union. Our workers are our wealth — what is good for them is good for us all.</label>
+    <parentEvent>empireEvents_laborDispute_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_laborDispute_1_collectivist</successEvent>
+    <requiredMemes>
+      <li>Collectivist</li>
+    </requiredMemes>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_laborDispute_opt_individualist</defName>
+    <label>Workers are free agents. Those who can't accept our terms are free to seek their fortune elsewhere.</label>
+    <parentEvent>empireEvents_laborDispute_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_laborDispute_1_individualist</successEvent>
+    <requiredMemes>
+      <li>Individualist</li>
+    </requiredMemes>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
@@ -145,6 +171,54 @@
       <li>
         <stat>loyaltyLostBase</stat>
         <value>3</value>
+      </li>
+    </statModifiers>
+    <permanentStatModifiers>
+      <li>
+        <stat>workerBaseMax</stat>
+        <value>1</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_laborDispute_1_collectivist</defName>
+    <label>Union Recognized</label>
+    <desc>You sit with the workers not as supplicants, but as partners. The union is formally recognized, and a tide of solidarity sweeps the settlements — what is won for one is won for all. Costs rise modestly, but the bond between your people and your {FACTION_TITLE} has rarely been stronger.</desc>
+    <category>EC_Social</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>-2</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>1</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>0.5</value>
+      </li>
+    </statModifiers>
+    <permanentStatModifiers>
+      <li>
+        <stat>workerBaseCost</stat>
+        <value>5</value>
+      </li>
+    </permanentStatModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_laborDispute_1_individualist</defName>
+    <label>Free Market of Labor</label>
+    <desc>You make no threats and offer no concessions — those who cannot abide the terms are simply free to leave, and many do. Eager newcomers take their place almost overnight, drawn by the promise of opportunity. The churn ruffles a few feathers, but your people expect nothing less than a free hand to choose their own path.</desc>
+    <category>EC_Social</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>unrestGainedBase</stat>
+        <value>0.25</value>
       </li>
     </statModifiers>
     <permanentStatModifiers>

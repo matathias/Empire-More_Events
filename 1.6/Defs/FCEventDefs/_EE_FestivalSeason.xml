@@ -20,6 +20,7 @@
       <li>empireEvents_festival_1c</li>
       <li>empireEvents_festival_1d</li>
       <li>empireEvents_festival_1e</li>
+      <li>empireEvents_festival_1_nudism</li>
     </incompatibleEvents>
     <options>
       <li>empireEvents_festival_opt1</li>
@@ -27,6 +28,7 @@
       <li>empireEvents_festival_opt3</li>
       <li>empireEvents_festival_opt4</li>
       <li>empireEvents_festival_opt5</li>
+      <li>empireEvents_festival_opt_nudism</li>
     </options>
   </FactionColonies.FCEventDef>
 
@@ -79,6 +81,17 @@
     <requiredPolicies>
       <li>egalitarian</li>
     </requiredPolicies>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_festival_opt_nudism</defName>
+    <label>Let it be a celebration of the body in freedom — bare skin, open hearts, no shame.</label>
+    <parentEvent>empireEvents_festival_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_festival_1_nudism</successEvent>
+    <requiredMemes>
+      <li>Nudism</li>
+    </requiredMemes>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
@@ -180,6 +193,32 @@
       <li>
         <stat>happinessGainedBase</stat>
         <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_festival_1_nudism</defName>
+    <label>Festival of the Flesh</label>
+    <desc>The people cast off their garments and their inhibitions alike, filling the streets with unashamed joy. It is a riot of music, dance, and bare skin under the open sky — a celebration of the body as it is, free and unhidden. The settlements have rarely felt so alive, or so at peace with themselves.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>120000</timeTillTrigger>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_festival_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>3</value>
+      </li>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>1.5</value>
+      </li>
+      <li>
+        <stat>unrestLostBase</stat>
+        <value>1.5</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
