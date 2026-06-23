@@ -97,4 +97,21 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_0_1_7</defName>
+		<label>Last Stretch Updates</label>
+		<description>Handful of minor updates ahead of this week&apos;s release.</description>
+		<releaseDate>2026-06-22</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Removed the &apos;reroute power&apos; option from the Power Grid Failure event</li>
+		<li>Add a no-cost option to the Master Weaponsmith event so that a player can&apos;t be softlocked by having no silver</li>
+		<li>Change the Cybernetic Enhancement event to be Spacer-level, and to affect the whole Empire</li>
+		<li>Added meme-gated options to several events</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
