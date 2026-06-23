@@ -23,6 +23,7 @@
       <li>empireEvents_masterWeaponsmith_opt1</li>
       <li>empireEvents_masterWeaponsmith_opt2</li>
       <li>empireEvents_masterWeaponsmith_opt3</li>
+      <li>empireEvents_masterWeaponsmith_opt_decline</li>
     </options>
   </FactionColonies.FCEventDef>
 
@@ -61,6 +62,14 @@
         <costPerEmpireIncomeUnit>0.02</costPerEmpireIncomeUnit>
       </li>
     </modExtensions>
+  </FactionColonies.FCOptionDef>
+
+  <!-- Free, ungated decline so the event can always be dismissed (no silver requirement). -->
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_masterWeaponsmith_opt_decline</defName>
+    <label>Send her on her way. We have no need of her services.</label>
+    <parentEvent>empireEvents_masterWeaponsmith_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
   </FactionColonies.FCOptionDef>
 
   <FactionColonies.FCEventDef>
