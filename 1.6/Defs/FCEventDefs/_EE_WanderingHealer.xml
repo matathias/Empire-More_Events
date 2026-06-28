@@ -35,7 +35,15 @@
     <successEvent>empireEvents_wanderingHealer_1a</successEvent>
     <modExtensions>
       <li Class="FactionColonies.FCDynamicCostExtension">
-        <costPerEmpireIncomeUnit>0.02</costPerEmpireIncomeUnit>
+        <!-- Outcome grants +0.5 Medicine production; cost scales on the production added. -->
+        <costPerResourceDelta>
+          <li>
+            <resource>RTD_Medicine</resource>
+            <additiveDelta>0.5</additiveDelta>
+            <coefficient>0.5</coefficient>
+            <framing>Added</framing>
+          </li>
+        </costPerResourceDelta>
       </li>
     </modExtensions>
   </FactionColonies.FCOptionDef>

@@ -59,7 +59,15 @@ The question of what to do with it divides your advisors. Some want to activate 
     <successEvent>empireEvents_aiCore_2b</successEvent>
     <modExtensions>
       <li Class="FactionColonies.FCDynamicCostExtension">
-        <costPerEmpireIncomeUnit>0.05</costPerEmpireIncomeUnit>
+        <!-- Outcome grants +0.5 Research production; cost scales on the production added. -->
+        <costPerResourceDelta>
+          <li>
+            <resource>RTD_Research</resource>
+            <additiveDelta>0.5</additiveDelta>
+            <coefficient>0.5</coefficient>
+            <framing>Added</framing>
+          </li>
+        </costPerResourceDelta>
       </li>
     </modExtensions>
   </FactionColonies.FCOptionDef>

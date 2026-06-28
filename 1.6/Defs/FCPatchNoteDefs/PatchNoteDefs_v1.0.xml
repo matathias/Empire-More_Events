@@ -13,4 +13,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_1_0_1</defName>
+		<label>Event Cost Tweaks</label>
+		<description>Changes the cost scaling for a couple of event options</description>
+		<releaseDate>2026-06-28</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Changes the cost scaling for certain options for events Persona Core Discovery, Cybernetic Enhancement Program, Master Weaponsmith, and Wandering Healer</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
