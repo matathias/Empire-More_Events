@@ -27,4 +27,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_1_0_2</defName>
+		<label>Odyssey-less Update</label>
+		<description>Gate references to orbital settlements behind a MayRequire check for Odyssey to get rid of startup config errors.</description>
+		<releaseDate>2026-06-28</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Update Chemfuel Spill and Chemfuel Geyser event xml to gate references to orbital settlements behind a MayRequire check for Odyssey</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>

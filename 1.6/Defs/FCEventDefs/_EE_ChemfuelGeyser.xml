@@ -13,10 +13,10 @@
     <weight>10</weight>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
     <blockedSettlementTypes>
-      <li>WorldSettlementDef_Orbital</li>
-      <li>WorldSettlementDef_Orbital_Logistics</li>
-      <li>WorldSettlementDef_Orbital_Advanced</li>
-      <li>WorldSettlementDef_Orbital_Glitter</li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey">WorldSettlementDef_Orbital</li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey">WorldSettlementDef_Orbital_Logistics</li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey">WorldSettlementDef_Orbital_Advanced</li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey">WorldSettlementDef_Orbital_Glitter</li>
     </blockedSettlementTypes>
     <requiredResource>RTD_Chemfuel</requiredResource>
     <minTechLevel>Industrial</minTechLevel>
