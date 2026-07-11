@@ -102,14 +102,17 @@ namespace FactionColonies.Events
             if (now - lastTributeTick < CooldownTicks) return;
 
             // Check if any hostile faction has a settlement within proximity of any player settlement
-            Faction playerFaction = FindFC.EmpireFaction;
-            if (playerFaction == null) return;
+            Faction empireFaction = FindFC.EmpireFaction;
+            if (empireFaction is null) return;
 
             bool hasNearbyHostile = false;
-            List<Settlement> hostileSettlements = Find.WorldObjects.Settlements.Where(s => s.Faction != null &&
+            // Exclude the Empire faction's own settlements: they share empireFaction, so asking for
+            // its relation with itself throws "Tried to get relation between faction and itself".
+            List<Settlement> hostileSettlements = Find.WorldObjects.Settlements.Where(s => s.Faction is object &&
+                                                                                           s.Faction != empireFaction &&
                                                                                            !s.Faction.IsPlayer &&
                                                                                            !s.Faction.defeated &&
-                                                                                           s.Faction.RelationKindWith(playerFaction) == FactionRelationKind.Hostile).ToList();
+                                                                                           s.Faction.RelationKindWith(empireFaction) == FactionRelationKind.Hostile).ToList();
 
             foreach (WorldSettlementFC playerSettlement in faction.settlements)
             {
