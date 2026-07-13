@@ -341,9 +341,6 @@
         <value>2</value>
       </li>
     </statModifiers>
-    <modExtensions>
-      <li Class="FactionColonies.Events.FCEventHandlerExtension_TriggerAttack"/>
-    </modExtensions>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>

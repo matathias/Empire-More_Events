@@ -128,8 +128,9 @@ The rejected workers won't simply disappear, however. Some seem to harbor a grud
     <incompatibleEvents>
       <li>empireEvents_refugees_0</li>
     </incompatibleEvents>
-    <eventFollows>true</eventFollows>
     <followingEvent>empireEvents_refugees_attack</followingEvent>
+    <splitEventFollows>true</splitEventFollows>
+    <splitEventChance>25</splitEventChance>
     <permanentStatModifiers>
       <li>
         <stat>workerBaseMax</stat>

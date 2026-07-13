@@ -167,15 +167,9 @@ namespace FactionColonies.Events
 
             faction.eventManager.AddEvent(evt);
 
-            string settlementString = string.Join("\n", evt.settlementTraitLocations.Select(s => " " + s.Name));
-
-            string desc = def.desc;
-            if (!settlementString.NullOrEmpty())
-            {
-                desc += "\n" + "FCEventAffectingSettlements".Translate() + "\n" + settlementString;
-            }
-
-            Find.LetterStack.ReceiveLetter(def.label, desc, LetterDefOf.NeutralEvent);
+            // BuildEventLetterBody resolves {FACTION} tokens (.Format()) and appends the stat-modifier
+            // summary and affected-settlements list — building the body by hand left raw tokens showing.
+            Find.LetterStack.ReceiveLetter(def.label, FCEventMaker.BuildEventLetterBody(evt), LetterDefOf.NeutralEvent);
             LogEE.Message("EventConditionChecker fired: " + def.defName);
         }
 

@@ -42,6 +42,8 @@ namespace FactionColonies.Events
             this.closeOnCancel = false;
             this.closeOnClickedOutside = false;
             this.preventCameraMotion = false;
+            this.preventSave = true;
+            this.onlyOneOfTypeAllowed = false;
 
             this.categoryColor = AccentUtil.GetEventCategoryColor(sourceEvt);
 
