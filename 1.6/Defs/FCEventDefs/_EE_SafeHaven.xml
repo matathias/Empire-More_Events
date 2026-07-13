@@ -82,7 +82,6 @@
 		<timeTillTrigger>1500</timeTillTrigger>
 		<permanentStatModifiers>
 			<li><stat>workerBaseMax</stat><value>2</value></li>
-			<li><stat>threatScalingBase</stat><value>0.5</value></li>
 		</permanentStatModifiers>
 		<settlementsCarryOver>true</settlementsCarryOver>
 	</FactionColonies.FCEventDef>

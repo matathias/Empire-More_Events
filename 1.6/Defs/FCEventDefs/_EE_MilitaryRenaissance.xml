@@ -142,10 +142,6 @@
         <stat>loyaltyGainedBase</stat>
         <value>0.5</value>
       </li>
-      <li>
-        <stat>threatScalingMultiplier</stat>
-        <value>1.25</value>
-      </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
 
