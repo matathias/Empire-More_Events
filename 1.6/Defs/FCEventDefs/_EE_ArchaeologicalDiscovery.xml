@@ -132,7 +132,7 @@ Nothing of value was recovered.</desc>
       <li>empireEvents_archaeology_0</li>
     </incompatibleEvents>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_archaeology_1a_fail</followingEvent>
+    <followingEvent>empireEvents_archaeology_1a_success</followingEvent>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
@@ -147,7 +147,7 @@ Nothing of value was recovered.</desc>
       <li>empireEvents_archaeology_0</li>
     </incompatibleEvents>
     <eventFollows>true</eventFollows>
-    <followingEvent>empireEvents_archaeology_1a_success</followingEvent>
+    <followingEvent>empireEvents_archaeology_1a_fail</followingEvent>
   </FactionColonies.FCEventDef>
 
 </Defs>
