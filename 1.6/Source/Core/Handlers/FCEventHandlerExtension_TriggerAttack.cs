@@ -13,8 +13,8 @@ namespace FactionColonies.Events
     /// All attacks in one event share the same enemy faction and tech baseline; each
     /// attack gets its own MilitaryForce instance so per-battle forceRemaining doesn't bleed.
     ///
-    /// Used by: Refugee Influx (40% follow-up), Tribute Demand (refusal / militaristic /
-    /// feudal / counter-fail), Border Skirmish (Stage 2), Overextension Crisis (30% follow-up).
+    /// Used by: Refugee Influx (25% follow-up), Tribute Demand (refusal / militaristic /
+    /// feudal / counter-fail), Border Skirmish (Stage 2).
     /// </summary>
     public class FCEventHandlerExtension_TriggerAttack : FCEventHandlerExtension
     {

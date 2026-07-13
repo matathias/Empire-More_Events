@@ -22,7 +22,6 @@ namespace FactionColonies.Events
         // Cooldown tracking (last tick each event was generated)
         private int lastGoldenAgeTick = -CooldownTicks;
         private int lastGrowingPainsTick = -CooldownTicks;
-        private int lastOverextensionTick = -CooldownTicks;
         private int lastTributeTick = -CooldownTicks;
 
         // Golden Age sustained-condition tracking
@@ -91,7 +90,7 @@ namespace FactionColonies.Events
             if (faction.settlements.Count <= 6) return;
 
             FCEventDef def = MoreEventsDefOf.empireEvents_growingPains_0;
-            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName) || BlockedByOptionsSetting(def)) return;
 
             TryFireEvent(def, faction);
             lastGrowingPainsTick = now;
@@ -131,7 +130,7 @@ namespace FactionColonies.Events
             if (!hasNearbyHostile) return;
 
             FCEventDef def = MoreEventsDefOf.empireEvents_tribute_0;
-            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName) || BlockedByOptionsSetting(def)) return;
 
             TryFireEvent(def, faction);
             lastTributeTick = now;
@@ -160,6 +159,14 @@ namespace FactionColonies.Events
             return true;
         }
 
+        /// <summary>
+        /// Mirrors the base random pipeline's "disable events with options" filter for our
+        /// condition-triggered events, which would otherwise open their option windows regardless.
+        /// </summary>
+        private static bool BlockedByOptionsSetting(FCEventDef def) =>
+            FCSettings.disableEventsWithOptions
+            && FactionCache.EventDefNamesWithOptionsInChain.Contains(def.defName);
+
         private void TryFireEvent(FCEventDef def, FactionFC faction)
         {
             FCEvent evt = FCEventMaker.MakeRandomEvent(def, null);
@@ -178,7 +185,6 @@ namespace FactionColonies.Events
             base.ExposeData();
             Scribe_Values.Look(ref lastGoldenAgeTick, "lastGoldenAgeTick", -CooldownTicks);
             Scribe_Values.Look(ref lastGrowingPainsTick, "lastGrowingPainsTick", -CooldownTicks);
-            Scribe_Values.Look(ref lastOverextensionTick, "lastOverextensionTick", -CooldownTicks);
             Scribe_Values.Look(ref lastTributeTick, "lastTributeTick", -CooldownTicks);
             Scribe_Values.Look(ref goldenAgeQualifyingSince, "goldenAgeQualifyingSince", -1);
         }

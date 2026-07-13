@@ -7,6 +7,7 @@
     <desc>{FACTION} has entered a golden age! Happiness is high, loyalty is strong, unrest is minimal, and prosperity reigns. Trade flourishes and morale soars across all settlements.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
+    <includeInSettingsList>true</includeInSettingsList>
     <targetAllSettlements>true</targetAllSettlements>
     <incompatibleEvents>
       <li>empireEvents_goldenAge</li>

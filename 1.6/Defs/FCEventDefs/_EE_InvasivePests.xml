@@ -64,6 +64,9 @@
     <category>EC_Economy</category>
     <timeTillTrigger>450000</timeTillTrigger>
     <timeTillTriggerMax>720000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
@@ -83,6 +86,9 @@
     <followingEvent>empireEvents_invasivePests-invasive_predators</followingEvent>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>75</splitEventChance>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
@@ -98,6 +104,9 @@
     <category>EC_Economy</category>
     <timeTillTrigger>900000</timeTillTrigger>
     <timeTillTriggerMax>1200000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
@@ -117,6 +126,9 @@
 
 What do you do now?</desc>
     <category>EC_Economy</category>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <options>
       <li>empireEvents_invasivePests-invasive_predators_opt1</li>
       <li>empireEvents_invasivePests-invasive_predators_opt2</li>
@@ -157,6 +169,9 @@ What do you do now?</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>900000</timeTillTrigger>
     <timeTillTriggerMax>1200000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
@@ -192,6 +207,9 @@ Many question your decision to double down on importing animals, but hey, this t
     <followingEvent>empireEvents_invasivePests-invasive_rodents</followingEvent>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>75</splitEventChance>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
@@ -211,6 +229,9 @@ Many question your decision to double down on importing animals, but hey, this t
 
 What do you do now?</desc>
     <category>EC_Economy</category>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <options>
       <li>empireEvents_invasivePests-invasive_rodents_opt1</li>
       <li>empireEvents_invasivePests-invasive_rodents_opt2</li>
@@ -257,6 +278,9 @@ But many point out that the last two times you imported animals, the situation o
     <followingEvent>empireEvents_invasivePests-invasive_beasts</followingEvent>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>75</splitEventChance>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Logging_ProductionAdditive</stat>
@@ -286,6 +310,9 @@ The forest will eventually recover, somewhat. But it will always remain a husk o
     <category>EC_Economy</category>
     <timeTillTrigger>900000</timeTillTrigger>
     <timeTillTriggerMax>1200000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Food_ProductionMultiplier</stat>
@@ -319,6 +346,9 @@ The forest will eventually recover, somewhat. But it will always remain a husk o
 
 The situation has grown out of hand. Your citizens demand that you do something to fix this — without importing further pests.</desc>
     <category>EC_Economy</category>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <options>
       <li>empireEvents_invasivePests-invasive_beasts_opt1</li>
       <li>empireEvents_invasivePests-invasive_beasts_opt2</li>
@@ -376,6 +406,9 @@ Only time will tell if such an animal actually exists. In the meantime, work con
     <followingEvent2>empireEvents_invasivePests-bigbeast_notfound</followingEvent2>
     <splitEventFollows>true</splitEventFollows>
     <splitEventChance>25</splitEventChance>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>loyaltyLostBase</stat>
@@ -403,6 +436,9 @@ Only time will tell if such an animal actually exists. In the meantime, work con
     <category>EC_Economy</category>
     <timeTillTrigger>900000</timeTillTrigger>
     <timeTillTriggerMax>1200000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>RTD_Food_ProductionAdditive</stat>
@@ -434,6 +470,9 @@ In the meantime, the beasts continue to make it difficult to get any work done.<
     <followingEvent>empireEvents_invasivePests-beast_hunt_success</followingEvent>
     <followingEvent2>empireEvents_invasivePests-beast_hunt_fail</followingEvent2>
     <splitEventFollows>true</splitEventFollows>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>workerProductionMultiplier</stat>
@@ -448,6 +487,9 @@ In the meantime, the beasts continue to make it difficult to get any work done.<
     <desc>Through a combination of masterful hunting and an incredible stroke of luck, your people manage to cull the beasts down to manageable numbers. The forest quickly recovers, and a portion of the hunt's results are sent on to you.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <randomThingValue>1000</randomThingValue>
     <randomThingRewardDef>RERD_Animals</randomThingRewardDef>
   </FactionColonies.FCEventDef>
@@ -461,6 +503,9 @@ Your people won't soon forget this blow to their pride, nor will they forget tha
     <category>EC_Economy</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>happinessLostBase</stat>
@@ -498,6 +543,9 @@ Before long, the settlement ends up in an even better position than before the o
     <category>EC_Economy</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>happinessGainedBase</stat>
@@ -534,6 +582,9 @@ The forest itself survives this ordeal, but trust in your leadership has shatter
 But hey, at least you stuck to your guns. That has to count for something. ...Right?</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
+    <incompatibleEvents>
+      <li>empireEvents_invasivePests_0</li>
+    </incompatibleEvents>
     <permanentStatModifiers>
       <li>
         <stat>happinessLostBase</stat>

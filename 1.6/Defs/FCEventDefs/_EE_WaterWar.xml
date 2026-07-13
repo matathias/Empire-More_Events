@@ -219,6 +219,9 @@
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_waterWar_0</li>
+    </incompatibleEvents>
   </FactionColonies.FCEventDef>
 
   <FactionColonies.FCEventDef>
@@ -228,6 +231,9 @@
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_waterWar_0</li>
+    </incompatibleEvents>
     <permanentStatModifiers>
       <li>
         <stat>RTD_Food_ProductionAdditive</stat>

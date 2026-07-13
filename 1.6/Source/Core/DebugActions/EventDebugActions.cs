@@ -27,17 +27,18 @@ namespace FactionColonies.Events
                     FCEvent evt = FCEventMaker.MakeRandomEvent(localDef, null);
                     if (evt is null)
                     {
-                        LogEE.Warning("Debug - event returned null: " + localDef.defName);
+                        // activateAtStart+options defs open their own FCOptionWindow inside
+                        // MakeRandomEvent and return null by design — that's success, not failure.
+                        if (localDef.activateAtStart && localDef.options.Count > 0)
+                            LogEE.MessageForce("Debug - opened option window for: " + localDef.defName);
+                        else
+                            LogEE.Warning("Debug - event returned null: " + localDef.defName);
                         return;
                     }
 
-                    // activateAtStart events (with options) open their own FCOptionWindow inside
-                    // MakeRandomEvent; only queue the rest so they fire on the next ProcessEvents tick.
-                    if (!localDef.activateAtStart)
-                    {
-                        FindFC.EventManager.AddEvent(evt);
-                    }
-
+                    // A non-null event is always a queued (non-activateAtStart) one; fire it on the
+                    // next ProcessEvents tick and surface the letter.
+                    FindFC.EventManager.AddEvent(evt);
                     Find.LetterStack.ReceiveLetter(localDef.label, FCEventMaker.BuildEventLetterBody(evt), LetterDefOf.NeutralEvent);
                     LogEE.MessageForce("Debug - triggered non-random event: " + localDef.defName);
                 }));

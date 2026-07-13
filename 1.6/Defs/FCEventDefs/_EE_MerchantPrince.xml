@@ -261,6 +261,9 @@ His "sweet deal" is starting to look like a takeover.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~5</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_merchantPrince_0</li>
+    </incompatibleEvents>
     <permanentStatModifiers>
       <li>
         <stat>titheValueMultiplier</stat>
@@ -276,6 +279,9 @@ His "sweet deal" is starting to look like a takeover.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_merchantPrince_0</li>
+    </incompatibleEvents>
     <permanentStatModifiers>
       <li>
         <stat>titheValueMultiplier</stat>
@@ -324,6 +330,9 @@ His "sweet deal" is starting to look like a takeover.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>1500</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_merchantPrince_0</li>
+    </incompatibleEvents>
     <permanentStatModifiers>
       <li>
         <stat>taxBasePercentage</stat>
@@ -341,6 +350,9 @@ His "sweet deal" is starting to look like a takeover.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_merchantPrince_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>loyaltyGainedBase</stat>
@@ -393,6 +405,9 @@ His "sweet deal" is starting to look like a takeover.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_merchantPrince_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>loyaltyGainedBase</stat>
@@ -410,6 +425,9 @@ His "sweet deal" is starting to look like a takeover.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_merchantPrince_0</li>
+    </incompatibleEvents>
     <statModifiers>
       <li>
         <stat>loyaltyLostBase</stat>
