@@ -38,29 +38,25 @@ namespace FactionColonies.Events
 
     /// <summary>
     /// Cleanup handler attached to empireEvents_immigrants_production_boost.
-    /// When the boost event resolves (600k ticks), removes the manually-added
-    /// resource production modifier that was added by the ResourcePickerWindow.
+    /// When the boost event expires, clears the ImmigrantBoost comp on each targeted settlement
+    /// (which removes the picker's resource modifier and the scribed choice) so nothing reapplies
+    /// on the next load. Runs in OnEventExpired (the reliable expiry hook), alongside the base
+    /// removal of the def's workerBaseMax modifier.
     /// </summary>
     public class FCEventHandlerExtension_ResourceBoostCleanup : FCEventHandlerExtension
     {
-        public override bool ResolveEvent(FCEvent evt, FactionFC faction)
+        public override void OnEventExpired(FCEvent evt, FactionFC faction)
         {
-            if (evt.settlementTraitLocations == null) return false;
+            base.OnEventExpired(evt, faction); // removes the def's workerBaseMax modifier
+
+            if (evt.settlementTraitLocations is null) return;
 
             foreach (WorldSettlementFC settlement in evt.settlementTraitLocations)
             {
-                if (settlement == null) continue;
-
-                // Remove any resource modifiers added by the ResourcePicker
-                foreach (ResourceTypeDef resDef in DefDatabase<ResourceTypeDef>.AllDefsListForReading)
-                {
-                    string sourceId = FCEventHandlerExtension_ResourcePicker.ResourceSourcePrefix + resDef.defName;
-                    settlement.RemoveStatModifiersBySource(sourceId);
-                }
+                settlement?.GetComponent<WorldObjectComp_ImmigrantBoost>()?.ClearBoost();
             }
 
-            LogEE.Message("ResourceBoostCleanup: Cleaned up resource modifiers.");
-            return false; // Let standard cleanup also run (removes workerBaseMax from def.statModifiers)
+            LogEE.Message("ResourceBoostCleanup: Cleared immigrant resource boost.");
         }
     }
 }

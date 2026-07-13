@@ -183,16 +183,16 @@ namespace FactionColonies.Events
 
             faction.eventManager.AddEvent(boostEvt);
 
-            // Add resource-specific production bonus
-            FCStatDef additiveStat = resDef.productionAdditiveStat;
-            if (additiveStat != null)
+            // Record the choice on the settlement's comp, which applies the +1 productionAdditive
+            // modifier and reapplies it on load (the transient statModifiers list is not serialized).
+            WorldObjectComp_ImmigrantBoost boostComp = settlement.GetComponent<WorldObjectComp_ImmigrantBoost>();
+            if (boostComp is object)
             {
-                string sourceId = FCEventHandlerExtension_ResourcePicker.ResourceSourcePrefix + resDef.defName;
-                List<FCStatModifier> mods = new List<FCStatModifier>
-                {
-                    new FCStatModifier { stat = additiveStat, value = 1 }
-                };
-                settlement.AddStatModifiers(mods, sourceId, "EE_ImmigrantsSourceLabel".Translate(resDef.LabelCap));
+                boostComp.SetBoost(resDef);
+            }
+            else
+            {
+                LogEE.Warning("ResourcePickerWindow: settlement has no ImmigrantBoost comp; resource bonus not applied.");
             }
 
             Find.LetterStack.ReceiveLetter(
