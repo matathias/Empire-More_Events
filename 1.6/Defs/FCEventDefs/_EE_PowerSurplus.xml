@@ -155,7 +155,7 @@
     <label>Frontier Grid</label>
     <desc>The surplus power is routed to frontier infrastructure. Power lines stretch toward unclaimed territory, lighting construction sites and powering prefabricated shelters. The electrified frontier makes founding new settlements cheaper and attracts workers eager to join a well-powered community.</desc>
     <category>EC_Economy</category>
-    <timeTillTrigger>600000</timeTillTrigger>
+    <timeTillTrigger>300000</timeTillTrigger>
     <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
     <incompatibleEvents>
       <li>empireEvents_powerSurplus_0</li>
@@ -169,6 +169,24 @@
         <stat>happinessGainedBase</stat>
         <value>0.5</value>
       </li>
+    </statModifiers>
+    <!-- The founding-cost discount is a faction-only stat and can't work on this settlement-targeted
+         outcome. Carry-over is off so the follow-up is untargeted and folds it at faction scope; the
+         worker/happiness buff above stays targeted to this outcome's settlements. The discount runs
+         after this event's window (the base can't apply a targeted and a faction-only modifier
+         concurrently on one event). -->
+    <settlementsCarryOver>false</settlementsCarryOver>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_powerSurplus_frontier_discount</followingEvent>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_powerSurplus_frontier_discount</defName>
+    <label>Frontier Grid</label>
+    <desc>With the frontier fully electrified, founding new settlements is cheaper while the surplus infrastructure lasts.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
       <li>
         <stat>createSettlementMultiplier</stat>
         <value>0.9</value>

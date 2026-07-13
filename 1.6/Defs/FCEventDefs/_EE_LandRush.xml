@@ -82,6 +82,21 @@
     <label>Land Rush Boom</label>
     <desc>With reduced founding costs, pioneers rush to claim the new territory.</desc>
     <category>EC_Economy</category>
+    <timeTillTrigger>2500</timeTillTrigger>
+    <!-- Brief announcement router. The founding-cost discount is a faction-only stat, so it cannot
+         take effect on this settlement-targeted outcome; carry-over is off here so the follow-up is
+         untargeted and folds the discount at faction scope. Siblings 1c/fiefdoms keep the root's
+         exact settlements (root carry-over stays on). -->
+    <settlementsCarryOver>false</settlementsCarryOver>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_landRush_1a_discount</followingEvent>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_landRush_1a_discount</defName>
+    <label>Land Rush Boom</label>
+    <desc>Reduced founding costs draw pioneers to the frontier. Establishing new settlements is cheaper while the rush lasts.</desc>
+    <category>EC_Economy</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <statModifiers>
       <li>
@@ -143,6 +158,19 @@
     <defName>empireEvents_landRush_claim</defName>
     <label>Territory Claimed</label>
     <desc>Your expansion apparatus springs into action with practiced efficiency. Surveyors mark boundaries, supply trains are dispatched, and the infrastructure for new settlements is laid out before the dust settles.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>2500</timeTillTrigger>
+    <!-- Brief announcement router; hands off (carry-over off) to an untargeted follow-up that folds
+         the faction-only founding-cost discount at faction scope. See landRush_1a. -->
+    <settlementsCarryOver>false</settlementsCarryOver>
+    <eventFollows>true</eventFollows>
+    <followingEvent>empireEvents_landRush_claim_discount</followingEvent>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_landRush_claim_discount</defName>
+    <label>Territory Claimed</label>
+    <desc>Your expansion apparatus has laid the groundwork for rapid settlement. Founding new settlements is markedly cheaper while the infrastructure holds.</desc>
     <category>EC_Economy</category>
     <timeTillTrigger>600000</timeTillTrigger>
     <statModifiers>
