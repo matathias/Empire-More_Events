@@ -15,9 +15,11 @@ namespace FactionColonies.Events
     public class EventConditionChecker : WorldComponent
     {
         private const int CheckInterval = GenDate.TicksPerDay;
-        private const int CooldownTicks = 30 * GenDate.TicksPerDay; // 30 days
-        private const int GoldenAgeSustainTicks = 5 * GenDate.TicksPerDay; // 5 days
-        private const float TributeProximityTiles = 50f;
+        // internal so the pure-predicate tests can assert against the real thresholds.
+        internal const int CooldownTicks = 30 * GenDate.TicksPerDay; // 30 days
+        internal const int GoldenAgeSustainTicks = 5 * GenDate.TicksPerDay; // 5 days
+        internal const float TributeProximityTiles = 50f;
+        internal const int GrowingPainsSettlementThreshold = 6;
 
         // Cooldown tracking (last tick each event was generated)
         private int lastGoldenAgeTick = -CooldownTicks;
@@ -51,16 +53,14 @@ namespace FactionColonies.Events
 
         private void CheckGoldenAge(FactionFC faction, int now)
         {
-            if (now - lastGoldenAgeTick < CooldownTicks) return;
+            if (!CooldownElapsed(now, lastGoldenAgeTick, CooldownTicks)) return;
 
             // Not in first year
             int elapsed = now - faction.FoundingTick;
             if (elapsed < GenDate.TicksPerYear) return;
 
-            bool qualifies = faction.averageHappiness > 90
-                && faction.averageLoyalty > 90
-                && faction.averageUnrest < 10
-                && faction.averageProsperity > 80;
+            bool qualifies = GoldenAgeConditionsMet(faction.averageHappiness, faction.averageLoyalty,
+                faction.averageUnrest, faction.averageProsperity);
 
             if (!qualifies)
             {
@@ -74,10 +74,10 @@ namespace FactionColonies.Events
                 return;
             }
 
-            if (now - goldenAgeQualifyingSince < GoldenAgeSustainTicks) return;
+            if (!SustainSatisfied(now, goldenAgeQualifyingSince, GoldenAgeSustainTicks)) return;
 
             FCEventDef def = MoreEventsDefOf.empireEvents_goldenAge;
-            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName)) return;
+            if (def is null || !IsEligible(def, faction.Events) || FCSettings.IsEventDisabled(def.defName)) return;
 
             TryFireEvent(def, faction);
             lastGoldenAgeTick = now;
@@ -86,11 +86,11 @@ namespace FactionColonies.Events
 
         private void CheckGrowingPains(FactionFC faction, int now)
         {
-            if (now - lastGrowingPainsTick < CooldownTicks) return;
-            if (faction.settlements.Count <= 6) return;
+            if (!CooldownElapsed(now, lastGrowingPainsTick, CooldownTicks)) return;
+            if (!GrowingPainsThresholdMet(faction.settlements.Count)) return;
 
             FCEventDef def = MoreEventsDefOf.empireEvents_growingPains_0;
-            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName) || BlockedByOptionsSetting(def)) return;
+            if (def is null || !IsEligible(def, faction.Events) || FCSettings.IsEventDisabled(def.defName) || BlockedByOptionsSetting(def)) return;
 
             TryFireEvent(def, faction);
             lastGrowingPainsTick = now;
@@ -98,7 +98,7 @@ namespace FactionColonies.Events
 
         private void CheckTributeDemand(FactionFC faction, int now)
         {
-            if (now - lastTributeTick < CooldownTicks) return;
+            if (!CooldownElapsed(now, lastTributeTick, CooldownTicks)) return;
 
             // Check if any hostile faction has a settlement within proximity of any player settlement
             Faction empireFaction = FindFC.EmpireFaction;
@@ -118,7 +118,7 @@ namespace FactionColonies.Events
                 foreach (Settlement hostile in hostileSettlements)
                 {
                     float dist = Find.WorldGrid.ApproxDistanceInTiles(playerSettlement.Tile, hostile.Tile);
-                    if (dist <= TributeProximityTiles)
+                    if (WithinTributeProximity(dist, TributeProximityTiles))
                     {
                         hasNearbyHostile = true;
                         break;
@@ -130,18 +130,41 @@ namespace FactionColonies.Events
             if (!hasNearbyHostile) return;
 
             FCEventDef def = MoreEventsDefOf.empireEvents_tribute_0;
-            if (def is null || !IsEligible(def, faction) || FCSettings.IsEventDisabled(def.defName) || BlockedByOptionsSetting(def)) return;
+            if (def is null || !IsEligible(def, faction.Events) || FCSettings.IsEventDisabled(def.defName) || BlockedByOptionsSetting(def)) return;
 
             TryFireEvent(def, faction);
             lastTributeTick = now;
         }
 
+        /* Pure decision predicates, extracted so the eligibility/threshold/timing logic can be
+         * asserted directly with literals (the Check* methods above are stateful and side-effecting). */
+
+        /// <summary>All four Golden Age stat thresholds are met (high happiness/loyalty/prosperity, low unrest).</summary>
+        internal static bool GoldenAgeConditionsMet(double happiness, double loyalty, double unrest, double prosperity) =>
+            happiness > 90 && loyalty > 90 && unrest < 10 && prosperity > 80;
+
+        /// <summary>The cooldown window since <paramref name="lastTick"/> has fully elapsed.</summary>
+        internal static bool CooldownElapsed(int now, int lastTick, int cooldownTicks) =>
+            now - lastTick >= cooldownTicks;
+
+        /// <summary>Conditions have been continuously satisfied since <paramref name="qualifyingSince"/> for the sustain window.</summary>
+        internal static bool SustainSatisfied(int now, int qualifyingSince, int sustainTicks) =>
+            qualifyingSince >= 0 && now - qualifyingSince >= sustainTicks;
+
+        /// <summary>Settlement count has crossed the Growing Pains threshold.</summary>
+        internal static bool GrowingPainsThresholdMet(int settlementCount) =>
+            settlementCount > GrowingPainsSettlementThreshold;
+
+        /// <summary>A hostile settlement at <paramref name="distanceTiles"/> is close enough to demand tribute.</summary>
+        internal static bool WithinTributeProximity(float distanceTiles, float maxTiles) =>
+            distanceTiles <= maxTiles;
+
         /// <summary>
         /// Checks that no active event conflicts with this def (incompatible events or duplicate).
         /// </summary>
-        private bool IsEligible(FCEventDef def, FactionFC faction)
+        internal static bool IsEligible(FCEventDef def, IEnumerable<FCEvent> activeEvents)
         {
-            foreach (FCEvent evt in faction.Events)
+            foreach (FCEvent evt in activeEvents)
             {
                 if (evt.def is null) continue;
                 if (evt.def == def) return false;
@@ -163,7 +186,7 @@ namespace FactionColonies.Events
         /// Mirrors the base random pipeline's "disable events with options" filter for our
         /// condition-triggered events, which would otherwise open their option windows regardless.
         /// </summary>
-        private static bool BlockedByOptionsSetting(FCEventDef def) =>
+        internal static bool BlockedByOptionsSetting(FCEventDef def) =>
             FCSettings.disableEventsWithOptions
             && FactionCache.EventDefNamesWithOptionsInChain.Contains(def.defName);
 

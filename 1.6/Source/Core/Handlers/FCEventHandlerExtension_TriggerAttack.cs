@@ -49,8 +49,7 @@ namespace FactionColonies.Events
                 return true;
             }
 
-            int requested = Math.Max(1, attackCount.RandomInRange);
-            int actual = Math.Min(requested, candidates.Count);
+            int actual = ResolveAttackCount(attackCount.RandomInRange, candidates.Count);
             List<WorldSettlementFC> targets = candidates.InRandomOrder().Take(actual).ToList();
 
             int launched = 0;
@@ -64,5 +63,12 @@ namespace FactionColonies.Events
             LogEE.Message("TriggerAttack: Launched " + launched + "/" + targets.Count + " attack(s) by " + enemy.Name + ".");
             return true;
         }
+
+        /// <summary>
+        /// Clamps a rolled attack count to at least one, then down to the number of available
+        /// target settlements. Extracted so the clamp is testable without the world-dependent roll.
+        /// </summary>
+        internal static int ResolveAttackCount(int requestedRandom, int candidateCount) =>
+            Math.Min(Math.Max(1, requestedRandom), candidateCount);
     }
 }
