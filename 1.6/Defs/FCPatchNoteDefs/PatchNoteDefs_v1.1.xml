@@ -13,4 +13,23 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_1_1_1</defName>
+		<label>Various Fixes</label>
+		<description>Various fixes and minor changes.</description>
+		<releaseDate>2026-07-13</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Bugfix: one of the options for the Archaeological Discovery event had swapped outcomes</li>
+		<li>Bugfix: the production bonus from the immigrant event wouldn&apos;t survive a save/load cycle</li>
+		<li>Land Rush and Power Surplus have been slightly altered to work around the faction-scope restriction of some of their stat bonuses</li>
+		<li>Bugfix: certain events wouldn&apos;t respect the &quot;disable events with options&quot; mod setting</li>
+		<li>Golden Age can be disabled in the mod settings</li>
+		<li>Add mod version to the mod settings</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
