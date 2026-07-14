@@ -19,6 +19,10 @@ namespace FactionColonies.Events
         {
             Listing_Standard ls = new Listing_Standard();
             ls.Begin(inRect);
+
+            ls.Label("EE_ModVersion".Translate(EmpireEventsMod.GetModVersion()));
+            ls.Gap(10f);
+
             ls.CheckboxLabeled("EE_SettingsDebugLogging".Translate(), ref printDebug);
 
             ls.Gap(12f);
@@ -46,6 +50,13 @@ namespace FactionColonies.Events
             {
                 LogEE.MessageForce($"v{modVersion}");
             }
+        }
+
+        public static string GetModVersion()
+        {
+            var mod = LoadedModManager.GetMod<EmpireEventsMod>();
+            string version = mod?.Content?.ModMetaData?.ModVersion;
+            return version.NullOrEmpty() ? "Unknown" : version;
         }
 
         public override string SettingsCategory() => "EE_SettingsCategory".Translate();

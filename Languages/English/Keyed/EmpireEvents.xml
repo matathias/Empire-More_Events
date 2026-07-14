@@ -4,6 +4,7 @@
 	<!-- Settings -->
 	<EE_SettingsDebugLogging>Enable debug logging</EE_SettingsDebugLogging>
 	<EE_SettingsCategory>Empire: More Events</EE_SettingsCategory>
+	<EE_ModVersion>More Events Version: {0}</EE_ModVersion>
 
 	<!-- Resource Picker Window -->
 	<EE_ResourcePickerDesc>Choose which resource these skilled workers will specialize in.</EE_ResourcePickerDesc>
