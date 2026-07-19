@@ -110,7 +110,7 @@
     <permanentStatModifiers>
       <li>
         <stat>workerBaseCost</stat>
-        <value>5</value>
+        <value>1</value>
       </li>
     </permanentStatModifiers>
   </FactionColonies.FCEventDef>
@@ -152,7 +152,7 @@
     <permanentStatModifiers>
       <li>
         <stat>workerBaseCost</stat>
-        <value>10</value>
+        <value>2</value>
       </li>
       <li>
         <stat>happinessGainedBase</stat>
@@ -204,7 +204,7 @@
     <permanentStatModifiers>
       <li>
         <stat>workerBaseCost</stat>
-        <value>5</value>
+        <value>1</value>
       </li>
     </permanentStatModifiers>
   </FactionColonies.FCEventDef>

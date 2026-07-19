@@ -32,4 +32,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="EVPatchBase">
+		<defName>EV_1_1_2</defName>
+		<label>Daily Cadence Update</label>
+		<description>Updates the Labor Dispute event to actually respect the Daily Cadence rework in Empire Refactored.</description>
+		<releaseDate>2026-07-18</releaseDate>
+		<patchNoteType>Hotfix</patchNoteType>
+		<patchNoteLines>
+		<li>Divide worker base cost values by 5 in Labor Dispute to respect the Daily Cadence update</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
