@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!-- Add the ImmigrantBoost comp to surface settlements so a Skilled Immigrants resource
+         boost survives save/reload (it scribes the chosen resource and reapplies the modifier
+         on load via ISettlementPostLoadInit). -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FactionColonies.WorldSettlementDef[defName="WorldSettlementDef_Surface"]/comps</xpath>
+        <value>
+            <li Class="FactionColonies.Events.WorldObjectCompProperties_ImmigrantBoost" />
+        </value>
+    </Operation>
+
+    <!-- Immigrant events can target any settlement class, including orbital. Only the parent
+         orbital def declares <comps>, and patches apply before def inheritance resolves, so this
+         single add reaches all four orbital defs. Odyssey-gated so it is a clean no-op otherwise. -->
+    <Operation Class="PatchOperationConditional" MayRequire="Ludeon.RimWorld.Odyssey">
+        <xpath>/Defs/FactionColonies.WorldSettlementDef[defName="WorldSettlementDef_Orbital"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/FactionColonies.WorldSettlementDef[defName="WorldSettlementDef_Orbital"]/comps</xpath>
+            <value>
+                <li Class="FactionColonies.Events.WorldObjectCompProperties_ImmigrantBoost" />
+            </value>
+        </match>
+    </Operation>
+
+</Patch>

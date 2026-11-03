@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Reputation spreads -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_safeHaven_0</defName>
+		<label>Safe Haven Reputation</label>
+		<desc>Word has spread across the region that your settlements are safe, well-governed places to live. Families, workers, and entrepreneurs are drawn to the prospect of a stable life under your protection. How do you respond to this influx of interest?</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_safeHaven_opt1</li>
+			<li>empireEvents_safeHaven_opt2</li>
+			<li>empireEvents_safeHaven_opt3</li>
+			<li>empireEvents_safeHaven_opt_pacifist</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<minDaysSinceFounded>45</minDaysSinceFounded>
+		<minimumHappiness>80</minimumHappiness>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_safeHaven_1a</li>
+			<li>empireEvents_safeHaven_1b</li>
+			<li>empireEvents_safeHaven_1c</li>
+			<li>empireEvents_safeHaven_sanctuary</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Option A: Welcome all -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_safeHaven_opt1</defName>
+		<label>Open the gates. Everyone deserves safety. Growth is strength.</label>
+		<parentEvent>empireEvents_safeHaven_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_safeHaven_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option B: Low profile -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_safeHaven_opt2</defName>
+		<label>We appreciate the sentiment, but let's not draw too much attention.</label>
+		<parentEvent>empireEvents_safeHaven_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_safeHaven_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option C: Selective -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_safeHaven_opt3</defName>
+		<label>Screen applicants carefully. We want skilled, productive citizens.</label>
+		<parentEvent>empireEvents_safeHaven_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_safeHaven_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Option D: Pacifist — formal sanctuary -->
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_safeHaven_opt_pacifist</defName>
+		<label>Declare a formal sanctuary. We protect all who seek peace.</label>
+		<parentEvent>empireEvents_safeHaven_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_safeHaven_sanctuary</successEvent>
+		<requiredPolicies>
+			<li>pacifist</li>
+		</requiredPolicies>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Outcome A: Welcome — big workers but threat increase -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_safeHaven_1a</defName>
+		<label>Open Arms</label>
+		<desc>Your settlements throw open their gates. Newcomers flood in — families, tradespeople, farmers. The population swells significantly, though your growing visibility also draws the attention of less savory elements.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome B: Low profile — temporary morale boost -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_safeHaven_1b</defName>
+		<label>Quiet Pride</label>
+		<desc>You quietly discourage mass immigration while appreciating the compliment. Your existing citizens take pride in the reputation, and morale improves. Sometimes the best reward is knowing you've built something good.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome C: Selective — smaller but skilled -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_safeHaven_1c</defName>
+		<label>Selective Immigration</label>
+		<desc>Your screening process identifies the most skilled and productive applicants. The newcomers integrate smoothly, bringing expertise that immediately improves the settlement's output. Quality over quantity.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>1</value></li>
+			<li><stat>workerProductionBase</stat><value>0.1</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<!-- Outcome D: Sanctuary — pacifist balanced welcoming -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_safeHaven_sanctuary</defName>
+		<label>Formal Sanctuary</label>
+		<desc>Your settlements are formally declared sanctuaries — places where anyone fleeing violence or hardship is guaranteed shelter and safety. The declaration resonates across the region, drawing a steady stream of grateful newcomers.</desc>
+		<category>EC_Social</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>workerBaseMax</stat><value>2</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.25</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>

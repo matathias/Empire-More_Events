@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_bountifulTradeRoutes</defName>
+    <label>Lucrative Trade Routes</label>
+    <desc>Trade routes across your {FACTION_TITLE}'s territory are thriving. Between low bandit activity and excellent road conditions, merchant caravans are reporting record profits.</desc>
+    <category>EC_Economy</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>600000</timeTillTriggerMax>
+    <cooldownTicks>1800000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>10</weight>
+    <minSettlements>3</minSettlements>
+    <targetAllSettlements>true</targetAllSettlements>
+    <incompatibleEvents>
+      <li>empireEvents_bountifulTradeRoutes</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>titheValueMultiplier</stat>
+        <value>1.1</value>
+      </li>
+      <li>
+        <stat>taxBonusFlat</stat>
+        <value>3</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+</Defs>

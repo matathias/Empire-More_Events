@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_powerFailure_0</defName>
+    <label>Power Grid Failure</label>
+    <desc>The power grid serving your settlements has suffered a catastrophic failure. Generators have overloaded, power lines are down, and essential systems are offline. How do you restore power?</desc>
+    <category>EC_Settlement</category>
+    <isNegative>true</isNegative>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>600000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>15</weight>
+    <minDaysSinceFounded>10</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
+    <requiredResource>RTD_Power</requiredResource>
+    <minTechLevel>Industrial</minTechLevel>
+    <incompatibleEvents>
+      <li>empireEvents_powerFailure_emergency</li>
+      <li>empireEvents_powerFailure_ration</li>
+      <li>empireEvents_powerFailure_industrious</li>
+      <li>empireEvents_powerFailure_technocratic</li>
+    </incompatibleEvents>
+    <options>
+      <li>empireEvents_powerFailure_opt1</li>
+      <li>empireEvents_powerFailure_opt3</li>
+      <li>empireEvents_powerFailure_opt4</li>
+      <li>empireEvents_powerFailure_opt5</li>
+    </options>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_powerFailure_opt1</defName>
+    <label>Rush emergency repair crews to fix the grid.</label>
+    <parentEvent>empireEvents_powerFailure_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1000</silverCost>
+    <successEvent>empireEvents_powerFailure_emergency</successEvent>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_powerFailure_opt3</defName>
+    <label>Ration power usage until the grid recovers.</label>
+    <parentEvent>empireEvents_powerFailure_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>empireEvents_powerFailure_ration</successEvent>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_powerFailure_opt4</defName>
+    <label>Our work crews will have this fixed in no time.</label>
+    <parentEvent>empireEvents_powerFailure_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>500</silverCost>
+    <successEvent>empireEvents_powerFailure_industrious</successEvent>
+    <requiredPolicies>
+      <li>industrious</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCOptionDef>
+    <defName>empireEvents_powerFailure_opt5</defName>
+    <label>Implement redundant power systems.</label>
+    <parentEvent>empireEvents_powerFailure_0</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>500</silverCost>
+    <successEvent>empireEvents_powerFailure_technocratic</successEvent>
+    <requiredPolicies>
+      <li>technocratic</li>
+    </requiredPolicies>
+  </FactionColonies.FCOptionDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_powerFailure_emergency</defName>
+    <label>Emergency Repairs</label>
+    <desc>Repair crews work around the clock to restore the power grid. The fix is expensive, but fast; systems come back online quickly.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>60000</timeTillTrigger>
+    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_powerFailure_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Power_ProductionAdditive</stat>
+        <value>-2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_powerFailure_ration</defName>
+    <label>Power Rationed</label>
+    <desc>Power usage is strictly rationed across affected settlements. The reduced supply impacts both power and general production.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>180000</timeTillTrigger>
+    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_powerFailure_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Power_ProductionAdditive</stat>
+        <value>-1</value>
+      </li>
+      <li>
+        <stat>workerProductionMultiplier</stat>
+        <value>0.8</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_powerFailure_industrious</defName>
+    <label>Rapid Repairs</label>
+    <desc>Your industrious work crews deploy immediately, diagnosing and fixing the power grid with remarkable efficiency. The repair is swift and thorough.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>60000</timeTillTrigger>
+    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_powerFailure_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Power_ProductionAdditive</stat>
+        <value>-2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+  <FactionColonies.FCEventDef>
+    <defName>empireEvents_powerFailure_technocratic</defName>
+    <label>Redundant Systems</label>
+    <desc>Your engineers implement redundant power distribution systems. The failure is mitigated through clever engineering.</desc>
+    <category>EC_Settlement</category>
+    <timeTillTrigger>120000</timeTillTrigger>
+    <rangeSettlementsAffected>1~4</rangeSettlementsAffected>
+    <incompatibleEvents>
+      <li>empireEvents_powerFailure_0</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Power_ProductionAdditive</stat>
+        <value>-1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
+
+</Defs>

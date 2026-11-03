@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stage 0: Thaw occurs -->
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_permafrostThaw_0</defName>
+		<label>Permafrost Thaw</label>
+		<desc>Warming temperatures have caused the permafrost beneath your settlement to thaw, exposing ground that hasn't seen the sun in centuries. The newly accessible earth could be farmed or mined — a rare opportunity in these frozen lands.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<options>
+			<li>empireEvents_permafrostThaw_opt1</li>
+			<li>empireEvents_permafrostThaw_opt2</li>
+			<li>empireEvents_permafrostThaw_opt3</li>
+		</options>
+		<activateAtStart>true</activateAtStart>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>1800000</cooldownTicks>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<applicableBiomes>
+			<li>Tundra</li>
+			<li>BorealForest</li>
+			<li>IceSheet</li>
+		</applicableBiomes>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<incompatibleEvents>
+			<li>empireEvents_permafrostThaw_1a</li>
+			<li>empireEvents_permafrostThaw_1b</li>
+			<li>empireEvents_permafrostThaw_1c</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_permafrostThaw_opt1</defName>
+		<label>Clear the thawed ground for farming. Fresh food is precious here.</label>
+		<parentEvent>empireEvents_permafrostThaw_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_permafrostThaw_1a</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_permafrostThaw_opt2</defName>
+		<label>Dig into the exposed deposits. There could be ore down there.</label>
+		<parentEvent>empireEvents_permafrostThaw_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_permafrostThaw_1b</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>empireEvents_permafrostThaw_opt3</defName>
+		<label>Use the thawed area cautiously — some for farming, some for mining.</label>
+		<parentEvent>empireEvents_permafrostThaw_0</parentEvent>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<successEvent>empireEvents_permafrostThaw_1c</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_permafrostThaw_1a</defName>
+		<label>Thaw Farmland</label>
+		<desc>Workers clear the newly exposed ground and plant hardy crops. In this frozen landscape, any arable land is precious. The settlement's food production is permanently improved.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_permafrostThaw_1b</defName>
+		<label>Thaw Mining</label>
+		<desc>The thawed ground reveals mineral deposits previously locked beneath frozen earth. Miners eagerly exploit the new veins, permanently improving the settlement's extraction capabilities.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.75</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>empireEvents_permafrostThaw_1c</defName>
+		<label>Cautious Expansion</label>
+		<desc>You divide the thawed land between farming and mining operations. Neither reaches its full potential, but the balanced approach improves both food and mineral output permanently.</desc>
+		<category>EC_Economy</category>
+		<timeTillTrigger>1500</timeTillTrigger>
+		<permanentStatModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.35</value></li>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>0.35</value></li>
+		</permanentStatModifiers>
+		<settlementsCarryOver>true</settlementsCarryOver>
+	</FactionColonies.FCEventDef>
+
+</Defs>
