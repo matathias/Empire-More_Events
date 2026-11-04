@@ -199,6 +199,6 @@ public class ResourcePickerWindow : Window
             "EE_ImmigrantsAssignedDesc".Translate(resDef.LabelCap, settlement.Name),
             LetterDefOf.PositiveEvent);
 
-        LogEE.Message("ResourcePickerWindow: Boosted " + resDef.defName + " at " + settlement.Name);
+        LogEE.Message($"ResourcePickerWindow: Boosted {resDef.defName} at {settlement.Name}");
     }
 }

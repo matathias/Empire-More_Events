@@ -193,7 +193,7 @@ public class EventConditionChecker : WorldComponent
         // BuildEventLetterBody resolves {FACTION} tokens (.Format()) and appends the stat-modifier
         // summary and affected-settlements list — building the body by hand left raw tokens showing.
         Find.LetterStack.ReceiveLetter(def.label, FCEventMaker.BuildEventLetterBody(evt), LetterDefOf.NeutralEvent);
-        LogEE.Message("EventConditionChecker fired: " + def.defName);
+        LogEE.Message($"EventConditionChecker fired: {def.defName}");
     }
 
     public override void ExposeData()

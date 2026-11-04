@@ -54,7 +54,7 @@ public class FCEventHandlerExtension_TriggerAttack : FCEventHandlerExtension
                 launched++;
         }
 
-        LogEE.Message("TriggerAttack: Launched " + launched + "/" + targets.Count + " attack(s) by " + enemy.Name + ".");
+        LogEE.Message($"TriggerAttack: Launched {launched}/{targets.Count} attack(s) by {enemy.Name}.");
         return true;
     }
 
