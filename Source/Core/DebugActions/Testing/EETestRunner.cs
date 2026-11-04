@@ -68,7 +68,7 @@ public static class EETestRunner
     public static void RunTests(string category, bool destructive = false)
     {
         var tests = DiscoverTests().Where(t => t.attr.Destructive == destructive);
-        if (category != null)
+        if (category is not null)
             tests = tests.Where(t => t.attr.Category == category);
         var list = tests.ToList();
 
@@ -106,7 +106,7 @@ public static class EETestRunner
             }
         }
 
-        string label = (category != null ? $"[{category}]" : "[All]")
+        string label = (category is not null ? $"[{category}]" : "[All]")
             + (destructive ? " DESTRUCTIVE" : "");
         LogEE.MessageForce($"Test results {label}: {passed} passed, {failed} failed, {errors} errors, {skipped} skipped (of {list.Count} total)");
         if (failDetails.Count > 0)
@@ -135,7 +135,7 @@ public static class EETestRunner
             .GetTypes()
             .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.Static))
             .Select(m => (method: m, attr: m.GetCustomAttribute<EmpireTestAttribute>()))
-            .Where(pair => pair.attr != null)
+            .Where(pair => pair.attr is not null)
             .OrderBy(pair => pair.attr.Category)
             .ThenBy(pair => pair.method.Name)
             .ToList();

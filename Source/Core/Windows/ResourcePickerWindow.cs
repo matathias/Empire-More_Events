@@ -163,10 +163,10 @@ public class ResourcePickerWindow : Window
     private void ApplyResourceBoost(ResourceTypeDef resDef)
     {
         FactionFC faction = FindFC.FactionComp;
-        if (faction == null) return;
+        if (faction is null) return;
 
         FCEventDef boostDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_immigrants_production_boost");
-        if (boostDef == null)
+        if (boostDef is null)
         {
             LogEE.Error("ResourcePickerWindow: Could not find empireEvents_immigrants_production_boost def.");
             return;
@@ -174,7 +174,7 @@ public class ResourcePickerWindow : Window
 
         List<WorldSettlementFC> targets = new List<WorldSettlementFC> { settlement };
         FCEvent boostEvt = FCEventMaker.MakeRandomEvent(boostDef, targets);
-        if (boostEvt == null)
+        if (boostEvt is null)
         {
             LogEE.Warning("ResourcePickerWindow: Failed to create boost event.");
             return;
@@ -185,7 +185,7 @@ public class ResourcePickerWindow : Window
         // Record the choice on the settlement's comp, which applies the +1 productionAdditive
         // modifier and reapplies it on load (the transient statModifiers list is not serialized).
         WorldObjectComp_ImmigrantBoost boostComp = settlement.GetComponent<WorldObjectComp_ImmigrantBoost>();
-        if (boostComp is object)
+        if (boostComp is not null)
         {
             boostComp.SetBoost(resDef);
         }

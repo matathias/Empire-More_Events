@@ -23,7 +23,7 @@ public class FCEventHandlerExtension_TriggerAttack : FCEventHandlerExtension
         }
 
         Faction enemy = ThreatScalingUtil.PickWeightedEnemyFaction(faction);
-        if (enemy == null)
+        if (enemy is null)
         {
             LogEE.Warning("TriggerAttack: No hostile factions available.");
             return true;
@@ -32,8 +32,8 @@ public class FCEventHandlerExtension_TriggerAttack : FCEventHandlerExtension
         MilitaryDeploymentUtil.GetTechLevelBaseline(enemy.def.techLevel, out double level, out double efficiency);
 
         List<WorldSettlementFC> candidates;
-        if (evt.settlementTraitLocations != null && evt.settlementTraitLocations.Any())
-            candidates = evt.settlementTraitLocations.Where(s => s != null).Distinct().ToList();
+        if (evt.settlementTraitLocations is not null && evt.settlementTraitLocations.Any())
+            candidates = evt.settlementTraitLocations.Where(s => s is not null).Distinct().ToList();
         else
             candidates = faction.settlements.ToList();
 

@@ -18,12 +18,12 @@ public class FCEventHandlerExtension_ResourcePicker : FCEventHandlerExtension
     {
         // Get the affected settlement
         WorldSettlementFC settlement = null;
-        if (evt.settlementTraitLocations != null && evt.settlementTraitLocations.Any())
+        if (evt.settlementTraitLocations is not null && evt.settlementTraitLocations.Any())
         {
             settlement = evt.settlementTraitLocations.First();
         }
 
-        if (settlement == null)
+        if (settlement is null)
         {
             LogEE.Warning("ResourcePicker: No settlement on event.");
             return;

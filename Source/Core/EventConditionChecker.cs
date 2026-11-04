@@ -100,7 +100,7 @@ public class EventConditionChecker : WorldComponent
         bool hasNearbyHostile = false;
         // Exclude the Empire faction's own settlements: they share empireFaction, so asking for
         // its relation with itself throws "Tried to get relation between faction and itself".
-        List<Settlement> hostileSettlements = Find.WorldObjects.Settlements.Where(s => s.Faction is object &&
+        List<Settlement> hostileSettlements = Find.WorldObjects.Settlements.Where(s => s.Faction is not null &&
                                                                                        s.Faction != empireFaction &&
                                                                                        !s.Faction.IsPlayer &&
                                                                                        !s.Faction.defeated &&

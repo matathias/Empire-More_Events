@@ -78,7 +78,7 @@ public class WorldObjectComp_ImmigrantBoost : WorldObjectComp, ISettlementPostLo
 
     public void PostSettlementLoadInit(WorldSettlementFC settlement)
     {
-        if (boostedResource is object)
+        if (boostedResource is not null)
             ApplyModifier();
     }
 }

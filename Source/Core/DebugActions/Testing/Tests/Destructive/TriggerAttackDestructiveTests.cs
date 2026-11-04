@@ -31,7 +31,7 @@ public static class TriggerAttackDestructiveTests
         List<MilitaryOperation> newOps = EEDestructiveTestUtil.NewOpsSince(before);
         // A settlement with no MilitaryComp legitimately rejects the attack (launched=0); only
         // assert an op was created when the target could actually be attacked.
-        if (target.MilitaryComp is object)
+        if (target.MilitaryComp is not null)
             TestAssert.IsTrue(newOps.Count >= 1, "expected at least one defensive op to be registered");
 
         EEDestructiveTestUtil.SweepOps(newOps);

@@ -14,7 +14,7 @@ public static class EventDefIntegrityTests
     private static List<FCEventDef> SubmodEvents()
     {
         return DefDatabase<FCEventDef>.AllDefsListForReading
-            .Where(d => d.defName != null && d.defName.StartsWith(DefNamePrefix))
+            .Where(d => d.defName is not null && d.defName.StartsWith(DefNamePrefix))
             .ToList();
     }
 
