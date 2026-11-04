@@ -15,7 +15,7 @@ public class EmpireEventsSettings : ModSettings
 
     public void DoWindowContents(Rect inRect)
     {
-        Listing_Standard ls = new Listing_Standard();
+        Listing_Standard ls = new();
         ls.Begin(inRect);
 
         ls.Label("EE_ModVersion".Translate(EmpireEventsMod.GetModVersion()));

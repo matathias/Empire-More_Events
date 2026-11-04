@@ -12,7 +12,7 @@ namespace FactionColonies.Events;
 /// </summary>
 public class FCEventHandlerExtension_TriggerAttack : FCEventHandlerExtension
 {
-    public IntRange attackCount = new IntRange(1, 1);
+    public IntRange attackCount = new(1, 1);
 
     public override bool ResolveEvent(FCEvent evt, FactionFC faction)
     {
@@ -49,7 +49,7 @@ public class FCEventHandlerExtension_TriggerAttack : FCEventHandlerExtension
         int launched = 0;
         foreach (WorldSettlementFC target in targets)
         {
-            MilitaryForce force = new MilitaryForce(level, efficiency, null, enemy);
+            MilitaryForce force = new(level, efficiency, null, enemy);
             if (MilitaryOperationsUtil.AttackPlayerSettlement(force, target, enemy))
                 launched++;
         }

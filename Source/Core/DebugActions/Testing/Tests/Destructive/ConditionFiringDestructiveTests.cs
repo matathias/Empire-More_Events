@@ -11,11 +11,11 @@ namespace FactionColonies.Events;
 public static class ConditionFiringDestructiveTests
 {
     private static readonly System.Func<FCEventDef>[] ConditionDefs =
-    {
+    [
         () => MoreEventsDefOf.empireEvents_goldenAge,
         () => MoreEventsDefOf.empireEvents_growingPains_0,
         () => MoreEventsDefOf.empireEvents_tribute_0,
-    };
+    ];
 
     [EmpireDestructiveTest("Events.Destructive.Conditions")]
     public static void ConditionEvents_MakeAndRenderLetter_NoRawTokens()

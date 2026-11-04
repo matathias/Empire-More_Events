@@ -12,7 +12,7 @@ public static class EventDebugActions
     [DebugAction("Empire - More Events", "Trigger Non-Random Event", allowedGameStates = AllowedGameStates.Playing)]
     private static void TriggerNonRandomEvent()
     {
-        List<DebugMenuOption> list = new List<DebugMenuOption>();
+        List<DebugMenuOption> list = [];
         foreach (FCEventDef def in DefDatabase<FCEventDef>.AllDefsListForReading
                      .Where(d => d.defName.StartsWith("empireEvents_") && !d.isRandomEvent)
                      .OrderBy(d => d.label))

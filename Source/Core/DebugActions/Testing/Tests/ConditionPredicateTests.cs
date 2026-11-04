@@ -135,7 +135,7 @@ public static class ConditionPredicateTests
     {
         FCEventDef candidate = EETestHelper.MakeEventDef("ee_test_a");
         FCEventDef active = EETestHelper.MakeEventDef("ee_test_b",
-            new List<FCEventDef> { candidate });
+            [candidate]);
         TestAssert.IsFalse(EventConditionChecker.IsEligible(candidate,
             new List<FCEvent> { EETestHelper.MakeEvent(active) }));
     }
@@ -145,7 +145,7 @@ public static class ConditionPredicateTests
     {
         FCEventDef active = EETestHelper.MakeEventDef("ee_test_b");
         FCEventDef candidate = EETestHelper.MakeEventDef("ee_test_a",
-            new List<FCEventDef> { active });
+            [active]);
         TestAssert.IsFalse(EventConditionChecker.IsEligible(candidate,
             new List<FCEvent> { EETestHelper.MakeEvent(active) }));
     }

@@ -19,7 +19,7 @@ public static class TriggerAttackDestructiveTests
 
         var evt = new FCEvent
         {
-            settlementTraitLocations = new List<WorldSettlementFC> { target }
+            settlementTraitLocations = [target]
         };
         var handler = new FCEventHandlerExtension_TriggerAttack();
 

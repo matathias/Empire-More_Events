@@ -24,7 +24,7 @@ public class ResourcePickerWindow : Window
     private float cachedDescHeight;
     private float cachedSettlementHeight;
 
-    public override Vector2 InitialSize => new Vector2(WindowWidth, 0f);
+    public override Vector2 InitialSize => new(WindowWidth, 0f);
 
     public ResourcePickerWindow(WorldSettlementFC settlement, FCEvent sourceEvt)
     {
@@ -45,7 +45,7 @@ public class ResourcePickerWindow : Window
         this.categoryColor = AccentUtil.GetEventCategoryColor(sourceEvt);
 
         // Build filtered resource list
-        this.producedResources = new List<ResourceFC>();
+        this.producedResources = [];
         foreach (ResourceFC res in settlement.Resources)
         {
             if (res.assignedWorkers > 0 && !res.def.isPoolResource)
@@ -129,12 +129,12 @@ public class ResourcePickerWindow : Window
         curY += cachedDescHeight + Padding;
 
         // Select Resource button
-        Rect buttonRect = new Rect(inRect.x + Padding, curY, textWidth, ButtonHeight);
+        Rect buttonRect = new(inRect.x + Padding, curY, textWidth, ButtonHeight);
         if (producedResources.Any())
         {
             if (Widgets.ButtonText(buttonRect, "EE_SelectResource".Translate()))
             {
-                List<FloatMenuOption> options = new List<FloatMenuOption>();
+                List<FloatMenuOption> options = [];
                 foreach (ResourceFC res in producedResources)
                 {
                     ResourceTypeDef resDef = res.def;
@@ -172,7 +172,7 @@ public class ResourcePickerWindow : Window
             return;
         }
 
-        List<WorldSettlementFC> targets = new List<WorldSettlementFC> { settlement };
+        List<WorldSettlementFC> targets = [settlement];
         FCEvent boostEvt = FCEventMaker.MakeRandomEvent(boostDef, targets);
         if (boostEvt is null)
         {

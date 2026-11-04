@@ -59,10 +59,10 @@ public class WorldObjectComp_ImmigrantBoost : WorldObjectComp, ISettlementPostLo
         FCStatDef additiveStat = boostedResource.productionAdditiveStat;
         if (additiveStat is null) return;
 
-        List<FCStatModifier> mods = new List<FCStatModifier>
-        {
+        List<FCStatModifier> mods =
+        [
             new FCStatModifier { stat = additiveStat, value = 1 }
-        };
+        ];
         Settlement.AddStatModifiers(mods, SourceId, "EE_ImmigrantsSourceLabel".Translate(boostedResource.LabelCap));
     }
 

@@ -33,7 +33,7 @@ public static class EETestHelper
         return new FCEventDef
         {
             defName = defName,
-            incompatibleEvents = incompatibleEvents ?? new List<FCEventDef>()
+            incompatibleEvents = incompatibleEvents ?? []
         };
     }
 

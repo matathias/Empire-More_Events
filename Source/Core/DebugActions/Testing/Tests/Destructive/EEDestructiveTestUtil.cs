@@ -40,14 +40,14 @@ public static class EEDestructiveTestUtil
         IReadOnlyList<MilitaryOperation> active = FindFC.MilitaryManager?.Active;
         return active is not null
             ? new HashSet<MilitaryOperation>(active)
-            : new HashSet<MilitaryOperation>();
+            : [];
     }
 
     /// <summary>Operations that became active since <paramref name="before"/> was captured.</summary>
     public static List<MilitaryOperation> NewOpsSince(HashSet<MilitaryOperation> before)
     {
         IReadOnlyList<MilitaryOperation> active = FindFC.MilitaryManager?.Active;
-        if (active is null) return new List<MilitaryOperation>();
+        if (active is null) return [];
         return active.Where(op => op is not null && !before.Contains(op)).ToList();
     }
 
