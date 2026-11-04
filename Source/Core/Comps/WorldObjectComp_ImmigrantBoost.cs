@@ -1,8 +1,3 @@
-using System.Collections.Generic;
-using RimWorld;
-using RimWorld.Planet;
-using Verse;
-
 namespace FactionColonies.Events;
 
 public class WorldObjectCompProperties_ImmigrantBoost : WorldObjectCompProperties

@@ -1,6 +1,4 @@
-﻿using RimWorld;
-
-namespace FactionColonies.Events;
+﻿namespace FactionColonies.Events;
 
 [DefOf]
 public static class MoreEventsDefOf
