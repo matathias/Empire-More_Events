@@ -9,7 +9,7 @@ public static class EventDebugActions
      * demand. The base mod's "Make Random Event" only lists isRandomEvent defs, and the "Force
      * Trigger" actions only bump events already queued, so there is otherwise no way to spawn
      * these from scratch for testing. */
-    [DebugAction("Empire - More Events", "Trigger Non-Random Event", allowedGameStates = AllowedGameStates.Playing)]
+    [EmpireDebugAction("Empire - More Events", "Trigger Non-Random Event", allowedGameStates = AllowedGameStates.Playing)]
     private static void TriggerNonRandomEvent()
     {
         List<DebugMenuOption> list = [];
