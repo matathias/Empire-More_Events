@@ -8,11 +8,16 @@ namespace FactionColonies.Events;
 /// </summary>
 public static class EEDestructiveTestUtil
 {
-    /// <summary>First live settlement, or a freshly created transient one (null if neither possible).</summary>
-    public static WorldSettlementFC FirstOrTransient(FactionFC f)
+    /// <summary>
+    /// A live settlement carrying the ImmigrantBoost comp (which this mod patches onto surface
+    /// settlements), creating a transient surface settlement if none has it. Fails the test if the
+    /// new settlement lacks the comp.
+    /// </summary>
+    public static WorldSettlementFC EnsureBoostSettlement(out WorldObjectComp_ImmigrantBoost comp)
     {
-        if (f?.settlements is not null && f.settlements.Count > 0) return f.settlements[0];
-        return DestructiveTestUtil.CreateTransientSettlement();
+        WorldSettlementFC s = DestructiveTestUtil.EnsureSettlement(x => BoostComp(x) is not null);
+        comp = BoostComp(s);
+        return s;
     }
 
     /// <summary>The settlement's ImmigrantBoost comp, or null if the def doesn't carry it.</summary>
@@ -21,11 +26,30 @@ public static class EEDestructiveTestUtil
         return settlement?.GetComponent<WorldObjectComp_ImmigrantBoost>();
     }
 
-    /// <summary>First non-pool resource that carries a production-additive stat (what a boost applies to).</summary>
+    /// <summary>First non-pool resource that carries a production-additive stat (what a boost
+    /// applies to). The base mod ships several, so none is a failure.</summary>
     public static ResourceTypeDef FirstBoostableResource()
     {
-        return DefDatabase<ResourceTypeDef>.AllDefsListForReading
-            .FirstOrDefault(r => r.productionAdditiveStat is not null && !r.isPoolResource);
+        return TestAssert.NotNull(DefDatabase<ResourceTypeDef>.AllDefsListForReading
+                .FirstOrDefault(r => r.productionAdditiveStat is not null && !r.isPoolResource),
+            "No boostable resource (with productionAdditiveStat) is defined");
+    }
+
+    /// <summary>
+    /// Makes sure at least one visible, undefeated faction is hostile to the player (what an
+    /// empire attack needs to pick an attacker). If none is, the first eligible non-player,
+    /// non-empire faction is declared hostile. Fails the test if no faction can be made hostile.
+    /// </summary>
+    public static void EnsureHostileFaction()
+    {
+        bool Eligible(Faction x) => !x.IsPlayer && !x.defeated && !x.Hidden;
+        List<Faction> visible = Find.FactionManager.AllFactionsVisible.Where(Eligible).ToList();
+        if (visible.Any(x => x.HostileTo(Faction.OfPlayer))) return;
+
+        Faction target = TestAssert.NotNull(visible.FirstOrDefault(x => x != FindFC.EmpireFaction),
+            "No visible non-player faction exists to become hostile");
+        target.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Hostile, canSendHostilityLetter: false);
+        TestAssert.IsTrue(target.HostileTo(Faction.OfPlayer), $"Could not make {target.Name} hostile to the player");
     }
 
     /// <summary>Counts settlement modifiers matching the boost's shape (+1 on the given stat).</summary>

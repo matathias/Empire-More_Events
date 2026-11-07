@@ -11,14 +11,8 @@ public static class ImmigrantBoostDestructiveTests
     public static void SetBoost_AppliesSingleModifier_ClearRemovesIt()
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
-        WorldSettlementFC s = EEDestructiveTestUtil.FirstOrTransient(f);
-        if (s is null) TestAssert.Skip("No settlement available");
-
-        WorldObjectComp_ImmigrantBoost comp = EEDestructiveTestUtil.BoostComp(s);
-        if (comp is null) TestAssert.Skip("Settlement has no ImmigrantBoost comp");
-
+        WorldSettlementFC s = EEDestructiveTestUtil.EnsureBoostSettlement(out WorldObjectComp_ImmigrantBoost comp);
         ResourceTypeDef res = EEDestructiveTestUtil.FirstBoostableResource();
-        if (res is null) TestAssert.Skip("No boostable resource (with productionAdditiveStat) available");
         FCStatDef stat = res.productionAdditiveStat;
 
         comp.ClearBoost(); // start from a known-clean state (a prior run may have left a boost)
@@ -39,14 +33,8 @@ public static class ImmigrantBoostDestructiveTests
     public static void PostSettlementLoadInit_ReappliesBoostAfterRebuild()
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
-        WorldSettlementFC s = EEDestructiveTestUtil.FirstOrTransient(f);
-        if (s is null) TestAssert.Skip("No settlement available");
-
-        WorldObjectComp_ImmigrantBoost comp = EEDestructiveTestUtil.BoostComp(s);
-        if (comp is null) TestAssert.Skip("Settlement has no ImmigrantBoost comp");
-
+        WorldSettlementFC s = EEDestructiveTestUtil.EnsureBoostSettlement(out WorldObjectComp_ImmigrantBoost comp);
         ResourceTypeDef res = EEDestructiveTestUtil.FirstBoostableResource();
-        if (res is null) TestAssert.Skip("No boostable resource (with productionAdditiveStat) available");
         FCStatDef stat = res.productionAdditiveStat;
         string sourceId = FCEventHandlerExtension_ResourcePicker.ResourceSourcePrefix + res.defName;
 

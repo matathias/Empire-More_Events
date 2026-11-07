@@ -11,11 +11,11 @@ public static class TriggerAttackDestructiveTests
     public static void ResolveEvent_LaunchesAttack_ThenSweeps()
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
-        WorldSettlementFC target = EEDestructiveTestUtil.FirstOrTransient(f);
-        if (target is null) TestAssert.Skip("No settlement available to target");
+        WorldSettlementFC target = DestructiveTestUtil.EnsureSettlement();
 
-        Faction enemy = ThreatScalingUtil.PickWeightedEnemyFaction(f);
-        if (enemy is null) TestAssert.Skip("No hostile faction available to attack from");
+        EEDestructiveTestUtil.EnsureHostileFaction();
+        TestAssert.NotNull(ThreatScalingUtil.PickWeightedEnemyFaction(f),
+            "PickWeightedEnemyFaction found no attacker despite a hostile faction");
 
         var evt = new FCEvent
         {

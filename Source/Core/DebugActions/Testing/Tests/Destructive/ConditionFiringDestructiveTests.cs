@@ -48,8 +48,8 @@ public static class ConditionFiringDestructiveTests
     public static void WorldComponentTick_DoesNotThrow()
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
-        EventConditionChecker checker = Find.World?.GetComponent<EventConditionChecker>();
-        if (checker is null) TestAssert.Skip("No EventConditionChecker on the world");
+        EventConditionChecker checker = TestAssert.NotNull(Find.World.GetComponent<EventConditionChecker>(),
+            "No EventConditionChecker on the world");
 
         TestAssert.DoesNotThrow(() => checker.WorldComponentTick(), "WorldComponentTick threw");
         DestructiveTestUtil.AssertEmpireInvariants(f, "WorldComponentTick_DoesNotThrow");

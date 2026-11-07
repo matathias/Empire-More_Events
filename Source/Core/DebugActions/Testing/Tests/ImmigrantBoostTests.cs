@@ -26,8 +26,8 @@ public static class ImmigrantBoostTests
     [EmpireTest("Events.Boost")]
     public static void SetBoost_NoParent_DoesNotThrow()
     {
-        ResourceTypeDef res = DefDatabase<ResourceTypeDef>.AllDefsListForReading.FirstOrDefault();
-        if (res is null) TestAssert.Skip("No ResourceTypeDef loaded");
+        ResourceTypeDef res = TestAssert.NotNull(DefDatabase<ResourceTypeDef>.AllDefsListForReading.FirstOrDefault(),
+            "No ResourceTypeDef loaded");
 
         // With no WorldSettlementFC parent, ApplyModifier's Settlement-null guard makes SetBoost
         // store the choice without applying a modifier; ClearBoost then unwinds it. Neither throws.

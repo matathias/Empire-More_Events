@@ -196,10 +196,10 @@ public static class ConditionPredicateTests
     [EmpireTest("Events.Conditions")]
     public static void BlockedByOptions_SettingOn_OptionEventInChain_Blocked()
     {
-        FCEventDef growingPains = MoreEventsDefOf.empireEvents_growingPains_0;
-        if (growingPains is null) TestAssert.Skip("empireEvents_growingPains_0 not loaded");
-        if (!FactionCache.EventDefNamesWithOptionsInChain.Contains(growingPains.defName))
-            TestAssert.Skip("empireEvents_growingPains_0 is not registered as an options-in-chain event");
+        FCEventDef growingPains = TestAssert.NotNull(MoreEventsDefOf.empireEvents_growingPains_0,
+            "empireEvents_growingPains_0 not loaded");
+        TestAssert.IsTrue(FactionCache.EventDefNamesWithOptionsInChain.Contains(growingPains.defName),
+            "empireEvents_growingPains_0 is not registered as an options-in-chain event");
 
         EETestHelper.SettingsSnapshot snap = EETestHelper.SnapshotSettings();
         try
