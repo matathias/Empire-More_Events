@@ -110,6 +110,9 @@ public class EventConditionChecker : WorldComponent
         {
             foreach (Settlement hostile in hostileSettlements)
             {
+                // ApproxDistanceInTiles reads both tile ids on the first tile's layer, so a
+                // cross-layer pair (surface vs orbit) would measure against an unrelated tile.
+                if (hostile.Tile.Layer != playerSettlement.Tile.Layer) continue;
                 float dist = Find.WorldGrid.ApproxDistanceInTiles(playerSettlement.Tile, hostile.Tile);
                 if (WithinTributeProximity(dist, TributeProximityTiles))
                 {
