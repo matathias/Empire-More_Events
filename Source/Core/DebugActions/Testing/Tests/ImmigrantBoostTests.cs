@@ -35,4 +35,13 @@ public static class ImmigrantBoostTests
         TestAssert.DoesNotThrow(() => comp.SetBoost(res), "SetBoost with no parent should not throw");
         TestAssert.DoesNotThrow(() => comp.ClearBoost(), "ClearBoost after a parentless SetBoost should not throw");
     }
+
+    [EmpireTest("Events.Boost", GameState = TestGameState.Any)]
+    public static void BoostEventDefOf_Resolves()
+    {
+        // The stale-boost check on load and the resource picker both look the boost event up through
+        // this DefOf; a renamed def would leave it null and drop every saved boost.
+        TestAssert.IsNotNull(MoreEventsDefOf.empireEvents_immigrants_production_boost,
+            "MoreEventsDefOf.empireEvents_immigrants_production_boost should resolve to a loaded def");
+    }
 }
