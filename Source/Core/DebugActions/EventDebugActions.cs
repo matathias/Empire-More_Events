@@ -34,8 +34,7 @@ public static class EventDebugActions
 
                 // A non-null event is always a queued (non-activateAtStart) one; fire it on the
                 // next ProcessEvents tick and surface the letter.
-                FindFC.EventManager.AddEvent(evt);
-                Find.LetterStack.ReceiveLetter(localDef.label, FCEventMaker.BuildEventLetterBody(evt), LetterDefOf.NeutralEvent);
+                FCEventMaker.QueueAndAnnounce(evt);
                 LogEE.MessageForce("Debug - triggered non-random event: " + localDef.defName);
             }));
         }

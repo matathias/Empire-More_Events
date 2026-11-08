@@ -110,10 +110,8 @@ public class EventConditionChecker : WorldComponent
         {
             foreach (Settlement hostile in hostileSettlements)
             {
-                // ApproxDistanceInTiles reads both tile ids on the first tile's layer, so a
-                // cross-layer pair (surface vs orbit) would measure against an unrelated tile.
-                if (hostile.Tile.Layer != playerSettlement.Tile.Layer) continue;
-                float dist = Find.WorldGrid.ApproxDistanceInTiles(playerSettlement.Tile, hostile.Tile);
+                // Infinite for a cross-layer pair (surface vs orbit), so it never counts as nearby
+                float dist = playerSettlement.Tile.ApproxDistanceSameLayer(hostile.Tile);
                 if (WithinTributeProximity(dist, TributeProximityTiles))
                 {
                     hasNearbyHostile = true;
@@ -191,11 +189,7 @@ public class EventConditionChecker : WorldComponent
         FCEvent evt = FCEventMaker.MakeRandomEvent(def, null);
         if (evt is null) return;
 
-        faction.eventManager.AddEvent(evt);
-
-        // BuildEventLetterBody resolves {FACTION} tokens (.Format()) and appends the stat-modifier
-        // summary and affected-settlements list — building the body by hand left raw tokens showing.
-        Find.LetterStack.ReceiveLetter(def.label, FCEventMaker.BuildEventLetterBody(evt), LetterDefOf.NeutralEvent);
+        FCEventMaker.QueueAndAnnounce(evt, faction.eventManager);
         LogEE.Message($"EventConditionChecker fired: {def.defName}");
     }
 

@@ -39,23 +39,10 @@ public class EmpireEventsMod : Mod
     {
         settings = GetSettings<EmpireEventsSettings>();
         
-        string modVersion = content?.ModMetaData?.ModVersion;
-        if (modVersion.NullOrEmpty())
-        {
-            LogEE.MessageForce("Did not load a mod version");
-        }
-        else
-        {
-            LogEE.MessageForce($"v{modVersion}");
-        }
+        ModVersionUtil.LogLoaded(content, LogEE.MessageForce);
     }
 
-    public static string GetModVersion()
-    {
-        var mod = LoadedModManager.GetMod<EmpireEventsMod>();
-        string version = mod?.Content?.ModMetaData?.ModVersion;
-        return version.NullOrEmpty() ? "Unknown" : version;
-    }
+    public static string GetModVersion() => ModVersionUtil.Get<EmpireEventsMod>();
 
     public override string SettingsCategory() => "EE_SettingsCategory".Translate();
 
