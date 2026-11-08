@@ -78,7 +78,33 @@ public class WorldObjectComp_ImmigrantBoost : WorldObjectComp, ISettlementPostLo
 
     public void PostSettlementLoadInit(WorldSettlementFC settlement)
     {
-        if (boostedResource is not null)
-            ApplyModifier();
+        if (boostedResource is null) return;
+
+        // The boost lasts only as long as its event. If that event is gone (removed without
+        // running its expiry cleanup), drop the stale choice instead of reapplying it forever.
+        if (!HasActiveBoostEvent(settlement))
+        {
+            LogEE.Message($"ImmigrantBoost: no active boost event at {settlement?.Name}; clearing stale {boostedResource.defName} boost.");
+            boostedResource = null;
+            return;
+        }
+
+        ApplyModifier();
+    }
+
+    private static bool HasActiveBoostEvent(WorldSettlementFC settlement)
+    {
+        FactionFC faction = FindFC.FactionComp;
+        if (faction is null || settlement is null) return true;   // cannot tell; keep the boost
+
+        FCEventDef boostDef = MoreEventsDefOf.empireEvents_immigrants_production_boost;
+        if (boostDef is null) return false;
+
+        foreach (FCEvent evt in faction.eventManager.GetByDef(boostDef))
+        {
+            if (evt?.settlementTraitLocations is not null && evt.settlementTraitLocations.Contains(settlement))
+                return true;
+        }
+        return false;
     }
 }

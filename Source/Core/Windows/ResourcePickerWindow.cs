@@ -165,7 +165,7 @@ public class ResourcePickerWindow : Window
         FactionFC faction = FindFC.FactionComp;
         if (faction is null) return;
 
-        FCEventDef boostDef = DefDatabase<FCEventDef>.GetNamedSilentFail("empireEvents_immigrants_production_boost");
+        FCEventDef boostDef = MoreEventsDefOf.empireEvents_immigrants_production_boost;
         if (boostDef is null)
         {
             LogEE.Error("ResourcePickerWindow: Could not find empireEvents_immigrants_production_boost def.");
